@@ -1,2 +1,10 @@
-%h1
-  home page
+.container
+  #logo
+    %h1
+      Radan Travel Agent
+  .coming-soon
+    %h2{:class => I18n.locale}= t('coming-soon')
+  .falgs
+    = link_to (image_tag 'flag/en.png'), locale: :en
+    = link_to (image_tag 'flag/ir.png'), locale: :fa
+    = link_to (image_tag 'flag/ar.png'), locale: :ar
