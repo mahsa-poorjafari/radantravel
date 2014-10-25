@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+
+
+  scope "(:locale)", :locale => /en|fa|ar/ do  
+    root :to => 'static#home'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,5 +60,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  root :to => 'static#home'
 end
