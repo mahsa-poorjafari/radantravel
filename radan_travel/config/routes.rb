@@ -2,6 +2,27 @@ Rails.application.routes.draw do
 
 
 
+  resources :hotels
+
+  resources :cities
+
+  resources :countries
+
+  resources :tours
+
+  resources :photos
+
+  resources :sights
+
+  resources :links
+
+  resources :roles
+
+  devise_for :users
+  resources :users
+
+  resources :pages
+
   scope "(:locale)", :locale => /en|fa|ar/ do  
     root :to => 'static#home'
   end
