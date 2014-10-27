@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @country.title_fa
+%p
+  %b Title en:
+  = @country.title_en
+%p
+  %b Title ar:
+  = @country.title_ar
+%p
+  %b Text fa:
+  = @country.text_fa
+%p
+  %b Text en:
+  = @country.text_en
+%p
+  %b Text ar:
+  = @country.text_ar
+
+= link_to 'Edit', edit_country_path(@country)
+\|
+= link_to 'Back', countries_path

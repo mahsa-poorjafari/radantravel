@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 group :development, :test do
- 
+
   gem 'checker', :require => false
   gem 'thin'
   gem 'rspec-rails', '~> 3.0.0'
@@ -12,6 +12,10 @@ gem "html2haml"
 gem 'haml-rails'
 gem "erb2haml"
 gem 'rails-secrets'
+gem 'friendly_id'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'ckeditor_rails'
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

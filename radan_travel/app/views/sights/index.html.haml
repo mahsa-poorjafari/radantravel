@@ -1,0 +1,29 @@
+%h1 Listing sights
+
+%table
+  %tr
+    %th Title fa
+    %th Title en
+    %th Title ar
+    %th Text fa
+    %th Text en
+    %th Text ar
+    %th
+    %th
+    %th
+
+  - @sights.each do |sight|
+    %tr
+      %td= sight.title_fa
+      %td= sight.title_en
+      %td= sight.title_ar
+      %td= sight.text_fa
+      %td= sight.text_en
+      %td= sight.text_ar
+      %td= link_to 'Show', sight
+      %td= link_to 'Edit', edit_sight_path(sight)
+      %td= link_to 'Destroy', sight, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sight', new_sight_path

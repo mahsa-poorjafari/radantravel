@@ -1,0 +1,29 @@
+%h1 Listing pages
+
+%table
+  %tr
+    %th Title fa
+    %th Title en
+    %th Title ar
+    %th Text fa
+    %th Text en
+    %th Text ar
+    %th
+    %th
+    %th
+
+  - @pages.each do |page|
+    %tr
+      %td= page.title_fa
+      %td= page.title_en
+      %td= page.title_ar
+      %td= page.text_fa
+      %td= page.text_en
+      %td= page.text_ar
+      %td= link_to 'Show', page
+      %td= link_to 'Edit', edit_page_path(page)
+      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Page', new_page_path
