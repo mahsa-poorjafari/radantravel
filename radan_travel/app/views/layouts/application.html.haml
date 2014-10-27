@@ -7,5 +7,6 @@
     = csrf_meta_tags
   %body
     = yield
-    .admin-menu
-      = render 'shared/admin_menu'
+    -if user_signed_in?
+      .admin-menu
+        = render 'shared/admin_menu'
