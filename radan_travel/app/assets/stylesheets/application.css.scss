@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
+a {background:#FDFD97}
 body {padding:5%;
   background-image: url('bg.jpg');
   background-repeat: no-repeat;
@@ -54,5 +54,6 @@ body:after {
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
     color:#000;
+    overflow:hidden
 }
-.admin-menu:hover {height:200px}
+.admin-menu:hover {height:200px; }

@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :roles
   def is_admin?
-    self.roles.collect(&:name).include?("Admin")
+    self.user_name == "admin"
   end
 end
