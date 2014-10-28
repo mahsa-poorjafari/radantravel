@@ -1,16 +1,18 @@
 %h1
   لیست کشورها
 -if is_admin?
-  = link_to 'تعریف کشور', new_country_path, :class => ""
-%table
+  = link_to 'تعریف کشور', new_country_path, :class => "btn"
+%table.table
   %tr
-    %th ' نام کشور:'
-    %th 'توضیحات:'
+    %th ردیف
+    %th نام کشور
+    %th توضیحات
     %th
     
 
-  - @countries.each do |country|
+  - @countries.each_with_index do |country, i|
     %tr
+      %td= (i+1)
       %td= country.title    
       %td= country.text      
       %td 
