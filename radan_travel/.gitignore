@@ -10,7 +10,7 @@
 # Ignore bundler config.
 /.bundle
 /spec/
-
+/public/assets/
 /test/
 # Ignore the default SQLite database.
 /db/*.sqlite3

@@ -1,29 +1,26 @@
-%h1 Listing countries
-
+%h1
+  لیست کشورها
+-if is_admin?
+  = link_to 'تعریف کشور', new_country_path, :class => ""
 %table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Text fa
-    %th Text en
-    %th Text ar
+    %th ' نام کشور:'
+    %th 'توضیحات:'
     %th
-    %th
-    %th
+    
 
   - @countries.each do |country|
     %tr
-      %td= country.title_fa
-      %td= country.title_en
-      %td= country.title_ar
-      %td= country.text_fa
-      %td= country.text_en
-      %td= country.text_ar
-      %td= link_to 'Show', country
-      %td= link_to 'Edit', edit_country_path(country)
-      %td= link_to 'Destroy', country, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= country.title    
+      %td= country.text      
+      %td 
+        -if is_admin?
+          = link_to 'نمایش', country
+          \|
+          = link_to 'ویرایش', edit_country_path(country)
+          \|
+          = link_to 'حذف', country, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-%br
 
-= link_to 'New Country', new_country_path
+
+

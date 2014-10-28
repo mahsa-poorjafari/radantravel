@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 

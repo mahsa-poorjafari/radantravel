@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027101038) do
+ActiveRecord::Schema.define(version: 20141028081238) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(version: 20141027101038) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "tour_id"
+    t.integer  "hotel_id"
+    t.integer  "country_id"
+    t.integer  "city_id"
   end
 
   create_table "roles", force: true do |t|
