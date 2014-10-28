@@ -1,5 +1,6 @@
 %h2
-  = current_user.email
+  - if current_user.present?
+    = current_user.email
 %ul
   %li= link_to 'مدیریت صفحات متنی', Page
   %li= link_to 'کشورها', countries_path
