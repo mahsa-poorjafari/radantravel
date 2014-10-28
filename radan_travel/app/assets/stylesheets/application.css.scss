@@ -13,17 +13,18 @@
  *= require_tree .
  *= require_self
  */
- 
+a {background:#FDFD97}
 body {padding:5%;
   background-image: url('bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
-  background-size: cover; 
+  background-position: center;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   font-family: 'open_sansregular';
+  color:#fff;
 }
 body:after {
     content: "";
@@ -47,5 +48,12 @@ body:after {
 .falgs { width:50%; position:absolute; bottom:20%; right:34%}
 .falgs img { float:right; margin:5%}
 .falgs img:hover { cursor:pointer; -webkit-box-shadow: 0 8px 6px -6px black;
-	-moz-box-shadow: 0 8px 6px -6px black;
-	box-shadow: 0 8px 6px -6px black;}
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;}
+.admin-menu {background:#fff; opacity:.5; height:50px; position:absolute; top:0; left:0; width:20%;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+    color:#000;
+    overflow:hidden
+}
+.admin-menu:hover {height:200px; }

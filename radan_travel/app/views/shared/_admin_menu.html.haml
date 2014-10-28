@@ -1,0 +1,11 @@
+%h2
+  = current_user.email
+%ul
+  %li= link_to 'مدیریت صفحات متنی', Page
+  %li= link_to 'کشورها', countries_path
+  %li= link_to 'شهرها', cities_path
+  %li= link_to 'هتل ها', hotels_path
+  %li= link_to 'معرفی تورها', tours_path
+  %li= link_to 'معرفی نقاط دیدنی', sights_path
+  %li= link_to 'پیوندهای مرتبط', links_path
+  %li= link_to 'خروج', destroy_user_session_path, :method => :delete

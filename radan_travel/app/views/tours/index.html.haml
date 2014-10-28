@@ -1,0 +1,45 @@
+%h1 Listing tours
+
+%table
+  %tr
+    %th Title fa
+    %th Title en
+    %th Title ar
+    %th Description fa
+    %th Description en
+    %th Description ar
+    %th Plane
+    %th Hotel
+    %th Country
+    %th City
+    %th Price
+    %th Validate date from
+    %th Validate date until
+    %th Coming soon
+    %th
+    %th
+    %th
+
+  - @tours.each do |tour|
+    %tr
+      %td= tour.title_fa
+      %td= tour.title_en
+      %td= tour.title_ar
+      %td= tour.description_fa
+      %td= tour.description_en
+      %td= tour.description_ar
+      %td= tour.plane_id
+      %td= tour.hotel_id
+      %td= tour.country_id
+      %td= tour.city_id
+      %td= tour.price
+      %td= tour.validate_date_from
+      %td= tour.validate_date_until
+      %td= tour.coming_soon
+      %td= link_to 'Show', tour
+      %td= link_to 'Edit', edit_tour_path(tour)
+      %td= link_to 'Destroy', tour, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tour', new_tour_path

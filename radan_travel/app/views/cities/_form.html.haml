@@ -1,0 +1,31 @@
+= form_for @city do |f|
+  - if @city.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@city.errors.count, "error")} prohibited this city from being saved:"
+      %ul
+        - @city.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title_fa
+    = f.text_field :title_fa
+  .field
+    = f.label :title_en
+    = f.text_field :title_en
+  .field
+    = f.label :title_ar
+    = f.text_field :title_ar
+  .field
+    = f.label :text_fa
+    = f.text_area :text_fa
+  .field
+    = f.label :text_en
+    = f.text_area :text_en
+  .field
+    = f.label :text_ar
+    = f.text_area :text_ar
+  .field
+    = f.label :country_id
+    = f.number_field :country_id
+  .actions
+    = f.submit 'Save'

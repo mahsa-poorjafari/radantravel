@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @tour.title_fa
+%p
+  %b Title en:
+  = @tour.title_en
+%p
+  %b Title ar:
+  = @tour.title_ar
+%p
+  %b Description fa:
+  = @tour.description_fa
+%p
+  %b Description en:
+  = @tour.description_en
+%p
+  %b Description ar:
+  = @tour.description_ar
+%p
+  %b Plane:
+  = @tour.plane_id
+%p
+  %b Hotel:
+  = @tour.hotel_id
+%p
+  %b Country:
+  = @tour.country_id
+%p
+  %b City:
+  = @tour.city_id
+%p
+  %b Price:
+  = @tour.price
+%p
+  %b Validate date from:
+  = @tour.validate_date_from
+%p
+  %b Validate date until:
+  = @tour.validate_date_until
+%p
+  %b Coming soon:
+  = @tour.coming_soon
+
+= link_to 'Edit', edit_tour_path(@tour)
+\|
+= link_to 'Back', tours_path
