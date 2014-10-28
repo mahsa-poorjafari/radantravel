@@ -6,7 +6,8 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    .main{:class => I18n.locale}
+      = yield
     - if current_user.present?
       .admin-menu.fa
         = render 'shared/admin_menu'
