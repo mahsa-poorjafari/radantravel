@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @city.title_fa
+%p
+  %b Title en:
+  = @city.title_en
+%p
+  %b Title ar:
+  = @city.title_ar
+%p
+  %b Text fa:
+  = @city.text_fa
+%p
+  %b Text en:
+  = @city.text_en
+%p
+  %b Text ar:
+  = @city.text_ar
+%p
+  %b Country:
+  = @city.country_id
+
+= link_to 'Edit', edit_city_path(@city)
+\|
+= link_to 'Back', cities_path

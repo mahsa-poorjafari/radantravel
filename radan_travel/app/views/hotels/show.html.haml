@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @hotel.title_fa
+%p
+  %b Title en:
+  = @hotel.title_en
+%p
+  %b Title ar:
+  = @hotel.title_ar
+%p
+  %b Text fa:
+  = @hotel.text_fa
+%p
+  %b Text en:
+  = @hotel.text_en
+%p
+  %b Text ar:
+  = @hotel.text_ar
+%p
+  %b City:
+  = @hotel.city_id
+%p
+  %b Hotel grade:
+  = @hotel.hotel_grade
+%p
+  %b Hotel facilities:
+  = @hotel.hotel_facilities
+
+= link_to 'Edit', edit_hotel_path(@hotel)
+\|
+= link_to 'Back', hotels_path

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @sight.title_fa
+%p
+  %b Title en:
+  = @sight.title_en
+%p
+  %b Title ar:
+  = @sight.title_ar
+%p
+  %b Text fa:
+  = @sight.text_fa
+%p
+  %b Text en:
+  = @sight.text_en
+%p
+  %b Text ar:
+  = @sight.text_ar
+
+= link_to 'Edit', edit_sight_path(@sight)
+\|
+= link_to 'Back', sights_path
