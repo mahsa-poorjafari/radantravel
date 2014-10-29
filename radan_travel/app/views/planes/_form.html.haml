@@ -1,0 +1,36 @@
+= form_for @plane , :html => { :multipart => true  } do |f|
+  - if @plane.errors.any?
+    #error_explanation
+      
+      %ul
+        - @plane.errors.each do |attr, msg|
+          %li= msg
+
+  .row-fluid    
+    .span12
+      .span7
+        .field
+          = f.label 'آرم شرکت'
+          = f.file_field :logo
+      .span5        
+        .field
+          = f.label 'عنوان فارسی'
+          = f.text_field :title_fa
+        .field
+          = f.label 'عنوان انگلیسی'
+          = f.text_field :title_en
+        .field
+          = f.label 'عنوان عربی'
+          = f.text_field :title_ar
+    .span12
+      .field.editor
+        = f.label 'متن فارسی'
+        = f.text_area :text_fa, :class => "ckeditor"
+      .field.editor
+        = f.label 'متن انگلیسی'
+        = f.text_area :text_en, :class => "ckeditor"
+      .field.editor
+        = f.label 'متن عربی'
+        = f.text_area :text_ar, :class => "ckeditor"
+      .actions
+        = f.submit 'ثبت', :class => "btn"

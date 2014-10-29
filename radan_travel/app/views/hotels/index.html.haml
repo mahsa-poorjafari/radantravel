@@ -1,35 +1,30 @@
-%h1 Listing hotels
-
-%table
+%h1 لیست هتل ها
+-if is_admin?
+  = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn"
+%table.table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Text fa
-    %th Text en
-    %th Text ar
-    %th City
-    %th Hotel grade
-    %th Hotel facilities
-    %th
-    %th
-    %th
+    %th ردیف
+    %th نام هتل    
+    %th شهر محل هتل
+    %th درجه هتل
+    %th امکانات هتل
+    %th     
+    %th عملیات
+    
 
-  - @hotels.each do |hotel|
+  - @hotels.each_with_index do |hotel, i|
     %tr
-      %td= hotel.title_fa
-      %td= hotel.title_en
-      %td= hotel.title_ar
-      %td= hotel.text_fa
-      %td= hotel.text_en
-      %td= hotel.text_ar
-      %td= hotel.city_id
+      %td= (i+1)
+      %td= hotel.title      
+      %td= hotel.city.title
       %td= hotel.hotel_grade
       %td= hotel.hotel_facilities
-      %td= link_to 'Show', hotel
-      %td= link_to 'Edit', edit_hotel_path(hotel)
-      %td= link_to 'Destroy', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= image_tag hotel.photos.first.image(:small)
+      %td
+        = link_to 'مشاهده', hotel
+        = link_to 'Edit', edit_hotel_path(hotel)
+        = link_to 'Destroy', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Hotel', new_hotel_path
+
+

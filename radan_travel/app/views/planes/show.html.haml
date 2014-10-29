@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title fa:
+  = @plane.title_fa
+%p
+  %b Title en:
+  = @plane.title_en
+%p
+  %b Title ar:
+  = @plane.title_ar
+%p
+  %b Text fa:
+  = @plane.text_fa
+%p
+  %b Text en:
+  = @plane.text_en
+%p
+  %b Text ar:
+  = @plane.text_ar
+
+= link_to 'Edit', edit_plane_path(@plane)
+\|
+= link_to 'Back', planes_path

@@ -1,23 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Title fa:
-  = @country.title_fa
+  %b Title 
+  = @country.title
+
 %p
-  %b Title en:
-  = @country.title_en
-%p
-  %b Title ar:
-  = @country.title_ar
-%p
-  %b Text fa:
-  = @country.text_fa
-%p
-  %b Text en:
-  = @country.text_en
-%p
-  %b Text ar:
-  = @country.text_ar
+  %b Text
+  = raw @country.text
+%div
+  - @country.photos.each do |pic|
+    = image_tag  pic.image(:medium)
 
 = link_to 'Edit', edit_country_path(@country)
 \|

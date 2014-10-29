@@ -1,22 +1,29 @@
-= form_for @link do |f|
+= form_for @link , :html => { :multipart => true  } do |f|
   - if @link.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@link.errors.count, "error")} prohibited this link from being saved:"
+      
       %ul
-        - @link.errors.full_messages.each do |msg|
+        - @link.errors.each do |attr, msg|
           %li= msg
-
-  .field
-    = f.label :title_fa
-    = f.text_field :title_fa
-  .field
-    = f.label :title_en
-    = f.text_field :title_en
-  .field
-    = f.label :title_ar
-    = f.text_field :title_ar
-  .field
-    = f.label :web_site
-    = f.text_field :web_site
-  .actions
-    = f.submit 'Save'
+  .row-fluid    
+    .span12
+      .span6
+        .field
+          = f.label 'وب سایت'
+          = f.text_field :web_site
+        .field
+          = f.label 'تصویر'
+          = f.file_field :image
+      .span6
+        .field
+          = f.label 'عنوان فارسی'
+          = f.text_field :title_fa
+        .field
+          = f.label 'عنوان انگلیسی'
+          = f.text_field :title_en
+        .field
+          = f.label 'عنوان عربی'
+          = f.text_field :title_ar  
+    .span12         
+      .actions
+        = f.submit 'ثبت', :class => "btn"

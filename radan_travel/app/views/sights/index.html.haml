@@ -1,29 +1,24 @@
-%h1 Listing sights
-
-%table
+%h1 نقاط دیدنی
+-if is_admin?
+  = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn"
+%table.table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Text fa
-    %th Text en
-    %th Text ar
-    %th
-    %th
-    %th
+    %th ردیف
+    %th عنوان محل    
+    %th     
+    %th عملیات
 
-  - @sights.each do |sight|
+  - @sights.each_with_index do |sight, i|
     %tr
-      %td= sight.title_fa
-      %td= sight.title_en
-      %td= sight.title_ar
-      %td= sight.text_fa
-      %td= sight.text_en
-      %td= sight.text_ar
-      %td= link_to 'Show', sight
-      %td= link_to 'Edit', edit_sight_path(sight)
-      %td= link_to 'Destroy', sight, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= (i+1)
+      %td= sight.title      
+      %td= image_tag sight.photos.first.image(:small)
+      %td        
+        -if is_admin?
+          = link_to 'Show', sight
+          = link_to 'Edit', edit_sight_path(sight)
+          = link_to 'Destroy', sight, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Sight', new_sight_path
+
+

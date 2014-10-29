@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :planes
+
+  mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
-    root :to => 'static#home'
+    
     resources :hotels
 
     resources :cities
@@ -23,6 +26,8 @@ Rails.application.routes.draw do
 
     resources :pages
   end
+  
+  root :to => 'static#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

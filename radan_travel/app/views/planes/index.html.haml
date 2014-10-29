@@ -1,0 +1,26 @@
+%h1 لیست شرکت های هواپیمایی
+- if is_admin?
+  = link_to 'افزودن شرکت هواپیمایی', new_plane_path, :class => "btn"
+%table.table
+  %tr
+    %th ردیف
+    %th عنوان شرکت هواپیمایی
+    %th توضیحات    
+    %th
+    %th عملیات
+
+  - @planes.each_with_index do |plane, i|
+    %tr
+      %td= (i+1)
+      %td= plane.title      
+      %td= plane.text      
+      %td= image_tag plane.logo(:small)      
+      %td
+        - if is_admin?
+          = link_to 'Show', plane
+          = link_to 'Edit', edit_plane_path(plane)
+          = link_to 'Destroy', plane, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+

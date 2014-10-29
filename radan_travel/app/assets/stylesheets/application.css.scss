@@ -10,10 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery.ui.all
  *= require_tree .
  *= require_self
  */
-a {background:#FDFD97}
+a { color:#FFA500;}
+a:hover, visited { color:#F43D3D;}
 body {padding:5%;
   background-image: url(image-path('bg.jpg'));
   background-repeat: no-repeat;
@@ -57,4 +59,5 @@ body:after {
     color:#000;
     overflow:hidden
 }
-.admin-menu:hover {height:200px; }
+.admin-menu:hover {height:250px; }
+.upload-pic {border:1px solid #fff}
