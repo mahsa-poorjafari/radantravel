@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/joliss/jquery-ui-rails.git
-  revision: 3b2a5ff0bbc202bb90537150017c91966f18d44e
-  specs:
-    jquery-ui-rails (5.0.2)
-      railties (>= 3.2.16)
-
-GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 17cae0e7956e4c78891875ede83f1c4f173bc9ce
   specs:
@@ -102,6 +95,8 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.1.2)
+      railties (>= 3.1.0)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -208,7 +203,7 @@ DEPENDENCIES
   jalalidate
   jbuilder (~> 2.0)
   jquery-rails
-  jquery-ui-rails!
+  jquery-ui-rails
   mysql2
   nested_form
   paperclip!
