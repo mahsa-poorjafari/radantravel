@@ -1,0 +1,12 @@
+- if is_admin?
+  = link_to 'افزودن تصویر به اسلایدر', new_slide_path, :class => "btn"
+.coin-slider#coin-slider-slider  
+  #slider
+    - Slide.all.each do |slide|
+      = link_to '#' do
+        = image_tag slide.image(:slide_size)
+        %span= slide.text
+:javascript
+  $(document).ready(function() {
+  $('#slider').coinslider({ hoverPause: false });
+  });

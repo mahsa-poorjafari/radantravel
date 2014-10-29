@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Text fa:
+  = @slide.text_fa
+%p
+  %b Text en:
+  = @slide.text_en
+%p
+  %b Text ar:
+  = @slide.text_ar
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_path

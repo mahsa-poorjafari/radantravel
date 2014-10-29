@@ -1,29 +1,22 @@
-%h1 Listing pages
-
-%table
+%h1 صفحات متنی
+- if is_admin?
+  = link_to 'صفحه جدید', new_page_path, :class => "btn"
+%table.table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Text fa
-    %th Text en
-    %th Text ar
-    %th
-    %th
-    %th
+    %th عنوان        
+    %th عملیات
+    
 
   - @pages.each do |page|
     %tr
-      %td= page.title_fa
-      %td= page.title_en
-      %td= page.title_ar
-      %td= page.text_fa
-      %td= page.text_en
-      %td= page.text_ar
-      %td= link_to 'Show', page
-      %td= link_to 'Edit', edit_page_path(page)
-      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= page.title      
+      %td
+        = link_to 'Show', page
+        \|
+        = link_to 'Edit', edit_page_path(page)
+        \|
+        = link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Page', new_page_path
+
+
