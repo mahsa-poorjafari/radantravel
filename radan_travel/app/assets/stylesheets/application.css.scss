@@ -16,7 +16,7 @@
  */
 a { color:#FFA500;}
 a:hover, visited { color:#F43D3D;}
-body {padding:5%;
+body {
   background-image: url(image-path('bg.jpg'));
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -38,13 +38,13 @@ body:after {
     right: 0;
     position: absolute;
     z-index: -1;   }
-.main {padding:4%}
+.main {padding:2%}
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
 #logo h1 {color:#E12F2F; font-size:2em; position:absolute; width:50%; top:0; right:10%;
    text-shadow: 2px 2px 1px #1A1A1A;
 }
-.coming-soon {width:50%; position:absolute; top:20%; right:20%; text-align:center; padding:5%;
+.coming-soon {width:50%; position:absolute; top:45%; right:20%; text-align:center; padding:5%;
   color:#fff; font-size:50px;text-shadow: 2px 2px 1px #1A1A1A;
 }
 
