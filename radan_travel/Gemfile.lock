@@ -1,10 +1,9 @@
 GIT
   remote: git://github.com/joliss/jquery-ui-rails.git
-  revision: 4695ff347605cbc2f08c76395f54a324785f6e05
-  branch: rails-4.0.2
+  revision: 3b2a5ff0bbc202bb90537150017c91966f18d44e
   specs:
-    jquery-ui-rails (4.1.0)
-      railties (>= 3.1.0)
+    jquery-ui-rails (5.0.2)
+      railties (>= 3.2.16)
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
