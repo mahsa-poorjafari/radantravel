@@ -5,16 +5,17 @@
 %table.table
   %tr
     %th ردیف
-    %th نام کشور
-    %th توضیحات
-    %th
+    %th نام کشور    
+    %th     
+    %th عملیات
     
 
   - @countries.each_with_index do |country, i|
     %tr
       %td= (i+1)
       %td= country.title    
-      %td= country.text      
+      %td= image_tag country.photos.first.image(:small)
+     
       %td 
         -if is_admin?
           = link_to 'نمایش', country

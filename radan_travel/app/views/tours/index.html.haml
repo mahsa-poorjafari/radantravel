@@ -1,45 +1,51 @@
-%h1 Listing tours
-
-%table
+%h1 لیست تورها
+-if is_admin?
+  = link_to 'معرفی تور جدید', new_tour_path, :class => "btn"
+%table.table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Description fa
-    %th Description en
-    %th Description ar
-    %th Plane
-    %th Hotel
-    %th Country
-    %th City
-    %th Price
-    %th Validate date from
-    %th Validate date until
-    %th Coming soon
+    %th ردیف
+    %th عنوان تور/پکیج
+    %th توضیحات
+    
+    %th پرواز
+    %th هتل
+    %th کشور
+    %th شهر
+    %th قیمت
+    %th تاریخ اعتبار از
+    %th تا   
     %th
-    %th
-    %th
+    %th عملیات
 
-  - @tours.each do |tour|
+  - @tours.each_with_index do |tour, i|
     %tr
-      %td= tour.title_fa
-      %td= tour.title_en
-      %td= tour.title_ar
-      %td= tour.description_fa
-      %td= tour.description_en
-      %td= tour.description_ar
-      %td= tour.plane_id
-      %td= tour.hotel_id
-      %td= tour.country_id
-      %td= tour.city_id
+      %td= (i+1)
+      %td= tour.title      
+      %td= tour.description      
+      %td
+        - if tour.plane_id.present?
+          = tour.plane.title
+      %td
+        - if tour.hotel_id.present?
+          = tour.hotel.title
+      %td
+        - if tour.country_id.present?
+          = tour.country.title
+      %td
+        - if tour.city_id.present?
+          = tour.city.title
+      
       %td= tour.price
-      %td= tour.validate_date_from
-      %td= tour.validate_date_until
-      %td= tour.coming_soon
-      %td= link_to 'Show', tour
-      %td= link_to 'Edit', edit_tour_path(tour)
-      %td= link_to 'Destroy', tour, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")
+      %td= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
+      
+      
+      %td
+        -if is_admin?
+          = link_to 'Show', tour
+          = link_to 'Edit', edit_tour_path(tour)
+          = link_to 'Destroy', tour, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Tour', new_tour_path
+
+

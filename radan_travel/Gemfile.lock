@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/joliss/jquery-ui-rails.git
+  revision: 4695ff347605cbc2f08c76395f54a324785f6e05
+  branch: rails-4.0.2
+  specs:
+    jquery-ui-rails (4.1.0)
+      railties (>= 3.1.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 17cae0e7956e4c78891875ede83f1c4f173bc9ce
   specs:
@@ -42,8 +50,9 @@ GEM
     builder (3.2.2)
     checker (0.6.6)
       colorize (= 0.5.8)
-    ckeditor_rails (4.4.3)
-      railties (>= 3.0)
+    ckeditor (4.1.0)
+      mime-types
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -69,6 +78,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.2)
+    farsifu (0.5.0)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     haml (4.1.0.beta.1)
@@ -86,6 +96,7 @@ GEM
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
     i18n (0.6.11)
+    jalalidate (0.3.3)
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -100,6 +111,7 @@ GEM
     minitest (5.4.2)
     multi_json (1.10.1)
     mysql2 (0.3.16)
+    nested_form (0.3.2)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     rack (1.5.2)
@@ -186,16 +198,20 @@ PLATFORMS
 
 DEPENDENCIES
   checker
-  ckeditor_rails
+  ckeditor
   coffee-rails (~> 4.0.0)
   devise
   erb2haml
+  farsifu
   friendly_id
   haml-rails
   html2haml
+  jalalidate
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails!
   mysql2
+  nested_form
   paperclip!
   rails (= 4.1.0)
   rails-secrets

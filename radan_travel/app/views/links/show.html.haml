@@ -1,17 +1,14 @@
 %p#notice= notice
 
 %p
-  %b Title fa:
-  = @link.title_fa
+  %b عنوان لینک
+  = @link.title
+
 %p
-  %b Title en:
-  = @link.title_en
-%p
-  %b Title ar:
-  = @link.title_ar
-%p
-  %b Web site:
-  = @link.web_site
+  %b وب سایت
+  =link_to @link.web_site, url_with_protocol(@link.web_site)  
+%div
+  = image_tag @link.image(:medium)
 
 = link_to 'Edit', edit_link_path(@link)
 \|

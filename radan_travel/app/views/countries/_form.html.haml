@@ -1,29 +1,42 @@
-= form_for @country do |f|
+= nested_form_for @country, :html => { :multipart => true  } do |f|
+
   - if @country.errors.any?
     #error_explanation      
       %ul
         - @country.errors.each do |attr, msg|
           %li= msg
   .row-fluid    
-    .span6
-      .field
+    .span12
+      .span7
+        = f.fields_for :photos do |picture|  
+          = render "shared/upload_image_form", :picture => picture
+  
+        .field
+          = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
+          = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
+          = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
+      .span5
+        .field
+          = f.label 'عنوان فارسی'
+          = f.text_field :title_fa
+        .field
+          = f.label 'عنوان انگلیسی'
+          = f.text_field :title_en
+        .field
+          = f.label 'عنوان عربی'
+          = f.text_field :title_ar
+      
+
+    .span12
+      .field.editor
         = f.label 'متن فارسی'
-        = f.text_area :text_fa
-      .field
+        = f.text_area :text_fa, :class => "ckeditor"
+      .field.editor
         = f.label 'متن انگلیسی'
-        = f.text_area :text_en
-      .field
+        = f.text_area :text_en, :class => "ckeditor"
+      .field.editor
         = f.label 'متن عربی'
-        = f.text_area :text_ar
+        = f.text_area :text_ar, :class => "ckeditor"
       .actions
         = f.submit 'ثبت', :class => "btn"
-    .span6
-      .field
-        = f.label 'عنوان فارسی'
-        = f.text_field :title_fa
-      .field
-        = f.label 'عنوان انگلیسی'
-        = f.text_field :title_en
-      .field
-        = f.label 'عنوان عربی'
-        = f.text_field :title_ar
+        

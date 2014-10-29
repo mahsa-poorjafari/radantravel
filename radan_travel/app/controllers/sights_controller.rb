@@ -64,12 +64,13 @@ class SightsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sight
-      @sight = Sight.find(params[:id])
+      @sight = Sight.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sight_params
-      params.require(:sight).permit(:title_fa, :title_en, :title_ar, :text_fa, :text_en, :text_ar,
-      :country_id, :city_id  )
+      params.require(:sight).permit(:title_fa, :title_en, :title_ar, :text_fa, :text_en, :text_ar, :city_id,
+        photos_attributes: [:image, :description_fa, :description_en, :description_ar, :sight_id, :_destroy, :_update] 
+      )
     end
 end

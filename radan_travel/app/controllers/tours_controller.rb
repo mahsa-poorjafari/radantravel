@@ -64,11 +64,14 @@ class ToursController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tour
-      @tour = Tour.find(params[:id])
+      @tour = Tour.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:title_fa, :title_en, :title_ar, :description_fa, :description_en, :description_ar, :plane_id, :hotel_id, :country_id, :city_id, :price, :validate_date_from, :validate_date_until, :coming_soon)
+      params.require(:tour).permit(:title_fa, :title_en, :title_ar, :description_fa, :description_en, :description_ar,
+      :plane_id, :hotel_id, :country_id, :city_id,
+      :price, :validate_date_from_fa, :validate_date_until_fa, :coming_soon,
+      photos_attributes: [:image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update] )
     end
 end

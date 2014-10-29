@@ -64,11 +64,11 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find(params[:id])
+      @link = Link.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title_fa, :title_en, :title_ar, :web_site)
+      params.require(:link).permit(:title_fa, :title_en, :title_ar, :web_site, :image)
     end
 end

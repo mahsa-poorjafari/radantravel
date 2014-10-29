@@ -64,11 +64,13 @@ class CitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_city
-      @city = City.find(params[:id])
+      @city = City.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:title_fa, :title_en, :title_ar, :text_fa, :text_en, :text_ar, :country_id)
+      params.require(:city).permit(:title_fa, :title_en, :title_ar, :text_fa, :text_en, :text_ar, :country_id,
+      photos_attributes: [:image, :description_fa, :description_en, :description_ar, :city_id, :_destroy, :_update] 
+      )
     end
 end

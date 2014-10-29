@@ -11,7 +11,7 @@
 /.bundle
 /spec/
 /public/assets/
-
+/public/system/
 /config/secrets.yml
 /test/
 # Ignore the default SQLite database.

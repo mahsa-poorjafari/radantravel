@@ -1,37 +1,52 @@
-= form_for @hotel do |f|
+
+= nested_form_for @hotel, :html => { :multipart => true  } do |f|
   - if @hotel.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@hotel.errors.count, "error")} prohibited this hotel from being saved:"
+     
       %ul
-        - @hotel.errors.full_messages.each do |msg|
+        - @hotel.errors.each do |attr, msg|
           %li= msg
+  .row-fluid  
+    .span12
+      .span7
+        .field
+          = f.label 'شهر مربوط'
+          = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
+        .field
+          = f.label 'تعداد ستاره های هتل'          
+          = f.select :hotel_grade, options_for_select([[1,1], [2,2], [3,3], [4,4], [5,5]]), prompt: "درجه هتل - ستاره"
+        .field
+          = f.label 'امکانات هتل'
+          = f.text_field :hotel_facilities
+      .span5
+        .field
+          = f.label 'عنوان فارسی'
+          = f.text_field :title_fa
+        .field
+          = f.label 'عنوان انگلیسی'
+          = f.text_field :title_en
+        .field
+          = f.label 'عنوان عربی'
+          = f.text_field :title_ar
+          
+    .span12
+      .field.editor
+        = f.label 'متن فارسی'
+        = f.text_area :text_fa, :class => "ckeditor"
+      .field.editor
+        = f.label 'متن انگلیسی'
+        = f.text_area :text_en, :class => "ckeditor"
+      .field.editor
+        = f.label 'متن عربی'
+        = f.text_area :text_ar, :class => "ckeditor"
+    .span12      
+      = f.fields_for :photos do |picture|  
+        = render "shared/upload_image_form", :picture => picture  
+      .field
+        = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
+        = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
+        = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
+    .actions
+      = f.submit 'ثبت', :class => "btn"
+      
 
-  .field
-    = f.label :title_fa
-    = f.text_field :title_fa
-  .field
-    = f.label :title_en
-    = f.text_field :title_en
-  .field
-    = f.label :title_ar
-    = f.text_field :title_ar
-  .field
-    = f.label :text_fa
-    = f.text_area :text_fa
-  .field
-    = f.label :text_en
-    = f.text_area :text_en
-  .field
-    = f.label :text_ar
-    = f.text_area :text_ar
-  .field
-    = f.label :city_id
-    = f.number_field :city_id
-  .field
-    = f.label :hotel_grade
-    = f.number_field :hotel_grade
-  .field
-    = f.label :hotel_facilities
-    = f.text_field :hotel_facilities
-  .actions
-    = f.submit 'Save'

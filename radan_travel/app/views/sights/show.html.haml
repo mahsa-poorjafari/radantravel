@@ -1,23 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Title fa:
-  = @sight.title_fa
+  %b نام محل
+  = @sight.title
+
+
 %p
-  %b Title en:
-  = @sight.title_en
-%p
-  %b Title ar:
-  = @sight.title_ar
-%p
-  %b Text fa:
-  = @sight.text_fa
-%p
-  %b Text en:
-  = @sight.text_en
-%p
-  %b Text ar:
-  = @sight.text_ar
+  %b توضیحات
+  =raw @sight.text
+%div
+  - @sight.photos.each do |pic|
+    .span6
+      = image_tag pic.image(:medium)
 
 = link_to 'Edit', edit_sight_path(@sight)
 \|

@@ -1,31 +1,26 @@
-%h1 Listing cities
-
-%table
+%h1 لیست شهرها
+-if is_admin?
+  = link_to 'تعریف شهر جدید', new_city_path, :class => "btn"
+%table.table
   %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th Text fa
-    %th Text en
-    %th Text ar
-    %th Country
-    %th
-    %th
-    %th
+    %th ردیف
+    %th نام شهر
+    %th کشور مربوط        
+    %th     
+    %th عملیات
 
-  - @cities.each do |city|
+  - @cities.each_with_index do |city, i|
     %tr
-      %td= city.title_fa
-      %td= city.title_en
-      %td= city.title_ar
-      %td= city.text_fa
-      %td= city.text_en
-      %td= city.text_ar
-      %td= city.country_id
-      %td= link_to 'Show', city
-      %td= link_to 'Edit', edit_city_path(city)
-      %td= link_to 'Destroy', city, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= (i+1)
+      %td= city.title      
+      %td= city.country.title
+      %td= image_tag city.photos.first.image(:small)
+      %td 
+        -if is_admin?
+          = link_to 'مشاهده', city
+          = link_to 'ویرایش', edit_city_path(city)
+          = link_to 'حذف', city, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
 
-%br
 
-= link_to 'New City', new_city_path
+
+

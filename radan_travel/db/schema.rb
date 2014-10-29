@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028081238) do
+ActiveRecord::Schema.define(version: 20141029102850) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20141028081238) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "title_fa"
@@ -95,6 +111,21 @@ ActiveRecord::Schema.define(version: 20141028081238) do
     t.integer  "city_id"
   end
 
+  create_table "planes", force: true do |t|
+    t.string   "title_fa"
+    t.string   "title_en"
+    t.string   "title_ar"
+    t.string   "text_fa"
+    t.string   "text_en"
+    t.string   "text_ar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -110,7 +141,6 @@ ActiveRecord::Schema.define(version: 20141028081238) do
     t.text     "text_ar"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "country_id"
     t.integer  "city_id"
   end
 
