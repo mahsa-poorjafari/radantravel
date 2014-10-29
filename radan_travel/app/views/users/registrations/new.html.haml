@@ -1,17 +1,17 @@
-%h2 Sign up
+%h2 ثبت نام در سایت
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   %div
-    = f.label :email
+    = f.label 'ایمیل خود را وارد کنید.'
     %br/
     = f.email_field :email, :autofocus => true
   %div
-    = f.label :password
+    = f.label 'رمز عبور خود'
     %br/
     = f.password_field :password
   %div
-    = f.label :password_confirmation
+    = f.label 'تکرار رمز عبور'
     %br/
     = f.password_field :password_confirmation
-  %div= f.submit "Sign up"
+  %div= f.submit "ثبت نام"
 = render "users/shared/links"

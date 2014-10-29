@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
   def is_admin?
-    self.email == "mahsa.poorjafari@gmail.com"
+    #self.roles.collect(&:title).include?("Admin")
+    self.email = 'mahsa.poorjafari@gmail.com'
+    
   end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :slides
+
   resources :planes
 
   mount Ckeditor::Engine => '/ckeditor'

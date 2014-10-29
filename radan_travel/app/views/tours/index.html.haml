@@ -9,8 +9,7 @@
     
     %th پرواز
     %th هتل
-    %th کشور
-    %th شهر
+    %th شهر/کشور    
     %th قیمت
     %th تاریخ اعتبار از
     %th تا   
@@ -27,17 +26,16 @@
           = tour.plane.title
       %td
         - if tour.hotel_id.present?
-          = tour.hotel.title
-      %td
-        - if tour.country_id.present?
-          = tour.country.title
+          = tour.hotel.title      
       %td
         - if tour.city_id.present?
           = tour.city.title
+          \|
+          = tour.city.country.title
       
       %td= tour.price
-      %td= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")
-      %td= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
+      %td= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")
+      %td= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
       
       
       %td

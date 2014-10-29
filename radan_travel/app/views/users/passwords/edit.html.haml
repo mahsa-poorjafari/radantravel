@@ -1,4 +1,4 @@
-%h2 Change your password
+%h2 تغییر رمز عبور
 = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
   = f.hidden_field :reset_password_token
@@ -10,5 +10,5 @@
     = f.label :password_confirmation, "Confirm new password"
     %br/
     = f.password_field :password_confirmation
-  %div= f.submit "Change my password"
+  %div= f.submit "ثبت رمزعبور"
 = render "users/shared/links"
