@@ -1,0 +1,90 @@
+.tabs-on-slider
+  - if I18n.locale == :en
+    %ul.nav.nav-tabs.pull-left#myTab{:role => "tablist", :class => I18n.locale }
+      = render 'shared/search_reserv'
+  - else
+    %ul.nav.nav-tabs.pull-right#myTab{:role => "tablist", :class => I18n.locale }
+      = render 'shared/search_reserv'
+  .clear-float
+  .tab-content
+    #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
+      = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
+        = label_tag t('reserv-type')
+        = select_tag "type", options_for_select([t('user'), t('agent')])
+        = label_tag t('reserv-lang')
+        = select_tag "lang", options_for_select([t('reserv-en'), t('reserv-fa')])        
+        = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
+        
+    #search.tab-pane.fade{:role => "tabpanel"} 
+      = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
+        = label_tag t('tour-country')
+        = select_tag :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید"
+        = label_tag t('tour-city')
+        = select_tag :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
+        = label_tag t('tour-from')
+        = text_field_tag :search, params[:search], :class => "fa_date"
+        = label_tag t('tour-until')
+        = text_field_tag :search, params[:search], :class => "fa_date"
+        = submit_tag t('tour-search'), :name => nil, :id => "tour-submit" , :class => "btn"
+  
+  
+
+
+.imp-package.content
+  .rm_wrapper
+    #rm_container.rm_container
+      %ul
+        %li{"data-images" => "rm_container_1", "data-rotation" => "-15"}
+          = image_tag "images/1.jpg"          
+        %li{"data-images" => "rm_container_2", "data-rotation" => "-5"}
+          = image_tag "images/2.jpg"
+        %li{"data-images" => "rm_container_3", "data-rotation" => "5"}
+          = image_tag "images/3.jpg"
+        %li{"data-images" => "rm_container_4", "data-rotation" => "15"}
+          = image_tag "images/4.jpg"
+      #rm_mask_left.rm_mask_left
+      #rm_mask_right.rm_mask_right
+      #rm_corner_left.rm_corner_left
+      #rm_corner_right.rm_corner_right
+      %h2= t('imp-package')
+      %div{:style => "display:none;"}
+        #rm_container_1
+          = image_tag "images/1.jpg"
+          = image_tag "images/5.jpg"
+          = image_tag "images/6.jpg"
+          = image_tag "images/7.jpg"
+          
+        #rm_container_2
+          = image_tag "images/2.jpg"
+          = image_tag "images/8.jpg"
+          = image_tag "images/9.jpg"
+          = image_tag "images/10.jpg"
+          
+        #rm_container_3
+          = image_tag "images/3.jpg"
+          = image_tag "images/11.jpg"
+          = image_tag "images/12.jpg"
+          = image_tag "images/13.jpg"
+          
+        #rm_container_4
+          = image_tag "images/4.jpg"
+          = image_tag "images/14.jpg"
+          = image_tag "images/15.jpg"
+          = image_tag "images/16.jpg"
+          
+    .rm_nav
+      = link_to '','#', :class => "rm_next", :id => "rm_next"
+      = link_to '','#', :class => "rm_prev", :id => "rm_prev"
+      %a#rm_next.rm_next{:href => "#"}
+      %a#rm_prev.rm_prev{:href => "#"}
+    .rm_controls
+      = link_to 'play','#', :class => "rm_play", :id => "rm_play"
+      = link_to 'pause','#', :class => "rm_pause", :id => "rm_pause"
+      
+:javascript
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+
+
+  $('.fa_date').datepicker()

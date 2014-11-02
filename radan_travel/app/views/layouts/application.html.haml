@@ -3,12 +3,30 @@
   %head
     %title آژانس هواپیمایی رادان سیر
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application'   
     = csrf_meta_tags
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
-  %body
-    .main{:class => I18n.locale}
-      = yield
+  %body    
+    - if current_page?('/')
+      .first_page
+        .container
+          #logo
+            %center
+              = image_tag 'logo.png'
+              
+          .coming-soon
+            %h2{:class => I18n.locale}= t('coming-soon')
+          .falgs
+            = link_to (image_tag 'flag/en.png'), 'index?locale=en'
+            = link_to (image_tag 'flag/ir.png'), 'index?locale=fa'
+            = link_to (image_tag 'flag/ar.png'), locale: :ar
+    - else
+      .main{:class => I18n.locale}
+        = render 'shared/menu_bar'
+        = render 'slides/slider'
+        .yield{:class => I18n.locale}
+          = yield
     - if current_user.present?
       .admin-menu.fa
         = render 'shared/admin_menu'
+  

@@ -1,11 +1,12 @@
-.container
-  #logo
-    %center
-      = image_tag 'logo.png'
-      
-  .coming-soon
-    %h2{:class => I18n.locale}= t('coming-soon')
-  .falgs
-    = link_to (image_tag 'flag/en.png'), locale: :en
-    = link_to (image_tag 'flag/ir.png'), locale: :fa
-    = link_to (image_tag 'flag/ar.png'), locale: :ar
+-#
+  .container
+    #logo
+      %center
+        = image_tag 'logo.png'
+        
+    .coming-soon
+      %h2{:class => I18n.locale}= t('coming-soon')
+    .falgs
+      = link_to (image_tag 'flag/en.png'), 'index?locale=en'
+      = link_to (image_tag 'flag/ir.png'), 'index?locale=fa'
+      = link_to (image_tag 'flag/ar.png'), locale: :ar

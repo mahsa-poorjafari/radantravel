@@ -1,0 +1,20 @@
+.menu_bar
+  .falg_bar
+    = link_to (image_tag 'flag/en_sm.png'), locale: :en
+    = link_to (image_tag 'flag/ir_sm.png'), locale: :fa
+    = link_to (image_tag 'flag/ar_sm.png'), locale: :ar
+  %center.nav_bar
+    %ul
+      %li
+        = link_to  t('home'), '/'
+      %li
+        = link_to  t('tour'), Tour
+      %li
+        = link_to (image_tag 'menu_logo.png'), '/'
+      %li
+        = link_to  t('sight'), Sight    
+      %li
+        = link_to  t('hotel'), Hotel
+  .pin
+    %h2= 'نظر سنجی'
+    
