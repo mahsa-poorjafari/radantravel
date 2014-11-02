@@ -4033,7 +4033,7 @@ input[type="submit"].btn.btn-mini {
 
 .nav-tabs > li,
 .nav-pills > li {
-  float: left;
+  float: right;
 }
 
 .nav-tabs > li > a,
@@ -4042,6 +4042,7 @@ input[type="submit"].btn.btn-mini {
   padding-left: 12px;
   margin-right: 2px;
   line-height: 14px;
+  
 }
 
 .nav-tabs {
@@ -4060,6 +4061,8 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 4px 4px 0 0;
      -moz-border-radius: 4px 4px 0 0;
           border-radius: 4px 4px 0 0;
+          text-decoration: none;
+background-color: #eeeeee;
 }
 
 .nav-tabs > li > a:hover,

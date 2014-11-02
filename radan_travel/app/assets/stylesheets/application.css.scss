@@ -14,9 +14,14 @@
  *= require_tree .
  *= require_self
  */
+.clear-float {clear:both}
 a { color:#FFA500;}
 a:hover, visited { color:#F43D3D;}
-body {
+body {padding:0; margin:0;}
+.first_page {
+  position:fixed; height:100%; width:100%;
+  padding:2%; margin:0;
+  z-index:0;
   background-image: url(image-path('bg.jpg'));
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -28,7 +33,7 @@ body {
   font-family: 'open_sansregular';
   color:#fff;
 }
-body:after {
+.first_page:after {
     content: "";
     background: url(image-path('dark_dotted2.png')) repeat;
     opacity:.5;
@@ -38,7 +43,8 @@ body:after {
     right: 0;
     position: absolute;
     z-index: -1;   }
-.main {padding:2%}
+.main {}
+.main .yield {position:absolute; top:600px}
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
 #logo h1 {color:#E12F2F; font-size:2em; position:absolute; width:50%; top:0; right:10%;
@@ -48,7 +54,7 @@ body:after {
   color:#fff; font-size:50px;text-shadow: 2px 2px 1px #1A1A1A;
 }
 
-.falgs { width:50%; position:absolute; bottom:20%; right:34%}
+.falgs { width:50%; position:absolute; bottom:20%; right:34%; z-index:100}
 .falgs img { float:right; margin:5%}
 .falgs img:hover { cursor:pointer; -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
@@ -61,5 +67,26 @@ body:after {
     overflow:hidden;
     font-size:20px;
 }
+.falg_bar {width:10%; position:absolute; height:50px; top:0; left:0; padding-top: 1%;}
+.pin {position:absolute; top:0; right:0; z-index:200; background-image: url(image-path('stick-note-with-pin-md.png'));
+  width:16%; height:200px;
+  background-repeat:no-repeat;
+}
+.pin h2 {text-align:left; 
+  margin-top:40px;
+  margin-left:10px;
+}
+.falg_bar a{width:30%; position:relative; float:left; top:0;}
 .admin-menu:hover {height:250px; }
 .upload-pic {border:1px solid #fff}
+.nav_bar ul li {display:inline; width:200px;}
+.menu_bar {background-image:url(image-path('footer_lodyas1.png'));}
+
+/* showing important package  */
+.imp-package {width:111%; position:relative; margin-top: 70px; background-image:url(image-path('outlets.png'))}
+.imp-package .tour-info {width:20%; float:right; height:90%; margin:2%; border:red solid 1px}
+
+
+/* tabs-on-slider */
+.tabs-on-slider {position:absolute; width:100%; height:100px; top:-50px; z-index:200; color:#000;}
+#reserv-form input, label, select{ float:right; margin-right:1%}
