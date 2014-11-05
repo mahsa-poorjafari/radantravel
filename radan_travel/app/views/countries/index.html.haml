@@ -2,28 +2,23 @@
   لیست کشورها
 -if is_admin?
   = link_to 'تعریف کشور', new_country_path, :class => "btn"
-%table.table
-  %tr
-    %th ردیف
-    %th نام کشور    
-    %th     
-    %th عملیات
+.country-tabs
+  - if I18n.locale == :en  
+    %ul.nav.nav-tabs.pull-left#CountryTab{:role => "tablist", :class => I18n.locale }
+      = render 'countries/country_title_tap'      
+  - else
+    %ul.nav.nav-tabs.pull-right#CountryTab{:role => "tablist", :class => I18n.locale }
+      = render 'countries/country_title_tap'
+  .clear-float
+  .tab-content
+    = render 'countries/country_details'
     
-
-  - @countries.each_with_index do |country, i|
-    %tr
-      %td= (i+1)
-      %td= country.title    
-      %td= image_tag country.photos.first.image(:small)
-     
-      %td 
-        -if is_admin?
-          = link_to 'نمایش', country
-          \|
-          = link_to 'ویرایش', edit_country_path(country)
-          \|
-          = link_to 'حذف', country, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
-
-
-
-
+    
+:javascript
+  
+  $('.country-tabs ul#CountryTab li:first').addClass('active');
+  $('.country-tabs .tab-content .tab-pane:first').addClass('active');
+  $(function () {
+    $('#CountryTab a:last').tab('show')
+  });
+  

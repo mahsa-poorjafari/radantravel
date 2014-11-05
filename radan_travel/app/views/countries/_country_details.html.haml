@@ -1,0 +1,6 @@
+- Country.all.each do  |country|
+  .tab-pane.fade.in{:role => "tabpanel", :id => country.title_en}
+    .col-xs-6
+      = raw country.text
+    .col-xs-5
+      = image_tag country.photos.first.image(:small)
