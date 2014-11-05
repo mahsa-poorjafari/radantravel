@@ -1,4 +1,4 @@
-= nested_form_for @country, :html => { :multipart => true  } do |f|
+= nested_form_for @country, :html => { :multipart => true, :class => "form-horizontal"  } do |f|
 
   - if @country.errors.any?
     #error_explanation      
@@ -6,39 +6,45 @@
         - @country.errors.each do |attr, msg|
           %li= msg
   .row-fluid    
-    .span12
-      .span7
+    .col-xs-12
+      .col-xs-7.form-group
         = f.fields_for :photos do |picture|  
           = render "shared/upload_image_form", :picture => picture  
-        .field
+        .form-group
           = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
           = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
-          = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
+          = f.link_to_add content_tag(:span, "افزودن تصویر", :class => "admin-link"), :photos, :id => "add_new_picture", :class => "btn"
         
-      .span5
-        .field
-          = f.label 'عنوان فارسی'
-          = f.text_field :title_fa
-        .field
-          = f.label 'عنوان انگلیسی'
-          = f.text_field :title_en
-        .field
-          = f.label 'عنوان عربی'
-          = f.text_field :title_ar
-        .field
-          = f.label 'پرچم کشور:'
-          = f.file_field :country_flag
+      .col-xs-5
+        .col-xs-11
+          .form-group
+            = f.label 'عنوان فارسی', :class => "control-label"
+            = f.text_field :title_fa, :class => "form-control"
+          .form-group
+            = f.label 'عنوان انگلیسی', :class => "control-label"
+            = f.text_field :title_en, :class => "form-control"
+          .form-group
+            = f.label 'عنوان عربی', :class => "control-label"
+            = f.text_field :title_ar, :class => "form-control"
+          .form-group
+            - if @country.country_flag.present?
+              = image_tag @country.country_flag(:original)
+            = f.label 'پرچم کشور:', :class => "control-label"
+            = f.file_field :country_flag, :class => "form-control"
 
-    .span12
-      .field.editor
-        = f.label 'متن فارسی'
-        = f.text_area :text_fa, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن انگلیسی'
-        = f.text_area :text_en, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن عربی'
-        = f.text_area :text_ar, :class => "ckeditor"
-      .actions
+    .col-xs-12
+      .form-group
+        = f.label 'متن فارسی', :class => "control-label"
+        .editor
+          = f.text_area :text_fa, :class => "ckeditor form-control"
+      .form-group
+        = f.label 'متن انگلیسی', :class => "control-label"
+        .editor  
+          = f.text_area :text_en, :class => "ckeditor form-control"
+      .form-group
+        = f.label 'متن عربی', :class => "control-label"
+        .editor
+          = f.text_area :text_ar, :class => "ckeditor form-control"
+      .form-group
         = f.submit 'ثبت', :class => "btn"
         
