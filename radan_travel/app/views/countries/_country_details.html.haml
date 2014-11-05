@@ -1,6 +1,11 @@
 - Country.all.each do  |country|
-  .tab-pane.fade.in{:role => "tabpanel", :id => 'country'+country.id.to_s}
-    .col-xs-6
-      = raw country.text
+  .tab-pane.fade.in.country-details{:role => "tabpanel", :id => 'country'+country.id.to_s}    
     .col-xs-5
-      = image_tag country.photos.first.image(:small)
+      = image_tag country.photos.first.image(:medium)
+    .col-xs-6.country-text{:class => I18n.locale}
+      = raw country.text
+    .col-xs-6
+      %h2= 'شهرهای ' + country.title
+      - country.cities.each do |city|        
+        = link_to  city.title, city
+        
