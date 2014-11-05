@@ -27,6 +27,7 @@ en:
   sight: 'Sights'
   hotel: 'Hotels'
   imp-package: 'Package Moment'
+  packages: 'Packages'
   reserv: 'Online Reservation'
   reserv-type: 'Login Type'
   reserv-lang: 'Language'
