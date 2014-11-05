@@ -44,7 +44,7 @@ body {padding:0; margin:0;}
     position: absolute;
     z-index: -1;   }
 .main {}
-.main .yield {position:absolute; top:600px}
+.main .yield {position:absolute; top:78%; width:100%}
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
 #logo h1 {color:#E12F2F; font-size:2em; position:absolute; width:50%; top:0; right:10%;
@@ -80,13 +80,23 @@ body {padding:0; margin:0;}
 .admin-menu:hover {height:250px; }
 .upload-pic {border:1px solid #fff}
 .nav_bar ul li {display:inline; width:200px;}
-.menu_bar {background-image:url(image-path('footer_lodyas1.png'));}
+.menu_bar {
+  background-image:url(image-path('footer_lodyas1.png'));
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
 /* showing important package  */
-.imp-package {width:111%; position:relative; margin-top: 70px; background-image:url(image-path('outlets.png'))}
+.imp-package {width:100%; height:400px; overflow-y:hidden; position:relative; margin-top: 70px; background-image:url(image-path('outlets.png'))}
 .imp-package .tour-info {width:20%; float:right; height:90%; margin:2%; border:red solid 1px}
 
 
 /* tabs-on-slider */
 .tabs-on-slider {position:absolute; width:100%; height:100px; top:-50px; z-index:200; color:#000;}
 #reserv-form input, label, select{ float:right; margin-right:1%}
+
+.item .col-xs-3 {height:300px; }
+a.carousel-control {padding-top:10% }
+
+

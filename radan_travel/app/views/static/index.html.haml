@@ -31,60 +31,62 @@
 
 
 .imp-package.content
-  .rm_wrapper
-    #rm_container.rm_container
-      %ul
-        %li{"data-images" => "rm_container_1", "data-rotation" => "-15"}
-          = image_tag "images/1.jpg"          
-        %li{"data-images" => "rm_container_2", "data-rotation" => "-5"}
-          = image_tag "images/2.jpg"
-        %li{"data-images" => "rm_container_3", "data-rotation" => "5"}
-          = image_tag "images/3.jpg"
-        %li{"data-images" => "rm_container_4", "data-rotation" => "15"}
-          = image_tag "images/4.jpg"
-      #rm_mask_left.rm_mask_left
-      #rm_mask_right.rm_mask_right
-      #rm_corner_left.rm_corner_left
-      #rm_corner_right.rm_corner_right
-      %h2= t('imp-package')
-      %div{:style => "display:none;"}
-        #rm_container_1
-          = image_tag "images/1.jpg"
-          = image_tag "images/5.jpg"
-          = image_tag "images/6.jpg"
-          = image_tag "images/7.jpg"
+  .col-md-12.text-center
+  %h3= t('packages') 
+  .col-md-8.col-md-offset-3
+    #myCarousel.carousel.slide
+      .carousel-inner
+        .item.active
+          .col-xs-3
+            = link_to (image_tag 'images/1.jpg', :class => "img-responsive")
+        .item
+          .col-xs-3
+            = link_to (image_tag 'images/2.jpg', :class => "img-responsive")           
+        .item
+          .col-xs-3
+            = link_to (image_tag 'images/3.jpg', :class => "img-responsive")           
+        .item
+          .col-xs-3
+            = link_to (image_tag 'images/4.jpg', :class => "img-responsive")                   
+        .item
+          .col-xs-3
+            = link_to (image_tag 'images/6.jpg', :class => "img-responsive")                   
+      = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
+        = image_tag 'prev.png'
+      = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
+        = image_tag 'next.png'
           
-        #rm_container_2
-          = image_tag "images/2.jpg"
-          = image_tag "images/8.jpg"
-          = image_tag "images/9.jpg"
-          = image_tag "images/10.jpg"
-          
-        #rm_container_3
-          = image_tag "images/3.jpg"
-          = image_tag "images/11.jpg"
-          = image_tag "images/12.jpg"
-          = image_tag "images/13.jpg"
-          
-        #rm_container_4
-          = image_tag "images/4.jpg"
-          = image_tag "images/14.jpg"
-          = image_tag "images/15.jpg"
-          = image_tag "images/16.jpg"
-          
-    .rm_nav
-      = link_to '','#', :class => "rm_next", :id => "rm_next"
-      = link_to '','#', :class => "rm_prev", :id => "rm_prev"
-      %a#rm_next.rm_next{:href => "#"}
-      %a#rm_prev.rm_prev{:href => "#"}
-    .rm_controls
-      = link_to 'play','#', :class => "rm_play", :id => "rm_play"
-      = link_to 'pause','#', :class => "rm_pause", :id => "rm_pause"
-      
 :javascript
   $(function () {
     $('#myTab a:last').tab('show')
   })
-
-
+  
   $('.fa_date').datepicker()
+  
+  $(function() {
+    $(".auto .carousel").jCarouselLite({
+        auto: 800,
+        speed: 1000
+    });
+  });
+  
+  $('#myCarousel').carousel({
+    interval: 5000
+  });
+
+  $('.carousel .item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+    
+    for (var i=0;i<2;i++) {
+      next=next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      
+      next.children(':first-child').clone().appendTo($(this));
+    }
+  });
