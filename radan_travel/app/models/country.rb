@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class Country < ActiveRecord::Base
+  has_attached_file :country_flag, :styles => { :original => "200x250>" , :small => "30x35#" }
+  validates_attachment_content_type :country_flag, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   extend FriendlyId  
   friendly_id :title_en
   has_many :cities, dependent: :destroy

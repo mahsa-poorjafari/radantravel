@@ -9,12 +9,12 @@
     .span12
       .span7
         = f.fields_for :photos do |picture|  
-          = render "shared/upload_image_form", :picture => picture
-  
+          = render "shared/upload_image_form", :picture => picture  
         .field
           = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
           = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
           = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
+        
       .span5
         .field
           = f.label 'عنوان فارسی'
@@ -25,7 +25,9 @@
         .field
           = f.label 'عنوان عربی'
           = f.text_field :title_ar
-      
+        .field
+          = f.label 'پرچم کشور:'
+          = f.file_field :country_flag
 
     .span12
       .field.editor
