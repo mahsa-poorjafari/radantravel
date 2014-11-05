@@ -1,19 +1,15 @@
 %p#notice= notice
-
-%p
-  %b نام شهر
-  = @city.title
-%p
-  %b نام کشور
-  = @city.country.title
-%p
-  %b توضیحات
-  =raw @city.text
-.row-fluid
-  - @city.photos.each do |pic|
-    .span6
-      = image_tag pic.image(:medium)
-
-= link_to 'Edit', edit_city_path(@city)
-\|
-= link_to 'Back', cities_path
+.city-details.set-center  
+  %h2
+    .skel-layers-ignoreHref
+      .icon.fa-star= @city.country.title + " > " + @city.title  
+  .city.text
+    =raw @city.text
+  .row-fluid
+    - @city.photos.each do |pic|
+      .span6
+        = image_tag pic.image(:medium)
+  - if is_admin?
+    = link_to 'Edit', edit_city_path(@city)
+    \|
+    = link_to 'Back', cities_path

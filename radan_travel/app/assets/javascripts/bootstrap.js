@@ -367,7 +367,7 @@ if (typeof jQuery === 'undefined') {
   Carousel.prototype.to = function (pos) {
     var that        = this
     var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
-
+    
     if (pos > (this.$items.length - 1) || pos < 0) return
 
     if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"

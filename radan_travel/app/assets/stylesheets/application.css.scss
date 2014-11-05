@@ -15,6 +15,7 @@
  *= require_self
  */
 .clear-float {clear:both}
+.set-center {margin-right:auto; margin-left:auto}
 a { color:#FFA500;}
 a:hover, visited { color:#F43D3D;}
 body {padding:0; margin:0;}
@@ -69,7 +70,10 @@ body {padding:0; margin:0;}
     font-size:20px;
 }
 .falg_bar {width:10%; position:absolute; height:50px; top:0; left:0; padding-top: 1%;}
-.pin {position:absolute; top:0; right:0; z-index:200; background-image: url(image-path('stick-note-with-pin-md.png'));
+.pin {position:absolute; top:0; right:0; z-index:200; 
+/*
+background-image: url(image-path('stick-note-with-pin-md.png'));
+*/
   width:16%; height:200px;
   background-repeat:no-repeat;
 }
@@ -89,7 +93,8 @@ body {padding:0; margin:0;}
 }
 
 /* showing important package  */
-.imp-package {width:100%; height:400px; overflow-y:hidden; position:relative; margin-top: 70px; background-image:url(image-path('outlets.png'))}
+.imp-package {width:100%; height:450px; overflow:hidden; position:relative; margin-top: 70px;
+ background-image:url(image-path('outlets.png'))}
 .imp-package .tour-info {width:20%; float:right; height:90%; margin:2%; border:red solid 1px}
 
 
@@ -104,3 +109,49 @@ a.carousel-control {padding-top:10% }
 .country-details {padding:2%}
 .country-details .country-text{ text-align:justify; line-height:1.5em;}
 .country-details .country-text p{ text-align:justify; line-height:2em;}
+.tab-content {padding-top:2%}
+#myCarousel {height:100%}
+.carousel-inner {height:100%}
+.rm_mask_right, .rm_mask_left{
+	position: absolute;
+	height: 110px;
+	background-image:url(image-path('outlets.png'));
+	width: 50.5%;
+	bottom: -30px;
+	left: 0px;
+	-moz-transform:rotate(-3deg);
+	-webkit-transform:rotate(-3deg);
+	transform:rotate(-3deg);
+}
+.rm_mask_right{
+	left:auto;
+	right:0px;
+	-moz-transform:rotate(3deg);
+	-webkit-transform:rotate(3deg);
+	transform:rotate(3deg);
+}
+.rm_corner_right, .rm_corner_left{
+  
+	background-image:url(image-path('outlets.png'));
+	position:absolute;
+	width:200px;
+	height:100px;
+	bottom:0px;
+	left:-65px;
+	-moz-transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+.rm_corner_right{
+	left:auto;
+	right:-65px;
+	-moz-transform:rotate(-45deg);
+	-webkit-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+
+.city-details {width:80%; text-align:justify;  }
+.city-details .city.text{margin-top:5%;}
+.city-details .city.text p{text-align:justify; line-height:2em; }
+.admin-link {border:#FFA500 2px solid; width:100px; height:30px; text-align:center; font-size:15px}
+.admin-link:hover {background:#E5E5E5; cursor:pointer}
