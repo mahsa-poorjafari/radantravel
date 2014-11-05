@@ -1,7 +1,7 @@
 %h1
   لیست کشورها
 -if is_admin?
-  = link_to 'تعریف کشور', new_country_path, :class => "btn"
+  = link_to 'تعریف کشور', new_country_path, :class => "admin-link"
 .country-tabs
   - if I18n.locale == :en  
     %ul.nav.nav-tabs.pull-left#CountryTab{:role => "tablist", :class => I18n.locale }
