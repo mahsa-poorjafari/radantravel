@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029135311) do
+ActiveRecord::Schema.define(version: 20141105134001) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(version: 20141029135311) do
     t.text     "text_ar"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country_flag_file_name"
+    t.string   "country_flag_content_type"
+    t.integer  "country_flag_file_size"
+    t.datetime "country_flag_updated_at"
   end
 
   create_table "hotels", force: true do |t|
