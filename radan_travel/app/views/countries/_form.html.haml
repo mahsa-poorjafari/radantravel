@@ -5,7 +5,7 @@
       %ul
         - @country.errors.each do |attr, msg|
           %li= msg
-  .row-fluid    
+  .row   
     .col-xs-12
       .col-xs-7.form-group
         = f.fields_for :photos do |picture|  

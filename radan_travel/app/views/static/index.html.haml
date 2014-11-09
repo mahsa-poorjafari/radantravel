@@ -6,14 +6,16 @@
     %ul.nav.nav-tabs.pull-right#myTab{:role => "tablist", :class => I18n.locale }
       = render 'shared/search_reserv'
   .clear-float
-  .tab-content
+  .tab-content    
     #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
-      = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
-        = label_tag t('reserv-type')
-        = select_tag "type", options_for_select([t('user'), t('agent')])
-        = label_tag t('reserv-lang')
-        = select_tag "lang", options_for_select([t('reserv-en'), t('reserv-fa')])        
-        = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
+      %b= 'در حال راه اندازی...'
+      -#
+        = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
+          = label_tag t('reserv-type')
+          = select_tag "type", options_for_select([t('user'), t('agent')])
+          = label_tag t('reserv-lang')
+          = select_tag "lang", options_for_select([t('reserv-en'), t('reserv-fa')])        
+          = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
@@ -32,25 +34,19 @@
 
 .imp-package.content
   .col-md-12.text-center
-  %h3= t('packages') 
+  %h3.package-box-title= t('packages') 
   .col-md-12.col-md-offset-3{:style => "height:100%"}
     #myCarousel.carousel.slide
-      .carousel-inner
-        .item.active
-          .col-xs-4
-            = link_to (image_tag 'images/1.jpg', :class => "img-responsive")
-        .item
-          .col-xs-4
-            = link_to (image_tag 'images/2.jpg', :class => "img-responsive")           
-        .item
-          .col-xs-4
-            = link_to (image_tag 'images/3.jpg', :class => "img-responsive")           
-        .item
-          .col-xs-4
-            = link_to (image_tag 'images/4.jpg', :class => "img-responsive")                   
-        .item
-          .col-xs-4
-            = link_to (image_tag 'images/6.jpg', :class => "img-responsive")                   
+      .carousel-inner        
+        - @tours.each do |tour|
+          .item
+            .col-xs-3
+              = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
+              .tour-hover
+                %p= tour.title
+                %p= tour.city.title
+                %p= tour.price
+        
       = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
         = image_tag 'prev.png'
       = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
@@ -61,6 +57,7 @@
     #rm_corner_right.rm_corner_right
           
 :javascript
+  $('.carousel-inner :first').addClass('active');
   $(function () {
     $('#myTab a:last').tab('show')
   })
@@ -94,4 +91,5 @@
       next.children(':first-child').clone().appendTo($(this));
     }
   });
+  
   

@@ -1,22 +1,18 @@
 %h1 صفحات متنی
 - if is_admin?
   = link_to 'صفحه جدید', new_page_path, :class => "btn"
-%table.table
-  %tr
-    %th عنوان        
-    %th عملیات
-    
-
+.col-xs-12
   - @pages.each do |page|
-    %tr
-      %td= page.title      
-      %td
-        = link_to 'Show', page
+    .col-xs-4
+      %h2= page.title
+      %p
+        = link_to 'مشاهده', page
         \|
-        = link_to 'Edit', edit_page_path(page)
-        \|
-        = link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        = link_to 'ویرایش', edit_page_path(page)
+        -#
+          \|
+          = link_to 'حذف', page, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
+  
 
 
 

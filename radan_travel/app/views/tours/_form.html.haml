@@ -1,4 +1,3 @@
-
 = nested_form_for @tour, :html => { :multipart => true  } do |f|
   - if @tour.errors.any?
     #error_explanation
@@ -6,66 +5,66 @@
       %ul
         - @tour.errors.each do |attr, msg|
           %li= msg
-  .row-fluid    
-    .span12
-      .span7
+  .row
+    .col-xs-12
+      .col-xs-7
         = f.fields_for :photos do |picture|  
           = render "shared/upload_image_form", :picture => picture
   
-        .field
+        .form-group
           = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
           = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
           = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
-      .span5
-        .field
-          = f.label 'عنوان فارسی'
-          = f.text_field :title_fa
-        .field
-          = f.label 'عنوان انگلیسی'
-          = f.text_field :title_en
-        .field
-          = f.label 'عنوان عربی'
-          = f.text_field :title_ar
-    .span12
-      .span4
-        .field
-          = f.label 'پرواز'
-          = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید"
+      .col-xs-5
+        .form-group
+          = f.label 'عنوان فارسی', :class => "control-label"
+          = f.text_field :title_fa, :class => "form-control"
+        .form-group
+          = f.label 'عنوان انگلیسی', :class => "control-label"
+          = f.text_field :title_en, :class => "form-control"
+        .form-group
+          = f.label 'عنوان عربی', :class => "control-label"
+          = f.text_field :title_ar, :class => "form-control"
+    .col-xs-12
+      .col-xs-4
+        .form-group
+          = f.label 'پرواز', :class => "control-label"
+          = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"
           
-        .field
-          = f.label 'نام هتل'
-          = f.select :hotel_id, options_for_select(Hotel.all.collect{ |u| [u.title_fa, u.id] }), prompt: "هتل را انتخاب کنید"
+        .form-group
+          = f.label 'نام هتل', :class => "control-label"
+          = f.select :hotel_id, options_for_select(Hotel.all.collect{ |u| [u.title_fa, u.id] }), prompt: "هتل را انتخاب کنید", :class => "form-control"
           
-      .span4
-        .field
-          = f.label 'نام کشور'
-          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را نتخاب کنید"
+      .col-xs-4
+        .form-group
+          = f.label 'نام کشور', :class => "control-label"
+          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را نتخاب کنید", :class => "form-control"
           
-        .field
-          = f.label 'نام شهر'
-          = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
+        .form-group
+          = f.label 'نام شهر', :class => "control-label"
+          = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید", :class => "form-control"
           
-      .span4
-        .field
-          = f.label 'تاریخ اعتبار از'
+      .col-xs-4
+        .form-group
+          = f.label 'تاریخ اعتبار از', :class => "control-label"
           = f.text_field :validate_date_from_fa, :class => "fa_date"
-        .field
-          = f.label 'الی'
+        .form-group
+          = f.label 'الی', :class => "control-label"
           = f.text_field :validate_date_until_fa, :class => "fa_date"
-        .field
-          = f.label 'بزودی'
-          = f.check_box :coming_soon
-    .span12
-      .field.editor
-        = f.label 'متن فارسی'
+        .form-group
+          = f.label 'بزودی', :class => "control-label"
+          = f.check_box :coming_soon, :class => "form-control"
+    .col-xs-12
+      .form-group.editor
+        = f.label 'متن فارسی', :class => "control-label"
         = f.text_area :description_fa, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن انگلیسی'
+      .form-group.editor
+        = f.label 'متن انگلیسی', :class => "control-label"
         = f.text_area :description_en, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن عربی'
+      .form-group.editor
+        = f.label 'متن عربی', :class => "control-label"
         = f.text_area :description_ar, :class => "ckeditor"
-      .actions
+      .form-group
         = f.submit 'ثبت', :class => "btn"
   
 :javascript
