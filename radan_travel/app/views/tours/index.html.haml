@@ -7,72 +7,24 @@
     .col-xs-4.tour-box
       %h3= tour.title 
       = image_tag tour.photos.first.image(:medium)
-      = link_to tour do
-        %p
-          - if tour.plane_id.present?
-            = tour.plane.title
-        %p
-          - if tour.hotel_id.present?
-            = tour.hotel.title  
-        %p
-          - if tour.city_id.present?
-            = tour.city.title
-            \|
-            = tour.city.country.title
-        %p= tour.price
-        %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-        -if is_admin?
-          %p            
-            = link_to 'ویرایش', edit_tour_path(tour)
-            \|
-            = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }
-
-        
-          
-          
-          
-      
-  
-%table.table
-  %tr
-    %th ردیف
-    %th عنوان تور/پکیج   
-    %th پرواز
-    %th هتل
-    %th شهر/کشور    
-    %th قیمت
-    %th تاریخ اعتبار از
-    %th تا       
-    %th عملیات
-
-  - @tours.each_with_index do |tour, i|
-    %tr
-      %td= (i+1)
-      %td= tour.title      
-      
-      %td
-        - if tour.plane_id.present?
-          = tour.plane.title
-      %td
-        - if tour.hotel_id.present?
-          = tour.hotel.title      
-      %td
-        - if tour.city_id.present?
-          = tour.city.title
+      %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+      -#
+        = link_to tour do
+          %p
+            - if tour.plane_id.present?
+              = tour.plane.title
+          %p
+            - if tour.hotel_id.present?
+              = tour.hotel.title  
+          %p
+            - if tour.city_id.present?
+              = tour.city.title
+              \|
+              = tour.city.country.title
+          %p= tour.price
+          %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+      -if is_admin?
+        %p            
+          = link_to 'ویرایش', edit_tour_path(tour)
           \|
-          = tour.city.country.title
-      
-      %td= tour.price
-      %td= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")
-      %td= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-      
-      
-      %td
-        -if is_admin?
-          = link_to 'Show', tour
-          = link_to 'Edit', edit_tour_path(tour)
-          = link_to 'Destroy', tour, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-
-
+          = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }
