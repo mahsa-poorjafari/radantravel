@@ -1,4 +1,4 @@
-- Country.all.each do  |country|
+-@countries.each do  |country|
   .tab-pane.fade.in.country-details{:role => "tabpanel", :id => 'country'+country.id.to_s}    
     - if is_admin?
       .admin-link
