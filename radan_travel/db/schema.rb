@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105134001) do
+ActiveRecord::Schema.define(version: 20141109135258) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -164,9 +164,6 @@ ActiveRecord::Schema.define(version: 20141105134001) do
     t.string   "title_fa"
     t.string   "title_en"
     t.string   "title_ar"
-    t.string   "description_fa"
-    t.string   "description_en"
-    t.string   "description_ar"
     t.integer  "plane_id"
     t.integer  "hotel_id"
     t.integer  "country_id"
@@ -177,6 +174,9 @@ ActiveRecord::Schema.define(version: 20141105134001) do
     t.boolean  "coming_soon",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description_fa"
+    t.text     "description_en"
+    t.text     "description_ar"
   end
 
   create_table "users", force: true do |t|
