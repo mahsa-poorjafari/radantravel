@@ -4,28 +4,31 @@
 .tour-details
   .col-xs-12  
     .col-xs-6
-      %p
-        - if @tour.city_id.present?          
-          = @tour.city.country.title
-          \/
-          = @tour.city.title
-      %p
-        - if @tour.hotel_id.present?
-          = @tour.hotel.title
-      %p
-        - if @tour.plane_id.present?
-          = t('plane') + @tour.plane.title
+      -#
+        %p
+          - if @tour.city_id.present?          
+            = @tour.city.country.title
+            \/
+            = @tour.city.title
+        %p
+          - if @tour.hotel_id.present?
+            = @tour.hotel.title
+        %p
+          - if @tour.plane_id.present?
+            = t('plane') + @tour.plane.title
+      
       %p
         %b تاریخ اعتبار از
         = JalaliDate.new(@tour.validate_date_from)      
         %b الی
         = JalaliDate.new(@tour.validate_date_until)
-      %p
-        %b قیمت
-        = @tour.price
+      -#
+        %p
+          %b قیمت
+          = @tour.price
       %p
         %b توضیحات تکمیلی
-        = @tour.description
+        =raw @tour.description
       %p
         - if is_admin?
           = link_to 'ویرایش', edit_tour_path(@tour), :class => "admin-link"
