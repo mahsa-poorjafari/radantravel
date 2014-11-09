@@ -1,47 +1,41 @@
-%p#notice= notice
-.row-fluid    
-  .span12
-    .span6
+%h1.title-tours  
+  = t('info') + " " + @tour.title  
+ 
+.tour-details
+  .col-xs-12  
+    .col-xs-6
       %p
-        %b عنوان تور
-        = @tour.title    
+        - if @tour.city_id.present?          
+          = @tour.city.country.title
+          \/
+          = @tour.city.title
+          
+          
       %p
-        %b توضیحات تکمیلی
-        = @tour.description
-
-      %p
-        %b پرواز
-        - if @tour.plane_id.present?
-          = @tour.plane.title
-      %p
-        %b هتل
         - if @tour.hotel_id.present?
           = @tour.hotel.title
-    .span6
       %p
-        %b شهر
-        - if @tour.city_id.present?
-          = @tour.city.title
-          %b کشور
-          = @tour.city.country.title
+        - if @tour.plane_id.present?
+          = t('plane') + @tour.plane.title
+      %p
+        %b تاریخ اعتبار از
+        = JalaliDate.new(@tour.validate_date_from)      
+        %b الی
+        = JalaliDate.new(@tour.validate_date_until)
       %p
         %b قیمت
         = @tour.price
       %p
-        %b تاریخ اعتبار از
-        = JalaliDate.new(@tour.validate_date_from)
+        %b توضیحات تکمیلی
+        = @tour.description
       %p
-        %b الی
-        = JalaliDate.new(@tour.validate_date_until)
+        - if is_admin?
+          = link_to 'ویرایش', edit_tour_path(@tour), :class => "admin-link"
+
+
+    .col-xs-6  
+      - @tour.photos.each do |pic| 
+        .tour-img
+          = image_tag pic.image(:medium)
         
-      %p
-        %b Coming soon:
-        = @tour.coming_soon
-  .span12
-    - @tour.photos.each do |pic|
-      .span6
-        = image_tag pic.image(:medium)
-        
-= link_to 'Edit', edit_tour_path(@tour)
-\|
-= link_to 'Back', tours_path
+  
