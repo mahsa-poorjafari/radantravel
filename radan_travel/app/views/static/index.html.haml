@@ -37,7 +37,7 @@
   %h3.package-box-title= t('packages') 
   .col-md-12.col-md-offset-3{:style => "height:100%"}
     #myCarousel.carousel.slide
-      .carousel-inner        
+      .carousel-inner#package-tour
         - @tours.each do |tour|
           .item
             .col-xs-3
@@ -58,7 +58,7 @@
     #rm_corner_right.rm_corner_right
           
 :javascript
-  $('.carousel-inner :first').addClass('active');
+  $('#package-tour :first').addClass('active');
   $(function () {
     $('#myTab a:last').tab('show')
   })
