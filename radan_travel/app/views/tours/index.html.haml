@@ -7,7 +7,16 @@
     .col-xs-4.tour-box
       %h3= tour.title 
       = image_tag tour.photos.first.image(:medium)
-      %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+      .clear-float
+      - if tour.validate_date_from.present? && tour.validate_date_until.present?
+        %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+      - elsif tour.validate_date_from.present?
+        %b= t('tour.validate_date_from')
+        %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+      - elsif   tour.validate_date_until.present?
+        %b= t('tour.validate_date_until')
+        %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+          
       -#
         = link_to tour do
           %p
@@ -22,14 +31,6 @@
               \|
               = tour.city.country.title
           %p= tour.price
-          - if tour.validate_date_from.present? && tour.validate_date_until.present?
-            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-          - elsif tour.validate_date_from.present?
-            %b= t('tour.validate_date_from')
-            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-          - elsif   tour.validate_date_until.present?
-            %b= t('tour.validate_date_until')
-            %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
           
       -if is_admin?
         %p            
