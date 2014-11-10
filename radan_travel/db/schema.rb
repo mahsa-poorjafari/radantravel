@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109135258) do
+ActiveRecord::Schema.define(version: 20141110075213) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -177,6 +177,12 @@ ActiveRecord::Schema.define(version: 20141109135258) do
     t.text     "description_fa"
     t.text     "description_en"
     t.text     "description_ar"
+    t.text     "itinerary_fa"
+    t.text     "itinerary_en"
+    t.text     "itinerary_ar"
+    t.text     "documents_fa"
+    t.text     "documents_en"
+    t.text     "documents_ar"
   end
 
   create_table "users", force: true do |t|

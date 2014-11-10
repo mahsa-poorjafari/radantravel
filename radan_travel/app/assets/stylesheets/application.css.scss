@@ -193,6 +193,7 @@ border-radius: 16%;
 .city-image img {width:100%}
 h1.title-tours {margin:2%; text-align:center;}
 .tour-details {margin-top:10%; width:100%}
+.tour-details p{text-align:justify}
 .tour-details .tour-img{border-radius:5px; margin:1%}
 .tour-details .tour-img img{border-radius:5px; margin:1%}
 .menu-logo {margin-top:0}
@@ -200,3 +201,4 @@ h1.title-tours {margin:2%; text-align:center;}
 .country-show {height:400px}
 .country-show.fa p {direction:rtl; font-family: 'open_sansregular';}
 
+.tour-box {overflow:hidden}

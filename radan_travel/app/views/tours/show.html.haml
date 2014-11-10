@@ -1,9 +1,13 @@
 %h1.title-tours  
-  = t('info') + " " + @tour.title  
+  =  @tour.title  
  
 .tour-details
   .col-xs-12  
-    .col-xs-6
+    .col-xs-5
+      - @tour.photos.each do |pic| 
+        .tour-img
+          = image_tag pic.image(:medium)
+    .col-xs-7
       -#
         %p
           - if @tour.city_id.present?          
@@ -27,14 +31,46 @@
           %b قیمت
           = @tour.price
       %p
-        %b توضیحات تکمیلی
+        %h2= t('tour.itinerary')
+        / Large modal
+        %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"}= t('tour.show')
+        .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog.modal-lg
+            .modal-content
+              .modal-header
+                %button.close{"data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+                  %span.sr-only= t('close')
+                %h4.modal-title= t('tour.itinerary')
+              .modal-body
+                =raw @tour.itinerary
+              .modal-footer
+                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
+        
+      %p
+        %h2= t('tour.documents')
+        
+        / Button trigger modal
+        %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+          = t('tour.show')
+        / Modal
+        #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} ×
+                  %span.sr-only= t('close')
+                %h4#myModalLabel.modal-title= t('tour.documents')
+              .modal-body
+                =raw @tour.documents
+              .modal-footer
+                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
+                
+       
+      %p
+        %h2= t('tour.description')
         =raw @tour.description
       %p
         - if is_admin?
-          = link_to 'ویرایش', edit_tour_path(@tour), :class => "admin-link"
-    .col-xs-6  
-      - @tour.photos.each do |pic| 
-        .tour-img
-          = image_tag pic.image(:medium)
-        
-  
+          = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info"

@@ -23,7 +23,7 @@ en:
   coming-soon: 'Coming soon...'
   index: 'Index'
   home: 'Home'
-  tour: 'Tour'
+  
   sight: 'Sights'
   hotel: 'Hotels'
   imp-package: 'Package Moment'
@@ -46,5 +46,13 @@ en:
   info: 'Information'
   country: 'Countries List'
   city: 'Countries Cities'
+  close: 'Close'
+  tour:
+    itinerary: 'Itinerary'
+    documents: 'Documents'
+    description: 'Description'
+    show: 'Click To show'
+    tours: 'Tour'
+    
   
   

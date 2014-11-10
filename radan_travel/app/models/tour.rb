@@ -30,4 +30,22 @@ class Tour < ActiveRecord::Base
       self.read_attribute("description_fa")
     end    
   end
+  def documents
+    if I18n.locale == :ar
+      self.read_attribute("documents_ar")
+    elsif I18n.locale == :en
+      self.read_attribute("documents_en")
+    else
+      self.read_attribute("documents_fa")
+    end    
+  end
+  def itinerary
+    if I18n.locale == :ar
+      self.read_attribute("itinerary_ar")
+    elsif I18n.locale == :en
+      self.read_attribute("itinerary_en")
+    else
+      self.read_attribute("itinerary_fa")
+    end    
+  end
 end
