@@ -88,7 +88,7 @@ background-image: url(image-path('stick-note-with-pin-md.png'));
 }
 .falg_bar a{width:30%; position:relative; float:left; top:0;}
 .admin-menu:hover {height:250px; }
-.upload-pic {border:1px solid #000; margin-left:5%}
+.upload-pic {border:1px solid #000; margin-left:5%; overflow:hidden}
 .nav_bar ul {height:90px; width:60%;}
 .nav_bar ul li {width:16%; height:100%; position:relative; 
  float:right; list-style:none; margin-top:4%}
