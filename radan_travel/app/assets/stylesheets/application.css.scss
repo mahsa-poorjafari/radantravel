@@ -195,7 +195,11 @@ h1.title-tours {margin:2%; text-align:center;}
 .tour-details {margin-top:10%; width:100%}
 .tour-details p{text-align:justify}
 .tour-details .tour-img{border-radius:5px; margin:1%}
-.tour-details .tour-img img{border-radius:5px; margin:1%}
+.tour-details .tour-img img{border-radius:5px; margin:1%; 
+  -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
+}
 .menu-logo {margin-top:0}
 .country-page-title {text-align:center}
 .country-show {height:400px}
