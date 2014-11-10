@@ -1,6 +1,8 @@
 ar:
   coming-soon: 'قريبا...'
   home: 'الصفحة الرئيسية'
-  tour: 'سياحة'
+  
   sight: 'جاذبية'
   hotel: 'الفنادق'
+  tour:
+    tours: 'سياحة'
