@@ -1,76 +1,86 @@
-%h1.title-tours  
-  =  @tour.title  
- 
-.tour-details
-  .col-xs-12  
-    .col-xs-5
-      - @tour.photos.each do |pic| 
-        .tour-img
-          = image_tag pic.image(:medium)
-    .col-xs-7
-      -#
+.margin3
+  %h1.title-tours  
+    =  @tour.title  
+   
+  .tour-details
+    .col-xs-12  
+      .col-xs-5
+        - @tour.photos.each do |pic| 
+          .tour-img
+            = image_tag pic.image(:medium)
+      .col-xs-7
+        -#
+          %p
+            - if @tour.city_id.present?          
+              = @tour.city.country.title
+              \/
+              = @tour.city.title
+          %p
+            - if @tour.hotel_id.present?
+              = @tour.hotel.title
+          %p
+            - if @tour.plane_id.present?
+              = t('plane') + @tour.plane.title
+              
+        - if @tour.validate_date_from.present? && @tour.validate_date_until.present?
+          %p= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
+        - elsif @tour.validate_date_from.present?
+          %b= t('tour.validate_date_from')
+          %p= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
+        - elsif   @tour.validate_date_until.present?
+          %b= t('tour.validate_date_until')
+          %p= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")      
+        -#
+          %p
+          %b تاریخ اعتبار از
+          = JalaliDate.new(@tour.validate_date_from)      
+          %b الی
+          = JalaliDate.new(@tour.validate_date_until)
+        -#
+          %p
+            %b قیمت
+            = @tour.price
         %p
-          - if @tour.city_id.present?          
-            = @tour.city.country.title
-            \/
-            = @tour.city.title
+          %h2= t('tour.itinerary')
+          / Large modal
+          %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"}= t('tour.show')
+          .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  %button.close{"data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                    %span.sr-only= t('close')
+                  %h4.modal-title= t('tour.itinerary')
+                .modal-body
+                  =raw @tour.itinerary
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
+          
         %p
-          - if @tour.hotel_id.present?
-            = @tour.hotel.title
+          %h2= t('tour.documents')
+          
+          / Button trigger modal
+          %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+            = t('tour.show')
+          / Modal
+          #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %button.close{"data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                    %span.sr-only= t('close')
+                  %h4#myModalLabel.modal-title= t('tour.documents')
+                .modal-body
+                  =raw @tour.documents
+                .modal-footer
+                  %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
+                  
+         
         %p
-          - if @tour.plane_id.present?
-            = t('plane') + @tour.plane.title
-      
-      %p
-        %b تاریخ اعتبار از
-        = JalaliDate.new(@tour.validate_date_from)      
-        %b الی
-        = JalaliDate.new(@tour.validate_date_until)
-      -#
+          %h2= t('tour.description')
+          =raw @tour.description
         %p
-          %b قیمت
-          = @tour.price
-      %p
-        %h2= t('tour.itinerary')
-        / Large modal
-        %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"}= t('tour.show')
-        .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-          .modal-dialog.modal-lg
-            .modal-content
-              .modal-header
-                %button.close{"data-dismiss" => "modal", :type => "button"}
-                  %span{"aria-hidden" => "true"} ×
-                  %span.sr-only= t('close')
-                %h4.modal-title= t('tour.itinerary')
-              .modal-body
-                =raw @tour.itinerary
-              .modal-footer
-                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
-        
-      %p
-        %h2= t('tour.documents')
-        
-        / Button trigger modal
-        %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-          = t('tour.show')
-        / Modal
-        #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-          .modal-dialog
-            .modal-content
-              .modal-header
-                %button.close{"data-dismiss" => "modal", :type => "button"}
-                  %span{"aria-hidden" => "true"} ×
-                  %span.sr-only= t('close')
-                %h4#myModalLabel.modal-title= t('tour.documents')
-              .modal-body
-                =raw @tour.documents
-              .modal-footer
-                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
-                
-       
-      %p
-        %h2= t('tour.description')
-        =raw @tour.description
-      %p
-        - if is_admin?
-          = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info"
+          - if is_admin?
+            = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info"

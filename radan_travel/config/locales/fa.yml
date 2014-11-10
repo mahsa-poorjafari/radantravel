@@ -34,3 +34,5 @@ fa:
     itinerary: 'برنامه سفر'
     show: 'برای مشاهده کلیک کنید.'
     tours: 'تورها'
+    validate_date_until: 'تاریخ اعتبار تا'
+    validate_date_from: 'تاریخ اعتبار از'
