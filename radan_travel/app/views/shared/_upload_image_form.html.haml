@@ -1,7 +1,7 @@
 .upload-pic.col-xs-8      
   = picture.file_field :image
   -if picture.object.image.present?
-    = image_tag picture.object.image(:medium) , :class => "enable_file_select" 
+    = image_tag picture.object.image(:small) , :class => "enable_file_select" 
 
   .form-group
     = picture.label "توضیحات عکس به فارسی", :class => "control-label" 
