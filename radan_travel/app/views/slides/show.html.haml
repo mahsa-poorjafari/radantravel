@@ -1,15 +1,15 @@
-%p#notice= notice
+.margin3  
+  %div= image_tag @slide.image(:medium)
+  %p
+    %b توضیحات به فارسی
+    = @slide.text_fa
+  %p
+    %b توضیحات به انگلیسی
+    = @slide.text_en
+  %p
+    %b توضیحات به عربی
+    = @slide.text_ar
+  - if is_admin?
 
-%p
-  %b Text fa:
-  = @slide.text_fa
-%p
-  %b Text en:
-  = @slide.text_en
-%p
-  %b Text ar:
-  = @slide.text_ar
-
-= link_to 'Edit', edit_slide_path(@slide)
-\|
-= link_to 'Back', slides_path
+    = link_to 'ویرایش', edit_slide_path(@slide), :class => "btn btn-info"      
+  

@@ -4,18 +4,21 @@
       %ul
         - @slide.errors.each do |attr, msg|
           %li= msg
-
-  .field
-    = f.label 'توضیحات به فارسی'
-    = f.text_field :text_fa
-  .field
-    = f.label 'توضیحات به انگلیسی'
-    = f.text_field :text_en
-  .field
-    = f.label 'توضیحات به عربی'
-    = f.text_field :text_ar
-  .field
-    = f.label 'تصویر'
-    = f.file_field :image
-  .actions
-    = f.submit 'ثبت', :class => "btn"
+  .col-xs-6
+    .form-group
+      = f.label 'توضیحات به فارسی', :class => "control-label"
+      = f.text_field :text_fa, :class => "form-control"
+    .form-group
+      = f.label 'توضیحات به انگلیسی', :class => "control-label"
+      = f.text_field :text_en, :class => "form-control"
+    .form-group
+      = f.label 'توضیحات به عربی', :class => "control-label"
+      = f.text_field :text_ar, :class => "form-control"
+    .form-group
+      = f.label 'تصویر', :class => "control-label"
+      - if @slide.present?
+        = image_tag @slide.image(:small)
+      = f.file_field :image, :class => "form-control"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"
+  .clear-float

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Slide < ActiveRecord::Base
-  has_attached_file :image, :styles => { :slide_size => "1280x650>" , :medium => "1080x450>" }
+  has_attached_file :image, :styles => { :slide_size => "1280x650>" , :medium => "1080x450>", :small => "500x150>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   
   def text

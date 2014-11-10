@@ -16,6 +16,7 @@
  */
 .clear-float {clear:both}
 .set-center {margin-right:auto; margin-left:auto}
+.margin3 {margin:3%}
 a { color:#FFA500;}
 a:hover, visited { color:#F43D3D;}
 body {padding:0; margin:0;}
@@ -116,11 +117,16 @@ background-repeat:repeat;
 /* tabs-on-slider */
 .tabs-on-slider {position:absolute; width:100%; height:100px; top:-50px; z-index:200; color:#000;}
 #reserv-form input, label, select{ float:right; margin-right:1%}
-
+.hero-unit {position: absolute;
+width: 100%;
+height: 100%;
+overflow: hidden}
 .item .col-xs-3 {height:370px; position:relative; overflow:hidden }
 .item .col-xs-3 .tour-hover {position:absolute; top:0; width:91%; background:#1A1A1A; opacity:.7; 
 color:#fff;padding:2%;
 }
+.carousel {height:100%}
+.carousel-inner > .item {height:100%; width:100%}
 a.carousel-control {padding-top:10% }
 
 .package-box-title { color:#FFFFAF; text-align:center; height: 10%;
