@@ -35,5 +35,5 @@
       -if is_admin?
         %p            
           = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
-        
+          = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"       
           = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
