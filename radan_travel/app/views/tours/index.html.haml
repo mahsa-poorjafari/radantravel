@@ -1,6 +1,6 @@
 %h1 لیست تورها
 -if is_admin?
-  = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-primary"
+  = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
   
 .sho-tours.col-xs-12
   - @tours.each_with_index do |tour|
@@ -22,7 +22,15 @@
               \|
               = tour.city.country.title
           %p= tour.price
-          %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+          - if tour.validate_date_from.present? && tour.validate_date_until.present?
+            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+          - elsif tour.validate_date_from.present?
+            %b= t('tour.validate_date_from')
+            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+          - elsif   tour.validate_date_until.present?
+            %b= t('tour.validate_date_until')
+            %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+          
       -if is_admin?
         %p            
           = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
