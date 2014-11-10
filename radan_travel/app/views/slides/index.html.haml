@@ -1,11 +1,13 @@
 - if is_admin?
-  = link_to 'افزودن تصویر به اسلایدر', new_slide_path, :class => "btn"
+  = link_to 'افزودن تصویر به اسلایدر', new_slide_path, :class => "btn btn-success"
 .coin-slider#coin-slider-slider  
-  #slider
+  #slider{:style => "margin:3%"}
     - Slide.all.each do |slide|
       = link_to '#' do
-        = image_tag slide.image(:slide_size)
+        = image_tag slide.image(:medium)
         %span= slide.text
+      = link_to 'ویرایش', edit_slide_path(slide), :class => "btn btn-info"      
+      = link_to 'حذف', slide, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
 :javascript
   $(document).ready(function() {
   $('#slider').coinslider({ hoverPause: false });
