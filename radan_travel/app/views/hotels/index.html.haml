@@ -1,30 +1,20 @@
-%h1 لیست هتل ها
--if is_admin?
-  = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn"
-%table.table
-  %tr
-    %th ردیف
-    %th نام هتل    
-    %th شهر محل هتل
-    %th درجه هتل
-    %th امکانات هتل
-    %th     
-    %th عملیات
+.margin3
+  %h1 لیست هتلها
+  -if is_admin?
+    = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success"
     
-
-  - @hotels.each_with_index do |hotel, i|
-    %tr
-      %td= (i+1)
-      %td= hotel.title      
-      %td= hotel.city.title
-      %td= hotel.hotel_grade
-      %td= hotel.hotel_facilities
-      %td= image_tag hotel.photos.first.image(:small)
-      %td
-        = link_to 'مشاهده', hotel
-        = link_to 'Edit', edit_hotel_path(hotel)
-        = link_to 'Destroy', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-
-
+  .show-tours.col-xs-12.set-center
+    - @hotels.each_with_index do |hotel|
+      .tour-box.well
+        = link_to hotel do
+          %h3= hotel.title 
+          .clear-float
+          %p= hotel.city.title                    
+          %p= hotel.hotel_grade                    
+          = image_tag hotel.photos.first.image(:medium)
+          
+        -if is_admin?
+          .admin-btn-tour
+            = link_to 'مشاهده', hotel, :class => "btn btn-warning"       
+            = link_to 'ویرایش', edit_hotel_path(hotel), :class => "btn btn-info"
+            = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"

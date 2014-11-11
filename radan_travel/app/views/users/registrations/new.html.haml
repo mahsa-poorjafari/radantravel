@@ -1,17 +1,19 @@
-%h2 ثبت نام در سایت
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %div
-    = f.label 'ایمیل خود را وارد کنید.'
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label 'رمز عبور خود'
-    %br/
-    = f.password_field :password
-  %div
-    = f.label 'تکرار رمز عبور'
-    %br/
-    = f.password_field :password_confirmation
-  %div= f.submit "ثبت نام"
-= render "users/shared/links"
+.margin3
+  %h2 ثبت نام در سایت
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label 'ایمیل خود را وارد کنید.', :class => "control-label"
+      %br/
+      = f.email_field :email, :autofocus => true, :class => "form-control"
+    .form-group
+      = f.label 'رمز عبور خود', :class => "control-label"
+      %br/
+      = f.password_field :password, :class => "form-control"
+    .form-group
+      = f.label 'تکرار رمز عبور', :class => "control-label"
+      %br/
+      = f.password_field :password_confirmation, :class => "form-control"
+    form-group
+      = f.submit "ثبت نام", :class => "btn btn-primary"
+  = render "users/shared/links"

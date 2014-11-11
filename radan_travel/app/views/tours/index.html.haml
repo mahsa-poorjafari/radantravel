@@ -1,39 +1,43 @@
-%h1 لیست تورها
--if is_admin?
-  = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
-  
-.sho-tours.col-xs-12
-  - @tours.each_with_index do |tour|
-    .col-xs-4.tour-box
-      %h3= tour.title 
-      = image_tag tour.photos.first.image(:medium)
-      .clear-float
-      - if tour.validate_date_from.present? && tour.validate_date_until.present?
-        %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-      - elsif tour.validate_date_from.present?
-        %b= t('tour.validate_date_from')
-        %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-      - elsif   tour.validate_date_until.present?
-        %b= t('tour.validate_date_until')
-        %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
-          
-      -#
+.margin3
+  %h1 لیست تورها
+  -if is_admin?
+    = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
+    
+  .show-tours.col-xs-12.set-center
+    - @tours.each_with_index do |tour|
+      .tour-box.well
         = link_to tour do
-          %p
-            - if tour.plane_id.present?
-              = tour.plane.title
-          %p
-            - if tour.hotel_id.present?
-              = tour.hotel.title  
-          %p
-            - if tour.city_id.present?
-              = tour.city.title
-              \|
-              = tour.city.country.title
-          %p= tour.price
-          
-      -if is_admin?
-        %p            
-          = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
-          = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"       
-          = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+          %h3= tour.title 
+          = image_tag tour.photos.first.image(:medium)
+          .clear-float
+          .tour-date
+            - if tour.validate_date_from.present? && tour.validate_date_until.present?
+              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+            - elsif tour.validate_date_from.present?
+              %b= t('tour.validate_date_from')
+              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+            - elsif   tour.validate_date_until.present?
+              %b= t('tour.validate_date_until')
+              %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+        -if is_admin?
+          .admin-btn-tour
+            = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
+            = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"       
+            = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+      
+        -#
+          = link_to tour do
+            %p
+              - if tour.plane_id.present?
+                = tour.plane.title
+            %p
+              - if tour.hotel_id.present?
+                = tour.hotel.title  
+            %p
+              - if tour.city_id.present?
+                = tour.city.title
+                \|
+                = tour.city.country.title
+            %p= tour.price
+            
+       

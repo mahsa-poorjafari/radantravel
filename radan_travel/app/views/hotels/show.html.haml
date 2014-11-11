@@ -1,24 +1,27 @@
-%p#notice= notice
+.margin3  
+  .col-xs-12
+    %h1   
+      = @hotel.title
+    %p
+      %b توضیحات تکمیلی
+      =raw @hotel.text
+    %p
+      %b شهر محل هتل
+      = @hotel.city.title
+    %p
+      %b درجه هتل
+      = @hotel.hotel_grade
+    %p
+      %b امکانات هتل
+      = @hotel.hotel_facilities
+  .col-xs-12
+    - @hotel.photos.each do |pic|      
+      .image-row
+        .image-set
+          = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "hotel-img", :title => 'آژانس هواپیمایی رادان سیر_' + @hotel.title do
+            = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @hotel.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @hotel.title
+        
+    -if is_admin?
+      .admin-btn-tour
+        = link_to 'ویرایش', edit_hotel_path(@hotel), :class => "btn btn-info"
 
-%p
-  %b نام هتل
-  = @hotel.title
-%p
-  %b توضیحات تکمیلی
-  =raw @hotel.text
-%p
-  %b شهر محل هتل
-  = @hotel.city.title
-%p
-  %b درجه هتل
-  = @hotel.hotel_grade
-%p
-  %b امکانات هتل
-  = @hotel.hotel_facilities
-.row-fluid
-  - @hotel.photos.each do |pic|
-    .span6
-      = image_tag pic.image(:medium)
-= link_to 'Edit', edit_hotel_path(@hotel)
-\|
-= link_to 'Back', hotels_path
