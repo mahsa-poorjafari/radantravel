@@ -19,15 +19,24 @@
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
-        = label_tag t('tour-country')
-        = select_tag :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید"
-        = label_tag t('tour-city')
-        = select_tag :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
-        = label_tag t('tour-from')
-        = text_field_tag :search, params[:search], :class => "fa_date"
-        = label_tag t('tour-until')
-        = text_field_tag :search, params[:search], :class => "fa_date"
-        = submit_tag t('tour-search'), :name => nil, :id => "tour-submit" , :class => "btn"
+        .col-xs-2
+          = label_tag t('tour-country')        
+        .col-xs-2
+          = text_field_tag :country, params[:country], :class => "form-control"
+        .col-xs-2
+          = label_tag t('tour-price')
+        .col-xs-2
+          = text_field_tag :price, params[:price]
+        .col-xs-2
+          = label_tag t('tour-from')
+        .col-xs-2
+          = text_field_tag :start_date, params[:start_date], :class => "fa_date"
+        .col-xs-2
+          = label_tag t('tour-until')
+        .col-xs-2
+          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date"
+        .col-xs-2
+          = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"
   
   
 
@@ -42,11 +51,21 @@
           .item
             .col-xs-3
               = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
-              -#
-                .tour-hover
-                  %p= tour.title
-                  %p= tour.city.title
-                  %p= tour.price
+              
+              .tour-hover
+                %p.tour-title= tour.title
+                - if tour.validate_date_from.present? && tour.validate_date_until.present?
+                  %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+                - elsif tour.validate_date_from.present?
+                  
+                  %p.col-xs-7= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+                  %b.col-xs-5= t('tour.validate_date_from')
+                  .clear-float
+                - elsif   tour.validate_date_until.present?
+                  
+                  %p.col-xs-7= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")  
+                  %b.col-xs-5= t('tour.validate_date_until')
+                  .clear-float
           
       = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
         = image_tag 'prev.png'

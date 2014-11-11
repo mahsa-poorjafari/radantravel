@@ -63,7 +63,8 @@ background-repeat:repeat-x;
 
 .falgs { width:50%; position:absolute; bottom:20%; right:34%; z-index:100}
 .falgs img { float:right; margin:5%}
-.falgs img:hover { cursor:pointer; -webkit-box-shadow: 0 8px 6px -6px black;
+.falgs img:hover { cursor:pointer;
+  -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black;}
 .admin-menu {background:#A52A2A;  height:50px; position:absolute; top:7%; left:0; width:20%;
@@ -125,6 +126,8 @@ overflow: hidden}
 .item .col-xs-3 .tour-hover {position:absolute; top:0; width:91%; background:#1A1A1A; opacity:.7; 
 color:#fff;padding:2%;
 }
+.item .col-xs-3 .tour-hover p.tour-title {text-align:center; font-size:18px; font-weight:bold}
+.item .col-xs-3 .tour-hover p {text-align:center; }
 .carousel {height:100%}
 .carousel-inner > .item {height:100%; width:100%}
 a.carousel-control {padding-top:10% }
@@ -195,6 +198,7 @@ h1.title-tours {margin:2%; text-align:center;}
 .tour-details {margin-top:10%; width:100%}
 .tour-details p{text-align:justify}
 .tour-details .tour-img{border-radius:5px; margin:1%}
+
 .tour-details .tour-img img{border-radius:5px; margin:1%; 
   -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
@@ -205,4 +209,37 @@ box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 .country-show {height:400px}
 .country-show.fa p {direction:rtl; font-family: 'open_sansregular';}
 
-.tour-box {overflow:hidden}
+.tour-box {
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  overflow:hidden; margin:2%; width:28%; float:right; height:450px; position:relative}
+.tour-box img {width:90%; height:75%; position:absolute; top:20%; border-radius:9px;
+  -webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  transition: transform 1s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  }
+.tour-box:hover {background:#ADD8E6; color:#282437; }
+.tour-box:hover a{ color:#282437;}
+.tour-box:hover a:hover{ color:#282437;}
+.tour-box:hover img{ 
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );}
+.tour-box h3 {width:90%;  position:absolute; text-align:center; top:0;}
+.tour-box .tour-date {width:90%; position:absolute;  text-align:center; top:15%; }
+.tour-box .admin-btn-tour {width:90%; position:absolute;  bottom:0; }
+
+
+
+.hotel-img { margin:1%; overflow:hidden; width:30%; float:right;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;
+  }
+.hotel-img img{border-radius:5px;}
