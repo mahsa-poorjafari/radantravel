@@ -7,9 +7,10 @@
       .col-xs-5
         .image-row
           .image-set
-            - @tour.photos.each do |pic| 
-              = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-                = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
+            - if @tour.photos.present?
+              - @tour.photos.each do |pic| 
+                = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+                  = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
       .col-xs-7
         -#
           %p

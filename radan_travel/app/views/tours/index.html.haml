@@ -7,8 +7,9 @@
     - @tours.each_with_index do |tour|
       .tour-box.well
         = link_to tour do
-          %h3= tour.title 
-          = image_tag tour.photos.first.image(:medium)
+          %h3= tour.title
+          - if tour.photos.present?
+            = image_tag tour.photos.first.image(:medium)
           .clear-float
           .tour-date
             - if tour.validate_date_from.present? && tour.validate_date_until.present?
