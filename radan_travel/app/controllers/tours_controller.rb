@@ -11,7 +11,16 @@ class ToursController < ApplicationController
   # GET /tours/1.json
   def show
   end
-
+  def search
+    country = params[:country]
+    price = params[:price]
+    start_date = params[:start_date]
+    exp_date = params[:exp_date]
+    
+    if country || price || start_date || exp_date
+      @tour_result = Tour.search(country, price, start_date, exp_date)
+    end 
+  end
   # GET /tours/new
   def new
     @tour = Tour.new

@@ -48,4 +48,9 @@ class Tour < ActiveRecord::Base
       self.read_attribute("itinerary_fa")
     end    
   end
+  
+  def self.search(country, price, start_date, exp_date)
+    country_condition = "%" + country + "%"  
+    find(:all, :conditions => ['title_fa LIKE ? OR title_en LIKE ? OR title_ar LIKE ?', country_condition, country_condition, country_condition])
+  end
 end

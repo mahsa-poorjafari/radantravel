@@ -18,7 +18,7 @@
           = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
         
     #search.tab-pane.fade{:role => "tabpanel"} 
-      = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
+      = form_tag search_tours_path, :method => "post", id: "search-tour" do 
         .col-xs-2
           = label_tag t('tour-country')        
         .col-xs-2
@@ -50,7 +50,8 @@
         - @tours.each do |tour|
           .item
             .col-xs-3
-              = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
+              - if tour.photos.present?
+                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
               
               .tour-hover
                 %p.tour-title= tour.title

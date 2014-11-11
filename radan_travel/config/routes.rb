@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
     resources :countries
 
-    resources :tours
+    resources :tours do
+      collection do
+        get :search
+      end
+    end
 
     resources :photos
 
