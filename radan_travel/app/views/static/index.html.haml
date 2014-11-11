@@ -19,24 +19,26 @@
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-2
-          = label_tag t('tour-country')        
+        .col-xs-1
+          = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"
         .col-xs-2
           = text_field_tag :country, params[:country], :class => "form-control"
+        .col-xs-1{:style => "width:4%"}
+          = label_tag t('tour-country')
         .col-xs-2
+          = text_field_tag :price, params[:price], :class => "form-control"
+        .col-xs-1{:style => "width:4%"}
           = label_tag t('tour-price')
         .col-xs-2
-          = text_field_tag :price, params[:price]
-        .col-xs-2
+          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control"
+        .col-xs-1
           = label_tag t('tour-from')
         .col-xs-2
-          = text_field_tag :start_date, params[:start_date], :class => "fa_date"
-        .col-xs-2
+          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control"
+        .col-xs-1
           = label_tag t('tour-until')
-        .col-xs-2
-          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date"
-        .col-xs-2
-          = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"
+        
+       
   
   
 
