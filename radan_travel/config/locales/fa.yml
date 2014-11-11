@@ -38,3 +38,7 @@ fa:
     validate_date_until: 'تاریخ اعتبار تا'
     validate_date_from: 'تاریخ اعتبار از'
     search: 'نتیجه جستجو تور'
+  tour_comment:
+    user-name: 'نام شما:'
+    text: 'نظر شما'
+  

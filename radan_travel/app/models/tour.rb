@@ -9,6 +9,7 @@ class Tour < ActiveRecord::Base
   belongs_to :city
   
   has_many :photos, dependent: :destroy
+  has_many :tour_comments
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   
   def title
@@ -49,21 +50,22 @@ class Tour < ActiveRecord::Base
     end    
   end
   
-  def self.search(country, price, start_date, exp_date)
+  
+  
+  def self.by_country(country)    
     country_condition = "%" + country + "%"  
-    price_condition = "%" + price + "%"      
-    start_date_condition = Date.parse(start_date)
-    if country_condition
-      self.where("title_fa LIKE ? OR title_en LIKE ? OR title_ar LIKE ?", country_condition, country_condition, country_condition)
-      #find(:all, :conditions => ['title_fa LIKE ? OR title_en LIKE ? OR title_ar LIKE ?', country_condition, country_condition, country_condition])    
-    end
-    if price_condition
-      self.where("price LIKE ? ", price_condition)
-    end
-    if start_date_condition
-      p  self.where(:validate_date_from => start_date_condition.beginning_of_day..start_date_condition.end_of_day)
-    
-    end   
-    
+    country_condition.blank? ? all : where("title_fa LIKE ? OR title_en LIKE ? OR title_ar LIKE ?", country_condition,country_condition,country_condition)
   end
+  def self.by_price(amount)    
+    amount.blank? ? all : where("price>#{amount}")
+  end
+  def self.by_start_date(start_date)
+    
+    start_date.blank? ? all : where(validate_date_from:  start_date..Date.today + 1.month)
+  end
+  def self.by_exp_date(exp_date)
+    
+    exp_date.blank? ? all : where(validate_date_until:  exp_date..Date.today + 2.month)
+  end
+  
 end

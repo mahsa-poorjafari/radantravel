@@ -29,14 +29,16 @@
           = text_field_tag :price, params[:price], :class => "form-control"
         .col-xs-1{:style => "width:4%"}
           = label_tag t('tour-price')
-        .col-xs-2
-          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control"
-        .col-xs-1
-          = label_tag t('tour-from')
+        
         .col-xs-2
           = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control"
         .col-xs-1
           = label_tag t('tour-until')
+        
+        .col-xs-2
+          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control"
+        .col-xs-1
+          = label_tag t('tour-from')
         
        
   

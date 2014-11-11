@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User name:
+  = @tour_comment.user_name
+%p
+  %b Tour:
+  = @tour_comment.tour_id
+%p
+  %b Text:
+  = @tour_comment.text
+
+= link_to 'Edit', edit_tour_comment_path(@tour_comment)
+\|
+= link_to 'Back', tour_comments_path

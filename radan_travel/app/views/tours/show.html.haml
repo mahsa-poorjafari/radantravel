@@ -81,9 +81,13 @@
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
                   
          
-        %p
+        %div
           %h2= t('tour.description')
           =raw @tour.description
+          %div
+            %h3= 'نظر خود را درباره این تور وارد کنید.'
+            = render 'tour_comments/form', :tour_comment => TourComment.new
         %p
           - if is_admin?
             = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info"
+        
