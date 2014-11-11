@@ -57,6 +57,8 @@ en:
     validate_date_until: 'Exp Date Until'
     validate_date_from: 'Start Date From'
     search: 'Tour Result'
-    
+  tour_comment:
+    user-name: 'Your Name:'
+    text: 'Your Text'
   
   

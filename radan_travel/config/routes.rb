@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
  
 
+  resources :tour_comments
+
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides
