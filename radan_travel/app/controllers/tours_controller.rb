@@ -14,12 +14,17 @@ class ToursController < ApplicationController
   def search
     country = params[:country]
     price = params[:price]
-    start_date = params[:start_date]
-    exp_date = params[:exp_date]
+    p '-----------'
+    p start_date = params[:start_date]
+    
+    p '==============='
+    p exp_date = params[:exp_date]
     
     if country || price || start_date || exp_date
       @tour_result = Tour.search(country, price, start_date, exp_date)
     end 
+    
+    
   end
   # GET /tours/new
   def new
