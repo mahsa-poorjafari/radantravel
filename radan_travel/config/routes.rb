@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     resources :tours do
       collection do
-        get :search
+        post :search
       end
     end
 
