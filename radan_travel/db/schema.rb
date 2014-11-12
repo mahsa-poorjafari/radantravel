@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111121001) do
+ActiveRecord::Schema.define(version: 20141112060908) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20141111121001) do
     t.integer  "price"
     t.date     "validate_date_from"
     t.date     "validate_date_until"
-    t.boolean  "coming_soon",         default: false
+    t.boolean  "coming_soon",                   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_fa"
@@ -191,6 +191,10 @@ ActiveRecord::Schema.define(version: 20141111121001) do
     t.text     "documents_fa"
     t.text     "documents_en"
     t.text     "documents_ar"
+    t.string   "decription_image_file_name"
+    t.string   "decription_image_content_type"
+    t.integer  "decription_image_file_size"
+    t.datetime "decription_image_updated_at"
   end
 
   create_table "users", force: true do |t|

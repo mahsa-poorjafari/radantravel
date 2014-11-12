@@ -11,7 +11,8 @@ class Tour < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :tour_comments
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
-  
+  has_attached_file :decription_image, :styles => {  :medium => "450x450>", :small => "300x350>" }
+  validates_attachment_content_type :decription_image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")

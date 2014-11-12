@@ -79,6 +79,11 @@
         = f.text_area :documents_ar, :class => "ckeditor"
     .col-xs-12
       %h2= 'توضیحات تکمیلی'
+      .form-group
+        %i= 'اگر به توضیحات در قالب تصویر می باشد. از کادر زیر تصویر موردنظر را بارگذاری نمایید.'
+        = f.label 'تصویر توضیحات', :class => "control-label"
+        = f.file_field :decription_image, :class => "form-control"        
+      
       .form-group.editor
         = f.label 'متن فارسی', :class => "control-label"
         = f.text_area :description_fa, :class => "ckeditor"

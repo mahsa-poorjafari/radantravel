@@ -83,6 +83,9 @@
          
         %div
           %h2= t('tour.description')
+          - if @tour.decription_image.present?
+            = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+              = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
           =raw @tour.description
           %div
             %h3= 'نظر خود را درباره این تور وارد کنید.'
