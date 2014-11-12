@@ -256,3 +256,13 @@ box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
   box-shadow: 0 8px 6px -6px black;
   }
 .hotel-img img{border-radius:5px;}
+
+.tour-comments {
+  height:400px;
+  padding:1%; border-radius:5px;
+  margin:2%;
+  background-image: url(image-path('halftone.png'));
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+}

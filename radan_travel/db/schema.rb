@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112060908) do
+ActiveRecord::Schema.define(version: 20141112070512) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20141112060908) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "confirm_comment", default: false
   end
 
   create_table "tours", force: true do |t|

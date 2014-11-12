@@ -57,7 +57,7 @@
               - if tour.photos.present?
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
               
-              .tour-hover
+              .tour-hover{:class => I18n.locale}
                 %p.tour-title= tour.title
                 - if tour.validate_date_from.present? && tour.validate_date_until.present?
                   %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")

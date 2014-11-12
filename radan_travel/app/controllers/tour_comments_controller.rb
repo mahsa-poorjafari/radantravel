@@ -26,15 +26,11 @@ class TourCommentsController < ApplicationController
   def create
     @tour_comment = TourComment.new(tour_comment_params)
 
-    respond_to do |format|
-      if @tour_comment.save
-        format.html { redirect_to @tour_comment, notice: 'Tour comment was successfully created.' }
-        format.json { render :show, status: :created, location: @tour_comment }
-      else
-        format.html { render :new }
-        format.json { render json: @tour_comment.errors, status: :unprocessable_entity }
-      end
+   
+    if @tour_comment.save
+      redirect_to :back
     end
+    
   end
 
   # PATCH/PUT /tour_comments/1
