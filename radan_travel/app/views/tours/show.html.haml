@@ -49,7 +49,7 @@
             %b قیمت
             = @tour.price
         %p
-          %h2= t('tour.itinerary')
+          %h2{:class => I18n.locale}= t('tour.itinerary')
           / Large modal
           %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"}= t('tour.show')
           .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -66,7 +66,7 @@
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
           
         %p
-          %h2= t('tour.documents')
+          %h2{:class => I18n.locale}= t('tour.documents')
           
           / Button trigger modal
           %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
@@ -87,7 +87,7 @@
                   
          
     .col-xs-12
-      %h2= t('tour.description')
+      %h2{:class => I18n.locale}= t('tour.description')
       - if @tour.decription_image.present?
         = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
           = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
@@ -96,7 +96,7 @@
       .col-xs-5 
       .col-xs-7
         .tour-comments
-          %h3= 'نظر خود را درباره این تور وارد کنید.'            
+          %h3{:class => I18n.locale}= t('tour_comment.your-comment')
           = render 'tour_comments/form', :tour_comment => TourComment.new
         .show_comments
           - @tour.tour_comments.each do |comment|
