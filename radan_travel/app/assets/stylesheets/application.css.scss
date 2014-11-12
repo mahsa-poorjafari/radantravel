@@ -24,7 +24,7 @@ body {padding:0; margin:0;}
   position:fixed; height:100%; width:100%;
   padding:2%; margin:0;
   z-index:0;
-  background-image: url(image-path('halftone.png'));
+  background-image: url(image-path('textured_paper.png'));
   background-repeat: repeat;
   background-attachment: fixed;
   background-position: center;
@@ -65,8 +65,9 @@ left: 23%;}
    text-shadow: 2px 2px 1px #1A1A1A;
 }
 .coming-soon {width:50%; position:absolute; top:0; right:auto; text-align:center; left:23%;
-  color:#fff; font-size:50px;text-shadow: 2px 2px 1px #1A1A1A;
+   font-size:50px;
 }
+.coming-soon h2 {color:#181152;}
 
 .falgs {width: 17%;
 position: absolute;
