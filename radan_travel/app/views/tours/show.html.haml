@@ -2,16 +2,21 @@
   %h1.title-tours  
     =  @tour.title  
    
+  - if is_admin?
+    = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
   .tour-details
     .col-xs-12  
-      .col-xs-5
-        .image-row
-          .image-set
-            - if @tour.photos.present?
-              - @tour.photos.each do |pic| 
-                = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-                  = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
+      -#
+        .col-xs-5
+          .image-row
+            .image-set
+              - if @tour.photos.present?
+                - @tour.photos.first.image(:medium) do |pic| 
+                  = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+                    = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
       .col-xs-7
+        = render 'tours/slider_tumbnail', :tour => @tour
+      .col-xs-5
         -#
           %p
             - if @tour.city_id.present?          
@@ -81,16 +86,24 @@
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
                   
          
-        %div
-          %h2= t('tour.description')
-          - if @tour.decription_image.present?
-            = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-              = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
-          =raw @tour.description
-          %div
-            %h3= 'نظر خود را درباره این تور وارد کنید.'
-            = render 'tour_comments/form', :tour_comment => TourComment.new
-        %p
-          - if is_admin?
-            = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info"
+    .col-xs-12
+      %h2= t('tour.description')
+      - if @tour.decription_image.present?
+        = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+          = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
+      =raw @tour.description
+    .col-xs-12
+      .col-xs-5 
+      .col-xs-7
+        .tour-comments
+          %h3= 'نظر خود را درباره این تور وارد کنید.'            
+          = render 'tour_comments/form', :tour_comment => TourComment.new
+        .show_comments
+          - @tour.tour_comments.each do |comment|
+            .well
+              %b= comment.user_name
+              %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
+              %p= comment.text
+                   
+         
         
