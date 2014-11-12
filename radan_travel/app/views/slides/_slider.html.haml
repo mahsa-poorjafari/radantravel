@@ -5,27 +5,34 @@
     %div{:style => "position: relative; overflow: hidden; left: 0px; top: 0px; width: 100%; height: 400px;", :u => "slides"}
       %div
         = image_tag "image1.jpg", :u => "image", :style => "width:100%"     
+  -#
+    .hero-unit
+      .carousel.slide
+        .carousel-inner         
+          - @slides = Slide.all
+          - @slides.each do |slide|
+            .item-row.item
+              = image_tag slide.image(:slide_size), :id =>  slide.id , :class => "slide", :title => "آژانس هواپیمایی رادان سیر" , :alt =>  "آژانس هواپیمایی رادان سیر"                            
+        -if @slides.count > 1          
+          .carousel-controls
+            .center
+              %ol.carousel-indicator-list.carousel-indicators
+                -  @slides.each_with_index do |slide, index|
+                  %li{"data-slide-to" => "#{index}", "data-target" => "#homeCarousel", :class => "slide-indicator"}      
+          = link_to ".carousel", :class => "carousel-control left", "data-slide" => "prev", :title => "آژانس هواپیمایی" do
+            = image_tag 'next-icon.png', :alt => "آژانس هواپیمایی رادان سیر" , :title =>  "آژانس هواپیمایی" 
+          = link_to ".carousel", :class => "carousel-control right", "data-slide" => "next", :title => "آژانس هواپیمایی" do
+            = image_tag 'prev-icon.png', :alt => "آژانس هواپیمایی" , :title => "آژانس هواپیمایی" 
 
-  .hero-unit
-    .carousel.slide
-      .carousel-inner         
-        - @slides = Slide.all
-        - @slides.each do |slide|
-          .item-row.item
-            = image_tag slide.image(:slide_size), :id =>  slide.id , :class => "slide", :title => "آژانس هواپیمایی رادان سیر" , :alt =>  "آژانس هواپیمایی رادان سیر"                            
-      -if @slides.count > 1          
-        .carousel-controls
-          .center
-            %ol.carousel-indicator-list.carousel-indicators
-              -  @slides.each_with_index do |slide, index|
-                %li{"data-slide-to" => "#{index}", "data-target" => "#homeCarousel", :class => "slide-indicator"}      
-        = link_to ".carousel", :class => "carousel-control left", "data-slide" => "prev", :title => "آژانس هواپیمایی" do
-          = image_tag 'next-icon.png', :alt => "آژانس هواپیمایی رادان سیر" , :title =>  "آژانس هواپیمایی" 
-        = link_to ".carousel", :class => "carousel-control right", "data-slide" => "next", :title => "آژانس هواپیمایی" do
-          = image_tag 'prev-icon.png', :alt => "آژانس هواپیمایی" , :title => "آژانس هواپیمایی" 
+          
+  #sliderFrame
+    #slider
+      - @slides = Slide.all
+      - @slides.each do |slide|
+        = image_tag slide.image(:slide_size)
+      
+
 :javascript 
-  $(".item").first().addClass("active");
-  $(".slide-indicator").first().addClass("active");
-  $('.carousel').carousel();
-        
-
+  $('.mcBox').css('background-size', 'cover');
+  $('.mcSlc').css('background-size', 'cover');
+    
