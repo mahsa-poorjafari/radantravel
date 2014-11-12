@@ -1,22 +1,17 @@
 .margin3
-  %h1.title-tours  
-    =  @tour.title  
+  %h1.title-tours{:class => I18n.locale}=  @tour.title  
    
   - if is_admin?
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
   .tour-details
-    .col-xs-12  
-      -#
-        .col-xs-5
-          .image-row
-            .image-set
-              - if @tour.photos.present?
-                - @tour.photos.first.image(:medium) do |pic| 
-                  = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-                    = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
-      .col-xs-7
-        = render 'tours/slider_tumbnail', :tour => @tour
-      .col-xs-5
+    .col-xs-12        
+      .col-xs-9
+        %h2{:class => I18n.locale}= t('tour.description')
+        - if @tour.decription_image.present?
+          = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+            = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
+        =raw @tour.description
+      .col-xs-3
         -#
           %p
             - if @tour.city_id.present?          
@@ -31,23 +26,23 @@
               = t('plane') + @tour.plane.title
               
         - if @tour.validate_date_from.present? && @tour.validate_date_until.present?
-          %p= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
         - elsif @tour.validate_date_from.present?
           %b= t('tour.validate_date_from')
-          %p= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
         - elsif   @tour.validate_date_until.present?
           %b= t('tour.validate_date_until')
-          %p= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")      
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")      
         -#
           %p
           %b تاریخ اعتبار از
           = JalaliDate.new(@tour.validate_date_from)      
           %b الی
           = JalaliDate.new(@tour.validate_date_until)
-        -#
-          %p
-            %b قیمت
-            = @tour.price
+        
+        %p
+          %b قیمت
+          = @tour.price
         %p
           %h2{:class => I18n.locale}= t('tour.itinerary')
           / Large modal
@@ -86,18 +81,15 @@
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
                   
          
+      
     .col-xs-12
-      %h2{:class => I18n.locale}= t('tour.description')
-      - if @tour.decription_image.present?
-        = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-          = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
-      =raw @tour.description
-    .col-xs-12
-      .col-xs-5 
-      .col-xs-7
+      .col-xs-7        
+        = render 'tours/slider_tumbnail', :tour => @tour
+      .col-xs-5
         .tour-comments
           %h3{:class => I18n.locale}= t('tour_comment.your-comment')
           = render 'tour_comments/form', :tour_comment => TourComment.new
+      
         .show_comments
           - @tour.tour_comments.each do |comment|
             .well
