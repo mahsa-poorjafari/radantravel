@@ -1,4 +1,4 @@
-.upload-pic.col-xs-8      
+.upload-pic      
   = picture.file_field :image
   -if picture.object.image.present?
     = image_tag picture.object.image(:small) , :class => "enable_file_select" 
@@ -15,5 +15,5 @@
   .form-group  
     = picture.label "برای حذف این کادر روی آیکن سطل آشغال مقابل کلیک کنید.", :class => "control-label" 
     = picture.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task col-sm-3"
-.clear-float
+
 
