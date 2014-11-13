@@ -11,8 +11,26 @@ class Tour < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :tour_comments
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
+  
   has_attached_file :decription_image, :styles => {  :medium => "450x450>", :small => "300x350>" }
   validates_attachment_content_type :decription_image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  
+  has_attached_file :info,
+                    :url  => "/assets/circulars/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/circulars/:id/:style/:basename.:extension"
+  
+  validates_attachment_content_type :info,
+      
+      :content_type => ['application/txt', 'text/plain',
+      'application/pdf', 'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/vnd.oasis.opendocument.text',
+      'application/x-vnd.oasis.opendocument.text',
+      'application/rtf', 'application/x-rtf', 'text/rtf', 
+      'text/richtext', 'application/doc', 'application/docx', 'application/x-soffice', 'application/octet-stream'] ,
+      
+      :message => "نوع فایل نامعتبر است. فقط فایل پی دی اف مجاز است."
+  
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")
