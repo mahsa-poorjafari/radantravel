@@ -29,6 +29,14 @@ fa:
   country: 'لیست کشورها'
   city: 'شهرها'
   close: 'بستن پنجره'
+  
+  subscribe_to_newsletter: 'عضویت در خبرنامه'
+  newsletter_email: 'ایمیل خود را وارد نمایید.'
+  newsletter_set: 'ثبت ایمیل'
+  
+  customer_clube: 'جستجو در باشگاه مشتریان'
+  customer_name: 'نام مشتری را وارد کنید.'
+  search_customer: 'جستجو'
   tour:
     description: 'توضیحات تکمیلی'
     documents: 'مدارک مورد نیاز'
@@ -44,3 +52,11 @@ fa:
     text: 'نظر شما'
     your-comment: 'نظر خود را در باره این تور وارد کنید.'
   
+  msg:
+    contact-title:  'با ما در ارتباط باشید.'
+    contact-name:  'نام خود را وارد کنید.'
+    Required:  'ضروری'
+    contact-email:  'ایمیل خود را وارد کنید.'
+    contact-phone:  'تلفن خود را وارد کنید'
+    contact-msg:  'پیام خود را وارد کنید.'
+    contact-btn:  'ارسال پیام'

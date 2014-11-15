@@ -4,6 +4,7 @@ class StaticController < ApplicationController
   end
   def index
     @tours = Tour.all
+    @contact = Page.find_by_title_en('Contact us')
     p'--------------'
     p params[:locale]
     def set_locale     

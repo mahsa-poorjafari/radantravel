@@ -48,6 +48,14 @@ en:
   country: 'Countries List'
   city: 'Countries Cities'
   close: 'Close'
+  
+  subscribe_to_newsletter : 'Subscribe to Newsletter'
+  newsletter_email : 'Just Enter Your Email'
+  newsletter_set: 'Set Email'
+  
+  customer_clube: 'Search In Customer Clube'
+  customer_name: 'Enter The Customer Name'
+  search_customer: 'Search'
   tour:
     itinerary: 'Itinerary'
     documents: 'Documents'
@@ -61,5 +69,13 @@ en:
     user-name: 'Your Name:'
     text: 'Your Text'
     your-comment: 'Input Your Comment About This Tour'
-  
+  msg:
+    contact-title:  'Contact With Us'
+    contact-name:  'Enter Your Name'
+    Required:  'Required'
+    contact-email:  'Enter Your Email'
+    contact-phone:  'Enter Your Phone'
+    contact-msg:  'Enter Your Message'
+    contact-btn:  'Send'
+    
   
