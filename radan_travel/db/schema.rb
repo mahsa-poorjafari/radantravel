@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115065138) do
+ActiveRecord::Schema.define(version: 20141115091434) do
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20141115065138) do
     t.string   "country_flag_content_type"
     t.integer  "country_flag_file_size"
     t.datetime "country_flag_updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "hotels", force: true do |t|

@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
  
 
+  resources :customers do
+    collection do
+      post :search
+    end
+  end
+
   resources :messages
 
   resources :tour_comments

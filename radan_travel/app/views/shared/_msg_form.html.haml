@@ -13,16 +13,14 @@
   
       
   -if flash[:notice]        
-    .send-coment= notice
+    .alert.alert-success= flash[:notice]
       
   
-  .contact-field.col-xs-6
-    
+  .contact-field.col-xs-6    
     %span.Necessary= t('msg.Required')
     = f.text_field :user_name, :placeholder => t('msg.contact-name') , :id => "contact-name", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"   
   
-  .contact-field.col-xs-6
-    
+  .contact-field.col-xs-6    
     %span.Necessary=  t('msg.Required')
     = f.text_field :phone, :placeholder => t('msg.contact-phone'), :id => "contact-phone", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"
   .contact-field

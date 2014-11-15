@@ -1,9 +1,12 @@
 .customer-clube{:style => "padding:2%"}
-  = form_tag '#', :method => "post", id: "customer_form" do   
+  = form_tag search_customers_path, :method => "post", id: "search-tour" do 
     .col-xs-3
-      = submit_tag t('search_customer') , :name => "customer_submit", :id => "customer-submit" , :class => "btn btn-info"
+      = submit_tag t('search_customer'), :name => "customer-submit", :id => "customer-submit" , :class => "btn btn-info"
     .col-xs-9
-      = text_field_tag :country, params[:name] , :placeholder => t('customer_name'),   :id => "customer-name"
+      = text_field_tag :name, params[:name] , :placeholder => t('customer_name'), :class => "form-control", :id => "customer-name"
+    
+            
+   
    
 
 :javascript 

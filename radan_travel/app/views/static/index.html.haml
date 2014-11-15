@@ -85,14 +85,15 @@
 .footer
   .col-xs-4
   
-    %h2= t('subscribe_to_newsletter')
+    %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
     = render 'shared/newsletter_subscribe'
     %br
-    %h2= t('customer_clube')
+    %h2{:class => I18n.locale}= t('customer_clube')
     = render 'shared/customer_clube'
   .col-xs-4.contact-info
     - if @contact.present?
-      =raw @contact.text
+      %div{:class => I18n.locale}
+        =raw @contact.text
       
   .col-xs-4
     = render 'shared/msg_form'
