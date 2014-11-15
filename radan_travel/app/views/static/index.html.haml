@@ -76,10 +76,26 @@
         = image_tag 'prev.png'
       = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
         = image_tag 'next.png'
-    #rm_mask_left.rm_mask_left
-    #rm_mask_right.rm_mask_right
-    #rm_corner_left.rm_corner_left
-    #rm_corner_right.rm_corner_right
+    -#
+      #rm_mask_left.rm_mask_left
+      #rm_mask_right.rm_mask_right
+      #rm_corner_left.rm_corner_left
+      #rm_corner_right.rm_corner_right
+.footer-space
+.footer
+  .col-xs-4
+  
+    %h2= t('subscribe_to_newsletter')
+    = render 'shared/newsletter_subscribe'
+    %br
+    %h2= t('customer_clube')
+    = render 'shared/customer_clube'
+  .col-xs-4.contact-info
+    - if @contact.present?
+      =raw @contact.text
+      
+  .col-xs-4
+    = render 'shared/msg_form'
           
 :javascript
   $('#package-tour :first').addClass('active');

@@ -1,0 +1,18 @@
+.newsletter{:style => "padding:2%"}
+  = form_tag '#', :method => "post", id: "newsletter_form" do   
+    .col-xs-3
+      = submit_tag t('newsletter_set') , :name => "newsletter_submit", :id => "newsletter-submit" , :class => "btn btn-info"
+    .col-xs-9
+      = text_field_tag :country, params[:email] , :placeholder => t('newsletter_email'),   :id => "newsletter_email"
+   
+:javascript 
+  $(function() { 
+    $(':submit#newsletter-submit').click(function(e) {
+      $(':text#newsletter_email, textarea#newsletter_email').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });

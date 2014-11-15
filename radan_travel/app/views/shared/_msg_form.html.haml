@@ -1,0 +1,53 @@
+
+%fieldset
+  %legend
+    %span.contact{:class => I18n.locale}= t('msg.contact-title')
+       
+    
+= form_for @message ||= Message.new do |f|
+  - if @message.errors.any?
+    #error_explanation
+      %ul
+        - @message.errors.each do |attr, msg|
+          %li= msg
+  
+      
+  -if flash[:notice]        
+    .send-coment= notice
+      
+  
+  .contact-field.col-xs-6
+    
+    %span.Necessary= t('msg.Required')
+    = f.text_field :user_name, :placeholder => t('msg.contact-name') , :id => "contact-name", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"   
+  
+  .contact-field.col-xs-6
+    
+    %span.Necessary=  t('msg.Required')
+    = f.text_field :phone, :placeholder => t('msg.contact-phone'), :id => "contact-phone", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"
+  .contact-field
+    
+    %span.Necessary= t('msg.Required')
+    = f.text_field :email, :placeholder => t('msg.contact-email'), :id => "contact-email", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"
+      
+  .contact-field
+    
+    %span.Necessary=  t('msg.Required')
+    = f.text_area :text, :placeholder => t('msg.contact-msg'), :id => "contact-text", :style => "resize: none; width:100%", rows: 4, :title => "آژانس هواپیمایی رادان سیر"
+    
+         
+  .contact-field
+    = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit"
+
+
+:javascript 
+  $(function() { 
+    $(':submit#contact-submit').click(function(e) {
+      $(':text#contact-name,:text#contact-phone, :text#contact-email, textarea#contact-text').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });

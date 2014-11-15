@@ -1,0 +1,19 @@
+.customer-clube{:style => "padding:2%"}
+  = form_tag '#', :method => "post", id: "customer_form" do   
+    .col-xs-3
+      = submit_tag t('search_customer') , :name => "customer_submit", :id => "customer-submit" , :class => "btn btn-info"
+    .col-xs-9
+      = text_field_tag :country, params[:name] , :placeholder => t('customer_name'),   :id => "customer-name"
+   
+
+:javascript 
+  $(function() { 
+    $(':submit#customer-submit').click(function(e) {
+      $(':text#customer-name, textarea#customer-name').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });
