@@ -1,0 +1,19 @@
+.margin3
+  %h1 لیست مشتریان
+  = link_to 'تعریف مشتری جدید', new_customer_path, :class => "btn btn-success"
+  
+  - @customers.each_with_index do |customer, i|
+    .well
+      %p= (i+1)
+      %p= customer.name
+      %p= customer.email
+      %p= customer.phone
+      %p= customer.address
+      %p= JalaliDate.new(customer.created_at).strftime("%y/%m/%e %X")
+      - if is_admin?
+        %p
+          = link_to 'ویرایش  اطلاعات مشتری', edit_customer_path(customer), :class => "btn btn-info"
+          = link_to 'مشاهده جزئیات', customer, :class => "btn btn-warning"       
+          = link_to 'حذف مشتری', customer, :method => :delete, :data => { :confirm => 'آیا می خواهید این مشتری را از حذف کنید؟' }, :class => "btn btn-danger"
+    
+         

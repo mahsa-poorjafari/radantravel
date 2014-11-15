@@ -1,0 +1,19 @@
+.margin3  
+  %p#notice= notice
+
+  %p
+    %b Name:
+    = @customer.name
+  %p
+    %b Email:
+    = @customer.email
+  %p
+    %b Phone:
+    = @customer.phone
+  %p
+    %b Address:
+    = @customer.address
+
+  = link_to 'Edit', edit_customer_path(@customer)
+  \|
+  = link_to 'Back', customers_path

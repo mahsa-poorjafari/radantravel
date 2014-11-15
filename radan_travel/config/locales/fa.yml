@@ -37,6 +37,9 @@ fa:
   customer_clube: 'جستجو در باشگاه مشتریان'
   customer_name: 'نام مشتری را وارد کنید.'
   search_customer: 'جستجو'
+  send-customer-email: 'شما عضو خبرنامه شدید.'
+  thanks: 'از اینکه مارا انتخاب کردید متشکر هستیم'
+  
   tour:
     description: 'توضیحات تکمیلی'
     documents: 'مدارک مورد نیاز'

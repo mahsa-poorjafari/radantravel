@@ -56,6 +56,8 @@ en:
   customer_clube: 'Search In Customer Clube'
   customer_name: 'Enter The Customer Name'
   search_customer: 'Search'
+  send-customer-email: 'Your Register Done'
+  thanks: 'Thank you, for choosing us'
   tour:
     itinerary: 'Itinerary'
     documents: 'Documents'

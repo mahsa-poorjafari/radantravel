@@ -1,9 +1,20 @@
-.newsletter{:style => "padding:2%"}
-  = form_tag '#', :method => "post", id: "newsletter_form" do   
+.newsletter{:style => "padding:2%"}  
+  = form_for @customer ||= Customer.new, id: "newsletter_form" do |f| 
+    - if  @customer.present? && @customer.errors.any?      
+      .alert.alert-danger{:role => "alert"}
+        %ul
+          - @customer.errors.each do |attr, msg|
+            %li= msg
+    - if flash[:Ncustomer].present?
+      .alert.alert-success
+        = flash[:Ncustomer]
+    - if flash[:Ecustomer].present?
+      .alert.alert-danger
+        = flash[:Ncustomer]
     .col-xs-3
-      = submit_tag t('newsletter_set') , :name => "newsletter_submit", :id => "newsletter-submit" , :class => "btn btn-info"
+      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn btn-info"
     .col-xs-9
-      = text_field_tag :country, params[:email] , :placeholder => t('newsletter_email'),   :id => "newsletter_email"
+      = f.text_field :email, :placeholder => t('newsletter_email'),   :id => "newsletter_email"
    
 :javascript 
   $(function() { 
