@@ -5,7 +5,28 @@
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
   .tour-details
     .col-xs-12        
-      
+      .col-xs-9        
+        - if @tour.validate_date_from.present? && @tour.validate_date_until.present?
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
+        - elsif @tour.validate_date_from.present?
+          %b= t('tour.validate_date_from')
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
+        - elsif   @tour.validate_date_until.present?
+          %b= t('tour.validate_date_until')
+          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")  
+        %p
+          %b قیمت
+          = @tour.price
+        - if @tour.info.url.present?
+          = link_to @tour.info.url, :target => "blank" do
+            %i= 'دریافت فایل '
+          
+        .clear-float    
+        %h2{:class => I18n.locale}= t('tour.description')
+        - if @tour.decription_image.present?
+          = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
+            = image_tag @tour.decription_image(:original), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
+        =raw @tour.description 
       .col-xs-3
         -#
           %p
@@ -66,29 +87,7 @@
                 .modal-footer
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
                   
-      .col-xs-9
-        
-        - if @tour.validate_date_from.present? && @tour.validate_date_until.present?
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
-        - elsif @tour.validate_date_from.present?
-          %b= t('tour.validate_date_from')
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
-        - elsif   @tour.validate_date_until.present?
-          %b= t('tour.validate_date_until')
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")  
-        %p
-          %b قیمت
-          = @tour.price
-        - if @tour.info.url.present?
-          = link_to @tour.info.url, :target => "blank" do
-            %i= 'دریافت فایل '
-          
-        .clear-float    
-        %h2{:class => I18n.locale}= t('tour.description')
-        - if @tour.decription_image.present?
-          = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-            = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title
-        =raw @tour.description 
+      
       
     .col-xs-12
       .col-xs-7        

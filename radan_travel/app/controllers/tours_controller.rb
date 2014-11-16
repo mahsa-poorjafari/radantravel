@@ -1,15 +1,27 @@
+# encoding: UTF-8
 class ToursController < ApplicationController
-  before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  before_action :set_tour, only: [:show, :edit, :update, :destroy, :sendtonewsletter]
 
   # GET /tours
   # GET /tours.json
   def index
     @tours = Tour.all
+    p '===================='
+    p @send_tour = params[:send_tour]
+    p '===================='
   end
 
   # GET /tours/1
   # GET /tours/1.json
   def show
+  end
+  def sendtonewsletter    
+    UserMailer.send_tour_info_to_newsletter(@tour).deliver 
+    p '-------------'
+    p @send_tour = @tour.id
+    p '-------------'
+    flash[:SendTN] = 'اطلاعات برای اعضا خبرنامه ارسال شد.'
+    redirect_to action: 'index', :send_tour => @send_tour
   end
   
   def search

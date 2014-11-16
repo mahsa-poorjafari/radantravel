@@ -1,7 +1,6 @@
-%h1 ویرایش اطلاعات یک کشور
+.margin3  
+  %h1 ویرایش اطلاعات یک کشور
 
-= render 'form'
-
-= link_to 'مشاهده', @country
-\|
-= link_to 'بازگشت', countries_path
+  = render 'form'
+  - if is_admin?
+    = link_to 'مشاهده', @country, :class => "btn btn-warning"      

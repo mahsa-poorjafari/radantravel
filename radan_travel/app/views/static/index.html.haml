@@ -47,7 +47,9 @@
 
 .imp-package.content
   .col-md-12.text-center
-  %h3.package-box-title= t('packages') 
+    %h3.package-box-title= t('packages') 
+ 
+ 
   .col-md-12.col-md-offset-3{:style => "height:100%"}
     #myCarousel.carousel.slide
       .carousel-inner#package-tour
@@ -106,16 +108,9 @@
   
   $('.fa_date').datepicker()
   
-  $(function() {
-    $(".auto .carousel").jCarouselLite({
-        auto: 800,
-        speed: 1000
-    });
-  });
-  
   $('#myCarousel').carousel({
-    interval: 5000
-  });
+    interval: 4000
+  })
 
   $('.carousel .item').each(function(){
     var next = $(this).next();
@@ -133,4 +128,3 @@
       next.children(':first-child').clone().appendTo($(this));
     }
   });
-  

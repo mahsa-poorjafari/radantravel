@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :customers do
     collection do
       post :search
+      post :send_email_to_all
     end
   end
 
@@ -26,6 +27,10 @@ Rails.application.routes.draw do
     resources :tours do
       collection do
         post :search
+        
+      end
+      member do
+        get :sendtonewsletter
       end
     end
 

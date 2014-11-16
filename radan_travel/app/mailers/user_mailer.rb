@@ -8,4 +8,8 @@ class UserMailer < ActionMailer::Base
     @customer = Customer.last
     mail(:to =>  @customer.email, :subject => "Radan Travel ", :from => "radanseir.agent@yahoo.com")
   end
+  def send_tour_info_to_newsletter(tour)    
+    @tour = tour
+    mail(:to =>  Customer.all.collect(&:email).join(','), :subject => "Radan Travel Newsletter", :from => "radanseir.agent@yahoo.com")
+  end
 end
