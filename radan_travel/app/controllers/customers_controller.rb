@@ -12,6 +12,14 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
   end
+  def send_email_to_all    
+    subject = params[:subject]    
+    text = params[:text]
+    UserMailer.email_to_all_customer(subject, text).deliver
+    flash[:ToAll] = 'پیام برای تمام اعضا خبرنامه ارسال شد'
+    else
+    redirect_to :back
+  end
   def search    
     customer_name = params[:name]
     if customer_name

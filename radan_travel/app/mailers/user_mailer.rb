@@ -12,4 +12,9 @@ class UserMailer < ActionMailer::Base
     @tour = tour
     mail(:to =>  Customer.all.collect(&:email).join(','), :subject => "Radan Travel Newsletter", :from => "radanseir.agent@yahoo.com")
   end
+  def email_to_all_customer(subject, text)
+    @text = text
+    @subject = subject
+    mail(:to =>  Customer.all.collect(&:email).join(','), :subject => @subject, :from => "radanseir.agent@yahoo.com")    
+  end
 end

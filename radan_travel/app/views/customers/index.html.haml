@@ -1,23 +1,27 @@
 .margin3
   %h1{:class => I18n.locale}=  'لیست مشتریان'
   = link_to 'تعریف مشتری جدید', new_customer_path, :class => "btn btn-success"
+  
   - if is_admin?      
-    
-    .col-xs-8.well
-      = form_tag send_email_to_all_customers_path, :method => "post", id: "customer-tour" do 
-        %h2{:class => I18n.locale}= 'ارسال پیام برای اعضای خبر نامه'
-        .clear-float        
-        
-        .form-group
-          = label_tag 'عنوان پیام'
-        .form-group
-          = text_field_tag :subject, params[:subject], :class => "form-control", :id => "customer-subject"
-        .form-group
-          = label_tag 'متن پیام'  
-        .form-group
-          = text_area_tag :text, params[:text], :class => "form-control", :id => "customer-text"
-        .form-group
-          = submit_tag 'ارسال پیام', :name => "tour_submit", :id => "customer-submit" , :class => "btn btn-info"
+    .col-xs-3
+      - if flash[:ToAll].present?
+        .alert.alert-success= flash[:ToAll]
+    .col-xs-8
+      .well
+        = form_tag send_email_to_all_customers_path, :method => "post", id: "customer-tour" do 
+          %h2{:class => I18n.locale}= 'ارسال پیام برای اعضای خبر نامه'
+          .clear-float        
+          
+          .form-group
+            = label_tag 'عنوان پیام'
+          .form-group
+            = text_field_tag :subject, params[:subject], :class => "form-control", :id => "customer-subject"
+          .form-group
+            = label_tag 'متن پیام'  
+          .form-group
+            = text_area_tag :text, params[:text], :class => "form-control", :id => "customer-text"
+          .form-group
+            = submit_tag 'ارسال پیام', :name => "tour_submit", :id => "customer-submit" , :class => "btn btn-info"
     
     .clear-float
   %table.table.table-striped{id:"customer_table"}
