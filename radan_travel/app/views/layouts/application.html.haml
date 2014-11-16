@@ -29,4 +29,6 @@
         .yield{:class => I18n.locale}
           = yield
      
-          
+    - if is_admin?
+      .admin-menu
+        = render 'shared/admin_menu'
