@@ -23,8 +23,13 @@
         -if is_admin?
           .admin-btn-tour
             = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
-            = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"       
+            = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"                   
             = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+            = link_to 'ارسال به اعضا خبرنامه', sendtonewsletter_tour_path(tour), :class => "btn btn-default"       
+            - @send_tour = @send_tour.to_i            
+            - if @send_tour.present? && @send_tour == tour.id
+              .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
+            
       
         -#
           = link_to tour do

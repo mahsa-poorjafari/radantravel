@@ -19,6 +19,7 @@ gem 'ckeditor'
 gem 'devise'
 gem "farsifu"
 gem 'jalalidate'
+gem 'jquery-datatables-rails', '~> 2.1.10.0.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

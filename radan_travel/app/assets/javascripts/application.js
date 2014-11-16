@@ -15,4 +15,5 @@
 //= require jquery.ui.all
 //= require ckeditor/init
 //= require jquery_nested_form
+//= require dataTables/jquery.dataTables
 //= require_tree .

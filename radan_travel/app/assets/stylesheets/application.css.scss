@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require jquery.ui.all
+ *= require dataTables/jquery.dataTables
  *= require_tree .
  *= require_self
  */
@@ -289,3 +290,4 @@ box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 .footer .customer-clube input:focus, textarea:focus, submit{ background:#fff;  color:#1A1A1A;}
 .footer .contact-info {overflow-y:hidden; height:330px; color:#fff; }
 .footer .contact-info p{color:#fff;line-height:2em; text-align:justify}
+
