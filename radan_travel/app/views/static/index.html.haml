@@ -83,15 +83,24 @@
       #rm_mask_right.rm_mask_right
       #rm_corner_left.rm_corner_left
       #rm_corner_right.rm_corner_right
-.footer-space
+
 .footer
-  .col-xs-4
-  
+  .col-xs-4  
     %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
     = render 'shared/newsletter_subscribe'
     %br
     %h2{:class => I18n.locale}= t('customer_clube')
     = render 'shared/customer_clube'
+    %h2{:class => I18n.locale}= 'تعداد بازدید تا کنون'
+    %p
+      %b= 'کل بازدیدها'
+      =  Visit.all.count
+    %p
+      %b= 'بازدیدهای امروز'
+      =  @online_day
+    %p
+      %b= 'تعداد نفر آنلاین'
+      = @online_now
   .col-xs-4.contact-info
     - if @contact.present?
       %div{:class => I18n.locale}

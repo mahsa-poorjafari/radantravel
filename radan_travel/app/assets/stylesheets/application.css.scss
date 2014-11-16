@@ -82,7 +82,8 @@ text-align: center;}
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
   box-shadow: 0 8px 6px -6px black;}
-.admin-menu {background:#A52A2A;  height:50px; position:absolute; top:7%; left:0; width:20%;
+.admin-menu {background:#A52A2A;  height:50px; position:fixed; top:7%; left:0; width:20%;
+  z-index:200;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
     padding:1%;
@@ -118,7 +119,7 @@ background-repeat:repeat;
 background-repeat:repeat;
 } 
 .menu_bar {
-  background-image:url(image-path('footer_lodyas1.png'));
+  background-image:url(image-path('zwartevilt.png'));
   position: absolute;
   top: 0;
   width: 100%;
@@ -126,12 +127,12 @@ background-repeat:repeat;
 
 /* showing important package  */
 .imp-package {width:100%; height:320px; overflow:hidden; position:relative; margin-top: 70px;
- background-image:url(image-path('outlets.png'))}
+ background-image:url(image-path('zwartevilt.png'))}
 .imp-package .tour-info {width:20%; float:right; height:90%; margin:2%; border:red solid 1px}
 
 
 /* tabs-on-slider */
-.tabs-on-slider {position:absolute; width:100%; height:100px; top:-50px; z-index:200; color:#000;}
+.tabs-on-slider {position:absolute; width:100%; height:100px; top:-67px; z-index:200; color:#000;}
 #reserv-form input, label, select{ float:right; margin-right:1%}
 .hero-unit {position: absolute;
 width: 100%;
@@ -270,6 +271,7 @@ box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 }
 .footer-space {position:relative}
 .footer {
+  position:relative;
   width:100%; 
   padding-top:5%;
   bottom:0; left:0; right:0;

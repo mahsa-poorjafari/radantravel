@@ -3,6 +3,7 @@ class Tour < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_fa
   extend PersianNumbers
+  
   persian_dates :validate_date_from, :validate_date_until
   belongs_to :hotel
   belongs_to :plane
