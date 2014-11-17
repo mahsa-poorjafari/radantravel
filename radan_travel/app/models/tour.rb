@@ -28,9 +28,10 @@ class Tour < ActiveRecord::Base
       'application/vnd.oasis.opendocument.text',
       'application/x-vnd.oasis.opendocument.text',
       'application/rtf', 'application/x-rtf', 'text/rtf', 
-      'text/richtext', 'application/doc', 'application/docx', 'application/x-soffice', 'application/octet-stream'] ,
+      'text/richtext', 'application/doc', 'application/docx', 'application/x-soffice', 'application/octet-stream',
+      "image/jpg", "image/jpeg", "image/png"] ,
       
-      :message => "نوع فایل نامعتبر است. فقط فایل پی دی اف مجاز است."
+      :message => "نوع فایل نامعتبر است. "
   
   def title
     if I18n.locale == :ar

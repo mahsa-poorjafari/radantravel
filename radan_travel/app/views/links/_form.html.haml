@@ -5,25 +5,25 @@
       %ul
         - @link.errors.each do |attr, msg|
           %li= msg
-  .row-fluid    
-    .span12
-      .span6
-        .field
-          = f.label 'وب سایت'
-          = f.text_field :web_site
-        .field
-          = f.label 'تصویر'
-          = f.file_field :image
-      .span6
-        .field
-          = f.label 'عنوان فارسی'
-          = f.text_field :title_fa
-        .field
-          = f.label 'عنوان انگلیسی'
-          = f.text_field :title_en
-        .field
-          = f.label 'عنوان عربی'
-          = f.text_field :title_ar  
-    .span12         
-      .actions
-        = f.submit 'ثبت', :class => "btn"
+  .row  
+    .col-xs-12
+      .col-xs-6
+        .form-group
+          = f.label 'وب سایت', :class => "control-label"
+          = f.text_field :web_site, :class => "form-control"
+        .form-group
+          = f.label 'تصویر', :class => "control-label"
+          = f.file_field :image, :class => "form-control"
+      .col-xs-6
+        .form-group
+          = f.label 'عنوان فارسی', :class => "control-label"
+          = f.text_field :title_fa, :class => "form-control"
+        .form-group
+          = f.label 'عنوان انگلیسی', :class => "control-label"
+          = f.text_field :title_en, :class => "form-control"
+        .form-group
+          = f.label 'عنوان عربی', :class => "control-label"
+          = f.text_field :title_ar  , :class => "form-control"
+    .col-xs-12
+      .form-group
+        = f.submit 'ثبت', :class => "btn btn-primary"

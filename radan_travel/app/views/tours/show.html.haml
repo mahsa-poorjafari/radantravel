@@ -19,7 +19,7 @@
           = @tour.price
         - if @tour.info.url.present?
           = link_to @tour.info.url, :target => "blank" do
-            %i= 'دریافت فایل '
+            %i.btn.btn-warning= 'دریافت فایل '
           
         .clear-float    
         %h2{:class => I18n.locale}= t('tour.description')

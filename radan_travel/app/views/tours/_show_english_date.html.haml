@@ -1,0 +1,13 @@
+- if tour.validate_date_from.present? && tour.validate_date_until.present?
+  %p= tour.validate_date_from.strftime("%A %e %b %Y") + 'until' + tour.validate_date_until.strftime("%A %e %b %Y")
+- elsif tour.validate_date_from.present?
+  %b.col-xs-5= t('tour.validate_date_from')
+  %p.col-xs-7= tour.validate_date_from.strftime("%A %e %b %Y")            
+  
+  .clear-float
+- elsif   tour.validate_date_until.present?
+  
+  %p.col-xs-7= tour.validate_date_until.strftime("%A %e %b %Y")  
+  %b.col-xs-5= t('tour.validate_date_until')
+.clear-float
+
