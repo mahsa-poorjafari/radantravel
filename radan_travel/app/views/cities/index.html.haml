@@ -14,7 +14,9 @@
       %tr
         %td= (i+1)
         %td= city.title      
-        %td= city.country.title
+        %td
+          - if city.country_id.present?
+            = city.country.title
         %td= image_tag city.photos.first.image(:small)
         %td 
           -if is_admin?
