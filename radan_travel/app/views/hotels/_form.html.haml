@@ -6,47 +6,49 @@
       %ul
         - @hotel.errors.each do |attr, msg|
           %li= msg
-  .row-fluid  
-    .span12
-      .span7
-        .field
+  .row  
+    .col-xs-12
+      .col-xs-7
+        .form-group
           = f.label 'شهر مربوط'
           = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
-        .field
-          = f.label 'تعداد ستاره های هتل'          
+        .form-group
+          = f.label 'تعداد ستاره های هتل', :class => "control-label"          
           = f.select :hotel_grade, options_for_select([[1,1], [2,2], [3,3], [4,4], [5,5]]), prompt: "درجه هتل - ستاره"
-        .field
-          = f.label 'امکانات هتل'
-          = f.text_field :hotel_facilities
-      .span5
-        .field
-          = f.label 'عنوان فارسی'
-          = f.text_field :title_fa
-        .field
-          = f.label 'عنوان انگلیسی'
-          = f.text_field :title_en
-        .field
-          = f.label 'عنوان عربی'
-          = f.text_field :title_ar
-          
-    .span12
-      .field.editor
-        = f.label 'متن فارسی'
-        = f.text_area :text_fa, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن انگلیسی'
-        = f.text_area :text_en, :class => "ckeditor"
-      .field.editor
-        = f.label 'متن عربی'
-        = f.text_area :text_ar, :class => "ckeditor"
-    .span12      
+        .clear-float
+        .form-group
+          = f.label 'امکانات هتل', :class => "control-label"
+          = f.text_field :hotel_facilities, :class => "form-control"
+      .col-xs-5
+        .form-group
+          = f.label 'عنوان فارسی', :class => "control-label"
+          = f.text_field :title_fa, :class => "form-control"
+        .form-group
+          = f.label 'عنوان انگلیسی', :class => "control-label"
+          = f.text_field :title_en, :class => "form-control"
+        .form-group
+          = f.label 'عنوان عربی', :class => "control-label"
+          = f.text_field :title_ar, :class => "form-control"
+    .col-xs-12
       = f.fields_for :photos do |picture|  
-        = render "shared/upload_image_form", :picture => picture  
-      .field
+        .col-xs-4
+          = render "shared/upload_image_form", :picture => picture  
+      .form-group
         = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
         = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
-        = f.link_to_add content_tag(:span, "افزودن تصویر"), :photos, :id => "add_new_picture", :class => "btn"
-    .actions
-      = f.submit 'ثبت', :class => "btn"
+        = f.link_to_add content_tag(:span, "افزودن تصویر" , :class => "btn btn-warning"), :photos, :id => "add_new_picture", :class => "btn"      
+    .col-xs-12
+      .form-group.editor
+        = f.label 'متن فارسی', :class => "control-label"
+        = f.text_area :text_fa, :class => "ckeditor"
+      .form-group.editor
+        = f.label 'متن انگلیسی', :class => "control-label"
+        = f.text_area :text_en, :class => "ckeditor"
+      .form-group.editor
+        = f.label 'متن عربی', :class => "control-label"
+        = f.text_area :text_ar, :class => "ckeditor"
+    
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"
       
 

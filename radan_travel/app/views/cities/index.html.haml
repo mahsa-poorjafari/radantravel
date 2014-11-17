@@ -6,25 +6,28 @@
     %tr
       %th ردیف
       %th نام شهر
-      %th کشور مربوط        
-      %th     
-      %th عملیات
+      -#
+        %th کشور مربوط        
+        %th     
+        %th عملیات
 
     - @cities.each_with_index do |city, i|
       %tr
         %td= (i+1)
-        %td= city.title      
-        %td
-          - if city.country_id.present?
-            = city.country.title
-        %td
-          -#
-            = image_tag city.photos.first.image(:small)
-        %td 
-          -if is_admin?
-            = link_to 'مشاهده', city, :class => "btn btn-warning"
-            = link_to 'ویرایش', edit_city_path(city), :class => "btn btn-info"
-            = link_to 'حذف', city, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
+        %td= city.title 
+        -#     
+          %td
+          
+            - if city.country_id.present?
+              = city.country.title
+          %td
+            -#
+              = image_tag city.photos.first.image(:small)
+          %td 
+            -if is_admin?
+              = link_to 'مشاهده', city, :class => "btn btn-warning"
+              = link_to 'ویرایش', edit_city_path(city), :class => "btn btn-info"
+              = link_to 'حذف', city, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
 
 
 
