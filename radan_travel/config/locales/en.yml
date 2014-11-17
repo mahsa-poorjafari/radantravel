@@ -50,7 +50,7 @@ en:
   city: 'Countries Cities'
   close: 'Close'
   
-  subscribe_to_newsletter : 'Subscribe to Newsletter'
+  subscribe_to_newsletter : 'Subscribe To Newsletter'
   newsletter_email : 'Just Enter Your Email'
   newsletter_set: 'Set Email'
   
@@ -60,6 +60,12 @@ en:
   send-customer-email: 'Your Register Done'
   thanks: 'Thank you, for choosing us'
   links: 'Other Link'
+  
+  sitevisit:
+    statistics: 'Statistics'
+    total-views: 'Total Views'
+    visits-today: 'Visits Today'
+    online-number: 'The number of people on the site'
   tour:
     itinerary: 'Itinerary'
     documents: 'Documents'

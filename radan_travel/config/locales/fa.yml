@@ -42,6 +42,13 @@ fa:
   send-customer-email: 'شما عضو خبرنامه شدید.'
   thanks: 'از اینکه مارا انتخاب کردید متشکر هستیم'
   links: 'سایر لینک های مرتبط'
+  
+  sitevisit:
+    statistics: 'آمار سایت'
+    total-views: 'کل بازدیدها تاکنون'
+    visits-today: 'بازدیدهای امروز'
+    online-number: 'تعداد افراد حاضر در سايت'
+    
   tour:
     description: 'توضیحات تکمیلی'
     documents: 'مدارک مورد نیاز'

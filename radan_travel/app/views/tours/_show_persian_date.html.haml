@@ -1,0 +1,12 @@
+- if tour.validate_date_from.present? && tour.validate_date_until.present?
+  %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+- elsif tour.validate_date_from.present?
+  
+  %p.col-xs-7= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+  %b.col-xs-5= t('tour.validate_date_from')
+  .clear-float
+- elsif   tour.validate_date_until.present?
+  
+  %p.col-xs-7= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")  
+  %b.col-xs-5= t('tour.validate_date_until')
+.clear-float

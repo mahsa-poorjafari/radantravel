@@ -61,18 +61,10 @@
               
               .tour-hover{:class => I18n.locale}
                 %p.tour-title= tour.title
-                - if tour.validate_date_from.present? && tour.validate_date_until.present?
-                  %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-                - elsif tour.validate_date_from.present?
-                  
-                  %p.col-xs-7= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-                  %b.col-xs-5= t('tour.validate_date_from')
-                  .clear-float
-                - elsif   tour.validate_date_until.present?
-                  
-                  %p.col-xs-7= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")  
-                  %b.col-xs-5= t('tour.validate_date_until')
-                  .clear-float
+                - if I18n.locale == :fa
+                  = render "/tours/show_persian_date", :tour => tour
+                - else  
+                  = render "/tours/show_english_date", :tour => tour
           
       = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
         = image_tag 'prev.png'
@@ -87,9 +79,10 @@
   %h3.col-xs-12{:class => I18n.locale, :style => "text-align:center"}= t('links')  
   .col-xs-8.set-center{:style => "margin-left:15%"}
     - Link.all.each do |link|
-      = link_to url_with_protocol(link.web_site), :class => "col-xs-2" do    
+      = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2" do    
         = image_tag link.image(:small)
-        %b{:class => I18n.locale}= link.title
+        %p
+          %b{:class => I18n.locale}= link.title
   
 .footer
   .col-xs-4  
@@ -98,16 +91,17 @@
     %br
     %h2{:class => I18n.locale}= t('customer_clube')
     = render 'shared/customer_clube'
-    %h2{:class => I18n.locale}= 'تعداد بازدید تا کنون'
-    %p{:class => I18n.locale}
-      %b= 'کل بازدیدها'
-      =  Visit.all.count
-    %p{:class => I18n.locale}
-      %b= 'بازدیدهای امروز'
-      =  @online_day
-    %p{:class => I18n.locale}
-      %b= 'تعداد نفر آنلاین'
-      = @online_now
+    %h2{:class => I18n.locale}= t('sitevisit.statistics')
+    .col-xs-11{:style => "margin-left:2%"}  
+      %p{:class => I18n.locale}
+        %b= t('sitevisit.total-views')
+        =  Visit.all.count
+      %p{:class => I18n.locale}
+        %b= t('sitevisit.visits-today')
+        =  @online_day
+      %p{:class => I18n.locale}
+        %b= t('sitevisit.online-number')
+        = @online_now
   .col-xs-4.contact-info
     - if @contact.present?
       %div{:class => I18n.locale}
