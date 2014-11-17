@@ -17,7 +17,9 @@
         %td
           - if city.country_id.present?
             = city.country.title
-        %td= image_tag city.photos.first.image(:small)
+        %td
+          -#
+            = image_tag city.photos.first.image(:small)
         %td 
           -if is_admin?
             = link_to 'مشاهده', city, :class => "btn btn-warning"
