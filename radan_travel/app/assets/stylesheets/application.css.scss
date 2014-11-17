@@ -293,3 +293,9 @@ box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
 .footer .contact-info {overflow-y:hidden; height:330px; color:#fff; }
 .footer .contact-info p{color:#fff;line-height:2em; text-align:justify}
 
+.show-links {position:relative; width:100%; height:150px; color:#F4F4A3; overflow:hidden;
+  background-image: url(image-path('zwartevilt.png'));
+  background-repeat: repeat;  
+  background-position: center;
+  padding-top:2%;}
+.show-links img {border-radius:50%;}

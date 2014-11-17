@@ -11,6 +11,5 @@
       .col-xs-5.city-image
         = image_tag pic.image(:medium)
   - if is_admin?
-    = link_to 'ویرایش', edit_city_path(@city)
-    \|
-    = link_to 'بازگشت', cities_path
+    = link_to 'ویرایش', edit_city_path(@city), :class => "btn btn-info" 
+   

@@ -83,7 +83,14 @@
       #rm_mask_right.rm_mask_right
       #rm_corner_left.rm_corner_left
       #rm_corner_right.rm_corner_right
-
+.show-links{:class => I18n.locale}
+  %h3.col-xs-12{:class => I18n.locale, :style => "text-align:center"}= t('links')  
+  .col-xs-8.set-center{:style => "margin-left:15%"}
+    - Link.all.each do |link|
+      = link_to url_with_protocol(link.web_site), :class => "col-xs-2" do    
+        = image_tag link.image(:small)
+        %b{:class => I18n.locale}= link.title
+  
 .footer
   .col-xs-4  
     %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
@@ -92,13 +99,13 @@
     %h2{:class => I18n.locale}= t('customer_clube')
     = render 'shared/customer_clube'
     %h2{:class => I18n.locale}= 'تعداد بازدید تا کنون'
-    %p
+    %p{:class => I18n.locale}
       %b= 'کل بازدیدها'
       =  Visit.all.count
-    %p
+    %p{:class => I18n.locale}
       %b= 'بازدیدهای امروز'
       =  @online_day
-    %p
+    %p{:class => I18n.locale}
       %b= 'تعداد نفر آنلاین'
       = @online_now
   .col-xs-4.contact-info
