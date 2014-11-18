@@ -9,7 +9,7 @@ class StaticController < ApplicationController
     p '--------------'
     p params[:locale]
     p @online_day = Visit.where(started_at:  Date.today.beginning_of_day..Date.today.end_of_day).count
-    p @online_now = Visit.where(started_at:  1.minute.ago..Time.now).count
+    p @online_now = Visit.where(started_at:  1.hour.ago..Time.now).count
     def set_locale     
       if params[:locale] == "en" 
         I18n.locale = "en" 

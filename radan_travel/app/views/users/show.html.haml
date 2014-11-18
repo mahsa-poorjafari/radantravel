@@ -1,9 +1,18 @@
-%p#notice= notice
+.margin3
+  
+  - if notice.present?
+    .alert.alert-success= notice
+  
 
-%p
-  %b User name:
-  = @user.user_name
+  %p
+    %b نام کاربری
+    = @user.user_name
+  %p
+    %b ایمیل
+    = @user.email
+  %p
+    %b نقش کاربری
+    - if @user.role_id.present?
+      = @user.role.title
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+  = link_to 'ویرایش', edit_user_path(@user), :class => "btn btn-info" 

@@ -28,7 +28,9 @@
     %br/
     = f.password_field :current_password
   %div= f.submit "ویرایش"
+  
+= render 'users/form'  
+  
 %h3 حذف حساب کاربری
 %p
   Unhappy? #{button_to "حذف حساب کاربری", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
-= link_to "بازگشت", :back

@@ -60,9 +60,11 @@ fa:
     search: 'نتیجه جستجو تور'
     
   tour_comment:
-    user-name: 'نام شما:'
-    text: 'نظر شما'
-    your-comment: 'نظر خود را در باره این تور وارد کنید.'
+    user-name: 'نام خود را وارد کنید'
+    user-email: 'ایمیل خود را وارد کنید'
+    text: 'نظر خود را وارد کنید'
+    your-comment: 'درباره این تور نظر دهید.'
+    send-comment: 'کاربر گرامی نظر شما ثبت شد.'
   
   msg:
     contact-title:  'با ما در ارتباط باشید.'

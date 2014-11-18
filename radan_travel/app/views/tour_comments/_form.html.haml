@@ -8,16 +8,27 @@
   .col-xs-12
     .col-xs-4
     .col-xs-8
-      .form-group
-        = f.label t('tour_comment.user-name'), :class => "control-label"
-        = f.text_field :user_name, :class => "form-control"
+      .form-group        
+        = f.text_field :user_name, :class => "form-control", :id => "comment-name", :placeholder => t('tour_comment.user-name')
+      .form-group        
+        = f.text_field :user_email, :class => "form-control", :id => "comment-email", :placeholder => t('tour_comment.user-email')
       .form-group        
         = f.hidden_field :tour_id, :value => @tour.id
     .col-xs-12
+      .form-group       
+        = f.text_area :text, :class => "form-control", :id => "comment-text", :placeholder => t('tour_comment.text')
+    .col-xs-12
       .form-group
-        = f.label t('tour_comment.text'), :class => "control-label"
-      .clear-float      
-        = f.text_area :text, :class => "form-control"
-      .form-group
-        = f.submit 'ثبت', :class => "btn btn-primary"
+        = f.submit 'ثبت', :class => "btn btn-primary", :id => "comment-submit"
     
+:javascript 
+  $(function() { 
+    $(':submit#comment-submit').click(function(e) {
+      $(':text#comment-name,:text#comment-email, textarea#comment-text').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });

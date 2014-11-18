@@ -77,8 +77,10 @@ en:
     search: 'Tour Result'
   tour_comment:
     user-name: 'Your Name:'
+    user-email: 'Your Email:'
     text: 'Your Text'
     your-comment: 'Input Your Comment About This Tour'
+    send-comment: 'Dear User, Your Comment Has Been Send'
   msg:
     contact-title:  'Contact With Us'
     contact-name:  'Enter Your Name'
