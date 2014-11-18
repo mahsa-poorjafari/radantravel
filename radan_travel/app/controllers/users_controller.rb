@@ -1,10 +1,11 @@
+# encoding: UTF-8
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order(" created_at desc")
   end
 
   # GET /users/1
@@ -25,10 +26,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.role_id = 2
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'کاربر جدید اضافه شد.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

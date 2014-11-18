@@ -93,8 +93,10 @@
       .col-xs-7        
         = render 'shared/slider_tumbnail', :model => @tour
       .col-xs-5
+        - if flash[:SendComment].present?
+          .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')
         .tour-comments
-          %h3{:class => I18n.locale}= t('tour_comment.your-comment')
+          %h3{:class => I18n.locale}= t('tour_comment.your-comment')          
           = render 'tour_comments/form', :tour_comment => TourComment.new
       
         .show_comments

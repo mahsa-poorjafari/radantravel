@@ -5,7 +5,7 @@ class ToursController < ApplicationController
   # GET /tours
   # GET /tours.json
   def index
-    @tours = Tour.all
+    @tours = Tour.order(" created_at desc")
     p '===================='
     p @send_tour = params[:send_tour]
     p '===================='

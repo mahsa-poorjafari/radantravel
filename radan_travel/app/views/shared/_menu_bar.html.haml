@@ -5,12 +5,12 @@
     = link_to (image_tag 'flag/ar_sm.png'), locale: :ar
   %center.nav_bar
     %ul.set-center
-      = link_to :controller => :static, :action => :index do
+      = link_to :controller => "/static", :action => :index do
         %li.home=   t('home')      
       = link_to  Tour do
         %li.tour= t('tour.tours')
       
-      = link_to :controller => :static, :action => :index do
+      = link_to :controller => "/static", :action => :index do
         %li{:style => "margin-top:2px"}= (image_tag 'menu_logo.png')
       
       = link_to Sight    do
