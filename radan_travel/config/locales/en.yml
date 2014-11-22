@@ -19,9 +19,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  coming-soon: 'Coming soon...'
+en:  
   radantravel: 'Radan Travel Agency'
+  contact-us: 'Contact Us:'
+  phone: '0513-8431115'
   index: 'Index'
   home: 'Home'
   visitsite: 'For Getting More Information Visit Site'
@@ -49,7 +50,7 @@ en:
   country: 'Countries List'
   city: 'Countries Cities'
   close: 'Close'
-  
+  send-to-friend: 'Send This Link To A Friend'
   subscribe_to_newsletter : 'Subscribe To Newsletter'
   newsletter_email : 'Just Enter Your Email'
   newsletter_set: 'Set Email'
@@ -89,5 +90,6 @@ en:
     contact-phone:  'Enter Your Phone'
     contact-msg:  'Enter Your Message'
     contact-btn:  'Send'
+    contact-reset: 'Reset'
     
   

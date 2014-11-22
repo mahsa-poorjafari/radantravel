@@ -24,11 +24,49 @@
             = link_to (image_tag 'flag/ar.png'), locale: :ar
     - else
       .main{:class => I18n.locale}
+        .logo
+          - if I18n.locale == :en 
+            = render 'shared/top_site_en'
+          - else
+            = render 'shared/top_site_fa'
         = render 'shared/menu_bar'
         = render 'slides/slider'
         .yield{:class => I18n.locale}
           = yield
-     
+        .footer  
+          .show-colleague
+          .contact-box  
+            .col-xs-5.contact-info
+              - if @contact.present?
+                %div{:class => I18n.locale}
+                  =raw @contact.text              
+            .col-xs-7.contact-form
+              = render 'shared/msg_form' 
+              
+          .footer-link
+            .col-xs-4
+              %h2{:class => I18n.locale}= t('sitevisit.statistics')
+              .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.total-views')
+                  =  Visit.all.count
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.visits-today')
+                  =  @online_day
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.online-number')
+                  = @online_now          
+              
+            .col-xs-4
+              %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
+              = render 'shared/newsletter_subscribe'
+              %br
+              %h2{:class => I18n.locale}= t('customer_clube')
+              = render 'shared/customer_clube'
+            .col-xs-4
+              %p= link_to t('send-to-friend'), '#'
+              %p= link_to t('imp-package'), '#'
+            
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'

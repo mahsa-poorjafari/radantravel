@@ -1,0 +1,17 @@
+.title-site.col-xs-4{:class => I18n.locale, :style => "float:left"}= t('radantravel')          
+
+.col-xs-4#logo-site{:class => I18n.locale, :style => "float:left"}            
+  = link_to :controller => "/static", :action => :index do
+    = image_tag 'menu_logo.png'            
+.col-xs-4#contact-info{:class => I18n.locale, :style => "float:left"}            
+  .col-xs-5{:style => "text-align:right"}
+  .col-xs-7{:style => "text-align:right"}
+    .flag_bar
+      = link_to (image_tag 'flag/en_sm.png'), locale: :en
+      = link_to (image_tag 'flag/ir_sm.png'), locale: :fa
+      = link_to (image_tag 'flag/ar_sm.png'), locale: :ar  
+    
+    %p{:class => I18n.locale}= t('contact-us')
+    %p  
+      %span= image_tag 'phone-icon.png'
+      %span{:class => I18n.locale}= t('phone')

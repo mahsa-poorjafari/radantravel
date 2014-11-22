@@ -12,9 +12,9 @@
       .alert.alert-danger
         = flash[:Ncustomer]
     .col-xs-3
-      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn btn-info"
-    .col-xs-9
-      = f.text_field :email, :placeholder => t('newsletter_email'),   :id => "newsletter_email"
+      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn btn-default I18n.locale"
+    .col-xs-9.form-group
+      = f.text_field :email, :placeholder => t('newsletter_email'),   :id => "newsletter_email", :class => "form-control"
    
 :javascript 
   $(function() { 
