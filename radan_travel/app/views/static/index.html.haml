@@ -1,11 +1,11 @@
-.tabs-on-slider
+.tabs-on-slider.set-center
   - if I18n.locale == :en
     %ul.nav.nav-tabs.pull-left#myTab{:role => "tablist", :class => I18n.locale }
       = render 'shared/search_reserv'
   - else
     %ul.nav.nav-tabs.pull-right#myTab{:role => "tablist", :class => I18n.locale }
       = render 'shared/search_reserv'
-  .clear-float
+  
   .tab-content    
     #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
       %b= 'در حال راه اندازی...'
@@ -19,37 +19,29 @@
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-1
+        .col-xs-1{:style => "margin-top:2%"}
           = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn btn-info"
         .col-xs-2
-          = text_field_tag :country, params[:country], :class => "form-control", :id => "tour-country"
-        .col-xs-1{:style => "width:4%"}
           = label_tag t('tour-country')
+          = text_field_tag :country, params[:country], :class => "form-control", :id => "tour-country"                  
         .col-xs-2
-          = text_field_tag :price, params[:price], :class => "form-control", :id => "tour-price"
-        .col-xs-1{:style => "width:4%"}
           = label_tag t('tour-price')
+          = text_field_tag :price, params[:price], :class => "form-control", :id => "tour-price"                  
         
         .col-xs-2
-          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control", :id => "tour-start"
-        .col-xs-1
-          = label_tag t('tour-until')
-        
+          = label_tag t('tour-until')          
+          #datetimepicker1.input-group.date
+            = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control", :id => "tour-start"
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
         .col-xs-2
-          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control", :id => "tour-exp"
-        .col-xs-1
           = label_tag t('tour-from')
-        
-       
-  
-  
+          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control", :id => "tour-exp"
 
 
 .imp-package.content
   .col-md-12.text-center
-    %h3.package-box-title= t('packages') 
- 
- 
+
   .col-md-12.col-md-offset-3{:style => "height:100%"}
     #myCarousel.carousel.slide
       .carousel-inner#package-tour
@@ -70,45 +62,16 @@
         = image_tag 'prev.png'
       = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
         = image_tag 'next.png'
-    -#
-      #rm_mask_left.rm_mask_left
-      #rm_mask_right.rm_mask_right
-      #rm_corner_left.rm_corner_left
-      #rm_corner_right.rm_corner_right
-.show-links{:class => I18n.locale}
-  %h3.col-xs-12{:class => I18n.locale, :style => "text-align:center"}= t('links')  
-  .col-xs-8.set-center{:style => "margin-left:15%"}
-    - Link.all.each do |link|
-      = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2" do    
-        = image_tag link.image(:small)
-        %p
-          %b{:class => I18n.locale}= link.title
+.middle-page    
+  .show-links{:class => I18n.locale}    
+    .col-xs-8.set-center
+      - Link.all.each do |link|
+        = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-3 link-box" do    
+          = image_tag link.image(:small)
+          %p
+            %b{:class => I18n.locale}= link.title
   
-.footer
-  .col-xs-4  
-    %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
-    = render 'shared/newsletter_subscribe'
-    %br
-    %h2{:class => I18n.locale}= t('customer_clube')
-    = render 'shared/customer_clube'
-    %h2{:class => I18n.locale}= t('sitevisit.statistics')
-    .col-xs-11{:style => "margin-left:2%"}  
-      %p{:class => I18n.locale}
-        %b= t('sitevisit.total-views')
-        =  Visit.all.count
-      %p{:class => I18n.locale}
-        %b= t('sitevisit.visits-today')
-        =  @online_day
-      %p{:class => I18n.locale}
-        %b= t('sitevisit.online-number')
-        = @online_now
-  .col-xs-4.contact-info
-    - if @contact.present?
-      %div{:class => I18n.locale}
-        =raw @contact.text
-      
-  .col-xs-4
-    = render 'shared/msg_form'
+
           
 :javascript
   $('#package-tour :first').addClass('active');

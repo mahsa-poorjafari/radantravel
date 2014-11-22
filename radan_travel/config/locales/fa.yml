@@ -1,7 +1,7 @@
-fa:
-  coming-soon: 'شرکت خدمات مسافرتی - هوایی - جهانگردی - رادان سیر'
-  radantravel: 'شرکت خدمات مسافرتی - هوایی - جهانگردی - رادان سیر'
-  
+fa:  
+  radantravel: 'شرکت خدمات مسافرتی، هوایی، جهانگردی، رادان سیر'
+  contact-us: 'ارتباط با ما: '
+  phone: '۰۵۱۳-۸۴۳۱۱۱۵ '
   index: 'فارسی'
   home: 'صفحه اصلی'
   visitsite: 'برای کسب اطلاعات بیشتر به سایت مراجعه کنید.'
@@ -23,15 +23,14 @@ fa:
   tour-from: 'تاریخ رفت از'
   tour-until: 'تاریخ رفت تا'
   tour-search: 'جستجو'
-  tour-price: 'قیمت'
-  radantravel: 'آژانس هواپیمایی - مسافرتی رادان سیر'
+  tour-price: 'قیمت'  
   tour-info: 'اطلاعات تور'
   info: 'اطلاعات'
   plane: 'پرواز '
   country: 'لیست کشورها'
   city: 'شهرها'
   close: 'بستن پنجره'
-  
+  send-to-friend: 'ارسال این لینک برای دوستان'
   subscribe_to_newsletter: 'عضویت در خبرنامه'
   newsletter_email: 'ایمیل خود را وارد نمایید.'
   newsletter_set: 'ثبت ایمیل'
@@ -74,3 +73,4 @@ fa:
     contact-phone:  'تلفن خود را وارد کنید'
     contact-msg:  'پیام خود را وارد کنید.'
     contact-btn:  'ارسال پیام'
+    contact-reset: 'پاک کردن'

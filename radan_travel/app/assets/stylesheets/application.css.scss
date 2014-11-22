@@ -15,12 +15,14 @@
  *= require_tree .
  *= require_self
  */
+ 
 .clear-float {clear:both}
 .set-center {margin-right:auto; margin-left:auto}
 .margin3 {margin:3%}
-a { color:#FFA500;}
-a:hover, visited { color:#F43D3D;}
-body {padding:0; margin:0;}
+a { color:#4D4D4D;}
+a:hover, visited { color:#1EC0FF; text-decoration:none}
+html {padding:0; margin:0; position:relative; height:100%}
+body {padding:0; margin:0; position:absolute; height:100%; width:100%}
 .first_page {
   position:fixed; height:100%; width:100%;
   padding:2%; margin:0;
@@ -38,272 +40,123 @@ body {padding:0; margin:0;}
   font-family: 'open_sansregular';
   color:#fff;
 }
-/*
-.first_page:before {
-    content: "";
-    background: url(image-path('halftone.png')) repeat;
-    opacity:.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;   }
-*/
-.main {}
-.main .yield {position:absolute; top:76%; width:100%; height:79%;  
-background-image:url(image-path('contentBg.png'));
-background-repeat:repeat-x;
-}
-.plane{text-align:left;  }
-
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
-#logo {top: 10%;
-position: absolute;
-left: 23%;}
-#logo h1 {color:#E12F2F; font-size:2em; position:absolute; width:50%; top:0; right:10%;
-   text-shadow: 2px 2px 1px #1A1A1A;
+.main {width:100%; padding:0; margin:0; position:absolute; top:0;
+  background:#ebebeb;}
+.logo {width:100%; position:relative; top:0; height:150px; 
+  background-image: url(image-path('banner.png'));
+  background-repeat: repeat;    
+  padding-top:2%;
 }
-.coming-soon {width:55%; position:absolute; top:1%; right:auto; text-align:center; left:20%;
-   font-size:50px;
+.logo .title-site {  
+  top:0; 
+  font-size:2.5em; 
+  color:#fff; 
+  font-weight:bold;
+  line-height:1.5em;
+  
+  }
+.logo #logo-site  { text-align:center; }
+.logo #contact-info  { font-size:2em; font-weight:bold; color:#fff; 
+  float:right;
+  text-align:center; }
+.logo #contact-info  p{ font-size:.8em;padding-top:2%;font-weight:bold; color:#fff;text-align:center}
+.logo .flag_bar {text-align:left}
+.menu_bar {position:absolute; width:100%; height:70px; background:#14605A;
+ -webkit-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
+-moz-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
+box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
+   z-index:10;
 }
-.coming-soon h2 {color:#181152;}
+.menu_bar ul{width:50%; list-style:none; height:100%}
+.menu_bar ul a {width:20%; float:right; color:#fff; font-size:1.5em; height:100%; text-align:center; padding-top:4%}
+.menu_bar ul a li{width:100%;}
 
-.falgs {width: 17%;
-position: absolute;
-bottom: 0;
-right: auto;
-z-index: 100;
-left: 42%;
-text-align: center;}
-.falgs img { float:right; margin:5%}
-.falgs img:hover { cursor:pointer;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-  -moz-box-shadow: 0 8px 6px -6px black;
-  box-shadow: 0 8px 6px -6px black;}
-.admin-menu {
-  background-image: url(image-path('halftone.png'));
-  background-repeat: repeat;  
-  background-position: center;
-  height:50px; position:fixed; top:7%; left:0; width:20%;
-  border-top-right-radius:10px;
-  border-bottom-right-radius:10px;
-  z-index:200;
+.menu_bar ul a:hover, .menu_bar ul a.active {
+  background:#147971;  text-decoration:none; height:130%;
+  opacity:.7;
+  border-top: #00DBFF 1px solid;
+}
+
+.admin-menu {background:#A2C6C7; position:fixed; z-index:200; height:50px; overflow:hidden;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
-    padding:1%;
-    color:#000;
-    overflow:hidden;
-    font-size:20px;
-}
-.admin-menu h4.admin-menu-title {}
-.admin-menu ul li:hover a{font-size:15px;text-shadow: 2px 2px 1px #1A1A1A; text-decoration:none; color:#FFA500;}
-.falg_bar {width:10%; position:absolute; height:50px; top:0; left:0; padding-top: 1%;}
-.pin {position:absolute; top:0; right:0; z-index:200; 
-/*
-background-image: url(image-path('stick-note-with-pin-md.png'));
-*/
-  width:16%; height:200px;
-  background-repeat:no-repeat;
-}
-.pin h2 {text-align:left; 
-  margin-top:40px;
-  margin-left:10px;
-}
-.falg_bar a{width:30%; position:relative; float:left; top:0;}
-.admin-menu:hover {height:300px; }
-.upload-pic {border:1px solid #000; margin-left:5%; overflow:hidden}
-.nav_bar ul {height:90px; width:60%;}
-.nav_bar ul li {width:16%; height:100%; position:relative; 
- float:right; list-style:none; margin-top:4%}
-.nav_bar ul li.home:hover{background-image:url(image-path('home.png'));
-background-repeat:repeat;
-} 
-.nav_bar ul li.tour:hover{background-image:url(image-path('tour.png'));
-background-repeat:repeat;
-} 
-.nav_bar ul li.sight:hover{background-image:url(image-path('sight.png'));
-background-repeat:repeat;
-} 
-.menu_bar {
-  background-image:url(image-path('zwartevilt.png'));
+    padding:1%; top:35%;
+  }
+.admin-menu:hover { height:350px}
+.admin-menu ul li a{color:#000;}
+.admin-menu ul li:hover a{font-size:15px;text-shadow: 1px 1px 1px #1A1A1A; color:#EB9B07; text-decoration:none}
+.tabs-on-slider {
   position: absolute;
-  top: 0;
+  top: 24%;
+  width: 90%;
+  background:#fff;
+  margin-left: 5%;
+  margin-right: 5%;
+  height:100px;
+  -webkit-box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
+  -moz-box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
+  box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
+  }
+.tab-content .tab-pane {padding-top:1%}
+.tab-content .tab-pane label{color:#666; font-weight:normal}
+.nav-tabs {padding:0; width:18%}  
+.nav-tabs li { width:100%; }  
+.nav-tabs li a{background:#E5E5E5; width:100%; text-align:center}  
+.nav-tabs li:hover{cursor:pointer}  
+.imp-package {width:100%; position:relative; margin-top:4%;
+  height:200px; overflow:hidden;
+}
+
+
+.middle-page {
+  background: #DDD981;
+  position: relative;
+  margin-top: 6%;
+  height: 500px;
+}
+.middle-page .show-links{
+  background:#ebebeb; 
+  width:90%; 
+  margin-right:5%; margin-left:5%;   
+  height:70px}
+.middle-page .show-links .link-box{text-align:center}
+.footer .contact-box {    
+  background-image: url(image-path('contact-box.jpg'));
+  background-size: cover; 
+  height:450px; width:100%;
+  overflow:hidden;
+}
+.footer .contact-box:before {
   width: 100%;
-}
-
-/* showing important package  */
-.imp-package {width:100%; height:320px; overflow:hidden; position:relative; margin-top: 70px;
- background-image:url(image-path('zwartevilt.png'))}
-.imp-package .tour-info {width:20%; float:right; height:90%; margin:2%; border:red solid 1px}
-
-
-/* tabs-on-slider */
-.tabs-on-slider {position:absolute; width:100%; height:100px; top:-67px; z-index:200; color:#000;}
-#reserv-form input, label, select{ float:right; margin-right:1%}
-.hero-unit {position: absolute;
-width: 100%;
-height: 100%;
-overflow: hidden}
-.item .col-xs-3 {height:250px; position:relative; overflow:hidden }
-.item .col-xs-3 .tour-hover {position:absolute; top:0; width:91%; background:#1A1A1A; opacity:.7; 
-color:#fff;padding:2%;
-}
-.item .col-xs-3 .tour-hover p.tour-title {text-align:center; font-size:18px; font-weight:bold}
-.item .col-xs-3 .tour-hover p {text-align:center; }
-.carousel {height:100%}
-.carousel-inner > .item {height:100%; width:100%}
-a.carousel-control {padding-top:10% }
-
-.package-box-title { color:#FFFFAF; text-align:center; height: 10%;
-padding: 1%;}
-.country-details {padding:2%}
-.country-details .country-text{ text-align:justify; line-height:1.5em;}
-.country-details .country-text p{ text-align:justify; line-height:2em;}
-.tab-content {padding-top:2%; height:100%; background:#fff}
-#myCarousel {height:100%}
-.carousel-inner {height:100%}
-.rm_mask_right, .rm_mask_left{
-	position: absolute;
-	height: 110px;
-	background-image:url(image-path('outlets.png'));
-	width: 50.5%;
-	bottom: -30px;
-	left: 0px;
-	-moz-transform:rotate(-3deg);
-	-webkit-transform:rotate(-3deg);
-	transform:rotate(-3deg);
-}
-.rm_mask_right{
-	left:auto;
-	right:0px;
-	-moz-transform:rotate(3deg);
-	-webkit-transform:rotate(3deg);
-	transform:rotate(3deg);
-}
-.rm_corner_right, .rm_corner_left{
-  
-	background-image:url(image-path('outlets.png'));
-	position:absolute;
-	width:200px;
-	height:100px;
-	bottom:0px;
-	left:-65px;
-	-moz-transform:rotate(45deg);
-	-webkit-transform:rotate(45deg);
-	transform:rotate(45deg);
-}
-.rm_corner_right{
-	left:auto;
-	right:-65px;
-	-moz-transform:rotate(-45deg);
-	-webkit-transform:rotate(-45deg);
-	transform:rotate(-45deg);
-}
-
-.city-details {width:80%; text-align:justify;  }
-.city-details .city.text{margin-top:5%;}
-.city-details .city.text p{text-align:justify; line-height:2em; }
-.admin-link {border:#FFA500 2px solid; width:100px; height:45px; text-align:center; font-size:15px;
-  background: black;
-padding: 1%;
-border-radius: 16%;
-}
-.admin-link:hover {background:#E5E5E5; cursor:pointer}
-.city-image {border-radius:5%; border:2px solid #4D4D4D; padding:0; overflow:hidden; 
-  background:#4D4D4D; 
-  -webkit-box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.53);
-  -moz-box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.53);
-  box-shadow: 6px 4px 5px 0px rgba(0,0,0,0.53);
-}
-.city-image img {width:100%}
-h1.title-tours {margin:2%; text-align:center;}
-.tour-details {margin-top:10%; width:100%}
-.tour-details p{text-align:justify}
-.tour-details .tour-img{border-radius:5px; margin:1%}
-
-.tour-details .tour-img img{border-radius:5px; margin:1%; 
-  -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
-}
-.menu-logo {margin-top:0}
-.country-page-title {text-align:center}
-.country-show {height:400px}
-.country-show.fa p {direction:rtl; font-family: 'open_sansregular';}
-
-.tour-box {
-  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 1s;
-  overflow:hidden; margin:2%; width:28%; float:right; height:450px; position:relative}
-.tour-box img {width:90%; height:75%; position:absolute; top:20%; border-radius:9px;
-  -webkit-transition: -webkit-transform 1s;
-  -moz-transition: -moz-transform 1s;
-  -o-transition: -o-transform 1s;
-  transition: transform 1s;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  }
-.tour-box:hover {background:#ADD8E6; color:#282437; }
-.tour-box:hover a{ color:#282437;}
-.tour-box:hover a:hover{ color:#282437;}
-.tour-box:hover img{ 
-  -webkit-transform: rotateY( 180deg );
-  -moz-transform: rotateY( 180deg );
-  -o-transform: rotateY( 180deg );
-  transform: rotateY( 180deg );}
-.tour-box h3 {width:90%;  position:absolute; text-align:center; top:0;}
-.tour-box .tour-date {width:90%; position:absolute;  text-align:center; top:15%; }
-.tour-box .admin-btn-tour {width:90%; position:absolute;  bottom:0; }
-
-
-
-.hotel-img { margin:1%; overflow:hidden; width:30%; float:right;
-  -webkit-box-shadow: 0 8px 6px -6px black;
-  -moz-box-shadow: 0 8px 6px -6px black;
-  box-shadow: 0 8px 6px -6px black;
-  }
-.hotel-img img{border-radius:5px;}
-
-.tour-comments {
-  height:300px;
-  padding:1%; border-radius:5px;
-  margin:2%;
-  background-image: url(image-path('halftone.png'));
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
-.footer-space {position:relative}
-.footer {
-  position:relative;
-  width:100%; 
-  padding-top:5%;
-  bottom:0; left:0; right:0;
-  min-height:400px;
-  background-image: url(image-path('zwartevilt.png'));
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-position: center;
-  
-}
-.footer span.contact{color:#ADD8E6;}
-.footer .contact-field{}
-.footer .contact-field input, textarea, submit{width:100%; background:#1A1A1A; border:1px solid #4D4D4D; color:#ADD8E6; height:50px; padding:.5%; }
-.footer .contact-field input:focus, textarea:focus{background:#FFF; border:1px solid #4D4D4D; color:#000; }
-.footer .newsletter input,  submit{ width:100%; background:#E99907; border:1px solid #FBFB73; color:#1A1A1A; height:50px;}
-.footer .newsletter input:focus, textarea:focus, submit{ background:#fff;  color:#1A1A1A;}
-.footer .customer-clube input,  submit{ width:100%; background:#4A3855; border:1px solid #726978; color:#FFFFFF; height:50px;}
-.footer .customer-clube input:focus, textarea:focus, submit{ background:#fff;  color:#1A1A1A;}
-.footer .contact-info {overflow-y:hidden; height:330px; color:#fff; }
-.footer .contact-info p{color:#fff;line-height:2em; text-align:justify}
-
-.show-links {position:relative; width:100%; height:150px; color:#F4F4A3; overflow:hidden;
-  background-image: url(image-path('zwartevilt.png'));
+  height: 450px;
+  opacity: .7;
+  content: "";
+  position: absolute;
+  background-image: url(image-path('outlets.png'));
   background-repeat: repeat;  
-  background-position: center;
-  padding-top:2%;}
-.show-links img {border-radius:50%;}
+}
+.footer legend {color:#fff;}
+.footer .Necessary {color:#fff;}
+.footer .contact-box .contact-info {margin-top:7%; color:#fff; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
+.footer .contact-box .contact-form {margin-top:7%;padding:5%; }
+.footer .contact-box .contact-info p{ color:#fff; text-align:justify; font-size:1em; line-height:2em;}
+.footer .show-colleague {
+  background:#DDD981; 
+  width:90%;
+  margin-right:5%; margin-left:5%; 
+  padding-top:1%;
+  height:70px;
+  position:absolute;
+  z-index:10;
+}
+
+
+.footer .footer-link {  
+  width:100%; height:300px; 
+  background-image: url(image-path('gray.jpg'));  
+  background-repeat: repeat;  
+}
+.footer .footer-link .col-xs-4{padding:2% }
+.footer .footer-link h2{width:100%; height:30px; }

@@ -15,27 +15,29 @@
   -if flash[:notice]        
     .alert.alert-success= flash[:notice]
       
-  
-  .contact-field.col-xs-6    
-    %span.Necessary= t('msg.Required')
-    = f.text_field :user_name, :placeholder => t('msg.contact-name') , :id => "contact-name", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"   
-  
-  .contact-field.col-xs-6    
-    %span.Necessary=  t('msg.Required')
-    = f.text_field :phone, :placeholder => t('msg.contact-phone'), :id => "contact-phone", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"
-  .contact-field
+  .col-xs-12
+    .form-group.col-xs-6    
+      %span.Necessary= t('msg.Required')
+      = f.text_field :user_name, :placeholder => t('msg.contact-name') , :id => "contact-name", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"   , :class => "form-control"
     
-    %span.Necessary= t('msg.Required')
-    = f.text_field :email, :placeholder => t('msg.contact-email'), :id => "contact-email", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"
-      
-  .contact-field
-    
-    %span.Necessary=  t('msg.Required')
-    = f.text_area :text, :placeholder => t('msg.contact-msg'), :id => "contact-text", :style => "resize: none; width:100%", rows: 4, :title => "آژانس هواپیمایی رادان سیر"
-    
-         
-  .contact-field
-    = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit"
+    .form-group.col-xs-6    
+      %span.Necessary=  t('msg.Required')
+      = f.text_field :phone, :placeholder => t('msg.contact-phone'), :id => "contact-phone", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر", :class => "form-control"
+  .col-xs-12  
+    .form-group.col-xs-6
+      %span.Necessary=  t('msg.Required')
+      = f.text_area :text, :placeholder => t('msg.contact-msg'), :id => "contact-text", :style => "resize: none; width:100%", rows: 4, :title => "آژانس هواپیمایی رادان سیر"    , :class => "form-control"
+    .col-xs-6
+      .form-group
+        %span.Necessary= t('msg.Required')
+        = f.text_field :email, :placeholder => t('msg.contact-email'), :id => "contact-email", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر", :class => "form-control"      
+      %div  
+        .form-group.col-xs-6
+          = button_tag t('msg.contact-reset'), :type => 'reset', :title => "آژانس هواپیمایی رادان سیر", :id => "contact-reset"  , :class => "btn btn-default I18n.locale"
+        .form-group.col-xs-6
+          = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit", :class => "btn btn-default I18n.locale"
+        
+        
 
 
 :javascript 
