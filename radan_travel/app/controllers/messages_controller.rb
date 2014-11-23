@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
       @customer = Customer.new(email: @message.email)
       @customer.save!
       UserMailer.send_user_msg.deliver      
-      flash[:notice] = 'کاربر گرامی پیام شما ارسال گردید.'
+      flash[:msgsend] = 'کاربر گرامی پیام شما ارسال گردید.'
     end
     redirect_to :back
   end
