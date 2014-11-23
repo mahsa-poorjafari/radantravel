@@ -52,7 +52,7 @@
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package'
               
               .tour-hover{:class => I18n.locale}
-                %p.tour-title= tour.title
+                %p.tour-title{:class => I18n.locale}= tour.title
                 - if I18n.locale == :fa
                   = render "/tours/show_persian_date", :tour => tour
                 - else  
@@ -66,7 +66,7 @@
   .show-links{:class => I18n.locale}    
     .col-xs-12.set-center
       - Link.all.each do |link|
-        = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-3 link-box" do    
+        = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 link-box" do    
           = image_tag link.image(:small)
           %p
             %b{:class => I18n.locale}= link.title
