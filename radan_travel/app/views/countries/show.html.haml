@@ -10,7 +10,5 @@
 %div
   - @country.photos.each do |pic|
     = image_tag  pic.image(:medium)
-
-= link_to 'Edit', edit_country_path(@country)
-\|
-= link_to 'Back', countries_path
+- if is_admin?
+  = link_to 'ویرایش', edit_country_path(@country), :class => "btn btn-info" 

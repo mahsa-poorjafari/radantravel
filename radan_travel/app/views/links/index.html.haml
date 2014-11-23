@@ -1,6 +1,6 @@
 %h1 لیست پیوندهای مرتبط
 -if is_admin?
-  = link_to 'افزودن پیوند جدید', new_link_path, :class => "btn"
+  = link_to 'افزودن پیوند جدید', new_link_path, :class => "btn btn-success"
 %table.table
   %tr
     %th ردیف
@@ -17,8 +17,8 @@
       %td= image_tag link.image(:small)
       %td
         -if is_admin?
-          = link_to 'Show', link
-          = link_to 'Edit', edit_link_path(link)
-          = link_to 'Destroy', link, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to 'مشاهده', link, :class => "btn btn-warning"
+          = link_to 'ویرایش', edit_link_path(link), :class => "btn btn-info"
+          = link_to 'حذف', link, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
 
 

@@ -1,0 +1,22 @@
+.customer-clube{:style => "padding:2%"}
+  = form_tag search_customers_path, :method => "post", id: "search-tour" do 
+    .col-xs-3
+      = submit_tag t('search_customer'), :name => "customer-submit", :id => "customer-submit" , :class => "btn btn-default I18n.locale"
+    .col-xs-9.form-group
+      = text_field_tag :name, params[:name] , :placeholder => t('customer_name'), :class => "form-control", :id => "customer-name"
+    
+            
+   
+   
+
+:javascript 
+  $(function() { 
+    $(':submit#customer-submit').click(function(e) {
+      $(':text#customer-name, textarea#customer-name').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });

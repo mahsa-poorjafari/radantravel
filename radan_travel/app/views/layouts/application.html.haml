@@ -14,7 +14,7 @@
         .container
           #logo
             %center
-              = image_tag 'logo.png'
+              = image_tag 'bg.png'
               
           .coming-soon
             %h2{:class => I18n.locale}= t('coming-soon')
@@ -24,11 +24,95 @@
             = link_to (image_tag 'flag/ar.png'), locale: :ar
     - else
       .main{:class => I18n.locale}
+        .logo
+          - if I18n.locale == :en 
+            = render 'shared/top_site_en'
+          - else
+            = render 'shared/top_site_fa'
         = render 'shared/menu_bar'
         = render 'slides/slider'
+        = render 'shared/multi_slider_search_tour', :tours => Tour.all
         .yield{:class => I18n.locale}
           = yield
-    - if current_user.present?
-      .admin-menu.fa
+        .footer  
+          - if current_page?('/index')
+            .show-colleague{:class => I18n.locale}    
+              .col-xs-12.set-center
+                - Link.all.each do |link|
+                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box" do    
+                    = image_tag link.image(:small)
+                    %p
+                      %b{:class => I18n.locale}= link.title
+          .contact-box  
+            .col-xs-5.contact-info
+              - if @contact.present?
+                %div{:class => I18n.locale}
+                  =raw @contact.text              
+            .col-xs-7.contact-form{:class => I18n.locale}
+              = render 'shared/msg_form' 
+              
+          .footer-link
+            .show-social
+              .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
+                .col-xs-1.social-icon= image_tag 'l.png'
+                .col-xs-1.social-icon= image_tag 'f.png'
+                .col-xs-1.social-icon= image_tag 'g.png'
+                .col-xs-1.social-icon= image_tag 't.png'
+              
+            .col-xs-4
+              %h4{:class => I18n.locale}= t('sitevisit.statistics')
+              .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.total-views')
+                  =  Visit.all.count
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.visits-today')
+                  =  @online_day
+                %p{:class => I18n.locale}
+                  %b= t('sitevisit.online-number')
+                  = @online_now          
+              
+            .col-xs-4
+              %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
+              = render 'shared/newsletter_subscribe'
+              %br
+              %h4{:class => I18n.locale}= t('customer_clube')
+              = render 'shared/customer_clube'
+            .col-xs-4
+              .col-xs-8.set-center
+                %p{:class => I18n.locale}= link_to t('send-to-friend'), '#'
+                %p{:class => I18n.locale}= link_to t('imp-package'), '#'
+          .copyright= 'تمامی حقوق مادی و معنوی این سایت متعلق به آژانس رادان سیر می باشد.'
+            
+    - if is_admin?
+      .admin-menu
         = render 'shared/admin_menu'
-  
+
+  :javascript
+    $('#package-tour :first').addClass('active');
+    $(function () {
+      $('#myTab a:last').tab('show')
+    })
+    
+    $('.fa_date').datepicker()
+    
+    $('#myCarousel').carousel({
+      interval: 4000
+    })
+
+    $('.carousel .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+      
+      for (var i=0;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        
+        next.children(':first-child').clone().appendTo($(this));
+      }
+    });

@@ -1,0 +1,24 @@
+.margin3
+  .col-xs-7
+  .well.col-xs-5{:class => I18n.locale}
+    %p
+      %b نام کاربر میهمان
+      = @tour_comment.user_name
+    %p
+      %b ایمیل کاربر میهمان
+      = @tour_comment.user_email
+      
+    %p
+      %b تور مربوط
+      = @tour_comment.tour.title
+    %p
+      %b تاریخ ثبت نظر
+      =JalaliDate.new(@tour_comment.created_at).strftime("%A %e %b %Y")
+    %p{:style => "text-align:justify, :class => I18n.locale"}
+      %b متن
+      = @tour_comment.text
+  - if is_admin?
+    - unless @tour_comment.confirm_comment?
+      = link_to 'تایید', confirm_tour_comment_path(@tour_comment),  :class => "btn btn-success"
+    = link_to 'حذف', @tour_comment, :method => :delete, :data => { :confirm => 'آیا می خواهید این نظر را حذف کنید؟' }, :class => "btn btn-danger"
+  = link_to 'بازگشت', tour_comments_path

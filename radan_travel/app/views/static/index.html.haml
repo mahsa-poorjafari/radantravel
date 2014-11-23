@@ -1,83 +1,15 @@
-.tabs-on-slider
-  - if I18n.locale == :en
-    %ul.nav.nav-tabs.pull-left#myTab{:role => "tablist", :class => I18n.locale }
-      = render 'shared/search_reserv'
-  - else
-    %ul.nav.nav-tabs.pull-right#myTab{:role => "tablist", :class => I18n.locale }
-      = render 'shared/search_reserv'
-  .clear-float
-  .tab-content    
-    #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
-      %b= 'در حال راه اندازی...'
-      -#
-        = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
-          = label_tag t('reserv-type')
-          = select_tag "type", options_for_select([t('user'), t('agent')])
-          = label_tag t('reserv-lang')
-          = select_tag "lang", options_for_select([t('reserv-en'), t('reserv-fa')])        
-          = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
-        
-    #search.tab-pane.fade{:role => "tabpanel"} 
-      = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-1
-          = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"
-        .col-xs-2
-          = text_field_tag :country, params[:country], :class => "form-control"
-        .col-xs-1{:style => "width:4%"}
-          = label_tag t('tour-country')
-        .col-xs-2
-          = text_field_tag :price, params[:price], :class => "form-control"
-        .col-xs-1{:style => "width:4%"}
-          = label_tag t('tour-price')
-        .col-xs-2
-          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control"
-        .col-xs-1
-          = label_tag t('tour-from')
-        .col-xs-2
-          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control"
-        .col-xs-1
-          = label_tag t('tour-until')
-        
-       
-  
-  
 
+.middle-page    
+  .show-links{:class => I18n.locale}    
+    .col-xs-12.set-center
+      - Link.all.each do |link|
+        = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 link-box" do    
+          = image_tag link.image(:small)
+          %p
+            %b{:class => I18n.locale}= link.title
+  .tours-boxes.set-center
+    = image_tag 'RAdAN2.png', :class => "set-center"
 
-.imp-package.content
-  .col-md-12.text-center
-  %h3.package-box-title= t('packages') 
-  .col-md-12.col-md-offset-3{:style => "height:100%"}
-    #myCarousel.carousel.slide
-      .carousel-inner#package-tour
-        - @tours.each do |tour|
-          .item
-            .col-xs-3
-              - if tour.photos.present?
-                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour
-              
-              .tour-hover
-                %p.tour-title= tour.title
-                - if tour.validate_date_from.present? && tour.validate_date_until.present?
-                  %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-                - elsif tour.validate_date_from.present?
-                  
-                  %p.col-xs-7= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-                  %b.col-xs-5= t('tour.validate_date_from')
-                  .clear-float
-                - elsif   tour.validate_date_until.present?
-                  
-                  %p.col-xs-7= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")  
-                  %b.col-xs-5= t('tour.validate_date_until')
-                  .clear-float
-          
-      = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
-        = image_tag 'prev.png'
-      = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
-        = image_tag 'next.png'
-    #rm_mask_left.rm_mask_left
-    #rm_mask_right.rm_mask_right
-    #rm_corner_left.rm_corner_left
-    #rm_corner_right.rm_corner_right
           
 :javascript
   $('#package-tour :first').addClass('active');
@@ -87,16 +19,9 @@
   
   $('.fa_date').datepicker()
   
-  $(function() {
-    $(".auto .carousel").jCarouselLite({
-        auto: 800,
-        speed: 1000
-    });
-  });
-  
   $('#myCarousel').carousel({
-    interval: 5000
-  });
+    interval: 4000
+  })
 
   $('.carousel .item').each(function(){
     var next = $(this).next();
@@ -114,5 +39,3 @@
       next.children(':first-child').clone().appendTo($(this));
     }
   });
-  
-  

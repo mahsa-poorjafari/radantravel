@@ -1,24 +1,22 @@
-%h1 نقاط دیدنی
--if is_admin?
-  = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn"
-%table.table
-  %tr
-    %th ردیف
-    %th عنوان محل    
-    %th     
-    %th عملیات
-
-  - @sights.each_with_index do |sight, i|
-    %tr
-      %td= (i+1)
-      %td= sight.title      
-      %td= image_tag sight.photos.first.image(:small)
-      %td        
+.margin3  
+  %h1 نقاط دیدنی
+  -if is_admin?
+    = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn btn-success"
+  .show-tours.col-xs-12.set-center
+    - @sights.each_with_index do |sight|
+      .tour-box.well
+        = link_to sight do
+          %h3= sight.title
+          - if sight.photos.present?
+            = image_tag sight.photos.first.image(:medium)
+          .clear-float
         -if is_admin?
-          = link_to 'Show', sight
-          = link_to 'Edit', edit_sight_path(sight)
-          = link_to 'Destroy', sight, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-
-
-
+          .admin-btn-tour
+            = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info"
+            = link_to 'مشاهده جزئیات', sight, :class => "btn btn-warning"       
+            = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+        
+      
+      
+      
+     
