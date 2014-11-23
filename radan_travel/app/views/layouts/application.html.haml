@@ -31,6 +31,7 @@
             = render 'shared/top_site_fa'
         = render 'shared/menu_bar'
         = render 'slides/slider'
+        = render 'shared/multi_slider_search_tour', :tours => Tour.all
         .yield{:class => I18n.locale}
           = yield
         .footer  
@@ -87,3 +88,31 @@
       .admin-menu
         = render 'shared/admin_menu'
 
+  :javascript
+    $('#package-tour :first').addClass('active');
+    $(function () {
+      $('#myTab a:last').tab('show')
+    })
+    
+    $('.fa_date').datepicker()
+    
+    $('#myCarousel').carousel({
+      interval: 4000
+    })
+
+    $('.carousel .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+      
+      for (var i=0;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        
+        next.children(':first-child').clone().appendTo($(this));
+      }
+    });
