@@ -63,16 +63,29 @@ body {padding:0; margin:0; position:absolute; height:100%; width:100%}
 .logo #contact-info  { font-size:2em; font-weight:bold; color:#fff; 
   float:right;
   text-align:center; }
-.logo #contact-info  p{ font-size:.8em;padding-top:2%;font-weight:bold; color:#fff;text-align:center}
-.logo .flag_bar {text-align:left}
-.menu_bar {position:absolute; width:100%; height:70px; background:#14605A;
+.logo #contact-info  p{ font-size:.6em;padding-top:2%;font-weight:bold; color:#fff;text-align:center}
+.logo .flag_bar {
+  text-align: left;
+  position: absolute;
+  top: -42%;
+  left: 0;
+}
+.menu_bar {position:absolute; width:100%; height:45px; background:#14605A;
  -webkit-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 -moz-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
    z-index:10;
 }
 .menu_bar ul{width:50%; list-style:none; height:100%}
-.menu_bar ul a {width:20%; float:right; color:#fff; font-size:1.5em; height:100%; text-align:center; padding-top:4%}
+.menu_bar ul a {
+  width: 20%;
+float: right;
+color: #fff;
+font-size: 1.2em;
+height: 97%;
+text-align: center;
+padding-top: 2%;
+}
 .menu_bar ul a li{width:100%;}
 
 .menu_bar ul a:hover, .menu_bar ul a.active {
@@ -91,7 +104,7 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 .admin-menu ul li:hover a{font-size:15px;text-shadow: 1px 1px 1px #1A1A1A; color:#EB9B07; text-decoration:none}
 .tabs-on-slider {
   position: absolute;
-  top: 23%;
+  top: 22%;
   width: 90%;
   background:#fff;
   margin-left: 5%;
@@ -161,17 +174,34 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 .footer .show-colleague .colleague-box {text-align:center}
 .footer .show-social {
   overflow:hidden;
+  padding-top:1%;
   background: #52A8A6;
   z-index:20; margin-top:-5%; position:absolute;
   width:90%; 
   margin-right:5%; margin-left:5%;   
   height:70px;  
   }
-.footer .show-social .col-xs-2 {text-align:center}
+.footer .show-social .social-icon img{
+-webkit-transition: -webkit-transform 1s;
+  -moz-transition: -moz-transform 1s;
+  -o-transition: -o-transform 1s;
+  transition: transform 1s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;}
+.footer .show-social .social-icon:hover img{
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+  cursor:pointer;
+  }
 .footer .footer-link {  
   width:100%; height:300px; 
   background: #52A8A6;
 }
+
 .footer .footer-link .col-xs-4{padding:2%; margin-top: 5%;
 border-left: 1px solid #548786;
 height: 70%;}

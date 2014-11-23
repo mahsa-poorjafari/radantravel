@@ -51,14 +51,14 @@
               
           .footer-link
             .show-social
-              .col-xs-6.set-center{:style => "right:-22%; left:20%;"}
-                .col-xs-3= image_tag 'l.png'
-                .col-xs-3= image_tag 'f.png'
-                .col-xs-3= image_tag 'g.png'
-                .col-xs-3= image_tag 't.png'
+              .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
+                .col-xs-1.social-icon= image_tag 'l.png'
+                .col-xs-1.social-icon= image_tag 'f.png'
+                .col-xs-1.social-icon= image_tag 'g.png'
+                .col-xs-1.social-icon= image_tag 't.png'
               
             .col-xs-4
-              %h2{:class => I18n.locale}= t('sitevisit.statistics')
+              %h4{:class => I18n.locale}= t('sitevisit.statistics')
               .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
                 %p{:class => I18n.locale}
                   %b= t('sitevisit.total-views')
@@ -71,14 +71,15 @@
                   = @online_now          
               
             .col-xs-4
-              %h2{:class => I18n.locale}= t('subscribe_to_newsletter')
+              %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
               = render 'shared/newsletter_subscribe'
               %br
-              %h2{:class => I18n.locale}= t('customer_clube')
+              %h4{:class => I18n.locale}= t('customer_clube')
               = render 'shared/customer_clube'
             .col-xs-4
-              %p{:class => I18n.locale}= link_to t('send-to-friend'), '#'
-              %p{:class => I18n.locale}= link_to t('imp-package'), '#'
+              .col-xs-8.set-center
+                %p{:class => I18n.locale}= link_to t('send-to-friend'), '#'
+                %p{:class => I18n.locale}= link_to t('imp-package'), '#'
           .copyright= 'تمامی حقوق مادی و معنوی این سایت متعلق به آژانس رادان سیر می باشد.'
             
     - if is_admin?
