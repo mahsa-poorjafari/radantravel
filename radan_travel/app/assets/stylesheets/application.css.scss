@@ -43,7 +43,9 @@ body {padding:0; margin:0; position:absolute; height:100%; width:100%}
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
 .main {width:100%; padding:0; margin:0; position:absolute; top:0;
-  background:#ebebeb;}
+  background:#ebebeb;
+  
+  }
 .logo {width:100%; position:relative; top:0; height:150px; 
   background-image: url(image-path('banner.png'));
   background-repeat: repeat;    
@@ -89,7 +91,7 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 .admin-menu ul li:hover a{font-size:15px;text-shadow: 1px 1px 1px #1A1A1A; color:#EB9B07; text-decoration:none}
 .tabs-on-slider {
   position: absolute;
-  top: 24%;
+  top: 23%;
   width: 90%;
   background:#fff;
   margin-left: 5%;
@@ -111,11 +113,13 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 
 
 .middle-page {
-  background: #DDD981;
+  
+  background: #ECE6BA;
   position: relative;
   margin-top: 6%;
-  height: 500px;
+  height: 600px;
 }
+
 .middle-page .show-links{
   background:#ebebeb; 
   width:90%; 
@@ -124,7 +128,10 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 .middle-page .show-links .link-box{text-align:center}
 .footer .contact-box {    
   background-image: url(image-path('contact-box.jpg'));
-  background-size: cover; 
+  background-attachment: fixed !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height:450px; width:100%;
   overflow:hidden;
 }
@@ -139,24 +146,49 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 }
 .footer legend {color:#fff;}
 .footer .Necessary {color:#fff;}
-.footer .contact-box .contact-info {margin-top:7%; color:#fff; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
-.footer .contact-box .contact-form {margin-top:7%;padding:5%; }
+.footer .contact-box .contact-info {margin-top:5%; color:#fff; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
+.footer .contact-box .contact-form {margin-top:5%;padding:5%; }
 .footer .contact-box .contact-info p{ color:#fff; text-align:justify; font-size:1em; line-height:2em;}
 .footer .show-colleague {
-  background:#DDD981; 
+  background:#ECE6BA; 
   width:90%;
-  margin-right:5%; margin-left:5%; 
-  padding-top:1%;
+  margin-right:5%; margin-left:5%;   
   height:70px;
   position:absolute;
   z-index:10;
 }
-
-
+.footer .show-colleague .colleague-box {text-align:center}
+.footer .show-social {
+  overflow:hidden;
+  background: #52A8A6;
+  z-index:20; margin-top:-5%; position:absolute;
+  width:90%; 
+  margin-right:5%; margin-left:5%;   
+  height:70px;  
+  }
+.footer .show-social .col-xs-2 {text-align:center}
 .footer .footer-link {  
   width:100%; height:300px; 
-  background-image: url(image-path('gray.jpg'));  
-  background-repeat: repeat;  
+  background: #52A8A6;
 }
-.footer .footer-link .col-xs-4{padding:2% }
+.footer .footer-link .col-xs-4{padding:2%; margin-top: 5%;
+border-left: 1px solid #548786;
+height: 70%;}
 .footer .footer-link h2{width:100%; height:30px; }
+.item a.item-package {position:relative}
+.item .tour-hover{position:absolute; 
+  top:0; right:5%; left:5%; width:90%; height:80px;
+  color:#fff; font-size:1em; text-align:center;
+  background-image: url(image-path('outlets.png'));
+  background-repeat: repeat; 
+  opacity:.8;
+  padding-top:5%;
+  }
+.footer .copyright  {height:50px; width:100%; position:relative; 
+  background-image: url(image-path('outlets.png'));
+  background-repeat: repeat; 
+  opacity:.8;
+  color:#fff; text-align:center; padding:1%
+  
+}
+.tours-boxes {width:80%; height:95%; position:relative; overflow:hidden; text-align: center;}  
