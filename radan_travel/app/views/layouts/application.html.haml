@@ -34,7 +34,13 @@
         .yield{:class => I18n.locale}
           = yield
         .footer  
-          .show-colleague
+          .show-colleague{:class => I18n.locale}    
+            .col-xs-12.set-center
+              - Link.all.each do |link|
+                = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-3 colleague-box" do    
+                  = image_tag link.image(:small)
+                  %p
+                    %b{:class => I18n.locale}= link.title
           .contact-box  
             .col-xs-5.contact-info
               - if @contact.present?
@@ -44,6 +50,13 @@
               = render 'shared/msg_form' 
               
           .footer-link
+            .show-social
+              .col-xs-6.set-center{:style => "right:-22%; left:20%;"}
+                .col-xs-3= image_tag 'l.png'
+                .col-xs-3= image_tag 'f.png'
+                .col-xs-3= image_tag 'g.png'
+                .col-xs-3= image_tag 't.png'
+              
             .col-xs-4
               %h2{:class => I18n.locale}= t('sitevisit.statistics')
               .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
@@ -66,6 +79,7 @@
             .col-xs-4
               %p= link_to t('send-to-friend'), '#'
               %p= link_to t('imp-package'), '#'
+          .copyright= 'تمامی حقوق مادی و معنوی این سایت متعلق به آژانس رادان سیر می باشد.'
             
     - if is_admin?
       .admin-menu
