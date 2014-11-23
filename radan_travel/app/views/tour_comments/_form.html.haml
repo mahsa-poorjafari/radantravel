@@ -1,0 +1,34 @@
+= form_for tour_comment do |f|
+  - if tour_comment.errors.any?
+    #error_explanation
+      
+      %ul
+        - tour_comment.full_messages.each do |attr, msg|
+          %li= msg
+  .col-xs-12
+    .col-xs-4
+    .col-xs-8
+      .form-group        
+        = f.text_field :user_name, :class => "form-control", :id => "comment-name", :placeholder => t('tour_comment.user-name')
+      .form-group        
+        = f.text_field :user_email, :class => "form-control", :id => "comment-email", :placeholder => t('tour_comment.user-email')
+      .form-group        
+        = f.hidden_field :tour_id, :value => @tour.id
+    .col-xs-12
+      .form-group       
+        = f.text_area :text, :class => "form-control", :id => "comment-text", :placeholder => t('tour_comment.text')
+    .col-xs-12
+      .form-group
+        = f.submit 'ثبت', :class => "btn btn-primary", :id => "comment-submit"
+    
+:javascript 
+  $(function() { 
+    $(':submit#comment-submit').click(function(e) {
+      $(':text#comment-name,:text#comment-email, textarea#comment-text').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          e.preventDefault();
+        }
+      });
+    });
+  });

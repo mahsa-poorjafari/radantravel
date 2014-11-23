@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110075213) do
+ActiveRecord::Schema.define(version: 20141118103818) do
+
+  create_table "ahoy_events", force: true do |t|
+    t.uuid     "visit_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "properties"
+    t.datetime "time"
+  end
+
+  add_index "ahoy_events", ["time"], name: "index_ahoy_events_on_time", using: :btree
+  add_index "ahoy_events", ["user_id"], name: "index_ahoy_events_on_user_id", using: :btree
+  add_index "ahoy_events", ["visit_id"], name: "index_ahoy_events_on_visit_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "title_fa"
@@ -56,6 +68,19 @@ ActiveRecord::Schema.define(version: 20141110075213) do
     t.datetime "country_flag_updated_at"
   end
 
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "hotels", force: true do |t|
     t.string   "title_fa"
     t.string   "title_en"
@@ -81,6 +106,15 @@ ActiveRecord::Schema.define(version: 20141110075213) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: true do |t|
@@ -160,6 +194,16 @@ ActiveRecord::Schema.define(version: 20141110075213) do
     t.datetime "image_updated_at"
   end
 
+  create_table "tour_comments", force: true do |t|
+    t.string   "user_name"
+    t.integer  "tour_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "confirm_comment", default: false
+    t.string   "user_email"
+  end
+
   create_table "tours", force: true do |t|
     t.string   "title_fa"
     t.string   "title_en"
@@ -171,7 +215,7 @@ ActiveRecord::Schema.define(version: 20141110075213) do
     t.integer  "price"
     t.date     "validate_date_from"
     t.date     "validate_date_until"
-    t.boolean  "coming_soon",         default: false
+    t.boolean  "coming_soon",                   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_fa"
@@ -183,6 +227,14 @@ ActiveRecord::Schema.define(version: 20141110075213) do
     t.text     "documents_fa"
     t.text     "documents_en"
     t.text     "documents_ar"
+    t.string   "decription_image_file_name"
+    t.string   "decription_image_content_type"
+    t.integer  "decription_image_file_size"
+    t.datetime "decription_image_updated_at"
+    t.string   "info_file_name"
+    t.string   "info_content_type"
+    t.integer  "info_file_size"
+    t.datetime "info_updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -204,5 +256,30 @@ ActiveRecord::Schema.define(version: 20141110075213) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "visits", force: true do |t|
+    t.uuid     "visitor_id"
+    t.string   "ip"
+    t.text     "user_agent"
+    t.text     "referrer"
+    t.text     "landing_page"
+    t.integer  "user_id"
+    t.string   "referring_domain"
+    t.string   "search_keyword"
+    t.string   "browser"
+    t.string   "os"
+    t.string   "device_type"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "utm_source"
+    t.string   "utm_medium"
+    t.string   "utm_term"
+    t.string   "utm_content"
+    t.string   "utm_campaign"
+    t.datetime "started_at"
+  end
+
+  add_index "visits", ["user_id"], name: "index_visits_on_user_id", using: :btree
 
 end

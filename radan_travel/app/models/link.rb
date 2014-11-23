@@ -2,7 +2,7 @@
 class Link < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_en
-  has_attached_file :image, :styles => { :original => "700x650>" , :medium => "450x450>", :small => "300x350>" }
+  has_attached_file :image, :styles => { :original => "700x650>" , :medium => "450x450>", :small => "100x50>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   def title
     if I18n.locale == :ar

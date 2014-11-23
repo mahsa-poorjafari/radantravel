@@ -2,6 +2,21 @@ Rails.application.routes.draw do
 
  
 
+  resources :customers do
+    collection do
+      post :search
+      post :send_email_to_all
+    end
+  end
+
+  resources :messages
+
+  resources :tour_comments do
+      member do
+        get :confirm
+      end
+    end
+
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides
@@ -15,7 +30,10 @@ Rails.application.routes.draw do
 
     resources :tours do
       collection do
-        post :search
+        post :search        
+      end
+      member do
+        get :sendtonewsletter
       end
     end
 
@@ -28,6 +46,7 @@ Rails.application.routes.draw do
     resources :roles
 
     devise_for :users
+      
     resources :users
 
     resources :pages
@@ -35,6 +54,7 @@ Rails.application.routes.draw do
   
   root :to => 'static#home'
   get "index" => 'static#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

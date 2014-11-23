@@ -1,8 +1,10 @@
-fa:
-  coming-soon: 'آژانس هواپیمایی - مسافرتی رادان سیر'
+fa:  
+  radantravel: 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+  contact-us: 'ارتباط با ما: '
+  phone: '۰۵۱۳-۸۴۳۱۱۱۵ '
   index: 'فارسی'
   home: 'صفحه اصلی'
-  
+  visitsite: 'برای کسب اطلاعات بیشتر به سایت مراجعه کنید.'
   sight: 'جاذبه های دیدنی'
   hotel: 'هتل ها'
   imp-package: 'پکیج های لحظه ای'
@@ -21,14 +23,31 @@ fa:
   tour-from: 'تاریخ رفت از'
   tour-until: 'تاریخ رفت تا'
   tour-search: 'جستجو'
-  tour-price: 'قیمت'
-  radantravel: 'آژانس هواپیمایی - مسافرتی رادان سیر'
+  tour-price: 'قیمت'  
   tour-info: 'اطلاعات تور'
   info: 'اطلاعات'
   plane: 'پرواز '
   country: 'لیست کشورها'
   city: 'شهرها'
   close: 'بستن پنجره'
+  send-to-friend: 'ارسال این لینک برای دوستان'
+  subscribe_to_newsletter: 'عضویت در خبرنامه'
+  newsletter_email: 'ایمیل خود را وارد نمایید.'
+  newsletter_set: 'ثبت ایمیل'
+  
+  customer_clube: 'جستجو در باشگاه مشتریان'
+  customer_name: 'نام مشتری را وارد کنید.'
+  search_customer: 'جستجو'
+  send-customer-email: 'شما عضو خبرنامه شدید.'
+  thanks: 'از اینکه مارا انتخاب کردید متشکر هستیم'
+  links: 'سایر لینک های مرتبط'
+  
+  sitevisit:
+    statistics: 'آمار سایت'
+    total-views: 'کل بازدیدها تاکنون'
+    visits-today: 'بازدیدهای امروز'
+    online-number: 'تعداد افراد حاضر در سايت'
+    
   tour:
     description: 'توضیحات تکمیلی'
     documents: 'مدارک مورد نیاز'
@@ -38,3 +57,20 @@ fa:
     validate_date_until: 'تاریخ اعتبار تا'
     validate_date_from: 'تاریخ اعتبار از'
     search: 'نتیجه جستجو تور'
+    
+  tour_comment:
+    user-name: 'نام خود را وارد کنید'
+    user-email: 'ایمیل خود را وارد کنید'
+    text: 'نظر خود را وارد کنید'
+    your-comment: 'درباره این تور نظر دهید.'
+    send-comment: 'کاربر گرامی نظر شما ثبت شد.'
+  
+  msg:
+    contact-title:  'با ما در ارتباط باشید.'
+    contact-name:  'نام خود را وارد کنید.'
+    Required:  'ضروری'
+    contact-email:  'ایمیل خود را وارد کنید.'
+    contact-phone:  'تلفن خود را وارد کنید'
+    contact-msg:  'پیام خود را وارد کنید.'
+    contact-btn:  'ارسال پیام'
+    contact-reset: 'پاک کردن'

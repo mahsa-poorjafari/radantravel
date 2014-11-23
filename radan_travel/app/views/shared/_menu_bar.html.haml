@@ -1,26 +1,17 @@
-.menu_bar  
-  .falg_bar
-    = link_to (image_tag 'flag/en_sm.png'), locale: :en
-    = link_to (image_tag 'flag/ir_sm.png'), locale: :fa
-    = link_to (image_tag 'flag/ar_sm.png'), locale: :ar
-  %center.nav_bar
-    %ul.set-center
-      = link_to '/' do
-        %li.home=   t('home')      
-      = link_to  Tour do
-        %li.tour= t('tour.tours')
+.menu_bar
+  
+  %ul.set-center{:class => I18n.locale}
+    = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
+      %li.home=   t('home')      
+    = link_to  Tour, :class => ('active' if current_page?(Tour)) do
+      %li.tour= t('tour.tours')
       
-      = link_to '/' do
-        %li{:style => "margin-top:2px"}= (image_tag 'menu_logo.png')
-      
-      = link_to Sight    do
-        %li.sight=  t('sight')
-      
-      = link_to  Hotel do
-        %li= t('hotel')
-      
-      = link_to  Country do
-        %li= t('tour-country')
-  .pin
-    %h2= 'نظر سنجی'
+    = link_to Sight , :class => ('active' if current_page?(Sight)) do
+      %li.sight=  t('sight')
     
+    = link_to  Hotel, :class => ('active' if current_page?(Hotel)) do
+      %li= t('hotel')
+    
+    = link_to  Country , :class => ('active' if current_page?(Country)) do
+      %li= t('tour-country')
+

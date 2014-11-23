@@ -1,7 +1,12 @@
-%h1 Editing user
+.margin3  
+  %h1= 'ویرایش پروفایل '  + @user.email
+  = link_to 'مشاهده', @user, :class => "btn btn-warning"      
+  .col-xs-6
+    = render 'form'  
+  .col-xs-6
+    = link_to 'ویرایش اطلاعات کاربری', edit_user_registration_path, :class => "btn btn-info" 
+  
+  
 
-= render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
+  
+ 

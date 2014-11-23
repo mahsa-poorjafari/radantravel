@@ -19,11 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  coming-soon: 'Coming soon...'
+en:  
+  radantravel: 'Radan Travel Agency'
+  contact-us: 'Contact Us:'
+  phone: '0513-8431115'
   index: 'Index'
   home: 'Home'
-  
+  visitsite: 'For Getting More Information Visit Site'
   sight: 'Sights'
   hotel: 'Hotels'
   imp-package: 'Package Moment'
@@ -48,6 +50,23 @@ en:
   country: 'Countries List'
   city: 'Countries Cities'
   close: 'Close'
+  send-to-friend: 'Send This Link To A Friend'
+  subscribe_to_newsletter : 'Subscribe To Newsletter'
+  newsletter_email : 'Just Enter Your Email'
+  newsletter_set: 'Set Email'
+  
+  customer_clube: 'Search In Customer Clube'
+  customer_name: 'Enter The Customer Name'
+  search_customer: 'Search'
+  send-customer-email: 'Your Register Done'
+  thanks: 'Thank you, for choosing us'
+  links: 'Other Link'
+  
+  sitevisit:
+    statistics: 'Statistics'
+    total-views: 'Total Views'
+    visits-today: 'Visits Today'
+    online-number: 'The number of people on the site'
   tour:
     itinerary: 'Itinerary'
     documents: 'Documents'
@@ -57,6 +76,20 @@ en:
     validate_date_until: 'Exp Date Until'
     validate_date_from: 'Start Date From'
     search: 'Tour Result'
+  tour_comment:
+    user-name: 'Your Name:'
+    user-email: 'Your Email:'
+    text: 'Your Text'
+    your-comment: 'Input Your Comment About This Tour'
+    send-comment: 'Dear User, Your Comment Has Been Send'
+  msg:
+    contact-title:  'Contact With Us'
+    contact-name:  'Enter Your Name'
+    Required:  'Required'
+    contact-email:  'Enter Your Email'
+    contact-phone:  'Enter Your Phone'
+    contact-msg:  'Enter Your Message'
+    contact-btn:  'Send'
+    contact-reset: 'Reset'
     
-  
   

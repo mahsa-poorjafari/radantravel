@@ -1,19 +1,52 @@
-%h1 Listing users
+.margin3
+  %h1 لیست کاربران عضو در سایت
+  
+    
+  %table.table.table-striped{id:"users_table"}
+    %thead
+      %tr
+        %th ردیف
+        %th نام کاربری
+        %th ایمیل
+        %th نقش کاربری
+        %th عملیات
+    %tbody{:id => "users_container"}
+      - @users.each_with_index do |user, i|
+        %tr
+          %td= (i+1)
+          %td= user.user_name
+          %td= user.email
+          %td= user.role.title
+          %td
+            - if is_admin?
+              = link_to 'مشاهده', user, :class => "btn btn-warning" 
+              = link_to 'ویرایش', edit_user_path(user), :class => "btn btn-info"
+              - unless user.role_id == 1
+                = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا می خواهید این کاربر حذف شود؟' }, :class => "btn btn-danger"
 
-%table
-  %tr
-    %th User name
-    %th
-    %th
-    %th
 
-  - @users.each do |user|
-    %tr
-      %td= user.user_name
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#users_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,4]
+    ,  
+      bSortable: false
+      aTargets: [0,4]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
 
-%br
+  window.reloadDataTable()
 
-= link_to 'New User', new_user_path
+     
+

@@ -1,0 +1,75 @@
+.margin3
+  %h1{:class => I18n.locale}=  'لیست مشتریان'
+  = link_to 'تعریف مشتری جدید', new_customer_path, :class => "btn btn-success"
+  
+  - if is_admin?      
+    .col-xs-3
+      - if flash[:ToAll].present?
+        .alert.alert-success= flash[:ToAll]
+    .col-xs-8
+      .well
+        = form_tag send_email_to_all_customers_path, :method => "post", id: "customer-tour" do 
+          %h2{:class => I18n.locale}= 'ارسال پیام برای اعضای خبر نامه'
+          .clear-float        
+          
+          .form-group
+            = label_tag 'عنوان پیام'
+          .form-group
+            = text_field_tag :subject, params[:subject], :class => "form-control", :id => "customer-subject"
+          .form-group
+            = label_tag 'متن پیام'  
+          .form-group
+            = text_area_tag :text, params[:text], :class => "form-control", :id => "customer-text"
+          .form-group
+            = submit_tag 'ارسال پیام', :name => "tour_submit", :id => "customer-submit" , :class => "btn btn-info"
+    
+    .clear-float
+  %table.table.table-striped{id:"customer_table"}
+    %thead
+      %tr
+        %th ردیف‍
+        %th نام 
+        %th ایمیل
+        %th تلفن 
+        %th آدرس
+        %th تاریخ عضویت در خبرنامه
+        %th عملیات
+    %tbody{:id => "customer_container"}
+      - @customers.each_with_index do |customer, i|
+        %tr
+          %td= (i+1)
+          %td= customer.name
+          %td= customer.email
+          %td= customer.phone
+          %td= customer.address
+          %td= JalaliDate.new(customer.created_at).strftime("%y/%m/%e %X")
+          - if is_admin?
+            %td
+              = link_to 'ویرایش  اطلاعات مشتری', edit_customer_path(customer), :class => "btn btn-info"
+              = link_to 'مشاهده جزئیات', customer, :class => "btn btn-warning"       
+              = link_to 'حذف مشتری', customer, :method => :delete, :data => { :confirm => 'آیا می خواهید این مشتری را از حذف کنید؟' }, :class => "btn btn-danger"
+        
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#customer_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,6]
+    ,  
+      bSortable: false
+      aTargets: [0,6]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
+
+           

@@ -1,18 +1,14 @@
-%p#notice= notice
-
-%p
-  %b نام محل
-  = @sight.title
-
-
-%p
-  %b توضیحات
-  =raw @sight.text
-%div
-  - @sight.photos.each do |pic|
-    .span6
-      = image_tag pic.image(:medium)
-
-= link_to 'Edit', edit_sight_path(@sight)
-\|
-= link_to 'Back', sights_path
+.margin3
+  %h1.title-tours{:class => I18n.locale}=  @sight.title  
+  - if is_admin?
+    = link_to 'ویرایش', edit_sight_path(@sight), :class => "btn btn-info" 
+  .tour-details
+    .col-xs-12        
+      .col-xs-7
+        = render 'shared/slider_tumbnail', :model => @sight
+  
+      .col-xs-5=raw @sight.text
+      
+  
+  
+ 

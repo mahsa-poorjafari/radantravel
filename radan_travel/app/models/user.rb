@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   def is_admin?
     #self.roles.collect(&:title).include?("Admin")
-    self.email = 'greenday1365@gmail.com'
+    self.role_id = 1
     
   end
 end

@@ -1,7 +1,8 @@
-%h1 Editing sight
+.margin3  
+  %h1 ویرایش جاذبه دیدنی
+  %h2= @sight.title
+  = link_to 'مشاهده', @sight, :class => "btn btn-warning"  
+  = render 'form'
 
-= render 'form'
-
-= link_to 'Show', @sight
-\|
-= link_to 'Back', sights_path
+      
+  

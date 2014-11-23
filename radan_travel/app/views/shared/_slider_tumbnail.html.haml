@@ -1,0 +1,13 @@
+%section#section_demo
+  .container{:style => "width:100%"}
+    .row
+      #slideshow2.col-lg-12  
+
+    .row
+      .col-lg-12
+        %ul#slideshow2_thumbs.desoslide-thumbs-horizontal.list-inline.text-center{:style => "width:100%; padding:0"}
+          - model.photos.each do |pic|
+            %li
+              = link_to pic.image(:original) do
+                = image_tag pic.image(:tumb), :alt => model.title, :title => model.title , :id => "pic-" + pic.id.to_s
+          
