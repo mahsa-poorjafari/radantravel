@@ -126,7 +126,7 @@ padding-top: 2%;
   height:230px; overflow:hidden;
 }
 
-.yield {min-height: 600px;}
+
 .middle-page {
   
   background: #ECE6BA;
@@ -143,9 +143,9 @@ padding-top: 2%;
 .middle-page .show-links .link-box{text-align:center}
 
 .footer {position: relative;
-  display:none;
-bottom: 0;
-width: 100%;}
+  
+  bottom: 0;
+  width: 100%;}
 .footer .contact-box {    
   background-image: url(image-path('contact-box.jpg'));
   background-attachment: fixed !important;

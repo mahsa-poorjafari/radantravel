@@ -43,13 +43,13 @@
                     = image_tag link.image(:small)
                     %p
                       %b{:class => I18n.locale}= link.title
-            .contact-box  
-              .col-xs-5.contact-info
-                - if @contact.present?
-                  %div{:class => I18n.locale}
-                    =raw @contact.text              
-              .col-xs-7.contact-form{:class => I18n.locale}
-                = render 'shared/msg_form' 
+          .contact-box  
+            .col-xs-5.contact-info
+              - if @contact.present?
+                %div{:class => I18n.locale}
+                  =raw @contact.text              
+            .col-xs-7.contact-form{:class => I18n.locale}
+              = render 'shared/msg_form' 
               
           .footer-link
             .show-social
