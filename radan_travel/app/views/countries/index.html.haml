@@ -1,15 +1,14 @@
 .margin3
   -if is_admin?
     = link_to 'معرفی کشور', new_country_path, :class => "btn btn-success"
-  %h1.country-page-title= t('country')
+  %h1.title-tours{:class => I18n.locale}= t('country')
   .country-tabs
     - if I18n.locale == :en  
       %ul.nav.nav-tabs.pull-left#CountryTab{:role => "tablist", :class => I18n.locale }
         = render 'countries/country_title_tap'      
     - else
       %ul.nav.nav-tabs.pull-right#CountryTab{:role => "tablist", :class => I18n.locale }
-        = render 'countries/country_title_tap'
-    .clear-float
+        = render 'countries/country_title_tap'    
     .tab-content
       = render 'countries/country_details'
       
