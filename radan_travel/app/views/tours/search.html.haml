@@ -1,23 +1,23 @@
 .margin3
-  %h1= t('tour.search')
+  %h1.title-tours{:class => I18n.locale}= t('tour.search')
     
   .show-tours.col-xs-12.set-center
     - if @tour_result
       - @tour_result.each do |tour|      
-        .tour-box.well
-          = link_to tour do
-            %h3= tour.title
+        .tours-index
+          = link_to tour, :class => "tour-box" do
+            %h5.tour-title= tour.title
             - if tour.photos.present?
-              = image_tag tour.photos.first.image(:medium)
+              .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
             .clear-float
-            .tour-date
-              - if tour.validate_date_from.present? && tour.validate_date_until.present?
-                %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-              - elsif tour.validate_date_from.present?
-                %b= t('tour.validate_date_from')
-                %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-              - elsif   tour.validate_date_until.present?
-                %b= t('tour.validate_date_until')
-                %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+          .tour-date
+            - if tour.validate_date_from.present? && tour.validate_date_until.present?
+              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+            - elsif tour.validate_date_from.present?
+              %b= t('tour.validate_date_from')
+              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+            - elsif   tour.validate_date_until.present?
+              %b= t('tour.validate_date_until')
+              %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
     
-  %h3= link_to 'بازگشت به صفحه اصلی', {:controller => "static", :action => "index"}
+  

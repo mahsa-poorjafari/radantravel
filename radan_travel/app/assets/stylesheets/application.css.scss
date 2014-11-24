@@ -53,7 +53,7 @@ body {padding:0; margin:0; position:absolute; height:100%; width:100%}
 }
 .logo .title-site {  
   top:0; 
-  font-size:2.5em; 
+  font-size:2em; 
   color:#fff; 
   font-weight:bold;
   line-height:1.5em;
@@ -67,8 +67,10 @@ body {padding:0; margin:0; position:absolute; height:100%; width:100%}
 .logo .flag_bar {
   text-align: left;
   position: absolute;
-  top: -42%;
+  top: -24%;
   left: 0;
+  right: 0;
+  text-align:center;
 }
 .menu_bar {position:absolute; width:100%; height:45px; background:#14605A;
  -webkit-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
@@ -124,7 +126,7 @@ padding-top: 2%;
   height:230px; overflow:hidden;
 }
 
-
+.yield {min-height: 600px;}
 .middle-page {
   
   background: #ECE6BA;
@@ -141,6 +143,7 @@ padding-top: 2%;
 .middle-page .show-links .link-box{text-align:center}
 
 .footer {position: relative;
+  display:none;
 bottom: 0;
 width: 100%;}
 .footer .contact-box {    
@@ -228,3 +231,49 @@ height: 70%;}
   
 }
 .tours-boxes {width:80%; height:70%; position:relative; overflow:hidden; text-align: center;}  
+.tours-index { position:relative; text-align:center; overflow:hidden; width:20%; float:right; height:205px;
+  margin-bottom:5%;
+}
+.tour-box {
+  height:100%; 
+  overflow:hidden; 
+  position:absolute;  
+  width:100%; right:0; left:0;  
+  text-align:center;}
+.tour-sample-image { height:200px; overflow:hidden}
+.tour-box .tour-title {width: 80%;
+color:#000;
+position: relative;
+right: 10%;
+left: 10%;
+background: #52A8A6;
+height: 13%;
+padding-top: 3%;
+margin: 0;
+border-top-right-radius:5px;
+border-top-left-radius:5px;}
+.tour-box .tour-sample-image img{width:90%; border-radius:5px; height:90%}
+.tour-date {position: absolute;  
+  width: 90%; 
+  left: 5%;
+  overflow:hidden;
+  right: 5%;
+  color:#fff;
+  background-image: url(image-path('outlets.png'));
+  background-repeat: repeat; 
+  opacity:.8;
+  height:40px;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  bottom:-20%;
+}
+.tours-index:hover .tour-date{ bottom:0}
+.admin-btn-tour {position:absolute; bottom:0;}
+.tour-details {}
+.tour-details .tour-description p, .country-show .country-text p {text-align:justify;}
+.comment-box {background-image: url(image-path('halftone.png'));
+  background-repeat: repeat; }
+.title-tours {text-align:center; padding:1%; margin:1%;}
+.contact-top-site {margin-top: 15%;
+margin-left: -40%;
+margin-right: -40%;}

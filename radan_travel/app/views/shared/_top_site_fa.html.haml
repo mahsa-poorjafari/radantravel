@@ -10,9 +10,10 @@
       = link_to (image_tag 'flag/en_sm.png'), locale: :en
       = link_to (image_tag 'flag/ir_sm.png'), locale: :fa
       = link_to (image_tag 'flag/ar_sm.png'), locale: :ar
-    
-    %p{:class => I18n.locale}= t('contact-us')
-    %p  
-      %span= image_tag 'phone-icon.png'
-      %span{:class => I18n.locale}= t('phone')
+    .contact-top-site
+      %p{:class => I18n.locale}
+        %span= t('contact-us')
+        %span= image_tag 'phone-icon.png'
+      %p{:class => I18n.locale}= t('phone')
+
     
