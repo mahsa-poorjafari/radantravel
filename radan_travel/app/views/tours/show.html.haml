@@ -26,29 +26,8 @@
         - if @tour.decription_image.present?
           = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
             = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :id => @tour.id
-        =raw @tour.description 
+        .tour-description=raw @tour.description 
       .col-xs-3
-        -#
-          %p
-            - if @tour.city_id.present?          
-              = @tour.city.country.title
-              \/
-              = @tour.city.title
-          %p
-            - if @tour.hotel_id.present?
-              = @tour.hotel.title
-          %p
-            - if @tour.plane_id.present?
-              = t('plane') + @tour.plane.title
-              
-            
-        -#
-          %p
-          %b تاریخ اعتبار از
-          = JalaliDate.new(@tour.validate_date_from)      
-          %b الی
-          = JalaliDate.new(@tour.validate_date_until)
-        
         
         %p
           %h2{:class => I18n.locale}= t('tour.itinerary')
@@ -92,7 +71,7 @@
     .col-xs-12
       .col-xs-7        
         = render 'shared/slider_tumbnail', :model => @tour
-      .col-xs-5
+      .col-xs-5.comment-box
         - if flash[:SendComment].present?
           .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')
         .tour-comments

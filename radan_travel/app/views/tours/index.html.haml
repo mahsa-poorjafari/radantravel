@@ -5,21 +5,21 @@
     
   .show-tours.col-xs-12.set-center
     - @tours.each_with_index do |tour|
-      .tour-box.well
-        = link_to tour do
-          %h3= tour.title
+      .tours-index
+        = link_to tour, :class => "tour-box" do
+          %h5.tour-title= tour.title
           - if tour.photos.present?
-            = image_tag tour.photos.first.image(:medium)
+            .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
           .clear-float
-          .tour-date
-            - if tour.validate_date_from.present? && tour.validate_date_until.present?
-              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-            - elsif tour.validate_date_from.present?
-              %b= t('tour.validate_date_from')
-              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-            - elsif   tour.validate_date_until.present?
-              %b= t('tour.validate_date_until')
-              %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+        .tour-date
+          - if tour.validate_date_from.present? && tour.validate_date_until.present?
+            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
+          - elsif tour.validate_date_from.present?
+            %b= t('tour.validate_date_from')
+            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
+          - elsif   tour.validate_date_until.present?
+            %b= t('tour.validate_date_until')
+            %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
         -if is_admin?
           .admin-btn-tour
             = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
@@ -31,19 +31,4 @@
               .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
             
       
-        -#
-          = link_to tour do
-            %p
-              - if tour.plane_id.present?
-                = tour.plane.title
-            %p
-              - if tour.hotel_id.present?
-                = tour.hotel.title  
-            %p
-              - if tour.city_id.present?
-                = tour.city.title
-                \|
-                = tour.city.country.title
-            %p= tour.price
-            
        

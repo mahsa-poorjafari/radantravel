@@ -7,8 +7,7 @@ default: &default
 development:
   <<: *default
   database: radan_travel_development
-  username: root
-  password: root
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,7 +18,7 @@ test:
 
 production:
   <<: *default
-  database: radan_travel_development
-  username: root
-  password: root
+  database: radan_travel
+  username: da_admin
+  password: hllUXDhM
 
