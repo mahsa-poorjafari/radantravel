@@ -3,7 +3,7 @@
   %ul.set-center{:class => I18n.locale}
     = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
       %li.home=   t('home')      
-    = link_to  Tour, :class => ('active' if current_page?(Tour)) do
+    = link_to  tours_path, :class => ('active' if current_page?(Tour)) do
       %li.tour= t('tour.tours')
       
     = link_to Sight , :class => ('active' if current_page?(Sight)) do
