@@ -19,24 +19,21 @@
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-1{:style => "margin-top:2%"}
+        .col-xs-1.pull-left{:style => "margin-top:2%"}
           = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn btn-info"
-        .col-xs-2
-          = label_tag t('tour-country')
-          = text_field_tag :country, params[:country], :class => "form-control", :id => "tour-country"                  
-        .col-xs-2
-          = label_tag t('tour-price')
-          = text_field_tag :price, params[:price], :class => "form-control", :id => "tour-price"                  
-        
-        .col-xs-2
-          = label_tag t('tour-until')          
-          #datetimepicker1.input-group.date
-            = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control", :id => "tour-start"
-            %span.input-group-addon
-              %span.glyphicon.glyphicon-calendar
-        .col-xs-2
+        .col-xs-2.pull-right
           = label_tag t('tour-from')
           = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control", :id => "tour-exp"
+        .col-xs-2.pull-right
+          = label_tag t('tour-until')
+          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control", :id => "tour-start"
+        
+        .col-xs-2.pull-right
+          = label_tag t('tour-price')
+          = text_field_tag :price, params[:price], :class => "form-control", :id => "tour-price"                  
+        .col-xs-2.pull-right
+          = label_tag t('tour-country')
+          = text_field_tag :country, params[:country], :class => "form-control", :id => "tour-country"                  
 
 
 .imp-package.content
