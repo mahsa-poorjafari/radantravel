@@ -2,15 +2,14 @@
   .tab-pane.fade.in.country-details{:role => "tabpanel", :id => 'country'+country.id.to_s}    
     - if is_admin?      
       = link_to 'ویرایش', edit_country_path(country), :class => "btn btn-info"
-    .clear-float  
     
     .country-show{:class => I18n.locale}
       %h2= country.title
       .col-xs-5.set-center
         = image_tag country.photos.first.image(:medium)  
-      .col-xs-8.country-text{:class => I18n.locale}        
+      .col-xs-9.country-text{:class => I18n.locale}        
         = raw country.text
-      .col-xs-8
+      .col-xs-9.country-cities-list
         %h2= t('city') 
         %ul{:style => "list-style:circle"}
           - country.cities.each do |city|        
