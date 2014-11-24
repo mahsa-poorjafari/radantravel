@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
     text = params[:text]
     UserMailer.email_to_all_customer(subject, text).deliver
     flash[:ToAll] = 'پیام برای تمام اعضا خبرنامه ارسال شد'
-    else
+    
     redirect_to :back
   end
   def search    

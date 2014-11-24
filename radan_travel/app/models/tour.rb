@@ -84,9 +84,9 @@ class Tour < ActiveRecord::Base
     
     start_date.blank? ? all : where(validate_date_from:  start_date..Date.today + 1.month)
   end
-  def self.by_exp_date(exp_date)
+  def self.by_exp_date(exp_date)    
     
-    exp_date.blank? ? all : where(validate_date_until:  exp_date..Date.today + 2.month)
+    exp_date.blank? ? all : where(validate_date_until:  exp_date..exp_date + 1.month)
   end
   
 end

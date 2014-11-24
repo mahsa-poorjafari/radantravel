@@ -1,41 +1,41 @@
+-#
+  .middle-page    
+    .show-links{:class => I18n.locale}    
+      .col-xs-12.set-center
+        - Link.all.each do |link|
+          = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 link-box" do    
+            = image_tag link.image(:small)
+            %p
+              %b{:class => I18n.locale}= link.title
+    .tours-boxes.set-center
+      = image_tag 'RAdAN2.png', :class => "set-center"
 
-.middle-page    
-  .show-links{:class => I18n.locale}    
-    .col-xs-12.set-center
-      - Link.all.each do |link|
-        = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 link-box" do    
-          = image_tag link.image(:small)
-          %p
-            %b{:class => I18n.locale}= link.title
-  .tours-boxes.set-center
-    = image_tag 'RAdAN2.png', :class => "set-center"
-
-          
-:javascript
-  $('#package-tour :first').addClass('active');
-  $(function () {
-    $('#myTab a:last').tab('show')
-  })
-  
-  $('.fa_date').datepicker()
-  
-  $('#myCarousel').carousel({
-    interval: 4000
-  })
-
-  $('.carousel .item').each(function(){
-    var next = $(this).next();
-    if (!next.length) {
-      next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
+            
+  :javascript
+    $('#package-tour :first').addClass('active');
+    $(function () {
+      $('#myTab a:last').tab('show')
+    })
     
-    for (var i=0;i<2;i++) {
-      next=next.next();
+    $('.fa_date').datepicker()
+    
+    $('#myCarousel').carousel({
+      interval: 4000
+    })
+
+    $('.carousel .item').each(function(){
+      var next = $(this).next();
       if (!next.length) {
         next = $(this).siblings(':first');
       }
-      
       next.children(':first-child').clone().appendTo($(this));
-    }
-  });
+      
+      for (var i=0;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        
+        next.children(':first-child').clone().appendTo($(this));
+      }
+    });

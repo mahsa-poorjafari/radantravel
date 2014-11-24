@@ -32,15 +32,17 @@ class ToursController < ApplicationController
     p start_date = params[:start_date]
     p Date.today.strftime("%Y/%m/%d")
     p start_date = Persian_to_english_date(start_date)
+    p '-----------'
     if start_date
       p start_date.strftime("%Y/%m/%d")
     end
     p '==============='
     p exp_date = params[:exp_date]
     p exp_date = Persian_to_english_date(exp_date)
-    if exp_date
-      p exp_date = exp_date.strftime("%Y/%m/%d")
-    end
+    p '==============='
+    #if exp_date
+    #  p exp_date = exp_date.strftime("%Y/%m/%d")
+    #end
     if country || price || start_date || exp_date      
       @tour_result = Tour.by_country(country).by_price(price).by_start_date(start_date).by_exp_date(exp_date)
       

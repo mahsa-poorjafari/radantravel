@@ -121,7 +121,7 @@ padding-top: 2%;
 .nav-tabs li a{background:#E5E5E5; width:100%; text-align:center}  
 .nav-tabs li:hover{cursor:pointer}  
 .imp-package {width:100%; position:relative; margin-top:4%;
-  height:200px; overflow:hidden;
+  height:230px; overflow:hidden;
 }
 
 
@@ -139,6 +139,10 @@ padding-top: 2%;
   margin-right:5%; margin-left:5%;   
   height:70px}
 .middle-page .show-links .link-box{text-align:center}
+
+.footer {position: relative;
+bottom: 0;
+width: 100%;}
 .footer .contact-box {    
   background-image: url(image-path('contact-box.jpg'));
   background-attachment: fixed !important;
@@ -164,7 +168,7 @@ padding-top: 2%;
 .footer .contact-box .contact-info p{ color:#fff; text-align:justify; font-size:1em; line-height:2em;}
 .footer .contact-box .contact-info .fa p{direction:rtl; font-family: 'open_sansregular';}
 .footer .show-colleague {
-  background:#ECE6BA; 
+  background:#ebebeb; 
   width:90%;
   margin-right:5%; margin-left:5%;   
   height:70px;
