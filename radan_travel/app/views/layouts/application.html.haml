@@ -10,18 +10,14 @@
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
   %body    
     - if current_page?('/')
-      .first_page
-        .container
-          #logo
-            %center
-              = image_tag 'bg.png'
-              
-          .coming-soon
-            %h2{:class => I18n.locale}= t('coming-soon')
-          .falgs
-            = link_to (image_tag 'flag/en.png'), 'index?locale=en'
-            = link_to (image_tag 'flag/ir.png'), 'index?locale=fa'
-            = link_to (image_tag 'flag/ar.png'), locale: :ar
+      %embed{:autostart => "true", :hidden => "true", :loop => "false", :src => 'music/a.mp3', :style => "display:block"}
+      = swf_tag "flash"
+      .falgs{:style => "position:fixed; top:23%; left:15%;"}
+        = link_to (image_tag 'flag/en.png'), 'index?locale=en'
+        = link_to (image_tag 'flag/ir.png'), 'index?locale=fa'
+        = link_to (image_tag 'flag/ar.png'), locale: :ar
+      :javascript
+        $('html, body').css('overflow','hidden');
     - else
       .main{:class => I18n.locale}
         = link_to '', '#', :name => "#top", :id => "myAnchor"
@@ -89,8 +85,10 @@
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'
-    = link_to '#top', :id => "anchor1", :class => "anchorLink" do
-      = image_tag 'gotop.png'
+    - unless current_page?('/') 
+      = link_to '#top', :id => "anchor1", :class => "anchorLink" do
+        = image_tag 'gotop.png'
+      
   - unless current_page?('/')  || current_page?('/index') 
     :javascript
       $(document).ready(function() {

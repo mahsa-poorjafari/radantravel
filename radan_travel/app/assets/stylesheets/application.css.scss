@@ -48,7 +48,7 @@ body {padding:0; margin:0;  height:100%; width:100%}
   }
 .logo {width:100%; position:relative; top:0; height:150px; 
   background-image: url(image-path('banner.png'));
-  background-repeat: repeat;    
+  background-size: 100%;    
   padding-top:2%;
 }
 .logo .title-site {  
@@ -100,7 +100,7 @@ padding-top: 2%;
 .admin-menu {background:#A2C6C7; position:fixed; z-index:200; height:50px; overflow:hidden;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
-    padding:1%; top:35%;
+    padding:1%; top:15%;
   }
 .admin-menu:hover { height:350px}
 .admin-menu ul li a{color:#000;}

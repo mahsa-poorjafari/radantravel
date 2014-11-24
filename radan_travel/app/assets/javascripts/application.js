@@ -17,4 +17,5 @@
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require ahoy
+//= require swfobject
 //= require_tree .
