@@ -34,8 +34,8 @@
         = render 'shared/multi_slider_search_tour', :tours => Tour.all
         .yield{:class => I18n.locale}
           = yield
-        .footer  
-          - if current_page?('/index')
+        .footer          
+          .contact-box 
             .show-colleague{:class => I18n.locale}    
               .col-xs-12.set-center
                 - Link.all.each do |link|
@@ -43,7 +43,6 @@
                     = image_tag link.image(:small)
                     %p
                       %b{:class => I18n.locale}= link.title
-          .contact-box  
             .col-xs-5.contact-info
               - if @contact.present?
                 %div{:class => I18n.locale}
