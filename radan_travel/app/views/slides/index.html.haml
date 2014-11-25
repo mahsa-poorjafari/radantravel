@@ -3,12 +3,10 @@
 .coin-slider#coin-slider-slider  
   .slides-index{:style => "margin:3%"}
     - Slide.all.each do |slide|
-      = link_to '#' do
+      .col-xs-12
         = image_tag slide.image(:small)
         %span= slide.text
-      = link_to 'ویرایش', edit_slide_path(slide), :class => "btn btn-info"      
-      = link_to 'حذف', slide, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
-:javascript
-  $(document).ready(function() {
-  $('#slider').coinslider({ hoverPause: false });
-  });
+        = link_to 'مشاهده', slide, :class => "btn btn-warning"         
+        = link_to 'ویرایش', edit_slide_path(slide), :class => "btn btn-info"      
+        = link_to 'حذف', slide, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
+
