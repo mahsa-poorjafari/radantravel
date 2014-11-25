@@ -46,7 +46,7 @@
           .item
             .col-xs-3
               - if tour.photos.present?
-                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package'
+                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               
               .tour-hover{:class => I18n.locale}
                 %p.tour-title{:class => I18n.locale}= tour.title
@@ -55,7 +55,7 @@
                 - else  
                   = render "/tours/show_english_date", :tour => tour
           
-      = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev"  do  
+      = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
-      = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next"  do           
+      = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
         = image_tag 'next.png'
