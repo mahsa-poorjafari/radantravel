@@ -1,3 +1,3 @@
 - Country.all.each do  |country|
-  %li{:role => "presentation"}
-    = link_to country.title, '#country'+country.id.to_s, {:role => "tab", "data-toggle" => "tab"}
+  %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
+    = link_to country.title, '#country'+country.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +country.title_fa, :id => 'country-'+ country.id.to_s

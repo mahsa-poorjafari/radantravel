@@ -1,7 +1,7 @@
 .margin3
   -if is_admin?
-    = link_to 'معرفی کشور', new_country_path, :class => "btn btn-success"
-  %h1.title-tours{:class => I18n.locale}= t('country')
+    = link_to 'معرفی کشور', new_country_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"
+  %h1.title-tours{:class => I18n.locale, :title => "آژانس_هواپیمایی_رادان_سیر"}= t('country')
   .country-tabs
     - if I18n.locale == :en  
       %ul.nav.nav-tabs.pull-left#CountryTab{:role => "tablist", :class => I18n.locale }
