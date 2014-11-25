@@ -1,13 +1,9 @@
 .customer-clube{:style => "padding:2%"}
   = form_tag search_customers_path, :method => "post", id: "search-tour" do 
     .col-xs-3
-      = submit_tag t('search_customer'), :name => "customer-submit", :id => "customer-submit" , :class => "btn btn-default I18n.locale"
+      = submit_tag t('search_customer'), :name => "customer-submit", :id => "customer-submit" , :class => "btn btn-default I18n.locale", :title => "آژانس_هواپیمایی_رادان_سیر"
     .col-xs-9.form-group
-      = text_field_tag :name, params[:name] , :placeholder => t('customer_name'), :class => "form-control", :id => "customer-name"
-    
-            
-   
-   
+      = text_field_tag :name, params[:name] , :placeholder => t('customer_name'), :class => "form-control", :id => "customer-name", :title => "آژانس_هواپیمایی_رادان_سیر"
 
 :javascript 
   $(function() { 

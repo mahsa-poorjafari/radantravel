@@ -2,17 +2,17 @@
   - if current_user.present?
     = current_user.email
 %ul{:class => I18n.locale}  
-  %li= link_to 'مدیریت خبرنامه', Customer
-  %li= link_to 'مدیریت صفحات متنی', Page
-  %li= link_to 'کشورها', countries_path
-  %li= link_to 'شهرها', cities_path
-  %li= link_to 'هتل ها', hotels_path
-  %li= link_to 'معرفی تورها', tours_path
-  %li= link_to 'معرفی نقاط دیدنی', sights_path
-  %li= link_to 'پیوندهای مرتبط', links_path
+  %li= link_to 'مدیریت خبرنامه', Customer, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'مدیریت صفحات متنی', Page, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'کشورها', countries_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'شهرها', cities_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'هتل ها', hotels_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'معرفی تورها', tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'معرفی نقاط دیدنی', sights_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'پیوندهای مرتبط', links_path, :title => "آژانس_هواپیمایی_رادان_سیر"
   
-  %li= link_to 'مدیریت اسلایدر', Slide
-  %li= link_to 'مشاهده نظرات کاربران', TourComment
-  %li= link_to 'مدیریت کاربران عضو', User
-  %li= link_to 'پروفایل کاربر', edit_user_path(current_user)
-  %li= link_to 'خروج', destroy_user_session_path, :method => :delete
+  %li= link_to 'مدیریت اسلایدر', Slide, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'مشاهده نظرات کاربران', TourComment, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'مدیریت کاربران عضو', User, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'پروفایل کاربر', edit_user_path(current_user), :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li= link_to 'خروج', destroy_user_session_path, :method => :delete, :title => "آژانس_هواپیمایی_رادان_سیر"

@@ -1,27 +1,30 @@
 !!!
 %html
   %head
-    %title آژانس هواپیمایی رادان سیر
-    
-    = stylesheet_link_tag    'application', media: 'all'   
-    
+    %title 
+      = t("radantravel") #{@head.fetch(:title, '') if @head}        
+    = stylesheet_link_tag    'application', media: 'all'       
     = javascript_include_tag 'application'   
     = csrf_meta_tags
+    %meta{:charset => "utf-8"}    
+    %meta{:name => "keywords", :content => Tour.all.collect(&:title_fa).join("_")} 
+    %meta{:name => "description", :content => "#{t("radantravel")}, Radan_Travel_Agency"}
+    %meta{content: "no", "http-equiv" => "#{t("radantravel")}, Radan_Travel_Agency"}
+    = yield(:refresh_meta) if content_for?(:refresh_meta)
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
   %body    
     - if current_page?('/')
       %embed{:autostart => "true", :hidden => "true", :loop => "false", :src => 'music/a.mp3', :style => "display:block"}
       = swf_tag "flash"
       .falgs{:style => "position:fixed; top:23%; left:15%;"}
-        = link_to (image_tag 'flag/en.png'), 'index?locale=en'
-        = link_to (image_tag 'flag/ir.png'), 'index?locale=fa'
-        = link_to (image_tag 'flag/ar.png'), locale: :ar
+        = link_to (image_tag 'flag/en.png'), 'index?locale=en', :title => "آژانس_هواپیمایی_رادان_سیر"
+        = link_to (image_tag 'flag/ir.png'), 'index?locale=fa', :title => "آژانس_هواپیمایی_رادان_سیر"
+        = link_to (image_tag 'flag/ar.png'), locale: :ar, :title => "آژانس_هواپیمایی_رادان_سیر"
       :javascript
         $('html, body').css('overflow','hidden');
     - else
       .main{:class => I18n.locale}
-        = link_to '', '#', :name => "#top", :id => "myAnchor"
-        
+        = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"        
         .logo
           - if I18n.locale == :en 
             = render 'shared/top_site_en'
@@ -31,14 +34,14 @@
         = render 'slides/slider'
         = render 'shared/multi_slider_search_tour', :tours => Tour.all
         .yield{:class => I18n.locale}
-          = link_to '', '#', :name => "yield", :id => "yieldAnchor"
+          = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"
           = yield
         .footer          
           .contact-box 
             .show-colleague{:class => I18n.locale}    
               .col-xs-12.set-center
                 - Link.all.each do |link|
-                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box" do    
+                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
                     = image_tag link.image(:small)
                     %p
                       %b{:class => I18n.locale}= link.title
@@ -78,15 +81,15 @@
               = render 'shared/customer_clube'
             .col-xs-4
               .col-xs-8.set-center
-                %p{:class => I18n.locale}= link_to t('send-to-friend'), '#'
-                %p{:class => I18n.locale}= link_to t('imp-package'), '#'
+                %p{:class => I18n.locale}= link_to t('send-to-friend'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
+                %p{:class => I18n.locale}= link_to t('imp-package'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
           .copyright= 'تمامی حقوق مادی و معنوی این سایت متعلق به آژانس رادان سیر می باشد.'
             
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'
     - unless current_page?('/') 
-      = link_to '#top', :id => "anchor1", :class => "anchorLink" do
+      = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس_هواپیمایی_رادان_سیر" do
         = image_tag 'gotop.png'
       
   - unless current_page?('/')  || current_page?('/index') 
