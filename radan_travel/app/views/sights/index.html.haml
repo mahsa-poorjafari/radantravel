@@ -1,21 +1,21 @@
 .margin3  
-  %h1{:class => I18n.locale}= 'نقاط دیدنی'
+  %h1{ :title => "آژانس_هواپیمایی_رادان_سیر",:class => I18n.locale}= 'نقاط دیدنی'
   -if is_admin?
-    = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn btn-success"
+    = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"
   .show-tours.col-xs-12.set-center
     - @sights.each_with_index do |sight|
       .tours-index
-        = link_to sight, :class => "tour-box" do
-          %h5.tour-title= sight.title
+        = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
+          %h5.tour-title{:id => 'sight-'+sight.id.to_s}= sight.title
           - if sight.photos.present?
-            .tour-sample-image= image_tag sight.photos.first.image(:medium), :id => "tour-sample-image-" + sight.photos.first.id.to_s
+            .tour-sample-image= image_tag sight.photos.first.image(:medium), :id => "tour-sample-image-" + sight.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
           .clear-float
   
         -if is_admin?
           .admin-btn-tour
-            = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info"
-            = link_to 'مشاهده جزئیات', sight, :class => "btn btn-warning"       
-            = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+            = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
+            = link_to 'مشاهده جزئیات', sight, :class => "btn btn-warning"       , :title => "آژانس_هواپیمایی_رادان_سیر"
+            = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
         
       
       

@@ -17,9 +17,9 @@
       %embed{:autostart => "true", :hidden => "true", :loop => "false", :src => 'music/a.mp3', :style => "display:block"}
       = swf_tag "flash"
       .falgs{:style => "position:fixed; top:23%; left:15%;"}
-        = link_to (image_tag 'flag/en.png'), 'index?locale=en', :title => "آژانس_هواپیمایی_رادان_سیر"
-        = link_to (image_tag 'flag/ir.png'), 'index?locale=fa', :title => "آژانس_هواپیمایی_رادان_سیر"
-        = link_to (image_tag 'flag/ar.png'), locale: :ar, :title => "آژانس_هواپیمایی_رادان_سیر"
+        = link_to (image_tag 'flag/en.png', :title => "آژانس_هواپیمایی_رادان_سیر",:alt => "آژانس_هواپیمایی_رادان_سیر"), 'index?locale=en', :title => "آژانس_هواپیمایی_رادان_سیر"
+        = link_to (image_tag 'flag/ir.png', :title => "Radan_Travel_Agency", :alt => "Radan_Travel_Agency"), 'index?locale=fa', :title => "آژانس_هواپیمایی_رادان_سیر"
+        = link_to (image_tag 'flag/ar.png', :title => "شركة السفر الجوي والخدمات السياحية رادان الثوم", :alt => "شركة السفر الجوي والخدمات السياحية رادان الثوم"), locale: :ar, :title => "آژانس_هواپیمایی_رادان_سیر"
       :javascript
         $('html, body').css('overflow','hidden');
     - else
@@ -42,7 +42,7 @@
               .col-xs-12.set-center
                 - Link.all.each do |link|
                   = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
-                    = image_tag link.image(:small)
+                    = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
                     %p
                       %b{:class => I18n.locale}= link.title
             .col-xs-5.contact-info
@@ -55,10 +55,10 @@
           .footer-link
             .show-social
               .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
-                .col-xs-1.social-icon= image_tag 'l.png'
-                .col-xs-1.social-icon= image_tag 'f.png'
-                .col-xs-1.social-icon= image_tag 'g.png'
-                .col-xs-1.social-icon= image_tag 't.png'
+                .col-xs-1.social-icon= image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                .col-xs-1.social-icon= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                .col-xs-1.social-icon= image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                .col-xs-1.social-icon= image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
               
             .col-xs-4
               %h4{:class => I18n.locale}= t('sitevisit.statistics')
@@ -90,7 +90,7 @@
         = render 'shared/admin_menu'
     - unless current_page?('/') 
       = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس_هواپیمایی_رادان_سیر" do
-        = image_tag 'gotop.png'
+        = image_tag 'gotop.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
       
   - unless current_page?('/')  || current_page?('/index') 
     :javascript
