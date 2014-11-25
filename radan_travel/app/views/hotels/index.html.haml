@@ -1,17 +1,16 @@
 .margin3
-  %h1 لیست هتلها
+  %h1{:class => I18n.locale}=' لیست هتلها'
   -if is_admin?
     = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success"
-    
   .show-tours.col-xs-12.set-center
     - @hotels.each_with_index do |hotel|
-      .tour-box.well
-        = link_to hotel do
-          %h3= hotel.title 
-          .clear-float
-          %p= hotel.city.title                    
-          %p= hotel.hotel_grade                    
-          = image_tag hotel.photos.first.image(:medium)
+      .tours-index
+        = link_to hotel, :class => "tour-box" do
+          %h5.tour-title= hotel.title
+          - if hotel.photos.present?
+            .tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s
+          .clear-float  
+  
           
         -if is_admin?
           .admin-btn-tour
