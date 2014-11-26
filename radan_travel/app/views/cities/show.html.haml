@@ -1,16 +1,17 @@
-%p#notice= notice
-.city-details.set-center 
-  .col-xs-11
-    %h2=  @city.title  
-  -#
-    .col-xs-1{:style => "padding-top:2%"}= image_tag @city.country.country_flag(:small)
-  .clear-float
-  .city.text
-    =raw @city.text
-  .row-fluid
-    - @city.photos.each do |pic|
-      .col-xs-5.city-image
-        = image_tag pic.image(:medium)
-  - if is_admin?
-    = link_to 'ویرایش', edit_city_path(@city), :class => "btn btn-info" 
-   
+.margin3  
+  %p#notice= notice
+  .city-details.set-center 
+    .col-xs-11
+      %h2=  @city.title  
+    -#
+      .col-xs-1{:style => "padding-top:2%"}= image_tag @city.country.country_flag(:small)
+    .clear-float
+    .city.text
+      =raw @city.text
+    .row-fluid
+      - @city.photos.each do |pic|
+        .col-xs-5.city-image
+          = image_tag pic.image(:medium)
+    - if is_admin?
+      = link_to 'ویرایش', edit_city_path(@city), :class => "btn btn-info" 
+     

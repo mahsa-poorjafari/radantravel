@@ -1,0 +1,3 @@
+- City.all.each do  |city|
+  %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
+    = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s

@@ -53,4 +53,5 @@
     .col-xs-10
       .form-group
         = f.submit 'ثبت', :class => "btn btn-primary"
-$(document).ajaxStart(function(){  $('#loading').show();}).ajaxStop(function(){  $('#loading').hide();});
+:javascript
+  $(document).ajaxStart(function(){  $('#loading').show();}).ajaxStop(function(){  $('#loading').hide();});

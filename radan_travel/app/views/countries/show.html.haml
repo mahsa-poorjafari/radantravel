@@ -1,14 +1,15 @@
-%p#notice= notice
+.margin3  
+  %p#notice= notice
 
-%p
-  %b Title 
-  = @country.title
+  %p
+    %b Title 
+    = @country.title
 
-%p
-  %b Text
-  = raw @country.text
-%div
-  - @country.photos.each do |pic|
-    = image_tag  pic.image(:medium)
-- if is_admin?
-  = link_to 'ویرایش', edit_country_path(@country), :class => "btn btn-info" 
+  %p
+    %b Text
+    = raw @country.text
+  %div
+    - @country.photos.each do |pic|
+      = image_tag  pic.image(:medium)
+  - if is_admin?
+    = link_to 'ویرایش', edit_country_path(@country), :class => "btn btn-info" 
