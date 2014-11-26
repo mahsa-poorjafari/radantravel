@@ -3,12 +3,12 @@
     - unless city.country.title_fa == 'ایران'
       
       %li 
-        %h5= 'جاذبه های خارجی'
+        %h5{:class => I18n.locale}= 'جاذبه های خارجی'
       %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
         = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s
     - if city.country.title_fa == 'ایران'
     
       %li 
-        %h5= 'جاذبه های داخلی'
+        %h5{:class => I18n.locale}= 'جاذبه های داخلی'
       %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
         = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s

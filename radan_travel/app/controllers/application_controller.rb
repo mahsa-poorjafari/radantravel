@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  before_filter :set_locale
+  before_filter :set_locale, :online_info
   include ApplicationHelper
  
   protected
@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
       end
       Rails.application.routes.default_url_options[:locale] = I18n.locale 
     end      
+    
+    def online_info
+      @online_day = Visit.where(started_at:  Date.today.beginning_of_day..Date.today.end_of_day).count
+      @online_now = Visit.where(started_at:  1.hour.ago..Time.now).count
+      @contact = Page.find_by_title_en('Contact us')
+    end
 end
