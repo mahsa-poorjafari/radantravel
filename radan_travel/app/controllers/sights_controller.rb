@@ -5,6 +5,7 @@ class SightsController < ApplicationController
   # GET /sights.json
   def index
     @sights = Sight.all
+    
   end
 
   # GET /sights/1
