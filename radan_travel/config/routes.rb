@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     resources :slides
 
     resources :planes
-    resources :hotels
+    resources :hotels do
+      collection do
+        get :dynamic_city
+      end
+    end
 
     resources :cities do
       collection do

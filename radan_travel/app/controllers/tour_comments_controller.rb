@@ -12,6 +12,12 @@ class TourCommentsController < ApplicationController
   # GET /tour_comments/1.json
   def show
   end
+  def dynamic_city
+    p '...................'
+    p  country_id = params[:country_list]
+    p @city = City.where( country_id: country_id)
+    p '...................'
+  end
 
   # GET /tour_comments/new
   def new

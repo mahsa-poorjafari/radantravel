@@ -12,7 +12,12 @@ class HotelsController < ApplicationController
   # GET /hotels/1.json
   def show
   end
-
+  def dynamic_city
+    p '...................'
+    p  country_id = params[:country_list]
+    p @city = City.where( country_id: country_id)
+    p '...................'
+  end
   # GET /hotels/new
   def new
     @hotel = Hotel.new
