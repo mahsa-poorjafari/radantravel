@@ -24,8 +24,11 @@ Rails.application.routes.draw do
     resources :planes
     resources :hotels
 
-    resources :cities
-
+    resources :cities do
+      collection do
+        get :dynamic_city
+      end
+    end
     resources :countries
 
     resources :tours do
