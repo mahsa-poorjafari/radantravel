@@ -8,6 +8,14 @@
           %li= msg
   .margin3  
     .col-xs-12
+      .col-xs-8
+        .form-group
+          = f.label 'لیست کشورها', :class => "control-label"
+          = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'cities', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
+        #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'
+        .form-group
+          = f.label 'شهر مربوط', :class => "control-label"
+          = f.select :city_id, {}, prompt: "شهر را انتخاب کنید"
       .col-xs-4
         .form-group
           = f.label 'عنوان فارسی', :class => "control-label"
@@ -18,9 +26,7 @@
         .form-group
           = f.label 'عنوان عربی', :class => "control-label"
           = f.text_field :title_ar, :class => "form-control"
-        .form-group
-          = f.label 'شهر مربوط', :class => "control-label"
-          = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
+        
       
     .col-xs-12
       .form-group.col-xs-12         
@@ -47,5 +53,4 @@
     .col-xs-10
       .form-group
         = f.submit 'ثبت', :class => "btn btn-primary"
-
-
+$(document).ajaxStart(function(){  $('#loading').show();}).ajaxStop(function(){  $('#loading').hide();});

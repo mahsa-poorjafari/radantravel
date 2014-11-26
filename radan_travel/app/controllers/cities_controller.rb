@@ -11,7 +11,12 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
   end
-
+  def dynamic_city
+    p '...................'
+    p  country_id = params[:country_list]
+    p @city = City.where( country_id: country_id)
+    p '...................'
+  end
   # GET /cities/new
   def new
     @city = City.new
