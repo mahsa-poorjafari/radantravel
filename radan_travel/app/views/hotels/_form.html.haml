@@ -10,8 +10,12 @@
     .col-xs-12
       .col-xs-7
         .form-group
-          = f.label 'شهر مربوط'
-          = f.select :city_id, options_for_select(City.all.collect{ |u| [u.title_fa, u.id] }), prompt: "شهر را انتخاب کنید"
+          = f.label 'لیست کشورها', :class => "control-label"
+          = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'hotels', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
+        #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'
+        .form-group
+          = f.label 'شهر مربوط', :class => "control-label"
+          = f.select :city_id, {}, prompt: "شهر را انتخاب کنید"
         .form-group
           = f.label 'تعداد ستاره های هتل', :class => "control-label"          
           = f.select :hotel_grade, options_for_select([[1,1], [2,2], [3,3], [4,4], [5,5]]), prompt: "درجه هتل - ستاره"
