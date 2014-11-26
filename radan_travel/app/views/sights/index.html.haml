@@ -5,21 +5,22 @@
       
   .country-tabs
     - if I18n.locale == :en  
-      %ul.nav.nav-tabs.pull-left#CountryTab{:role => "tablist", :class => I18n.locale }
+      %ul.nav.nav-tabs.pull-left#SightsTab{:role => "tablist", :class => I18n.locale }
         = render 'sights/sight_title_tap'      
-    - else
-      %ul.nav.nav-tabs.pull-right#CountryTab{:role => "tablist", :class => I18n.locale }
+    - else       
+      %ul.nav.nav-tabs.pull-right#SightsTab{:role => "tablist", :class => I18n.locale }        
         = render 'sights/sight_title_tap'    
+         
     .tab-content
       = render 'sights/sight_details'
       
     
 :javascript
   
-  $('.country-tabs ul#CountryTab li:first').addClass('active');
+  $('.country-tabs ul#SightsTab li:first ').addClass('active');
   $('.country-tabs .tab-content .tab-pane:first').addClass('active');
   $(function () {
-    $('#CountryTab a:last').tab('show')
+    $('#SightsTab a:first').tab('show')
   });
       
     
