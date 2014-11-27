@@ -12,7 +12,8 @@
         = render 'sights/sight_title_tap'    
          
     .tab-content
-      = render 'sights/sight_details'
+      - City.all.each do |all_city|
+        = render 'sights/sight_details', :all_city => all_city
       
     
 :javascript
