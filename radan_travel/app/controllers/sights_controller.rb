@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class SightsController < ApplicationController
   before_action :set_sight, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +6,7 @@ class SightsController < ApplicationController
   # GET /sights.json
   def index
     @sights = Sight.all
+    
     
   end
 
