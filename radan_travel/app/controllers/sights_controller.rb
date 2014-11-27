@@ -6,7 +6,9 @@ class SightsController < ApplicationController
   # GET /sights.json
   def index
     @sights = Sight.all
-    
+    p '---------------------'
+    iran = Country.find_by_title_fa( 'ایران')
+    p @inner_sights = City.where(country_id: iran.id)
     
   end
 
