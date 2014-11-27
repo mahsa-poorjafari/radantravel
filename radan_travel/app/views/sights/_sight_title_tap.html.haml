@@ -1,14 +1,15 @@
-- City.all.each do  |city|
+%li
+  %h5{:class => I18n.locale}= 'جاذبه های خارجی'
+- City.all.each do  |city|  
   - if city.sights.present?
-    - unless city.country.title_fa == 'ایران'
-      
-      %li 
-        %h5{:class => I18n.locale}= 'جاذبه های خارجی'
+    - unless city.country.title_fa == 'ایران'        
       %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
         = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s
-    - if city.country.title_fa == 'ایران'
-    
-      %li 
-        %h5{:class => I18n.locale}= 'جاذبه های داخلی'
+%li
+  %h5{:class => I18n.locale}= 'جاذبه های داخلی'
+- City.all.each do  |city|
+  - if city.sights.present?
+    - if city.country.title_fa == 'ایران' 
+        
       %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
         = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s

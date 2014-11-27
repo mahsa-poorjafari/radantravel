@@ -52,14 +52,14 @@
             .col-xs-7.contact-form{:class => I18n.locale}
               = render 'shared/msg_form' 
               
-          .footer-link
+          .footer-link  
             .show-social
               .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
                 .col-xs-1.social-icon= image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
                 .col-xs-1.social-icon= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
                 .col-xs-1.social-icon= image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
                 .col-xs-1.social-icon= image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-              
+           
             .col-xs-4
               %h4{:class => I18n.locale}= t('sitevisit.statistics')
               .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
@@ -84,6 +84,7 @@
                 %p{:class => I18n.locale}= link_to t('send-to-friend'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
                 %p{:class => I18n.locale}= link_to t('imp-package'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
           .copyright= 'تمامی حقوق مادی و معنوی این سایت متعلق به آژانس رادان سیر می باشد.'
+       
             
     - if is_admin?
       .admin-menu

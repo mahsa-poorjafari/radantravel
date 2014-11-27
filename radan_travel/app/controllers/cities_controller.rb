@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
