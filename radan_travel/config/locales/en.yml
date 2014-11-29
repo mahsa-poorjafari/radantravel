@@ -67,7 +67,7 @@ en:
   facebook: 'Facebook'
   googleplus: 'Google Plus'
   twitter: 'Twitter'
-  
+  send-mail: 'Send Current Link To A Friend'
   sitevisit:
     statistics: 'Statistics'
     total-views: 'Total Views'
@@ -97,5 +97,10 @@ en:
     contact-msg:  'Enter Your Message'
     contact-btn:  'Send'
     contact-reset: 'Reset'
-    
+  link:
+    sender_email: 'Sender Email'
+    receiver_email: 'Receiver Email'
+    subject: 'Subject'
+    text: 'Text'
+    send: 'Send'
   

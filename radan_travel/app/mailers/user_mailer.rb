@@ -17,5 +17,8 @@ class UserMailer < ActionMailer::Base
     @subject = subject
     mail(:to =>  Customer.all.collect(&:email).join(','), :subject => @subject, :from => "radanseir.agent@yahoo.com")    
   end
-  
+  def send_friend_link
+    @link = SendLink.last
+    mail(:to =>  @link.receiver_email, :subject => @link.subject, :from => @link.sender_email)
+  end
 end

@@ -44,7 +44,7 @@ ar:
   thanks: 'شكرا لك، لاختيارك لنا'
   links: 'غيرها من لينك'
   copyright: 'جميع الحقوق محفوظة هذا الموقع مملوكة كالة سفر رادان.'
-  
+  send-mail: 'إرسال رابط الحالي إلى صديق'
   linkedin: 'Linkedin'
   facebook: 'Facebook'
   googleplus: 'Google Plus'
@@ -80,3 +80,10 @@ ar:
     contact-btn:  'إرسال'
     contact-reset: 'إعادة تعيين'
     
+  link:
+    sender_email: 'مرسل البريد الإلكتروني'
+    receiver_email: 'استقبال البريد الإلكتروني'
+    subject: 'موضوع'
+    text: 'نص'
+    send: 'إرسال'
+  

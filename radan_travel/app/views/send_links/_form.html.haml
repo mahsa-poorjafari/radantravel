@@ -1,0 +1,25 @@
+%div{:class => I18n.locale}
+  = form_for @send_link ||= SendLink.new do |f|
+    - if @send_link.errors.any?
+      #error_explanation      
+        %ul
+          - @send_link.errors.full_messages.each do |msg|
+            %li= msg
+
+    .form-group
+      = f.label t('link.sender_email'), :class => "control-label"
+      = f.text_field :sender_email, :class => "form-control ", :style => "width:95%"
+    .form-group
+      = f.label t('link.receiver_email'), :class => "control-label"
+      = f.text_field :receiver_email, :class => "form-control ", :style => "width:95%"
+    .form-group
+      = f.label t('link.subject'), :class => "control-label"
+      = f.text_field :subject, :class => "form-control ", :style => "width:95%"
+    .form-group     
+      = f.hidden_field :current_link, :value => request.original_url
+    .form-group
+      = f.label t('link.text'), :class => "control-label"
+      = f.text_area :text, :class => "form-control ", :style => "width:95%"
+    
+    .form-group
+      = f.submit t('link.send'), :class=> "btn btn-default"

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
  
 
+  resources :send_links
+
   resources :customers do
     collection do
       post :search
