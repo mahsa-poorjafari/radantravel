@@ -62,6 +62,12 @@ en:
   thanks: 'Thank you, for choosing us'
   links: 'Other Link'
   copyright: 'All Rights Reserved This site is owned travel agency Radan.'
+  
+  linkedin: 'Linkedin'
+  facebook: 'Facebook'
+  googleplus: 'Google Plus'
+  twitter: 'Twitter'
+  
   sitevisit:
     statistics: 'Statistics'
     total-views: 'Total Views'

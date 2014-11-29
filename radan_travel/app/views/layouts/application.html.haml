@@ -39,13 +39,14 @@
           = yield
         .footer          
           .contact-box 
-            .show-colleague{:class => I18n.locale}    
-              .col-xs-12.set-center
-                - Link.all.each do |link|
-                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
-                    = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
-                    %p
-                      %b{:class => I18n.locale}= link.title
+            -#
+              .show-colleague{:class => I18n.locale}    
+                .col-xs-12.set-center
+                  - Link.all.each do |link|
+                    = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
+                      = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+                      %p
+                        %b{:class => I18n.locale}= link.title
             .col-xs-5.contact-info
               - if @contact.present?
                 %div{:class => I18n.locale}
@@ -54,13 +55,17 @@
               = render 'shared/msg_form' 
               
           .footer-link  
-            .show-social
-              .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
-                .col-xs-1.social-icon= image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                .col-xs-1.social-icon= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                .col-xs-1.social-icon= image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                .col-xs-1.social-icon= image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            -#
+              .show-social
+                .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
+                  .col-xs-1.social-icon= image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                  .col-xs-1.social-icon= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                  .col-xs-1.social-icon= image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+                  .col-xs-1.social-icon= image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
            
+            .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
+              = render 'shared/footer_menu'
+            .clear-float
             .col-xs-4
               %h4{:class => I18n.locale}= t('sitevisit.statistics')
               .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
@@ -84,9 +89,32 @@
               .col-xs-8.set-center
                 %p{:class => I18n.locale}= link_to t('send-to-friend'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
                 %p{:class => I18n.locale}= link_to t('imp-package'), '#', :title => "آژانس_هواپیمایی_رادان_سیر"
+            .col-xs-12.set-center
+              .show-colleague{:class => I18n.locale} 
+                - Link.all.each do |link|
+                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
+                    = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+                    %p
+                      %b{:class => I18n.locale}= link.title
           .copyright= t('copyright')
        
-            
+    .show-social
+      -#
+        %h4= t('contact-us')
+      .col-xs-6.set-center{:style => "left:0;position: absolute; top:5%"}
+        .social-icon          
+          = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+          %span= t('linkedin')
+        .social-icon
+          = image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+          %span= t('facebook')
+        .social-icon
+          = image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+          %span= t('googleplus')
+        .social-icon
+          = image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+          %span= t('twitter')
+           
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'

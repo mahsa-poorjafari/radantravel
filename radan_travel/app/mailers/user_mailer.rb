@@ -17,4 +17,5 @@ class UserMailer < ActionMailer::Base
     @subject = subject
     mail(:to =>  Customer.all.collect(&:email).join(','), :subject => @subject, :from => "radanseir.agent@yahoo.com")    
   end
+  
 end
