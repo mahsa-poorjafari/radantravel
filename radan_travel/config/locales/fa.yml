@@ -48,6 +48,7 @@ fa:
   facebook: 'فیسبوک'
   googleplus: 'گوگل پلاس'
   twitter: 'توییتر'
+  send-mail: 'ارسال لینک سایت برای یک دوست'
   sitevisit:
     statistics: 'آمار سایت'
     total-views: 'کل بازدیدها تاکنون'
@@ -80,3 +81,10 @@ fa:
     contact-msg:  'پیام خود را وارد کنید.'
     contact-btn:  'ارسال پیام'
     contact-reset: 'پاک کردن'
+  link:
+    sender_email: 'ایمیل فرستنده'
+    receiver_email: 'ایمیل گیرنده'
+    subject: 'عنوان ایمیل'
+    text: 'متن'
+    send: 'ارسال'
+  

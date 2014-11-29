@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118103818) do
+ActiveRecord::Schema.define(version: 20141129111833) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -108,6 +108,15 @@ ActiveRecord::Schema.define(version: 20141118103818) do
     t.datetime "image_updated_at"
   end
 
+  create_table "massages", force: true do |t|
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages", force: true do |t|
     t.string   "user_name"
     t.string   "email"
@@ -166,6 +175,16 @@ ActiveRecord::Schema.define(version: 20141118103818) do
 
   create_table "roles", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_links", force: true do |t|
+    t.string   "sender_email"
+    t.string   "receiver_email"
+    t.string   "current_link"
+    t.text     "text"
+    t.string   "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
