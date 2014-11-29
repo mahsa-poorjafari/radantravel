@@ -54,15 +54,7 @@
             .col-xs-7.contact-form{:class => I18n.locale}
               = render 'shared/msg_form' 
               
-          .footer-link  
-            -#
-              .show-social
-                .col-xs-6.set-center{:style => "right: 0%;left: 25%;position: absolute;"}
-                  .col-xs-1.social-icon= image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                  .col-xs-1.social-icon= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                  .col-xs-1.social-icon= image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-                  .col-xs-1.social-icon= image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-           
+          .footer-link              
             .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
               = render 'shared/footer_menu'
             .clear-float
@@ -98,23 +90,23 @@
                       %b{:class => I18n.locale}= link.title
           .copyright= t('copyright')
        
-    .show-social
-      -#
-        %h4= t('contact-us')
-      .col-xs-6.set-center{:style => "left:0;position: absolute; top:5%"}
-        .social-icon          
-          = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-          %span= t('linkedin')
-        .social-icon
-          = image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-          %span= t('facebook')
-        .social-icon
-          = image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-          %span= t('googleplus')
-        .social-icon
-          = image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-          %span= t('twitter')
-           
+      .show-social
+        -#
+          %h4= t('contact-us')
+        .col-xs-6.set-center{:style => "left:0;position: absolute; top:5%"}
+          .social-icon          
+            = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span= t('linkedin')
+          .social-icon
+            = image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span= t('facebook')
+          .social-icon
+            = image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span= t('googleplus')
+          .social-icon
+            = image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span= t('twitter')
+             
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'
