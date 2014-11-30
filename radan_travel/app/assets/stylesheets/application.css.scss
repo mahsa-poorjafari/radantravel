@@ -19,6 +19,7 @@
 .clear-float {clear:both}
 .set-center {margin-right:auto; margin-left:auto}
 .margin3 {margin:3%}
+.margin-bottom {margin-bottom:10%}
 a { color:#4D4D4D;}
 a:hover, visited { color:#1EC0FF; text-decoration:none}
 html {padding:0; margin:0;  height:100%}
@@ -55,7 +56,7 @@ body {padding:0; margin:0;  height:100%; width:100%}
   top:0; 
   font-size:2em; 
   color:#fff; 
-  font-weight:bold;
+  
   line-height:1.5em;
   text-align:center;
   
@@ -298,7 +299,7 @@ margin: 0;
 .tours-index:hover .tour-date{ bottom:0}
 .admin-btn-tour {position:absolute; bottom:0;}
 .tour-details {}
-.tour-details .tour-description p, .country-show .country-text p, .country-text p {text-align:justify;}
+.tour-details .tour-description p, .country-show .country-text p, .country-text p {text-align:justify; }
 .comment-box {background-image: url(image-path('halftone.png'));
   background-repeat: repeat; }
 .title-tours {text-align:center; padding:1%; margin:1%;}
