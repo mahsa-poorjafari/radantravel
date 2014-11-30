@@ -68,6 +68,10 @@ en:
   googleplus: 'Google Plus'
   twitter: 'Twitter'
   send-mail: 'Send Current Link To A Friend'
+  
+  foreign-sights: 'Foreign Sights'
+  local-sights: 'Local Sights'
+  
   sitevisit:
     statistics: 'Statistics'
     total-views: 'Total Views'

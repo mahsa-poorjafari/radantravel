@@ -50,6 +50,9 @@ ar:
   googleplus: 'Google Plus'
   twitter: 'Twitter'
   
+  foreign-sights: 'جاذبية من أجنبي'
+  local-sights: 'معالم الجذب المحلية'
+  
   sitevisit:
     statistics: 'إحصائيات'
     total-views: 'عدد المشاهدات'

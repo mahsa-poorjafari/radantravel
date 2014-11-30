@@ -49,6 +49,10 @@ fa:
   googleplus: 'گوگل پلاس'
   twitter: 'توییتر'
   send-mail: 'ارسال لینک سایت برای یک دوست'
+  
+  foreign-sights: 'جاذبه های خارجی'
+  local-sights: 'جاذبه های داخلی'
+  
   sitevisit:
     statistics: 'آمار سایت'
     total-views: 'کل بازدیدها تاکنون'
