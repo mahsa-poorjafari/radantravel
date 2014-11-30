@@ -38,21 +38,12 @@
           = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"
           = yield
         .footer          
-          .contact-box 
-            -#
-              .show-colleague{:class => I18n.locale}    
-                .col-xs-12.set-center
-                  - Link.all.each do |link|
-                    = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
-                      = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
-                      %p
-                        %b{:class => I18n.locale}= link.title
-            .col-xs-5.contact-info
-              - if @contact.present?
-                %div{:class => I18n.locale}
-                  =raw @contact.text              
-            .col-xs-7.contact-form{:class => I18n.locale}
-              = render 'shared/msg_form' 
+          .contact-box         
+            - if I18n.locale == :en     
+              = render 'shared/contact_box_en'
+            - else
+              = render 'shared/contact_box_fa'
+            
               
           .footer-link              
             .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
