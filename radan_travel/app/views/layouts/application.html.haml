@@ -106,19 +106,20 @@
       .show-social
         -#
           %h4= t('contact-us')
-        .col-xs-6.set-center{:style => "left:0;position: absolute; top:5%"}
-          .social-icon          
-            = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-            %span= t('linkedin')
+        .col-xs-12.set-center{:style => "left:0;position: absolute; top:5%"}
           .social-icon
-            = image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-            %span= t('facebook')
+            = link_to url_with_protocol('www.facebook.com/pages/Radan-Seir/1560811980802648'), :target => "_blank" do
+              .col-xs-5= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+              %span.col-xs-6{:class => I18n.locale}= t('facebook')
+          .social-icon.clear-float
+            = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span{:class => I18n.locale}= t('linkedin')
           .social-icon
             = image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-            %span= t('googleplus')
+            %span{:class => I18n.locale}= t('googleplus')
           .social-icon
             = image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-            %span= t('twitter')
+            %span{:class => I18n.locale}= t('twitter')
              
     - if is_admin?
       .admin-menu
