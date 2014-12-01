@@ -1,6 +1,6 @@
 #slider1_container{:style => "position:relative; margin-top:3%; left: 0px; width: 100%; height: 400px; ", :title => "آژانس_هواپیمایی_رادان_سیر"}
-  #sliderFrame
-    #slider
+  #wrapper
+    #zoom-slider
       - @slides = Slide.all
       - @slides.each do |slide|
         = image_tag slide.image(:slide_size), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر", :id => "slide-"+ slide.id.to_s
