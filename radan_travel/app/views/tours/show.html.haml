@@ -6,14 +6,10 @@
   .tour-details
     .col-xs-12        
       .col-xs-9        
-        - if @tour.validate_date_from.present? && @tour.validate_date_until.present?
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")
-        - elsif @tour.validate_date_from.present?
-          %b= t('tour.validate_date_from')
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_from).strftime("%A %e %b %Y")            
-        - elsif   @tour.validate_date_until.present?
-          %b= t('tour.validate_date_until')
-          %p{:class => I18n.locale}= JalaliDate.new(@tour.validate_date_until).strftime("%A %e %b %Y")  
+        - if I18n.locale == :fa
+          = render "/tours/show_persian_date", :tour => tour
+        - else  
+          = render "/tours/show_english_date", :tour => tour  
         %p
           %b قیمت
           = @tour.price

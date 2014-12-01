@@ -1,6 +1,6 @@
-.col-xs-5.contact-info.pull-left
+.col-xs-5.contact-info.pull-right
   - if @contact.present?
     %div{:class => I18n.locale}
       =raw @contact.text              
-.col-xs-6.contact-form.pull-left{:class => I18n.locale}
+.col-xs-6.contact-form.pull-right{:class => I18n.locale}
   = render 'shared/msg_form' 
