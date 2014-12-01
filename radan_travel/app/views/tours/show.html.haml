@@ -7,9 +7,9 @@
     .col-xs-12        
       .col-xs-9        
         - if I18n.locale == :fa
-          = render "/tours/show_persian_date", :tour => tour
+          = render "/tours/show_persian_date", :tour => @tour
         - else  
-          = render "/tours/show_english_date", :tour => tour  
+          = render "/tours/show_english_date", :tour => @tour  
         %p
           %b قیمت
           = @tour.price
