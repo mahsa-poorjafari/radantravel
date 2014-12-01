@@ -19,7 +19,7 @@
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-1.pull-left{:style => "margin-top:2%"}
+        .col-xs-1.pull-left{:style => "margin-top:2%; margin-left:4%"}
           = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn btn-info"
         .col-xs-2.pull-right
           = label_tag t('tour-from')

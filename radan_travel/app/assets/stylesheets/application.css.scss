@@ -80,6 +80,7 @@ body {padding:0; margin:0;  height:100%; width:100%}
 -moz-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
    z-index:10;
+   top:20%;
 }
 .menu_bar ul{width:50%; list-style:none; height:100%}
 .menu_bar ul a {
@@ -126,9 +127,9 @@ padding-top: 2%;
 .tab-content .tab-pane label{color:#666; font-weight:normal}
 .nav-tabs {padding:0; width:18%}  
 .nav-tabs li { width:100%; }  
-.nav-tabs li a{background:#E5E5E5; width:100%; text-align:center}  
-.nav-tabs li:hover{cursor:pointer}  
-.imp-package {width:100%; position:relative; margin-top:4%;
+.nav-tabs li a{background:#E5E5E5; width:100%; text-align:center; font-size:95%;}  
+.nav-tabs li:hover , .nav-tabs li.active{cursor:pointer; font-size:95%;}  
+.imp-package {width:100%; position:relative; margin-top:5%;
   height:230px; overflow:hidden;
 }
 
@@ -190,7 +191,7 @@ padding-top: 2%;
   z-index:50;
   right:0;
   width:4%; 
-  top:30%;
+  top:32%;
   height:130px;  
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s; 
@@ -317,3 +318,5 @@ margin-right: -40%;}
 .country-cities-list ul li{ margin:2%; padding:1%}
 
 .anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
+.upload-pic {overflow:hidden}
+#CountryTab {margin-bottom:5%}
