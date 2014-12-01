@@ -7,19 +7,15 @@
     - @tours.each_with_index do |tour|
       .tours-index
         = link_to tour, :class => "tour-box" do
-          %h5.tour-title= tour.title
+          %h5.tour-title{:class => I18n.locale}= tour.title
           - if tour.photos.present?
             .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
           .clear-float
         .tour-date
-          - if tour.validate_date_from.present? && tour.validate_date_until.present?
-            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-          - elsif tour.validate_date_from.present?
-            %b= t('tour.validate_date_from')
-            %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-          - elsif   tour.validate_date_until.present?
-            %b= t('tour.validate_date_until')
-            %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
+          - if I18n.locale == :fa
+            = render "/tours/show_persian_date", :tour => tour
+          - else  
+            = render "/tours/show_english_date", :tour => tour      
         -if is_admin?
           .admin-btn-tour
             = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
