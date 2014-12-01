@@ -44,7 +44,8 @@ body {padding:0; margin:0;  height:100%; width:100%}
 .ar, .fa {direction:rtl; font-family: 'open_sansregular';}
 .en {direction:ltr}
 .main {width:100%; padding:0; margin:0;  top:0;
-  background:#ebebeb;
+  background-image: url(image-path('grey_wash_wall.png'));
+  background-repeat:repeat;
   
   }
 .logo {width:100%; position:relative; top:0; height:150px; 
@@ -232,7 +233,7 @@ padding-top: 2%;
   content: "";
   opacity:.5;
   position: absolute;
-  background-image: url(image-path('brushed_alu_dark.png'));
+  background-image: url(image-path('grey_wash_wall.png'));
   background-repeat: repeat;  
 }
 .footer .footer-link .col-xs-4{padding:2%; margin-top: 5%;
