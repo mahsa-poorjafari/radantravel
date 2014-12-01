@@ -100,8 +100,8 @@
         .col-xs-12.set-center{:style => "left:0;position: absolute; top:5%"}
           .social-icon
             = link_to url_with_protocol('www.facebook.com/pages/Radan-Seir/1560811980802648'), :target => "_blank" do
-              .col-xs-5= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-              %span.col-xs-6{:class => I18n.locale}= t('facebook')
+              .col-xs-4{:style => "padding:0"}= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+              %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('facebook')
           .social-icon.clear-float
             = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
             %span{:class => I18n.locale}= t('linkedin')
