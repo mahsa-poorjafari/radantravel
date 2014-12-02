@@ -6,9 +6,9 @@
     .col-xs-4
       %h2= page.title
       %p
-        = link_to 'مشاهده', page
+        = link_to 'مشاهده', page, :class => "btn btn-warning"
         \|
-        = link_to 'ویرایش', edit_page_path(page)
+        = link_to 'ویرایش', edit_page_path(page), :class => "btn btn-info"
         -#
           \|
           = link_to 'حذف', page, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }
