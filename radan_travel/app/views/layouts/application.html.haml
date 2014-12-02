@@ -34,7 +34,7 @@
         = render 'shared/menu_bar'
         = render 'slides/slider'
         = render 'shared/multi_slider_search_tour', :tours => Tour.all
-        .yield{:class => I18n.locale}
+        .yield{:class => I18n.locale, :style => "overflow:hidden"}
           = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"
           = yield
         .footer          
