@@ -10,6 +10,7 @@
     %meta{:name => "keywords", :content => Tour.all.collect(&:title_fa).join("_")} 
     %meta{:name => "description", :content => "#{t("radantravel")}, Radan_Travel_Agency"}
     %meta{content: "no", "http-equiv" => "#{t("radantravel")}, Radan_Travel_Agency"}
+    %meta{:content => "8ana4hAqdsH47iRKOF8mRJ50NCHxxcp9G58sWpS4w_g", :name => "google-site-verification"}/
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
   %body    
