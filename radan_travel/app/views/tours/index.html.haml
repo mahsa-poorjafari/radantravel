@@ -1,5 +1,5 @@
 .margin3
-  %h1{:class => I18n.locale}= ' لیست تورها'
+  %h1{:class => I18n.locale}= t('tour.tours')
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
     
