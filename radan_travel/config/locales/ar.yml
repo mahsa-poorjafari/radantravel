@@ -11,6 +11,7 @@ ar:
   visitsite: 'للحصول على مزيد من المعلومات زيارة الموقع'
   
   imp-package: 'حزمة لحظة'
+  not-found: 'لم يتم العثور على'
   packages: 'حزم'
   reserv: 'الحجز عبر الإنترنت'
   reserv-type: 'نوع الدخول'

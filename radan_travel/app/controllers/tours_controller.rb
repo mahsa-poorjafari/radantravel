@@ -13,6 +13,10 @@ class ToursController < ApplicationController
 
   # GET /tours/1
   # GET /tours/1.json
+  def tours_moment
+    @imp_tours = Tour.where(validate_date_from:  2.days.ago..Date.today)
+  end
+  
   def show
   end
   def sendtonewsletter    

@@ -39,7 +39,8 @@ Rails.application.routes.draw do
 
     resources :tours do
       collection do
-        post :search        
+        post :search 
+        get :tours_moment
       end
       member do
         get :sendtonewsletter

@@ -1,12 +1,16 @@
 .menu_bar  
-  %ul.set-center{:class => I18n.locale}
-    = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')), :title => "آژانس_هواپیمایی_رادان_سیر" do
-      %li.home=   t('home')      
+  %ul.set-center{:class => I18n.locale}  
+    -#
+      = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
+        %li.home{:style => "width:30px; margin-right:45%"}= image_tag 'home.png'
+        
+    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس_هواپیمایی_رادان_سیر" do
+      %li.sight=  t('sight')
     = link_to  tours_path, :class => ('active' if current_page?(Tour)), :title => "آژانس_هواپیمایی_رادان_سیر" do
       %li.tour= t('tour.tours')
       
-    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس_هواپیمایی_رادان_سیر" do
-      %li.sight=  t('sight')
+    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس_هواپیمایی_رادان_سیر", :style => "width:40%" do
+      %li.sight
     
     = link_to  Hotel, :class => ('active' if current_page?(Hotel)), :title => "آژانس_هواپیمایی_رادان_سیر" do
       %li= t('hotel')
