@@ -40,7 +40,7 @@
   .col-md-12.text-center
 
   .col-md-12.col-md-offset-3{:style => "height:100%"}
-    #myCarousel.carousel.slide
+    #myCarousel.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
       .carousel-inner#package-tour
         - tours.each do |tour|
           .item
@@ -59,3 +59,20 @@
         = image_tag 'prev.png'
       = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
         = image_tag 'next.png'
+:javascript
+  $('.carousel[data-type="multi"] .item').each(function(){
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+    
+    for (var i=0;i<2;i++) {
+      next=next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      
+      next.children(':first-child').clone().appendTo($(this));
+    }
+  });
