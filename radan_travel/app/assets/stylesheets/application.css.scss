@@ -320,3 +320,7 @@ margin-right: -40%;}
 .anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
 .upload-pic {overflow:hidden}
 #CountryTab {margin-bottom:5%}
+.show-google-map {
+  background-image: url(image-path('googlemap.png'));
+  background-repeat: no-repeat;
+}

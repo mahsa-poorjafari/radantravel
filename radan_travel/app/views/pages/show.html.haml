@@ -1,24 +1,9 @@
-%p#notice= notice
+.margin3 
 
-%p
-  %b Title fa:
-  = @page.title_fa
-%p
-  %b Title en:
-  = @page.title_en
-%p
-  %b Title ar:
-  = @page.title_ar
-%p
-  %b Text fa:
-  = @page.text_fa
-%p
-  %b Text en:
-  = @page.text_en
-%p
-  %b Text ar:
-  = @page.text_ar
-
-= link_to 'Edit', edit_page_path(@page)
-\|
-= link_to 'Back', pages_path
+  %h2= @page.title
+  
+  
+  %div= raw @page.text
+  
+  = link_to 'ویرایش', edit_page_path(@page), :class => "btn btn-info"
+  
