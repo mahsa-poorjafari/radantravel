@@ -266,8 +266,7 @@ height: 50%;}
 .tours-index { 
   margin-left:2%;  
   position:relative; text-align:center; overflow:hidden; width:18%; float:right; height:300px;  
-  margin-bottom:5%;
-  background-image:url(image-path('grey.png'));
+  margin-bottom:5%; 
   -webkit-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
   -moz-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
   box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);  
@@ -282,7 +281,7 @@ height: 50%;}
   text-align:center;}
 .tour-sample-image { height:200px; overflow:hidden}
 .tour-box .tour-title {width: 100%;
-  color:#00DBFF;
+  color:#000;
   font-size:15px;
   position: relative;
   right: 0;
@@ -298,11 +297,15 @@ height: 50%;}
   left:0;
   overflow:hidden;
   right:0;
-  color:#fff;  
-  height:40px;
+  color:#14605A;  
+  height:25%;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
-  bottom:4%;
+  bottom:0;
+  padding-top: 10%;
+  background-image: url(image-path('logo-bg.png'));
+  background-repeat: no-repeat;  
+  background-position: 2% 90%; 
 }
 .admin-btn-tour {position:absolute; bottom:0;}
 .tour-details {}
@@ -323,4 +326,30 @@ margin-right: -40%;}
 .show-google-map {
   background-image: url(image-path('googlemap.png'));
   background-repeat: no-repeat;
+}
+
+/*  Multi slider */
+.carousel-control {padding-top:4%;}
+.carousel-control 			 { width:  4%; }
+.carousel-control.left,.carousel-control.right {margin-left:15px;background-image:none;}
+@media (max-width: 767px) {
+	.carousel-inner .active.left { left: -100%; }
+	.carousel-inner .next        { left:  100%; }
+	.carousel-inner .prev		 { left: -100%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+
+}
+@media (min-width: 767px) and (max-width: 992px ) {
+	.carousel-inner .active.left { left: -50%; }
+	.carousel-inner .next        { left:  50%; }
+	.carousel-inner .prev		 { left: -50%; }
+	.active > div { display:none; }
+	.active > div:first-child { display:block; }
+	.active > div:first-child + div { display:block; }
+}
+@media (min-width: 992px ) {
+	.carousel-inner .active.left { left: -25%; }
+	.carousel-inner .next        { left:  25%; }
+	.carousel-inner .prev		 { left: -25%; }	
 }
