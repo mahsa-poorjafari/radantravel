@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   
   root :to => 'static#home'
   get "index" => 'static#index'
+  get "google46bde3a8d7d48d7d" => 'static#google46bde3a8d7d48d7d'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
