@@ -29,6 +29,7 @@ en:
   sight: 'Visit Iran'
   hotel: 'Hotels'
   imp-package: 'Package Moment'
+  not-found: 'Not Found'
   packages: 'Packages'
   reserv: 'Online Reservation'
   reserv-type: 'Login Type'

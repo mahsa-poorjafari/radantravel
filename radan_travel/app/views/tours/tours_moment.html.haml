@@ -1,0 +1,17 @@
+.margin3
+  %h1{:class => I18n.locale}= t('imp-package')
+  - if @imp_tours.present?
+    - @imp_tours.each do |tour|
+      .tours-index
+        = link_to tour, :class => "tour-box" do
+          %h5.tour-title{:class => I18n.locale}= tour.title
+          - if tour.photos.present?
+            .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
+          .clear-float
+        .tour-date
+          - if I18n.locale == :fa
+            = render "/tours/show_persian_date", :tour => tour
+          - else  
+            = render "/tours/show_english_date", :tour => tour  
+  - else
+    %h5{:style => "font-size:1.5em; text-align:center; color:red", :class => I18n.locale}= t('not-found')

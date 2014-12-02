@@ -8,6 +8,7 @@ fa:
   sight: 'بازدید از ایران'
   hotel: 'هتل ها'
   imp-package: 'پکیج های لحظه ای'
+  not-found: 'موردی یافت نشد'
   packages: 'پکیج تورها'
   reserv: 'ورود به سامانه رزرواسیون'
   reserv-type: 'نوع ورود:'
