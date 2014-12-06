@@ -1,11 +1,11 @@
 .tabs-on-slider.set-center
   - if I18n.locale == :en
-    %ul.nav.nav-tabs.pull-left#myTab{:role => "tablist", :class => I18n.locale }
+    %ul.nav.nav-tabs.pull-left#myTab1{:role => "tablist", :class => I18n.locale }
       = render 'shared/search_reserv'
   - else
-    %ul.nav.nav-tabs.pull-right#myTab{:role => "tablist", :class => I18n.locale }
+    %ul.nav.nav-tabs.pull-right#myTab2{:role => "tablist", :class => I18n.locale }
       = render 'shared/search_reserv'
-  
+  .clear-float
   .tab-content    
     #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
       %b= 'در حال راه اندازی...'
@@ -21,6 +21,7 @@
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
         .col-xs-1.pull-left{:style => "margin-top:2%; margin-left:4%"}
           = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn btn-info"
+        .col-xs-2.pull-right
         .col-xs-2.pull-right
           = label_tag t('tour-from')
           = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control", :id => "tour-exp"
