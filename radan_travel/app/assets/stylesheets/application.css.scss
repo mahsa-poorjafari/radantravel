@@ -75,7 +75,9 @@ body {padding:0; margin:0;  height:100%; width:100%}
   right: 0;
   text-align:center;
 }
-.menu_bar {position:absolute; width:100%; height:45px; background:#14605A;
+.menu_bar {position:absolute; width:100%; height:45px; 
+  background-image: url(image-path('zwartevilt.png'));
+  background-repeat: repeat ;
  -webkit-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 -moz-box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
 box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
@@ -114,23 +116,29 @@ padding-top: 2%;
   position: absolute;
   z-index:20;
   top: 515px;
-  width: 90%;
-  background:#fff;
-  margin-left: 5%;
-  margin-right: 5%;
-  height:100px;
+  width: 100%;  right:0; left:0;  
+  height:115px;
+  
+  }
+
+.tab-content {padding-top:1%;
   -webkit-box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
   -moz-box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
   box-shadow: 0px 10px 31px 0px rgba(14,15,15,1);
-  }
-.tab-content .tab-pane {padding-top:1%}
+  height:65%;
+  background-color:#fff;
+}
+/*
 .tab-content .tab-pane label{color:#666; font-weight:normal}
 .nav-tabs {padding:0; width:18%}  
 .nav-tabs li { width:100%; }  
 .nav-tabs li a{background:#E5E5E5; width:100%; text-align:center; font-size:95%;}  
 .nav-tabs li:hover , .nav-tabs li.active{cursor:pointer; font-size:95%;}  
-.imp-package {width:100%; position:relative; margin-top:5%;
+*/
+.imp-package {width:100%; position:relative; margin-top:4%;
+  padding-top:1%;
   height:230px; overflow:hidden;
+  background-color:#1A1A1A;
 }
 
 
@@ -153,14 +161,18 @@ padding-top: 2%;
   bottom: 0;
   width: 100%;}
 .footer .contact-box {    
-  background-image: url(image-path('contact-box.jpg'));
+  background-image: url(image-path('grey_wash_wall.png'));
+  /*
   background-attachment: fixed !important;
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: cover;
+  */
+  background-repeat: repeat;
+  
   height:450px; width:100%;
   overflow:hidden;
 }
+/*
 .footer .contact-box:before {
   width: 100%;
   height: 450px;
@@ -170,11 +182,12 @@ padding-top: 2%;
   background-image: url(image-path('outlets.png'));
   background-repeat: repeat;  
 }
-.footer legend {color:#fff;}
-.footer .Necessary {color:#fff;}
-.footer .contact-box .contact-info { color:#fff; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
+*/
+.footer legend {color:#1A1A1A;}
+.footer .Necessary {color:#4D4D4D;}
+.footer .contact-box .contact-info { color:#1A1A1A; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
 .footer .contact-box .contact-form {padding:5%; }
-.footer .contact-box .contact-info p{ color:#fff; text-align:justify; font-size:1em; line-height:2em;}
+.footer .contact-box .contact-info p{ color:#1A1A1A; text-align:justify; font-size:1em; line-height:2em;}
 .footer .contact-box .contact-info .fa p{direction:rtl; font-family: 'open_sansregular';}
 .footer .show-colleague {  
   width:90%;  
@@ -182,11 +195,16 @@ padding-top: 2%;
   margin-top:3%;
   
 }
-.footer .show-colleague .colleague-box {text-align:center}
+.footer .show-colleague .colleague-box {text-align:center; color:#000}
+.footer .show-colleague .colleague-box:hover {color:#1E90FF}
+.footer .show-colleague .colleague-box img{border-radius:50%;}
+
 .show-social {
   overflow:hidden;
   padding-top:1%;
-  background: #52A8A6;
+  background-image: url(image-path('outlets.png'));
+  background-repeat: repeat ;
+  opacity:.7;
   position:fixed;
   z-index:50;
   right:0;
@@ -228,7 +246,8 @@ padding-top: 2%;
   }
 .footer .footer-link {  
   width:100%; height:400px; 
-  background: #52A8A6;
+  background-image: url(image-path('dark-ft-bg.jpg'));
+  background-repeat: repeat;
 }
 /*
 .footer .footer-link:before {position:absolute; width:100%; height:400px; 
@@ -240,13 +259,13 @@ padding-top: 2%;
 }
 */
 .footer .footer-link .col-xs-4{padding:2%; margin-top: 5%;
-border-left: 1px solid #548786;
+border-left: 1px solid #4D4D4D;
 height: 50%;}
 .footer .footer-link h2{width:100%; height:30px; }
 .item a.item-package {position:relative; height:195px}
 .item a.item-package img { height:200px}
 .item .tour-hover{position:absolute; 
-  top:0; right:5%; left:5%; width:90%; height:80px;
+  top:0; right:4%; left:4%; width:92%; height:80px;
   color:#fff; font-size:1em; text-align:center;
   background-image: url(image-path('outlets.png'));
   background-repeat: repeat; 
@@ -261,7 +280,7 @@ height: 50%;}
   
 }
 .footer .footer-menu ul{ list-style:none; width:100% }
-.footer .footer-menu ul li{ list-style:none; width:18%; margin:1%; padding:1%; float:right; text-align:center; border-left:1px solid #548786}
+.footer .footer-menu ul li{ list-style:none; width:18%; margin:1%; padding:1%; float:right; text-align:center; border-left:1px solid #4D4D4D}
 .tours-boxes {width:80%; height:70%; position:relative; overflow:hidden; text-align: center;}  
 .tours-index { 
   margin-left:2%;  
