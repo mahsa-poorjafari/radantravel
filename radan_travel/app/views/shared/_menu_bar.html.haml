@@ -5,16 +5,16 @@
         %li.home{:style => "width:30px; margin-right:45%"}= image_tag 'home.png'
         
     = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li.sight{:id => "آژانس هواپیمایی رادان سیر_بازدید از ایران" }=  t('sight')
+      %li.sight=  t('sight')
     = link_to  tours_path, :class => ('active' if current_page?(Tour)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li.tour{:id => "آژانس هواپیمایی رادان سیر_پکیج تورهای مسافرتی" }= t('tour.tours')
+      %li.tour= t('tour.tours')
       
     = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر", :style => "width:40%" do
       %li.sight
     
     = link_to  Hotel, :class => ('active' if current_page?(Hotel)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li{:id => "آژانس هواپیمایی رادان سیر_هتل تور ها" }= t('hotel')
+      %li= t('hotel')
     
     = link_to  Country , :class => ('active' if current_page?(Country)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li{:id => "آژانس هواپیمایی رادان سیر_کشورها تورها" }= t('tour-country')
+      %li= t('tour-country')
 
