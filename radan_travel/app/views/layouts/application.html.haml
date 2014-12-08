@@ -9,13 +9,12 @@
     %meta{:charset => "utf-8"}    
     %meta{:name => "keywords", :content => Tour.all.collect(&:title_fa).join(",")} 
     %meta{:name => "description", :content => "#{t("radantravel")}, Radan_Travel_Agency"}
-    %meta{content: "no", "http-equiv" => "#{t("radantravel")}, Radan_Travel_Agency"}
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
     %meta{:content => "8ana4hAqdsH47iRKOF8mRJ50NCHxxcp9G58sWpS4w_g", :name => "google-site-verification"}/
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
   %body    
-    - if current_page?('/')
-      %embed{:autostart => "true", :hidden => "true", :loop => "false", :src => 'music/a.mp3', :style => "display:block"}
+    - if current_page?('/')      
       = swf_tag "flash"
       .falgs{:style => "position:fixed; top:23%; left:15%;"}
         = link_to (image_tag 'flag/en.png', :title => "آژانس_هواپیمایی_رادان_سیر",:alt => "آژانس_هواپیمایی_رادان_سیر"), 'index?locale=en', :title => "آژانس_هواپیمایی_رادان_سیر"
