@@ -1,4 +1,5 @@
 !!!
+/ Microdata markup added by Google Structured Data Markup Helper.
 %html
   %head
     %title 
@@ -7,25 +8,25 @@
     = javascript_include_tag 'application'   
     = csrf_meta_tags
     %meta{:charset => "utf-8"}    
-    %meta{:name => "keywords", :content => Tour.all.collect(&:title_fa).join(",")} 
-    %meta{:name => "description", :content => "#{t("radantravel")}, Radan_Travel_Agency"}
+    %meta{:name => "keywords", :content =>   "شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر, تور لحظه ای ، تور لحظه آخری, آژانس هواپیمایی رادان سیر"} 
+    %meta{:name => "description", :content => "#{t("radantravel")}, Radan Travel Agency, آژانس هواپیمایی رادان سیر"}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
     %meta{:content => "8ana4hAqdsH47iRKOF8mRJ50NCHxxcp9G58sWpS4w_g", :name => "google-site-verification"}/
     = yield(:refresh_meta) if content_for?(:refresh_meta)
-    = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png'
-  %body    
+    = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png', :title => "آژانس هواپیمایی رادان سیر"
+  %body{:title => "آژانس هواپیمایی رادان سیر"}
     - if current_page?('/')      
       = swf_tag "flash"
       .falgs{:style => "position:fixed; top:23%; left:15%;"}
-        = link_to (image_tag 'flag/en.png', :title => "آژانس_هواپیمایی_رادان_سیر",:alt => "آژانس_هواپیمایی_رادان_سیر"), 'index?locale=en', :title => "آژانس_هواپیمایی_رادان_سیر"
-        = link_to (image_tag 'flag/ir.png', :title => "Radan_Travel_Agency", :alt => "Radan_Travel_Agency"), 'index?locale=fa', :title => "آژانس_هواپیمایی_رادان_سیر"
-        = link_to (image_tag 'flag/ar.png', :title => "شركة السفر الجوي والخدمات السياحية رادان الثوم", :alt => "Radan_Travel_Agency"), 'index?locale=ar', :title => "آژانس_هواپیمایی_رادان_سیر"        
+        = link_to (image_tag 'flag/en.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"), 'index?locale=en', :title => "آژانس هواپیمایی رادان سیر"
+        = link_to (image_tag 'flag/ir.png', :title => "Radan Travel Agency", :alt => "Radan_Travel_Agency"), 'index?locale=fa', :title => "آژانس هواپیمایی رادان سیر"
+        = link_to (image_tag 'flag/ar.png', :title => "شركة السفر الجوي والخدمات السياحية رادان الثوم", :alt => "Radan_Travel_Agency"), 'index?locale=ar', :title => "آژانس هواپیمایی رادان سیر"
        
       :javascript
         $('html, body').css('overflow','hidden');
     - else
       .main{:class => I18n.locale}
-        = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"        
+        = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
         .logo
           - if I18n.locale == :en 
             = render 'shared/top_site_en'
@@ -35,9 +36,9 @@
         = render 'slides/slider'
         = render 'shared/multi_slider_search_tour', :tours => Tour.all
         .yield{:class => I18n.locale, :style => "overflow:hidden"}
-          = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس_هواپیمایی_رادان_سیر"
+          = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
           = yield
-        .footer          
+        .footer 
           .contact-box         
             - if I18n.locale == :en     
               = render 'shared/contact_box_en'
@@ -76,7 +77,7 @@
               .show-colleague{:class => I18n.locale} 
                 - Link.all.each do |link|
                   = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
-                    = image_tag link.image(:small), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+                    = image_tag link.image(:small), :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
                     %p
                       %b{:class => I18n.locale}= link.title
           .copyright= t('copyright')
@@ -103,21 +104,21 @@
               .col-xs-4{:style => "padding:0"}= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
               %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('facebook')
           .social-icon.clear-float
-            = image_tag 'l.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            = image_tag 'l.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
             %span{:class => I18n.locale}= t('linkedin')
           .social-icon
-            = image_tag 'g.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            = image_tag 'g.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
             %span{:class => I18n.locale}= t('googleplus')
           .social-icon
-            = image_tag 't.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            = image_tag 't.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
             %span{:class => I18n.locale}= t('twitter')
              
     - if is_admin?
       .admin-menu
         = render 'shared/admin_menu'
     - unless current_page?('/') 
-      = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس_هواپیمایی_رادان_سیر" do
-        = image_tag 'gotop.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+      = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
+        = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
       
   - unless current_page?('/')  || current_page?('/index') 
     :javascript
