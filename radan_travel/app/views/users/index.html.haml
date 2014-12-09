@@ -24,29 +24,29 @@
               - unless user.role_id == 1
                 = link_to 'حذف', user, :method => :delete, :data => { :confirm => 'آیا می خواهید این کاربر حذف شود؟' }, :class => "btn btn-danger"
 
+-#
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#users_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,4]
+      ,  
+        bSortable: false
+        aTargets: [0,4]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#users_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,4]
-    ,  
-      bSortable: false
-      aTargets: [0,4]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
-
-  window.reloadDataTable()
+    window.reloadDataTable()
 
      
 
