@@ -1,27 +1,51 @@
-%h1 Listing send_links
+.margin3    
+  %h1{:class => I18n.locale}= 'لینک های ارسال شده'
+  
+  %table.table.table-striped{id:"send_link_table"}
+    %thead
+      %tr
+        %th ردیف
+        %th ایمیل فرستنده
+        %th ایمیل گیرنده
+        %th لینک ارسالی
+        %th متن ارسالی
+        %th موضوع
+        %th تاریخ ارسال        
+        %th عملیات
+         
+    %tbody{:id => "send_link_container"}
+      - @send_links.each_with_index do |send_link, i|
+        %tr
+          %td= (i+1)
+          %td= send_link.sender_email
+          %td= send_link.receiver_email
+          %td= send_link.current_link
+          %td= send_link.text
+          %td= send_link.subject
+          %td= JalaliDate.new(send_link.created_at).strftime("%A %e %b %Y")
+          %td
+            - if is_admin?
+              = link_to 'مشاهده', send_link , :class => "btn btn-warning"                
+              = link_to 'حذف', send_link, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#send_link_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,7]
+    ,  
+      bSortable: false
+      aTargets: [0,7]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
 
-%table
-  %tr
-    %th Sender email
-    %th Receiver email
-    %th Current link
-    %th Text
-    %th Subject
-    %th
-    %th
-    %th
-
-  - @send_links.each do |send_link|
-    %tr
-      %td= send_link.sender_email
-      %td= send_link.receiver_email
-      %td= send_link.current_link
-      %td= send_link.text
-      %td= send_link.subject
-      %td= link_to 'Show', send_link
-      %td= link_to 'Edit', edit_send_link_path(send_link)
-      %td= link_to 'Destroy', send_link, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Send link', new_send_link_path
+  window.reloadDataTable()

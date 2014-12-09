@@ -17,7 +17,7 @@
         %tr
           %td= (i+1)
           %td= tour_comment.user_name
-          %td= tour_comment.tour_id
+          %td= tour_comment.tour.title
           %td= truncate(tour_comment.text, :lenght => 150)
           %td= JalaliDate.new(tour_comment.created_at).strftime("%A %e %b %Y")
           %td
@@ -34,26 +34,26 @@
               - unless tour_comment.confirm_comment?              
                 = link_to 'تایید', confirm_tour_comment_path(tour_comment),  :class => "btn btn-success"
               = link_to 'حذف', tour_comment, :method => :delete, :data => { :confirm => 'آیا می خواهید این نظر را حذف کنید؟' }, :class => "btn btn-danger"
--#
-  :coffeescript
-    window.reloadDataTable = ->
-      if !!window.oTable
-        window.oTable.fnDestroy(); 
-      window.oTable = $("#comment_table").dataTable aoColumnDefs: [
-        bSearchable: false
-        aTargets: [0,6]
-      ,  
-        bSortable: false
-        aTargets: [0,6]
-      ],  oLanguage:
-        sSearch: "جستجو:"
-        sLengthMenu: "نمایش _MENU_ ردیف"
-        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-        sZeroRecords: "هیچ داده ای وجود ندارد"
-        sInfoEmpty: "هیچ موردی یافت نشد"
-        sInfoFiltered: " - از بین _MAX_ داده موجود"
-        oPaginate:
-          sPrevious: "صفحه قبلی"
-          sNext: "صفحه بعدی"
 
-    window.reloadDataTable()
+:coffeescript
+  window.reloadDataTable = ->
+    if !!window.oTable
+      window.oTable.fnDestroy(); 
+    window.oTable = $("#comment_table").dataTable aoColumnDefs: [
+      bSearchable: false
+      aTargets: [0,5]
+    ,  
+      bSortable: false
+      aTargets: [0,5]
+    ],  oLanguage:
+      sSearch: "جستجو:"
+      sLengthMenu: "نمایش _MENU_ ردیف"
+      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+      sZeroRecords: "هیچ داده ای وجود ندارد"
+      sInfoEmpty: "هیچ موردی یافت نشد"
+      sInfoFiltered: " - از بین _MAX_ داده موجود"
+      oPaginate:
+        sPrevious: "صفحه قبلی"
+        sNext: "صفحه بعدی"
+
+  window.reloadDataTable()
