@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Hotel:
+  = @locationtour.hotel_id
+%p
+  %b City:
+  = @locationtour.city_id
+%p
+  %b Price:
+  = @locationtour.price
+
+= link_to 'Edit', edit_locationtour_path(@locationtour)
+\|
+= link_to 'Back', locationtours_path

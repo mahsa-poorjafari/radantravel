@@ -1,0 +1,8 @@
+$('#location-tour-city').html("#{escape_javascript(render(:partial => 'show_city_name', :locals => {:city => @city }))}");
+$('#cities_list, #location-tour-city-label').hide();
+$('.location-city-id').val(#{@city_id});
+$(document).ajaxStart(function(){  $('#loading').show();}).ajaxStop(function(){  $('#loading').hide();});
+- if @hotels.present?  
+  $('#location-hotel-list select').html("#{escape_javascript( options_from_collection_for_select(@hotels, :id, :title_fa))}");
+- else
+  $('#location-hotel-list select').html("iii");

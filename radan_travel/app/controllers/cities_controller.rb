@@ -14,7 +14,7 @@ class CitiesController < ApplicationController
   end
   def dynamic_city
     p '...................'
-    p  country_id = params[:country_list]
+    p country_id = params[:country_list]
     p @city = City.where( country_id: country_id)
     p '...................'
   end

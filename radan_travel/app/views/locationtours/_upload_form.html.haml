@@ -1,0 +1,18 @@
+.upload-pic  
+  %b= 'نام کشور'
+  = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
+  #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
+  .form-group
+    #location-tour-city-label= location.label "شهر مورد نظر را با کلیک انتخاب کنید", :class => "control-label location-city-label"         
+    = location.hidden_field :city_id , :class => "form-control location-city-id"     
+    %b#location-tour-city 
+  .form-group#location-hotel-list
+    = location.label "هتل", :class => "control-label"     
+    = location.select :hotel_id, {}, prompt: "هتل را انتخاب کنید", :class => " form-control "
+  .form-group
+    = location.label "قیمت", :class => "control-label" 
+    = location.text_field :price , :class => " form-control" 
+  
+
+
+

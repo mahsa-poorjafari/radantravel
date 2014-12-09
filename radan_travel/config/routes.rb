@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
   
-  resources :custom_tours
+  
 
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides
-
+    resources :locationtours do
+      collection do
+        get :dynamic_city
+        get :dynamic_hotel
+      end
+    end
+    resources :custom_tours
     resources :planes
     resources :hotels do
       collection do
         get :dynamic_city
+        get :dynamic_hotel
       end
     end
 

@@ -65,17 +65,12 @@ class ToursController < ApplicationController
   # POST /tours
   # POST /tours.json
   def create
-    @tour = Tour.new(tour_params)
-
-    respond_to do |format|
-      if @tour.save
-        format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
-        format.json { render :show, status: :created, location: @tour }
-      else
-        format.html { render :new }
-        format.json { render json: @tour.errors, status: :unprocessable_entity }
-      end
+    @tour = Tour.new(tour_params)   
+    if @tour.save      
+      
+    else      
     end
+    
   end
 
   # PATCH/PUT /tours/1
@@ -114,6 +109,6 @@ class ToursController < ApplicationController
       :plane_id, :hotel_id, :country_id, :city_id,
       :price, :validate_date_from_fa, :validate_date_until_fa, :coming_soon, :itinerary_fa, :itinerary_en, :itinerary_ar,
       :documents_fa, :documents_en, :documents_ar, :decription_image, :info,
-      photos_attributes: [:id, :image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update] )
+      photos_attributes: [:id, :image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update])
     end
 end
