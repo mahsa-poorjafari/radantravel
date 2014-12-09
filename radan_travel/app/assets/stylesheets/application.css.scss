@@ -107,8 +107,9 @@ padding-top: 1%;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
     padding:1%; top:15%;
+    width:20%;
   }
-.admin-menu:hover { height:350px}
+.admin-menu:hover { height:370px; cursor:pointer}
 .admin-menu ul li a{color:#000;}
 .admin-menu ul li:hover a{font-size:15px;text-shadow: 1px 1px 1px #1A1A1A; color:#EB9B07; text-decoration:none}
 .tabs-on-slider {
@@ -391,3 +392,4 @@ margin-right: -40%;}
 table tr th{text-align:right}
 
 table tr.unvisite {font-weight:bold}
+span.unread {padding:2%;  border-radius:50%; background:#0D4A3E; color:#fff}
