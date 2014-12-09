@@ -1,15 +1,15 @@
 .menu_bar  
   %ul.set-center{:class => I18n.locale}  
-    -#
-      = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
-        %li.home{:style => "width:30px; margin-right:45%"}= image_tag 'home.png'
-        
+    
+    = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
+      %li.home= t('home')
+      
     = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر" do
       %li.sight=  t('sight')
     = link_to  tours_path, :class => ('active' if current_page?(Tour)), :title => "آژانس هواپیمایی رادان سیر" do
       %li.tour= t('tour.tours')
       
-    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر", :style => "width:40%" do
+    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر", :style => "width:35%" do
       %li.sight
     
     = link_to  Hotel, :class => ('active' if current_page?(Hotel)), :title => "آژانس هواپیمایی رادان سیر" do
@@ -17,4 +17,7 @@
     
     = link_to  Country , :class => ('active' if current_page?(Country)), :title => "آژانس هواپیمایی رادان سیر" do
       %li= t('tour-country')
+      
+    = link_to  page_path('About us') , :class => ('active' if current_page?(Page)), :title => "آژانس هواپیمایی رادان سیر" do
+      %li= t('about-us')
 
