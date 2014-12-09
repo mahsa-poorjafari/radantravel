@@ -1,0 +1,26 @@
+.margin3    
+  %h1{:class => I18n.locale}= ' درخواست کاربر برای تور دلخواه'  
+  %table.table.table-striped{id:"custom_tour_table"}
+    %thead
+      %tr
+        %th ردیف
+        %th نام کاربر
+        %th اطلاعات تماس
+        %th کشورها
+        %th متن
+        %th تاریخ ثبت نظر        
+        %th عملیات
+         
+    %tbody{:id => "custom_tour_container"}
+      - @custom_tours.each_with_index do |custom_tour, i|
+        %tr{:class => ('unvisite' if custom_tour.visited == false)}
+          %td= (i+1)
+          %td= custom_tour.user_name
+          %td= custom_tour.user_email
+          %td= custom_tour.country
+          %td= custom_tour.description
+          %td= JalaliDate.new(custom_tour.created_at).strftime("%A %e %b %Y")          
+          %td
+            - if is_admin?
+              = link_to 'مشاهده', custom_tour, :class => "btn btn-warning"                            
+              = link_to 'حذف', custom_tour, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"

@@ -1,0 +1,20 @@
+.margin3
+  .col-xs-7
+  .well.col-xs-5{:class => I18n.locale}
+
+    %p
+      %b نام کاربر:
+      = @custom_tour.user_name
+    %p
+      %b اطلاعات تماس کاربر:
+      = @custom_tour.user_email
+    %p
+      %b شهرهای مورد نظر:
+      = @custom_tour.country
+    %p
+      %b متن:
+      = @custom_tour.description
+
+    %p
+      %b تاریخ ثبت 
+      =JalaliDate.new(@custom_tour.created_at).strftime("%A %e %b %Y")

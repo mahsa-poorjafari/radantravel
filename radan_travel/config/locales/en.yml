@@ -109,3 +109,11 @@ en:
     text: 'Text'
     send: 'Send'
   
+  request-tour:
+    request-tour-form: 'Request For A Custom Tour'
+    user-name: 'Enter Your Name'
+    user-contact-info: 'Enter Your Contact Info'
+    country: 'Enter Countries'
+    text: 'Enter Your text'
+    send: 'Send'
+    

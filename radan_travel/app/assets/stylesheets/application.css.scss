@@ -161,7 +161,7 @@ padding-top: 2%;
   bottom: 0;
   width: 100%;}
 .footer .contact-box {    
-  background-image: url(image-path('grey_wash_wall.png'));
+  background-image: url(image-path('grey.png'));
   /*
   background-attachment: fixed !important;
   background-position: center center;
@@ -185,9 +185,9 @@ padding-top: 2%;
 */
 .footer legend {color:#1A1A1A;}
 .footer .Necessary {color:#4D4D4D;}
-.footer .contact-box .contact-info { color:#1A1A1A; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
+.footer .contact-box .contact-info { color:#fff; text-align:justify; font-size:1em; padding:5%; line-height:1em;}
 .footer .contact-box .contact-form {padding:5%; }
-.footer .contact-box .contact-info p{ color:#1A1A1A; text-align:justify; font-size:1em; line-height:2em;}
+.footer .contact-box .contact-info p{ color:#fff; text-align:justify; font-size:1em; line-height:2em;}
 .footer .contact-box .contact-info .fa p{direction:rtl; font-family: 'open_sansregular';}
 .footer .show-colleague {  
   width:90%;  
@@ -246,8 +246,8 @@ padding-top: 2%;
   }
 .footer .footer-link {  
   width:100%; height:400px; 
-  background-image: url(image-path('dark-ft-bg.jpg'));
-  background-repeat: repeat;
+  background: #1A1A1A;
+  
 }
 /*
 .footer .footer-link:before {position:absolute; width:100%; height:400px; 
@@ -389,4 +389,6 @@ margin-right: -40%;}
 
 .show_comments {position: absolute;
   padding-top: 5%;}
-table#comment_table tr th, table#send_link_table tr th {text-align:right}
+table tr th{text-align:right}
+
+table tr.unvisite {font-weight:bold}

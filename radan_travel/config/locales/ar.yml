@@ -90,4 +90,13 @@ ar:
     subject: 'موضوع'
     text: 'نص'
     send: 'إرسال'
+    
+  request-tour:
+    request-tour-form: 'طلب للقيام بجولة مخصص'
+    user-name: 'أدخل اسمك'
+    user-contact-info: 'أدخل معلومات الاتصال'
+    country: 'أدخل البلدان'
+    text: 'أدخل النص'
+    send: 'إرسال'
+    
   

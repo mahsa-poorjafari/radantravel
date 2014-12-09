@@ -1,0 +1,30 @@
+= form_for @custom_tour ||= CustomTour.new do |f|
+  - if @custom_tour.errors.any?
+    #error_explanation      
+      %ul
+        - @custom_tour.errors.each do |attr, msg|
+          %li= msg
+  - if I18n.locale == :en
+    .col-xs-12  
+      .form-group.col-xs-6.pull-left     
+        = f.text_field :user_name, :placeholder => t('request-tour.user-name'),   :id => "custom_tour_name", :class => "form-control"
+      .form-group.col-xs-6.pull-left
+        = f.text_field :user_email, :placeholder => t('request-tour.user-contact-info'),   :id => "custom_tour_email", :class => "form-control"
+      .form-group.col-xs-6.pull-left
+        = f.text_field :country, :placeholder => t('request-tour.country'),   :id => "custom_tour_country", :class => "form-control"
+        = f.submit t('request-tour.send'), :class => "btn btn-default I18n.locale",   :id => "custom_tour_submit", :style => "margin-top:5%"
+      .form-group.col-xs-6.pull-left
+        = f.text_area :description, :placeholder => t('request-tour.text'),   :id => "custom_tour_text", :class => "form-control"
+  - else
+    .col-xs-12  
+      .form-group.col-xs-6.pull-right      
+        = f.text_field :user_name, :placeholder => t('request-tour.user-name'),   :id => "custom_tour_name", :class => "form-control"
+      .form-group.col-xs-6.pull-right           
+        = f.text_field :user_email, :placeholder => t('request-tour.user-contact-info'),   :id => "custom_tour_email", :class => "form-control"
+      .form-group.col-xs-6.pull-right            
+        = f.text_field :country, :placeholder => t('request-tour.country'),   :id => "custom_tour_country", :class => "form-control"
+        = f.submit t('request-tour.send'), :class => "btn btn-default I18n.locale",   :id => "custom_tour_submit", :style => "margin-top:5%"
+      .form-group.col-xs-6.pull-right      
+        = f.text_area :description, :placeholder => t('request-tour.text'),   :id => "custom_tour_text", :class => "form-control"
+      
+    
