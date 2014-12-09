@@ -384,3 +384,8 @@ margin-right: -40%;}
   background-image: url(image-path('ribbon-moment.png'));
   background-repeat: no-repeat;}
 .tour-moment a {font-size:1.5em; color:#14605A;}
+.tour-comments {position: relative;
+  height: 250px;}
+
+.show_comments {position: absolute;
+  padding-top: 5%;}

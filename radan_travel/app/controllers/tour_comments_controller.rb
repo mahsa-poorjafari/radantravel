@@ -39,7 +39,7 @@ class TourCommentsController < ApplicationController
     if @tour_comment.save
       @customer = Customer.new(email: @tour_comment.user_email, name: @tour_comment.user_name )
       @customer.save!
-      flash[:SendComment] = 'کاربر گرامی نظر شما ثبت شد.'
+      flash[:SendComment] = 'کاربر گرامی نظر شما ثبت شد. پس از تایید مدیر در سایت نمایش داده خواهد شد.'
       redirect_to :back
     end
     
