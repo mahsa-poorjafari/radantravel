@@ -1,24 +1,11 @@
-%p#notice= notice
+.margin3  
+  .col-xs-7
+  .well.col-xs-5{:class => I18n.locale}    
+    %p= image_tag @plane.logo(:small)
+    %b= @plane.title    
+    %p    
+      = @plane.text    
 
-%p
-  %b Title fa:
-  = @plane.title_fa
-%p
-  %b Title en:
-  = @plane.title_en
-%p
-  %b Title ar:
-  = @plane.title_ar
-%p
-  %b Text fa:
-  = @plane.text_fa
-%p
-  %b Text en:
-  = @plane.text_en
-%p
-  %b Text ar:
-  = @plane.text_ar
-
-= link_to 'Edit', edit_plane_path(@plane)
-\|
-= link_to 'Back', planes_path
+    = link_to 'ویرایش', edit_plane_path(@plane), :class => "btn btn-info" 
+       
+    

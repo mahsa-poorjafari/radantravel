@@ -1,6 +1,11 @@
-%h4.admin-menu-title
+%h5.admin-menu-title
   - if current_user.present?
     = current_user.email
+  - @unread_tour_comment = TourComment.where(confirm_comment: 0).count
+  - @unread_msg = Message.where(visited: 0).count
+  - @unread_custom_link = CustomTour.where(visited: 0).count
+  - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link
+  %span.unread= @notifications
 %ul{:class => I18n.locale}  
   %li= link_to 'مدیریت خبرنامه', Customer, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'مدیریت صفحات متنی', Page, :title => "آژانس_هواپیمایی_رادان_سیر"
@@ -10,11 +15,22 @@
   %li= link_to 'معرفی تورها', tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'معرفی نقاط دیدنی', sights_path, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'پیوندهای مرتبط', links_path, :title => "آژانس_هواپیمایی_رادان_سیر"  
+  %li= link_to 'افزودن شرکت هواپیمایی', Plane, :title => "آژانس_هواپیمایی_رادان_سیر"  
   %li= link_to 'مدیریت اسلایدر', Slide, :title => "آژانس_هواپیمایی_رادان_سیر"
-  %li= link_to 'مشاهده نظرات کاربران', TourComment, :title => "آژانس_هواپیمایی_رادان_سیر"
-  %li= link_to 'مشاهده پیام های ارسالی', Message, :title => "آژانس_هواپیمایی_رادان_سیر"
-  %li= link_to 'گزارش لینکهای ارسالی', SendLink, :title => "آژانس_هواپیمایی_رادان_سیر"
-  %li= link_to 'گزارش تورهای درخواستی', CustomTour, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li    
+    = link_to 'مشاهده نظرات کاربران', TourComment, :title => "آژانس_هواپیمایی_رادان_سیر"    
+    - if @unread_tour_comment != 0
+      %span.unread= @unread_tour_comment
+  %li
+    = link_to 'مشاهده پیام های ارسالی', Message, :title => "آژانس_هواپیمایی_رادان_سیر"    
+    - if @unread_msg != 0
+      %span.unread= @unread_msg
+  %li
+    = link_to 'گزارش لینکهای ارسالی', SendLink, :title => "آژانس_هواپیمایی_رادان_سیر"    
+  %li
+    = link_to 'گزارش تورهای درخواستی', CustomTour, :title => "آژانس_هواپیمایی_رادان_سیر"    
+    - if @unread_custom_link != 0
+      %span.unread= @unread_custom_link
   %li= link_to 'مدیریت کاربران عضو', User, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'پروفایل کاربر', edit_user_path(current_user), :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'خروج', destroy_user_session_path, :method => :delete, :title => "آژانس_هواپیمایی_رادان_سیر"

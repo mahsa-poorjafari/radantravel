@@ -1,7 +1,7 @@
-%h1 Editing plane
+.margin3
+  %h1 ویرایش اطلاعات شرکت هواپیمایی
+  - if is_admin?
+    = link_to 'مشاهده', @plane, :class => "btn btn-warning"
 
-= render 'form'
-
-= link_to 'Show', @plane
-\|
-= link_to 'Back', planes_path
+  = render 'form'
+  
