@@ -43,15 +43,22 @@
             - if I18n.locale == :en     
               = render 'shared/contact_box_en'
             - else
-              = render 'shared/contact_box_fa'
-            
+              = render 'shared/contact_box_fa'            
               
           .footer-link              
             .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
               = render 'shared/footer_menu'
             .clear-float
             .col-xs-4
-              %h4{:class => I18n.locale}= t('sitevisit.statistics')
+              %h4{:class => I18n.locale}=  t('request-tour.request-tour-form')
+              - if flash[:SendCustomTour].present?
+                .alert.alert-success{:style => "position: absolute;z-index: 10;width: 90%;"}= flash[:SendCustomTour]
+              = render 'custom_tours/form'
+            .col-xs-4              
+              .col-xs-12.set-center
+                %p{:class => I18n.locale}= link_to  t('send-mail'), '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :title => "آژانس_هواپیمایی_رادان_سیر"
+                %p{:class => I18n.locale}= link_to t('imp-package'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+              %h4{:class => I18n.locale, :style => "padding-top:5px; text-align:center"}= t('sitevisit.statistics')
               .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
                 %p{:class => I18n.locale}
                   %b= t('sitevisit.total-views')
@@ -61,18 +68,15 @@
                   =  @online_day
                 %p{:class => I18n.locale}
                   %b= t('sitevisit.online-number')
-                  = @online_now          
-              
+                  = @online_now    
             .col-xs-4
               %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
               = render 'shared/newsletter_subscribe'
               %br
               %h4{:class => I18n.locale}= t('customer_clube')
               = render 'shared/customer_clube'
-            .col-xs-4
-              .col-xs-8.set-center
-                %p{:class => I18n.locale}= link_to  t('send-mail'), '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :title => "آژانس_هواپیمایی_رادان_سیر"
-                %p{:class => I18n.locale}= link_to t('imp-package'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+            
+              
             .col-xs-12.set-center
               .show-colleague{:class => I18n.locale} 
                 - Link.all.each do |link|

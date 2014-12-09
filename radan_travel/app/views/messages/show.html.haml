@@ -1,18 +1,19 @@
-%p#notice= notice
-
-%p
-  %b User name:
-  = @message.user_name
-%p
-  %b Email:
-  = @message.email
-%p
-  %b Phone:
-  = @message.phone
-%p
-  %b Text:
-  = @message.text
-
-= link_to 'Edit', edit_message_path(@message)
-\|
-= link_to 'Back', messages_path
+.margin3
+  .col-xs-7
+  .well.col-xs-5{:class => I18n.locale}
+    %p
+      %b نام کاربر:
+      = @message.user_name
+    %p
+      %b ایمیل کاربر:
+      = @message.email
+    %p
+      %b تلفن تماس:
+      = @message.phone
+    %p
+      %b متن
+      = @message.text
+    %p
+      %b تاریخ
+      = JalaliDate.new(@message.created_at).strftime("%A %e %b %Y")
+      

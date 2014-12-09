@@ -1,21 +1,23 @@
-%p#notice= notice
+.margin3
+  .col-xs-7
+  .well.col-xs-5{:class => I18n.locale}
 
-%p
-  %b Sender email:
-  = @send_link.sender_email
-%p
-  %b Receiver email:
-  = @send_link.receiver_email
-%p
-  %b Current link:
-  = @send_link.current_link
-%p
-  %b Text:
-  = @send_link.text
-%p
-  %b Subject:
-  = @send_link.subject
-
-= link_to 'Edit', edit_send_link_path(@send_link)
-\|
-= link_to 'Back', send_links_path
+    %p
+      %b ایمیل فرستنده:
+      = @send_link.sender_email
+    %p
+      %b ایمیل گیرنده:
+      = @send_link.receiver_email
+    %p
+      %b لینک ارسالی:
+      = @send_link.current_link
+    %p
+      %b متن:
+      = @send_link.text
+    %p
+      %b موضوع:
+      = @send_link.subject
+    %p
+      %b تاریخ
+      = JalaliDate.new(@send_link.created_at).strftime("%A %e %b %Y")
+      

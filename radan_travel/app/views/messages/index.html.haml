@@ -1,25 +1,26 @@
-%h1 Listing messages
+.margin3    
+  %h1{:class => I18n.locale}= 'پیام های ارسال شده'  
+  %table.table.table-striped{id:"messages_table"}
+    %thead
+      %tr
+        %th ردیف
+        %th نام کاربر
+        %th ایمیل کاربر
+        %th تلفن کاربر
+        %th متن
+        %th تاریخ ارسال نظر        
+        %th عملیات
+    %tbody{:id => "messages_container"}
+      - @messages.each_with_index do |message, i|
+        %tr{:class => ('unvisite' if message.visited == false)}
+          %td= (i+1)
+          %td= message.user_name
+          %td= message.email
+          %td= message.phone
+          %td= message.text
+          %td= JalaliDate.new(message.created_at).strftime("%A %e %b %Y")
+          %td
+            - if is_admin?
+              = link_to 'مشاهده', message , :class => "btn btn-warning"                         
+              = link_to 'حذف', message, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
 
-%table
-  %tr
-    %th User name
-    %th Email
-    %th Phone
-    %th Text
-    %th
-    %th
-    %th
-
-  - @messages.each do |message|
-    %tr
-      %td= message.user_name
-      %td= message.email
-      %td= message.phone
-      %td= message.text
-      %td= link_to 'Show', message
-      %td= link_to 'Edit', edit_message_path(message)
-      %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Message', new_message_path
