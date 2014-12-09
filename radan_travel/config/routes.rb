@@ -1,24 +1,5 @@
 Rails.application.routes.draw do
-
- 
-
-  resources :send_links
-
-  resources :customers do
-    collection do
-      post :search
-      post :send_email_to_all
-    end
-  end
-
-  resources :messages
-
-  resources :tour_comments do
-      member do
-        get :confirm
-      end
-    end
-
+  
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides
@@ -60,6 +41,23 @@ Rails.application.routes.draw do
     resources :users
 
     resources :pages
+    resources :send_links
+
+    resources :customers do
+      collection do
+        post :search
+        post :send_email_to_all
+      end
+    end
+
+    resources :messages
+
+    resources :tour_comments do
+        member do
+          get :confirm
+        end
+      end
+
   end
   
   root :to => 'static#home'
