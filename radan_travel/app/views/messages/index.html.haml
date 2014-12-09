@@ -18,7 +18,7 @@
           %td= message.email
           %td= message.phone
           %td= message.text
-          %td= JalaliDate.new(message.created_at).strftime("%A %e %b %Y")
+          %td= JalaliDate.new(message.created_at).strftime("%A %e %b %Y")          
           %td
             - if is_admin?
               = link_to 'مشاهده', message , :class => "btn btn-warning"                         
