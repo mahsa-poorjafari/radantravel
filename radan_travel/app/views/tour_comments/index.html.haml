@@ -1,59 +1,59 @@
-.margin3  
+.margin3    
   %h1{:class => I18n.locale}= ' نظرات کاربران برای تورها'
--#
-  %table.table.table-striped{id:"comment_table"}
-    %thead
-      %tr
-        %th ردیف
-        %th نام کاربر
-        %th نام تور
-        %th متن نظر
-        %th تاریخ ثبت نظر
-        %th وضعیت
-        %th عملیات
-        
-    %tbody{:id => "comment_container"}
-      - @tour_comments.each_with_index do |tour_comment, i|
+  -#
+    %table.table.table-striped{id:"comment_table"}
+      %thead
         %tr
-          %td= (i+1)
-          %td= tour_comment.user_name
-          %td= tour_comment.tour_id
-          %td= truncate(tour_comment.text, :lenght => 150)
-          %td= JalaliDate.new(tour_comment.created_at).strftime("%A %e %b %Y")
-          %td
-            - if tour_comment.confirm_comment?              
-              %span= image_tag 'tick.png'
-              %b= 'تایید شده'
-              
-            - else              
-              %span= image_tag 'delete.png'
-              %b= 'تایید نشده'
-          %td
-            - if is_admin?
-              = link_to 'مشاهده', tour_comment , :class => "btn btn-warning"         
-              - unless tour_comment.confirm_comment?              
-                = link_to 'تایید', confirm_tour_comment_path(tour_comment),  :class => "btn btn-success"
-              = link_to 'حذف', tour_comment, :method => :delete, :data => { :confirm => 'آیا می خواهید این نظر را حذف کنید؟' }, :class => "btn btn-danger"
+          %th ردیف
+          %th نام کاربر
+          %th نام تور
+          %th متن نظر
+          %th تاریخ ثبت نظر
+          %th وضعیت
+          %th عملیات
+          
+      %tbody{:id => "comment_container"}
+        - @tour_comments.each_with_index do |tour_comment, i|
+          %tr
+            %td= (i+1)
+            %td= tour_comment.user_name
+            %td= tour_comment.tour_id
+            %td= truncate(tour_comment.text, :lenght => 150)
+            %td= JalaliDate.new(tour_comment.created_at).strftime("%A %e %b %Y")
+            %td
+              - if tour_comment.confirm_comment?              
+                %span= image_tag 'tick.png'
+                %b= 'تایید شده'
+                
+              - else              
+                %span= image_tag 'delete.png'
+                %b= 'تایید نشده'
+            %td
+              - if is_admin?
+                = link_to 'مشاهده', tour_comment , :class => "btn btn-warning"         
+                - unless tour_comment.confirm_comment?              
+                  = link_to 'تایید', confirm_tour_comment_path(tour_comment),  :class => "btn btn-success"
+                = link_to 'حذف', tour_comment, :method => :delete, :data => { :confirm => 'آیا می خواهید این نظر را حذف کنید؟' }, :class => "btn btn-danger"
+-#
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#comment_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,6]
+      ,  
+        bSortable: false
+        aTargets: [0,6]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#comment_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,6]
-    ,  
-      bSortable: false
-      aTargets: [0,6]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
-
-  window.reloadDataTable()
+    window.reloadDataTable()

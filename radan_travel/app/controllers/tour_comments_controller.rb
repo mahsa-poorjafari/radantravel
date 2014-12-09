@@ -5,7 +5,8 @@ class TourCommentsController < ApplicationController
   # GET /tour_comments
   # GET /tour_comments.json
   def index
-    @tour_comments = TourComment.order(" created_at desc")
+    #@tour_comments = TourComment.order("created_at desc")
+    @tour_comments = TourComment.all
   end
 
   # GET /tour_comments/1
