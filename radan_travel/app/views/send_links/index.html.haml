@@ -27,25 +27,26 @@
             - if is_admin?
               = link_to 'مشاهده', send_link , :class => "btn btn-warning"                
               = link_to 'حذف', send_link, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#send_link_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,7]
-    ,  
-      bSortable: false
-      aTargets: [0,7]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
+-#
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#send_link_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,7]
+      ,  
+        bSortable: false
+        aTargets: [0,7]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-  window.reloadDataTable()
+    window.reloadDataTable()

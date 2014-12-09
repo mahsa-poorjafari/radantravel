@@ -35,25 +35,26 @@
                 = link_to 'تایید', confirm_tour_comment_path(tour_comment),  :class => "btn btn-success"
               = link_to 'حذف', tour_comment, :method => :delete, :data => { :confirm => 'آیا می خواهید این نظر را حذف کنید؟' }, :class => "btn btn-danger"
 
-:coffeescript
-  window.reloadDataTable = ->
-    if !!window.oTable
-      window.oTable.fnDestroy(); 
-    window.oTable = $("#comment_table").dataTable aoColumnDefs: [
-      bSearchable: false
-      aTargets: [0,5]
-    ,  
-      bSortable: false
-      aTargets: [0,5]
-    ],  oLanguage:
-      sSearch: "جستجو:"
-      sLengthMenu: "نمایش _MENU_ ردیف"
-      sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
-      sZeroRecords: "هیچ داده ای وجود ندارد"
-      sInfoEmpty: "هیچ موردی یافت نشد"
-      sInfoFiltered: " - از بین _MAX_ داده موجود"
-      oPaginate:
-        sPrevious: "صفحه قبلی"
-        sNext: "صفحه بعدی"
+-#
+  :coffeescript
+    window.reloadDataTable = ->
+      if !!window.oTable
+        window.oTable.fnDestroy(); 
+      window.oTable = $("#comment_table").dataTable aoColumnDefs: [
+        bSearchable: false
+        aTargets: [0,5]
+      ,  
+        bSortable: false
+        aTargets: [0,5]
+      ],  oLanguage:
+        sSearch: "جستجو:"
+        sLengthMenu: "نمایش _MENU_ ردیف"
+        sInfo: "جمع ردیفها _TOTAL_ ردیف (_START_ از _END_)"
+        sZeroRecords: "هیچ داده ای وجود ندارد"
+        sInfoEmpty: "هیچ موردی یافت نشد"
+        sInfoFiltered: " - از بین _MAX_ داده موجود"
+        oPaginate:
+          sPrevious: "صفحه قبلی"
+          sNext: "صفحه بعدی"
 
-  window.reloadDataTable()
+    window.reloadDataTable()
