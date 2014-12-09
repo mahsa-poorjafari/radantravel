@@ -3,16 +3,18 @@
    
   - if is_admin?
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
+    = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning"
   .tour-details
     .col-xs-12        
       .col-xs-9        
+        %h3= 'جزئیات محل تور'
+        
+        
         - if I18n.locale == :fa
           = render "/tours/show_persian_date", :tour => @tour
         - else  
           = render "/tours/show_english_date", :tour => @tour  
-        %p
-          %b قیمت
-          = @tour.price
+        
         - if @tour.info.url.present?
           = link_to @tour.info.url, :target => "blank" do
             %i.btn.btn-warning= 'دریافت فایل '
@@ -24,7 +26,6 @@
             = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :id => @tour.id
         .tour-description=raw @tour.description 
       .col-xs-3
-        
         %p
           %h2{:class => I18n.locale}= t('tour.itinerary')
           / Large modal

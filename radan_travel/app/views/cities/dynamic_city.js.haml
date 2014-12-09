@@ -1,2 +1,2 @@
 $(document).ajaxStart(function(){  $('#loading').show();}).ajaxStop(function(){  $('#loading').hide();});
-$('#sight_city_id').html("#{escape_javascript( options_from_collection_for_select(@city, :id, :title_fa))}");
+$('#sight_city_id, #tour_city_id').html("#{escape_javascript( options_from_collection_for_select(@city, :id, :title_fa))}");

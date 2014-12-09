@@ -5,13 +5,15 @@ class Tour < ActiveRecord::Base
   extend PersianNumbers
   
   persian_dates :validate_date_from, :validate_date_until
-  belongs_to :hotel
+  #belongs_to :hotel
   belongs_to :plane
-  belongs_to :city
+  #belongs_to :city
   
   has_many :photos, dependent: :destroy
+  has_many :locationtours
   has_many :tour_comments
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
+ 
   
   has_attached_file :decription_image, :styles => {  :medium => "450x450>", :small => "300x350>" }
   validates_attachment_content_type :decription_image, :content_type => ["image/jpg", "image/jpeg", "image/png"]

@@ -18,6 +18,8 @@ class HotelsController < ApplicationController
     p @city = City.where( country_id: country_id)
     p '...................'
   end
+  def dynamic_hotel
+  end
   # GET /hotels/new
   def new
     @hotel = Hotel.new

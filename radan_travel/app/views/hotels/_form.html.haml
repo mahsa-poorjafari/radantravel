@@ -11,10 +11,18 @@
       .col-xs-7
         .form-group
           = f.label 'لیست کشورها', :class => "control-label"
+          - if @hotel.city_id.present?
+            %br
+            %b= @hotel.city.country.title_fa
+            %br
           = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'hotels', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
         #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'
         .form-group
           = f.label 'شهر مربوط', :class => "control-label"
+          - if @hotel.city_id.present?
+            %br
+            %b= @hotel.city.title_fa
+            %br
           = f.select :city_id, {}, prompt: "شهر را انتخاب کنید"
         .form-group
           = f.label 'تعداد ستاره های هتل', :class => "control-label"          

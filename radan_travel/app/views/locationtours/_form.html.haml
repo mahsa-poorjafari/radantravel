@@ -1,0 +1,15 @@
+= form_for @locationtour ||= Locationtour.new do |f|
+  - if @locationtour.errors.any?
+    #error_explanation
+      
+      %ul
+        - @locationtour.errors.full_messages.each do |msg|
+          %li= msg
+
+
+
+  .form-group
+    = f.hidden_field :tour_id, :value => @tour.id
+  .col-xs-12= render "locationtours/upload_form", :location => f
+  .form-group
+    = f.submit 'ثبت', :class => "btn btn-primary"
