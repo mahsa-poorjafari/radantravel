@@ -18,6 +18,7 @@ class ToursController < ApplicationController
   end
   
   def show
+    
   end
   def sendtonewsletter    
     UserMailer.send_tour_info_to_newsletter(@tour).deliver 

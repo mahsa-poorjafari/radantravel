@@ -74,12 +74,10 @@
           %h3{:class => I18n.locale}= t('tour_comment.your-comment')          
           = render 'tour_comments/form', :tour_comment => TourComment.new
       
-        .show_comments
+        .show_comments          
           - @tour.tour_comments.each do |comment|
-            .well
-              %b= comment.user_name
-              %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
-              %p= comment.text
-                   
-         
-        
+            - if comment.confirm_comment
+              .well
+                %b= comment.user_name
+                %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
+                %p= comment.text

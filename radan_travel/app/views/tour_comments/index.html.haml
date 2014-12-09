@@ -17,7 +17,7 @@
         %tr
           %td= (i+1)
           %td= tour_comment.user_name
-          %td= tour_comment.tour.title
+          %td= tour_comment.tour_id
           %td= truncate(tour_comment.text, :lenght => 150)
           %td= JalaliDate.new(tour_comment.created_at).strftime("%A %e %b %Y")
           %td
