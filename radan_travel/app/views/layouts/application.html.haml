@@ -15,115 +15,116 @@
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png', :title => "آژانس هواپیمایی رادان سیر"
   %body{:title => "آژانس هواپیمایی رادان سیر"}
-    - if current_page?('/')      
-      = swf_tag "flash"
-      .falgs{:style => "position:fixed; top:23%; left:15%;"}
-        = link_to (image_tag 'flag/en.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"), 'index?locale=en', :title => "آژانس هواپیمایی رادان سیر"
-        = link_to (image_tag 'flag/ir.png', :title => "Radan Travel Agency", :alt => "Radan_Travel_Agency"), 'index?locale=fa', :title => "آژانس هواپیمایی رادان سیر"
-        = link_to (image_tag 'flag/ar.png', :title => "شركة السفر الجوي والخدمات السياحية رادان الثوم", :alt => "Radan_Travel_Agency"), 'index?locale=ar', :title => "آژانس هواپیمایی رادان سیر"
-       
-      :javascript
-        $('html, body').css('overflow','hidden');
-    - else
-      .main{:class => I18n.locale}
-        = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
-        .logo
-          - if I18n.locale == :en 
-            = render 'shared/top_site_en'
+    -#
+      - if current_page?('/')      
+        = swf_tag "flash"
+        .falgs{:style => "position:fixed; top:23%; left:15%;"}
+          = link_to (image_tag 'flag/en.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"), 'index?locale=en', :title => "آژانس هواپیمایی رادان سیر"
+          = link_to (image_tag 'flag/ir.png', :title => "Radan Travel Agency", :alt => "Radan_Travel_Agency"), 'index?locale=fa', :title => "آژانس هواپیمایی رادان سیر"
+          = link_to (image_tag 'flag/ar.png', :title => "شركة السفر الجوي والخدمات السياحية رادان الثوم", :alt => "Radan_Travel_Agency"), 'index?locale=ar', :title => "آژانس هواپیمایی رادان سیر"
+         
+        :javascript
+          $('html, body').css('overflow','hidden');
+      - else
+    .main{:class => I18n.locale}
+      = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
+      .logo
+        - if I18n.locale == :en 
+          = render 'shared/top_site_en'
+        - else
+          = render 'shared/top_site_fa'
+      = render 'shared/menu_bar'
+      = render 'slides/slider'
+      = render 'shared/multi_slider_search_tour', :tours => Tour.all
+      .yield{:class => I18n.locale, :style => "overflow:hidden"}
+        = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
+        = yield
+      .footer 
+        .contact-box         
+          - if I18n.locale == :en     
+            = render 'shared/contact_box_en'
           - else
-            = render 'shared/top_site_fa'
-        = render 'shared/menu_bar'
-        = render 'slides/slider'
-        = render 'shared/multi_slider_search_tour', :tours => Tour.all
-        .yield{:class => I18n.locale, :style => "overflow:hidden"}
-          = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
-          = yield
-        .footer 
-          .contact-box         
-            - if I18n.locale == :en     
-              = render 'shared/contact_box_en'
-            - else
-              = render 'shared/contact_box_fa'            
-              
-          .footer-link              
-            .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
-              = render 'shared/footer_menu'
-            .clear-float
-            .col-xs-4
-              %h4{:class => I18n.locale}=  t('request-tour.request-tour-form')
-              - if flash[:SendCustomTour].present?
-                .alert.alert-success{:style => "position: absolute;z-index: 10;width: 90%;"}= flash[:SendCustomTour]
-              = render 'custom_tours/form'
-            .col-xs-4              
-              .col-xs-12.set-center
-                %p{:class => I18n.locale}= link_to  t('send-mail'), '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :title => "آژانس_هواپیمایی_رادان_سیر"
-                %p{:class => I18n.locale}= link_to t('imp-package'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
-              %h4{:class => I18n.locale, :style => "padding-top:5px; text-align:center"}= t('sitevisit.statistics')
-              .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
-                %p{:class => I18n.locale}
-                  %b= t('sitevisit.total-views')
-                  =  Visit.all.count
-                %p{:class => I18n.locale}
-                  %b= t('sitevisit.visits-today')
-                  =  @online_day
-                %p{:class => I18n.locale}
-                  %b= t('sitevisit.online-number')
-                  = @online_now    
-            .col-xs-4
-              %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
-              = render 'shared/newsletter_subscribe'
-              %br
-              %h4{:class => I18n.locale}= t('customer_clube')
-              = render 'shared/customer_clube'
+            = render 'shared/contact_box_fa'            
             
-              
+        .footer-link              
+          .col-xs-6.set-center{:style => "left:10%; right:10%; position: absolute;"}
+            = render 'shared/footer_menu'
+          .clear-float
+          .col-xs-4
+            %h4{:class => I18n.locale}=  t('request-tour.request-tour-form')
+            - if flash[:SendCustomTour].present?
+              .alert.alert-success{:style => "position: absolute;z-index: 10;width: 90%;"}= flash[:SendCustomTour]
+            = render 'custom_tours/form'
+          .col-xs-4              
             .col-xs-12.set-center
-              .show-colleague{:class => I18n.locale} 
-                - Link.all.each do |link|
-                  = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
-                    = image_tag link.image(:small), :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
-                    %p
-                      %b{:class => I18n.locale}= link.title
-          .copyright= t('copyright')
-      .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
-        .modal-dialog.modal-sm
-          .modal-content
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4#myModalLabel.modal-title 
-                = t ('send-mail')          
-            .modal-body
-              = render 'send_links/form'
-            .modal-footer
-              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-        
-
-       
-      .show-social
-        -#
-          %h4= t('contact-us')
-        .col-xs-12.set-center{:style => "left:0;position: absolute; top:5%"}
-          .social-icon
-            = link_to url_with_protocol('www.facebook.com/pages/Radan-Seir/1560811980802648'), :target => "_blank" do
-              .col-xs-4{:style => "padding:0"}= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
-              %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('facebook')
-          .social-icon.clear-float
-            = image_tag 'l.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
-            %span{:class => I18n.locale}= t('linkedin')
-          .social-icon
-            = image_tag 'g.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
-            %span{:class => I18n.locale}= t('googleplus')
-          .social-icon
-            = image_tag 't.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
-            %span{:class => I18n.locale}= t('twitter')
-             
-    - if is_admin?
-      .admin-menu
-        = render 'shared/admin_menu'
-    - unless current_page?('/') 
-      = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
-        = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+              %p{:class => I18n.locale}= link_to  t('send-mail'), '#', "data-toggle" => "modal", "data-target" => ".bs-example-modal-sm", :title => "آژانس_هواپیمایی_رادان_سیر"
+              %p{:class => I18n.locale}= link_to t('imp-package'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"
+            %h4{:class => I18n.locale, :style => "padding-top:5px; text-align:center"}= t('sitevisit.statistics')
+            .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
+              %p{:class => I18n.locale}
+                %b= t('sitevisit.total-views')
+                =  Visit.all.count
+              %p{:class => I18n.locale}
+                %b= t('sitevisit.visits-today')
+                =  @online_day
+              %p{:class => I18n.locale}
+                %b= t('sitevisit.online-number')
+                = @online_now    
+          .col-xs-4
+            %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
+            = render 'shared/newsletter_subscribe'
+            %br
+            %h4{:class => I18n.locale}= t('customer_clube')
+            = render 'shared/customer_clube'
+          
+            
+          .col-xs-12.set-center
+            .show-colleague{:class => I18n.locale} 
+              - Link.all.each do |link|
+                = link_to url_with_protocol(link.web_site), :target => "_blank", :class => "col-xs-2 colleague-box", :title => "آژانس_هواپیمایی_رادان_سیر" do    
+                  = image_tag link.image(:small), :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+                  %p
+                    %b{:class => I18n.locale}= link.title
+        .copyright= t('copyright')
+    .modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", role: "dialog", tabindex: "-1"}
+      .modal-dialog.modal-sm
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+            %h4#myModalLabel.modal-title 
+              = t ('send-mail')          
+          .modal-body
+            = render 'send_links/form'
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
       
+
+     
+    .show-social
+      -#
+        %h4= t('contact-us')
+      .col-xs-12.set-center{:style => "left:0;position: absolute; top:5%"}
+        .social-icon
+          = link_to url_with_protocol('www.facebook.com/pages/Radan-Seir/1560811980802648'), :target => "_blank" do
+            .col-xs-4{:style => "padding:0"}= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
+            %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('facebook')
+        .social-icon.clear-float
+          = image_tag 'l.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+          %span{:class => I18n.locale}= t('linkedin')
+        .social-icon
+          = image_tag 'g.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+          %span{:class => I18n.locale}= t('googleplus')
+        .social-icon
+          = image_tag 't.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+          %span{:class => I18n.locale}= t('twitter')
+           
+  - if is_admin?
+    .admin-menu
+      = render 'shared/admin_menu'
+  - unless current_page?('/') 
+    = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
+      = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+    
   - unless current_page?('/')  || current_page?('/index') 
     :javascript
       $(document).ready(function() {

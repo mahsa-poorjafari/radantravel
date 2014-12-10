@@ -10,9 +10,17 @@
     = location.label "هتل", :class => "control-label"     
     = location.select :hotel_id, {}, prompt: "هتل را انتخاب کنید", :class => " form-control "
   .form-group
-    = location.label "قیمت", :class => "control-label" 
-    = location.text_field :price , :class => " form-control" 
-  
+    = location.label "دوتخته", :class => "control-label" 
+    = location.text_field :price_two_bed , :class => " form-control" 
+  .form-group
+    = location.label "یک تخته", :class => "control-label" 
+    = location.text_field :price_one_bed , :class => " form-control" 
+  .form-group
+    = location.label "کودک با تخت", :class => "control-label" 
+    = location.text_field :price_kid_and_bed , :class => " form-control" 
+  .form-group
+    = location.label "کودک بدون تخت", :class => "control-label" 
+    = location.text_field :price_kid_without_bed , :class => " form-control" 
 
 
 

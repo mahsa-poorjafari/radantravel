@@ -3,21 +3,26 @@
   %h1= 'افزودن محل برای تور برای  ' + @tour.title_fa
   .col-xs-4.well
     = render 'form'
-  .col-xs-4
-    - @tour.locationtours.each_with_index do |location, i|
-      %p= (i+1)
-      %p
-        %b= 'کشور'
-        = location.city.country.title_fa
-      %p
-        %b= 'شهر'
-        = location.city.title_fa
-      %p
-        %b= 'هتل'
-        = location.hotel.title_fa
-      %p
-        %b= 'قیمت'
-        = location.price
-      %hr
+  .col-xs-7
+    %table.table
+      %tr
+        %th= t('location.row')
+        %th= t('location.hotel-name')
+        %th= t('location.hotel-star')
+        %th= t('location.two_bed')
+        %th= t('location.one_bed')
+        %th= t('location.kid_and_bed')
+        %th= t('location.kid_no_bed')
+      - @tour.locationtours.each_with_index do |location, i|
+        %tr{:class => I18n.locale}
+          %td= (i+1)
+          %td= location.hotel.title_fa
+          %td= location.hotel.hotel_grade
+          %td= location.price_two_bed
+          %td= location.price_one_bed
+          %td= location.price_kid_and_bed
+          %td= location.price_kid_without_bed
+      
+
   
   = link_to 'بازگشت', locationtours_path
