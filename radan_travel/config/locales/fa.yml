@@ -102,3 +102,11 @@ fa:
     text: 'سایر توضیحات'
     send: 'ارسال'
     
+  location:
+    row: 'ردیف'
+    hotel-name: "نام هتل"
+    hotel-star: 'درجه هتل'
+    two_bed: 'دوتخته'
+    one_bed: 'یک تخته'
+    kid_and_bed: 'کودک با تخت، ۶ تا ۱۲ سال'
+    kid_no_bed: 'کودک بدون تخت، ۲ تا ۶ سال'

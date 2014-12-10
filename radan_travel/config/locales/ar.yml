@@ -100,4 +100,11 @@ ar:
     text: 'أدخل النص'
     send: 'إرسال'
     
-  
+  location:
+    row: 'صف'
+    hotel-name: "اسم الفندق"
+    hotel-star: 'فئة الفندق'
+    two_bed: 'سريران'
+    one_bed: 'سرير'
+    kid_and_bed: 'طفل مع سرير، العمر بين 6 و 12'
+    kid_no_bed: 'طفل بدون سرير، العمر بين 2 إلى 6'

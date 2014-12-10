@@ -118,3 +118,11 @@ en:
     text: 'Enter Your text'
     send: 'Send'
     
+  location:
+    row: 'Row'
+    hotel-name: "Hotel Name"
+    hotel-star: 'Class Hotel'
+    two_bed: 'Two Beds'
+    one_bed: 'One Bed'
+    kid_and_bed: 'Kid With Bed, Age between 6 to 12'
+    kid_no_bed: 'Kid Without Bed, Age between 2 to 6'

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  
-  
-
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides
@@ -69,7 +66,7 @@ Rails.application.routes.draw do
 
   end
   
-  root :to => 'static#home'
+  root :to => 'static#index'
   get "index" => 'static#index'
   get "google46bde3a8d7d48d7d" => 'static#google46bde3a8d7d48d7d'
   get "sitemap.xml" => "static#sitemap", :format => "xml", :as => :sitemap

@@ -1,24 +1,39 @@
 .margin3
   %h1.title-tours{:class => I18n.locale}=  @tour.title  
-   
+  .col-xs-4 
+  .col-xs-4 
+    - if I18n.locale == :fa
+      = render "/tours/show_persian_date", :tour => @tour
+    - else  
+      = render "/tours/show_english_date", :tour => @tour  
   - if is_admin?
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning"
   .tour-details
     .col-xs-12        
       .col-xs-9        
-        %h3= 'جزئیات محل تور'
+        %h3{:class => I18n.locale}= 'جزئیات محل تور'
+        %table.table
+          %tr
+            %th= t('location.row')
+            %th= t('location.hotel-name')
+            %th= t('location.hotel-star')
+            %th= t('location.two_bed')
+            %th= t('location.one_bed')
+            %th= t('location.kid_and_bed')
+            %th= t('location.kid_no_bed')
+          - @tour.locationtours.each_with_index do |location, i|
+            %tr{:class => I18n.locale}
+              %td= (i+1)
+              %td= location.hotel.title_fa
+              %td
+                = location.hotel.hotel_grade
+                %span=image_tag 'Star.png'
+              %td= location.price_two_bed
+              %td= location.price_one_bed
+              %td= location.price_kid_and_bed
+              %td= location.price_kid_without_bed
         
-        
-        - if I18n.locale == :fa
-          = render "/tours/show_persian_date", :tour => @tour
-        - else  
-          = render "/tours/show_english_date", :tour => @tour  
-        
-        - if @tour.info.url.present?
-          = link_to @tour.info.url, :target => "blank" do
-            %i.btn.btn-warning= 'دریافت فایل '
-          
         .clear-float    
         %h2{:class => I18n.locale}= t('tour.description')
         - if @tour.decription_image.present?
@@ -62,8 +77,11 @@
                   =raw @tour.documents
                 .modal-footer
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
-                  
-      
+        %p          
+          - if @tour.info.url.present?
+            = link_to @tour.info.url, :target => "blank" do
+              %i.btn.btn-warning= 'دریافت فایل '
+          
       
     .col-xs-12
       .col-xs-7        
