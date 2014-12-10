@@ -1,0 +1,19 @@
+.margin3  
+  %h1{:class => I18n.locale}= 'تعریف درجه هتل '
+  
+  .col-xs-5
+    %table.table
+      %tr
+        %th ردیف
+        %th عنوان درجه هتل
+        %th عملیات
+      - ClassHotel.all.each_with_index do |class_hotel, i|
+        %tr{:class => I18n.locale}
+          %td= (i+1)      
+          %td= class_hotel.title          
+          %td
+            = link_to 'ویرایش', edit_class_hotel_path(class_hotel), :class => "btn btn-info"
+            = link_to 'حذف', class_hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+
+  .col-xs-7
+    = render 'form'

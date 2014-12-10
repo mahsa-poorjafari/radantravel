@@ -1,0 +1,19 @@
+%h1 Listing class_hotels
+
+%table
+  %tr
+    %th Title
+    %th
+    %th
+    %th
+
+  - @class_hotels.each do |class_hotel|
+    %tr
+      %td= class_hotel.title
+      %td= link_to 'Show', class_hotel
+      %td= link_to 'Edit', edit_class_hotel_path(class_hotel)
+      %td= link_to 'Destroy', class_hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Class hotel', new_class_hotel_path

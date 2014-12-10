@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :class_hotels
+
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :slides

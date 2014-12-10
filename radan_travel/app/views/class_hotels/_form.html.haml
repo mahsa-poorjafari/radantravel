@@ -1,0 +1,12 @@
+= form_for @class_hotel do |f|
+  - if @class_hotel.errors.any?
+    #error_explanation      
+      %ul
+        - @class_hotel.errors.each do |msg, attr|
+          %li= msg
+  .col-xs-6
+    .form-group
+      = f.label 'عنوان درجه', :class => "control-label"
+      = f.text_field :title, :class => "control-label"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"

@@ -27,8 +27,10 @@
               %td= (i+1)
               %td= location.hotel.title_fa
               %td
-                = location.hotel.hotel_grade
                 %span=image_tag 'Star.png'
+                - if location.hotel.class_hotel_id.present?
+                  = location.hotel.class_hotel.title
+                
               %td= location.price_two_bed
               %td= location.price_one_bed
               %td= location.price_kid_and_bed
