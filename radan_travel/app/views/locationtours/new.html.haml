@@ -17,7 +17,9 @@
         %tr{:class => I18n.locale}
           %td= (i+1)
           %td= location.hotel.title_fa
-          %td= location.hotel.hotel_grade
+          %td
+            - if location.hotel.class_hotel.present?
+              = location.hotel.class_hotel.title
           %td= location.price_two_bed
           %td= location.price_one_bed
           %td= location.price_kid_and_bed

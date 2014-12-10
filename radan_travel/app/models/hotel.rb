@@ -3,6 +3,7 @@ class Hotel < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_en
   belongs_to :city
+  belongs_to :class_hotel
   has_many :tours
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true

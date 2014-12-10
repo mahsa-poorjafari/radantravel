@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210075314) do
+ActiveRecord::Schema.define(version: 20141210085649) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20141210075314) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "class_hotels", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", force: true do |t|
     t.string   "title_fa"
@@ -99,10 +105,11 @@ ActiveRecord::Schema.define(version: 20141210075314) do
     t.text     "text_en"
     t.text     "text_ar"
     t.integer  "city_id"
-    t.integer  "hotel_grade"
     t.string   "hotel_facilities"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "class_hotels_id"
+    t.integer  "class_hotel_id"
   end
 
   create_table "links", force: true do |t|

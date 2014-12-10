@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @class_hotel.title
+
+= link_to 'Edit', edit_class_hotel_path(@class_hotel)
+\|
+= link_to 'Back', class_hotels_path
