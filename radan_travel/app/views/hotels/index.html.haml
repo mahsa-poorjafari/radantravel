@@ -1,4 +1,4 @@
-.margin3
+.margin3  
   %h1{:title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}=' لیست هتلها'
   -if is_admin?
     = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"
@@ -10,8 +10,11 @@
           - if hotel.photos.present?
             .tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
           .clear-float  
-  
-          
+          %p
+            %span=image_tag 'Star.png'
+            - if hotel.class_hotel_id.present?
+              %b= hotel.class_hotel.title
+          %p= hotel.city.country.title + ' , ' + hotel.city.title
         -if is_admin?
           .admin-btn-tour
             = link_to 'مشاهده', hotel, :class => "btn btn-warning"   , :title => "آژانس_هواپیمایی_رادان_سیر"    
