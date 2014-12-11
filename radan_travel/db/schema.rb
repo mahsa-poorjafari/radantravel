@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210085649) do
+ActiveRecord::Schema.define(version: 20141211105955) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141210085649) do
     t.string   "price_one_bed"
     t.string   "price_kid_and_bed"
     t.string   "price_kid_without_bed"
+    t.string   "description"
   end
 
   create_table "massages", force: true do |t|

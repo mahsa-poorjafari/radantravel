@@ -12,7 +12,7 @@
   .tour-details
     .col-xs-12        
       .col-xs-9        
-        %h3{:class => I18n.locale}= 'جزئیات محل تور'
+        %h3{:class => I18n.locale}= t('tour.description')
         %table.table
           %tr
             %th= t('location.row')
@@ -22,10 +22,13 @@
             %th= t('location.one_bed')
             %th= t('location.kid_and_bed')
             %th= t('location.kid_no_bed')
+            %th= t('location.description')
+            - if is_admin?
+              %th= 'عملیات'
           - @tour.locationtours.each_with_index do |location, i|
             %tr{:class => I18n.locale}
               %td= (i+1)
-              %td= location.hotel.title_fa
+              %td= link_to location.hotel.title_fa, hotel_path(location.hotel.title_en)
               %td
                 %span=image_tag 'Star.png'
                 - if location.hotel.class_hotel_id.present?
@@ -35,9 +38,16 @@
               %td= location.price_one_bed
               %td= location.price_kid_and_bed
               %td= location.price_kid_without_bed
+              %td= location.description
+              - if is_admin?
+                %td 
+                  =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
+                  = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+
+                
         
         .clear-float    
-        %h2{:class => I18n.locale}= t('tour.description')
+        
         - if @tour.decription_image.present?
           = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
             = image_tag @tour.decription_image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :id => @tour.id
