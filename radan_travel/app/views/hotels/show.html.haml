@@ -9,8 +9,9 @@
       %b شهر محل هتل
       = @hotel.city.title
     %p
-      %b درجه هتل
-      = @hotel.class_hotel.title
+      - if @hotel.class_hotel_id.present?
+        %b درجه هتل
+        = @hotel.class_hotel.title
     %p
       %b امکانات هتل
       = @hotel.hotel_facilities

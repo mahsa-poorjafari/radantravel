@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class Tour < ActiveRecord::Base
+  before_validation { self.decription_image.destroy if @delete_image }
   extend FriendlyId  
   friendly_id :title_fa
   extend PersianNumbers
@@ -35,6 +36,13 @@ class Tour < ActiveRecord::Base
       
       :message => "نوع فایل نامعتبر است. "
   
+  def delete_image
+    @delete_image ||= false
+  end
+
+  def delete_image=(value)
+    @delete_image  = !value.to_i.zero?
+  end
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")

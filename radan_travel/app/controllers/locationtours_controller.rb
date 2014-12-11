@@ -30,6 +30,7 @@ class LocationtoursController < ApplicationController
 
   # GET /locationtours/1/edit
   def edit
+    @tour = Tour.find(params[:tour_id])
   end
 
   # POST /locationtours
@@ -48,14 +49,9 @@ class LocationtoursController < ApplicationController
   # PATCH/PUT /locationtours/1
   # PATCH/PUT /locationtours/1.json
   def update
-    respond_to do |format|
-      if @locationtour.update(locationtour_params)
-        format.html { redirect_to @locationtour, notice: 'Locationtour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @locationtour }
-      else
-        format.html { render :edit }
-        format.json { render json: @locationtour.errors, status: :unprocessable_entity }
-      end
+    
+    if @locationtour.update(locationtour_params)
+      redirect_to :back        
     end
   end
 
@@ -63,10 +59,7 @@ class LocationtoursController < ApplicationController
   # DELETE /locationtours/1.json
   def destroy
     @locationtour.destroy
-    respond_to do |format|
-      format.html { redirect_to locationtours_url, notice: 'Locationtour was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to :back
   end
 
   private
@@ -77,6 +70,6 @@ class LocationtoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locationtour_params
-      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed)
+      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed, :description)
     end
 end

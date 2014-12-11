@@ -41,8 +41,8 @@
       
     .col-xs-12 
       .form-group.col-xs-12 
-        = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
-        = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
+        %p="برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:"
+        %p{ :style=> "color:#ec523f"}= "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد."
         = f.link_to_add content_tag(:span, "افزودن تصویر", :class => "btn btn-warning" ), :photos, :id => "add_new_picture", :class => "btn"  
       .col-xs-12 
         = f.fields_for :photos do |picture|  
@@ -73,9 +73,15 @@
     .col-xs-12
       %h2= 'توضیحات تکمیلی'
       .form-group
+        - if @tour.decription_image.exists?
+          = image_tag @tour.decription_image(:small)
+          %b= 'برای حذف تصویر گزینه زیر را انتخاب نمایید.'
+          = f.check_box :delete_image, :class => "form-control"
+        
         %i= 'اگر به توضیحات در قالب تصویر می باشد. از کادر زیر تصویر موردنظر را بارگذاری نمایید.'
         = f.label 'تصویر توضیحات', :class => "control-label"
-        = f.file_field :decription_image, :class => "form-control"        
+        
+        = f.file_field :decription_image, :class => "form-control" 
       
       .form-group.editor
         = f.label 'متن فارسی', :class => "control-label"
@@ -92,3 +98,4 @@
   
 :javascript
   $('.fa_date').datepicker()
+  

@@ -3,7 +3,7 @@
   %h1= 'افزودن محل برای تور برای  ' + @tour.title_fa
   .col-xs-4.well
     = render 'form'
-  .col-xs-7
+  .col-xs-8
     %table.table
       %tr
         %th= t('location.row')
@@ -13,6 +13,8 @@
         %th= t('location.one_bed')
         %th= t('location.kid_and_bed')
         %th= t('location.kid_no_bed')
+        %th= t('location.description')
+        %th= 'عملیات'
       - @tour.locationtours.each_with_index do |location, i|
         %tr{:class => I18n.locale}
           %td= (i+1)
@@ -24,6 +26,11 @@
           %td= location.price_one_bed
           %td= location.price_kid_and_bed
           %td= location.price_kid_without_bed
+          %td= location.description
+          %td 
+            - if is_admin?
+              =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
+              = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
       
 
   

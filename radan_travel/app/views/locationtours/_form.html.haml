@@ -1,4 +1,4 @@
-= form_for @locationtour ||= Locationtour.new do |f|
+= form_for @locationtour ||= Locationtour.new do |location|
   - if @locationtour.errors.any?
     #error_explanation
       
@@ -9,7 +9,49 @@
 
 
   .form-group
-    = f.hidden_field :tour_id, :value => @tour.id
-  .col-xs-12= render "locationtours/upload_form", :location => f
+    = location.hidden_field :tour_id, :value => @tour.id
+  .col-xs-12
+    .upload-pic  
+      .col-xs-6.pull-right
+        - if @locationtour.present?
+          %b= 'نام کشور'
+          - if @locationtour.city_id.present?
+            %p= @locationtour.city.country.title
+          - if @locationtour.city_id.present?
+            %p= @locationtour.city.title
+          - if @locationtour.hotel_id.present?
+            %p= @locationtour.hotel.title
+            
+      .col-xs-6
+        = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
+        #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
+        .form-group
+          #location-tour-city-label= location.label "شهر مورد نظر را با کلیک انتخاب کنید", :class => "control-label location-city-label"         
+          
+          = location.hidden_field :city_id , :class => "form-control location-city-id"     
+          %b#location-tour-city 
+        .form-group#location-hotel-list        
+          
+          = location.label "هتل", :class => "control-label"     
+          = location.select :hotel_id, {}, prompt: "هتل را انتخاب کنید", :class => " form-control "
+      .col-xs-12  
+        .form-group
+          = location.label "دوتخته", :class => "control-label" 
+          = location.text_field :price_two_bed , :class => " form-control" 
+        .form-group
+          = location.label "یک تخته", :class => "control-label" 
+          = location.text_field :price_one_bed , :class => " form-control" 
+        .form-group
+          = location.label "کودک با تخت", :class => "control-label" 
+          = location.text_field :price_kid_and_bed , :class => " form-control" 
+        .form-group
+          = location.label "کودک بدون تخت", :class => "control-label" 
+          = location.text_field :price_kid_without_bed , :class => " form-control" 
+        .form-group
+          = location.label "توضیحات تکمیلی", :class => "control-label" 
+          = location.text_field :description , :class => " form-control" 
+
+
+    
   .form-group
-    = f.submit 'ثبت', :class => "btn btn-primary"
+    = location.submit 'ثبت', :class => "btn btn-primary"

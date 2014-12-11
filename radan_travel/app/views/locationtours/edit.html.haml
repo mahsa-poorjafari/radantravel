@@ -1,7 +1,7 @@
-%h1 Editing locationtour
-
-= render 'form'
-
-= link_to 'Show', @locationtour
-\|
-= link_to 'Back', locationtours_path
+.margin3.fa    
+  %h1= 'ویرایش اطلاعات  ' + @locationtour.hotel.title
+  .col-xs-4.well
+    = render 'form'
+  .col-xs-8
+  
+  = link_to 'بازگشت', :back
