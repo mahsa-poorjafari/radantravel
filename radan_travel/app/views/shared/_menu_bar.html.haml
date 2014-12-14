@@ -1,23 +1,20 @@
 .menu_bar  
   %ul.set-center{:class => I18n.locale}  
     
-    = link_to :controller => "/static", :action => :index, :class => ('active' if current_page?('/')) do
-      %li.home= t('home')
-      
-    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li.sight=  t('sight')
-    = link_to  tours_path, :class => ('active' if current_page?(Tour)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li.tour= t('tour.tours')
-      
-    = link_to Sight , :class => ('active' if current_page?(Sight)), :title => "آژانس هواپیمایی رادان سیر", :style => "width:35%" do
-      %li.sight
     
-    = link_to  Hotel, :class => ('active' if current_page?(Hotel)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li= t('hotel')
-    
-    = link_to  Country , :class => ('active' if current_page?(Country)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li= t('tour-country')
+    %li.home{ :class => ('active' if current_page?('/'))}
+      = link_to t('home'), { :controller => "/static", :action => :index}
+    %li.sight{:class => ('active' if current_page?(Sight))}  
+      = link_to t('sight'), Sight, :title => "آژانس هواپیمایی رادان سیر" 
+    %li.tour{:class => ('active' if current_page?(Tour))}  
+      = link_to  t('tour.tours'), tours_path,  :title => "آژانس هواپیمایی رادان سیر"       
+    %li{:class => ('active' if current_page?(Hotel))}
+      = link_to  t('hotel'), Hotel,  :title => "آژانس هواپیمایی رادان سیر"
       
-    = link_to  page_path(1) , :class => ('active' if current_page?(Page)), :title => "آژانس هواپیمایی رادان سیر" do
-      %li= t('about-us')
+    %li{:class => ('active' if current_page?(Country))}
+      = link_to  t('tour-country'),Country , :title => "آژانس هواپیمایی رادان سیر" 
+      
+    %li{:class => ('active' if current_page?(Page))}  
+      = link_to  t('about-us'), page_path(1) , :title => "آژانس هواپیمایی رادان سیر" 
+      
 
