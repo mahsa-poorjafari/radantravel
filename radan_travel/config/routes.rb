@@ -72,7 +72,7 @@ Rails.application.routes.draw do
   get "index" => 'static#index'
   get "google46bde3a8d7d48d7d" => 'static#google46bde3a8d7d48d7d'
   get "sitemap.xml" => "static#sitemap", :format => "xml", :as => :sitemap
-  get "BingSiteAuth.xml" => "static#BingSiteAuth", :format => "xml", :as => :sitemap
+  get "BingSiteAuth.xml" => "static#BingSiteAuth", :format => "xml", :as => :BingSiteAuth
   
   
   # The priority is based upon order of creation: first created -> highest priority.
