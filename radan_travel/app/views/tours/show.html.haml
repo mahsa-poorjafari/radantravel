@@ -93,7 +93,7 @@
                 .modal-footer
                   %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
         %p          
-          - if @tour.info.url.present?
+          - if @tour.info.present?
             = link_to @tour.info.url, :target => "blank" do
               %i.btn.btn-warning= 'دریافت فایل '
           
