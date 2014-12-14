@@ -12,7 +12,10 @@
   .tour-details
     .col-xs-12        
       .col-xs-9        
-        %h3{:class => I18n.locale}= t('tour.description')
+        %h3{:class => I18n.locale}
+          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png'
+          .col-xs-6= t('tour.description')
+          
         %table.table
           %tr
             %th= t('location.row')
