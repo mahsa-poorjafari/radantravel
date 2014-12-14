@@ -19,32 +19,32 @@
         %table.table
           %tr
             %th= t('location.row')
-            %th= t('location.hotel-name')
-            %th= t('location.hotel-star')
-            %th= t('location.two_bed')
-            %th= t('location.one_bed')
-            %th= t('location.kid_and_bed')
-            %th= t('location.kid_no_bed')
-            %th= t('location.description')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "Hotels" }= t('location.hotel-name')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "class_hotel" }= t('location.hotel-star')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "two_bed" }= t('location.two_bed')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "one_bed" }= t('location.one_bed')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "kid_and_bed" }= t('location.kid_and_bed')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "kid_no_bed" }= t('location.kid_no_bed')
+            %th{:id => "Iran's_air_travel_and_tourism_services_" + "description" }= t('location.description')
             - if is_admin?
               %th= 'عملیات'
           - @tour.locationtours.each_with_index do |location, i|
             %tr{:class => I18n.locale}
               %td= (i+1)
-              %td= link_to location.hotel.title_fa, hotel_path(location.hotel.title_en), :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر_هتل_ایران_' + location.hotel.title_fa
-              %td
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_ "+  location.hotel.title_fa}= link_to location.hotel.title_fa, hotel_path(location.hotel.title_en), :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر_هتل_ایران_' + location.hotel.title_fa
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_ درجه_هتل"}
                 %span=image_tag 'Star.png'
                 - if location.hotel.class_hotel_id.present?
                   = location.hotel.class_hotel.title
                 
-              %td= location.price_two_bed
-              %td= location.price_one_bed
-              %td= location.price_kid_and_bed
-              %td= location.price_kid_without_bed
-              %td= location.description
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_ دوتخته"}= location.price_two_bed
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_یک تخته"}= location.price_one_bed
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_کودک_وتخت"}= location.price_kid_and_bed
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_کودک_بدون تخت"}= location.price_kid_without_bed
+              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_توضیحات_هتل"}= location.description
               - if is_admin?
                 %td 
-                  =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
+                  =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
                   = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
 
                 
