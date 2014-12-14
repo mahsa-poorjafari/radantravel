@@ -13,4 +13,9 @@ class StaticController < ApplicationController
       format.xml
     end
   end
+  def BingSiteAuth
+    respond_to do |format|
+      format.xml
+    end
+  end
 end
