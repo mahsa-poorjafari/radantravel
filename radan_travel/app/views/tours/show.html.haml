@@ -80,14 +80,14 @@
           %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
             = t('tour.show')
           / Modal
-          #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel1", :role => "dialog", :tabindex => "-1"}
             .modal-dialog
               .modal-content
                 .modal-header
                   %button.close{"data-dismiss" => "modal", :type => "button"}
                     %span{"aria-hidden" => "true"} ×
                     %span.sr-only= t('close')
-                  %h4#myModalLabel.modal-title= t('tour.documents')
+                  %h4#myModalLabel1.modal-title= t('tour.documents')
                 .modal-body
                   =raw @tour.documents
                 .modal-footer
