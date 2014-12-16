@@ -7,7 +7,7 @@ class Hotel < ActiveRecord::Base
   has_many :tours
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
-  
+  has_and_belongs_to_many :locationtours
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")
