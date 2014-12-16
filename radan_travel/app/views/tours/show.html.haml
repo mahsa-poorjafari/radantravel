@@ -11,7 +11,7 @@
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
   .tour-details
     .col-xs-12        
-      .col-xs-9        
+      .col-xs-10       
         .col-xs-12
           .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
           %h3{:class => I18n.locale}= t('tour.description')
@@ -31,11 +31,14 @@
           - @tour.locationtours.each_with_index do |location, i|
             %tr{:class => I18n.locale}
               %td= (i+1)
+              -if location.hotels.collect(&:title_fa).present?
+                %td
+                  - location.hotels.each do |hotel|
+                    %span= hotel.title_fa + ', '                  
               %td
-              %td
-                %span=image_tag 'Star.png'
-               
-                
+                - if location.hotels.first.class_hotel.present?
+                  %span=image_tag 'Star.png'
+                  = location.hotels.first.class_hotel.title
               %td= location.price_two_bed
               %td= location.price_one_bed
               %td= location.price_kid_and_bed
@@ -54,7 +57,7 @@
           = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
             = image_tag @tour.decription_image(:medium), :class => "example-image", :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :id => @tour.id
         .tour-description=raw @tour.description 
-      .col-xs-3
+      .col-xs-2
         %p
           %h2{:class => I18n.locale}= t('tour.itinerary')
           / Large modal
