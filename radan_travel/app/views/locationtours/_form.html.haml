@@ -5,42 +5,46 @@
       %ul
         - @locationtour.errors.full_messages.each do |msg|
           %li= msg
-
-
-
   .form-group
     = location.hidden_field :tour_id, :value => @tour.id
   .col-xs-12
     .upload-pic  
-      .col-xs-6.pull-right
-        - if @locationtour.present?
-          %b= 'نام کشور'
-          - if @locationtour.city_id.present?
-            %p= @locationtour.city.country.title
-          - if @locationtour.city_id.present?
-            %p= @locationtour.city.title
-          - if @locationtour.hotel_id.present?
-            %p= @locationtour.hotel.title
+      .col-xs-6        
+        -if @locationtour.hotels.collect(&:city_id).present?
+          %b= 'اطلاعات مکانی هتل'            
+          - @locationtour.hotels.each_with_index do |hotel, i|                        
+            %p= (i+1).to_s + '-'+ hotel.city.country.title + ',' +  hotel.city.title   + ',' + hotel.title
             
       .col-xs-6
-        = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید."
-        #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
+        .col-xs-6  
+          #list_hotels
+            %ul{:style => "list-type:circle"}
+        .col-xs-6
+          = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید.", :class => " form-control "
+          #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
+          .form-group
+            #location-tour-city-label= location.label "شهر مورد نظر را با کلیک انتخاب کنید", :class => "control-label location-city-label"         
+            
+            = location.hidden_field :city_id , :class => "form-control location-city-id"     
+            %b#location-tour-city 
+          .form-group#location-hotel-list
+            = location.label "هتل را انتخاب کنید", :class => "control-label"
+            = select_tag :hotel_list, options_for_select({}), prompt: "هتل را انتخاب کنید", :class => " form-control ", :id => "locationtour_hotel_id"
+            %span.btn.btn-warning#add_hotel= 'Add Hotel'
+            = hidden_field_tag :h
+        
+      .clear-float
+      .col-xs-6
         .form-group
-          #location-tour-city-label= location.label "شهر مورد نظر را با کلیک انتخاب کنید", :class => "control-label location-city-label"         
-          
-          = location.hidden_field :city_id , :class => "form-control location-city-id"     
-          %b#location-tour-city 
-        .form-group#location-hotel-list        
-          
-          = location.label "هتل", :class => "control-label"     
-          = location.select :hotel_id, {}, prompt: "هتل را انتخاب کنید", :class => " form-control "
-      .col-xs-12  
-        .form-group
-          = location.label "دوتخته", :class => "control-label" 
+          = location.label "قیمت دوتخته", :class => "control-label" 
           = location.text_field :price_two_bed , :class => " form-control" 
         .form-group
-          = location.label "یک تخته", :class => "control-label" 
+          = location.label "قیمت یک تخته", :class => "control-label" 
           = location.text_field :price_one_bed , :class => " form-control" 
+        .form-group
+          = location.label "قیمت سه تخته", :class => "control-label" 
+          = location.text_field :price_three_bed , :class => " form-control" 
+      .col-xs-6
         .form-group
           = location.label "کودک با تخت", :class => "control-label" 
           = location.text_field :price_kid_and_bed , :class => " form-control" 
@@ -55,3 +59,13 @@
     
   .form-group
     = location.submit 'ثبت', :class => "btn btn-primary"
+:javascript
+  $('#add_hotel').click(function(){    
+    w = $('#locationtour_hotel_id').val();
+    $('#h').val(function( index, value ) {
+      return value + w +",";
+    });     
+   
+    $('#list_hotels').append('<li>' + $('#locationtour_hotel_id option').text() + '</li>');
+    
+  });

@@ -31,17 +31,16 @@
           - @tour.locationtours.each_with_index do |location, i|
             %tr{:class => I18n.locale}
               %td= (i+1)
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"+location.id.to_s}= link_to location.hotel.title_fa, hotel_path(location.hotel.title_en)
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_درجه_هتل"+location.id.to_s}
+              %td
+              %td
                 %span=image_tag 'Star.png'
-                - if location.hotel.class_hotel_id.present?
-                  = location.hotel.class_hotel.title
+               
                 
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_دوتخته"+location.id.to_s}= location.price_two_bed
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_یک_تخته"+location.id.to_s}= location.price_one_bed
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_کودک_وتخت"+location.id.to_s}= location.price_kid_and_bed
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_کودک_بدون_تخت"+location.id.to_s}= location.price_kid_without_bed
-              %td{:id => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر_توضیحات_هتل"+location.id.to_s}= location.description
+              %td= location.price_two_bed
+              %td= location.price_one_bed
+              %td= location.price_kid_and_bed
+              %td= location.price_kid_without_bed
+              %td= location.description
               - if is_admin?
                 %td 
                   =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"

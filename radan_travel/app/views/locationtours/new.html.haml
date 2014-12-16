@@ -1,9 +1,8 @@
-.margin3.fa   
-  
-  %h1= 'افزودن محل برای تور برای  ' + @tour.title_fa
-  .col-xs-4.well
+.margin3.fa     
+  %h1{:class => I18n.locale}= 'افزودن محل برای تور برای  ' + @tour.title_fa
+  .col-xs-10.well
     = render 'form'
-  .col-xs-8
+  .col-xs-12
     %table.table
       %tr
         %th= t('location.row')
@@ -14,24 +13,28 @@
         %th= t('location.kid_and_bed')
         %th= t('location.kid_no_bed')
         %th= t('location.description')
-        %th= 'عملیات'
-      - @tour.locationtours.each_with_index do |location, i|
-        %tr{:class => I18n.locale}
-          %td= (i+1)
-          %td= location.hotel.title_fa
-          %td
-            - if location.hotel.class_hotel.present?
-              = location.hotel.class_hotel.title
-          %td= location.price_two_bed
-          %td= location.price_one_bed
-          %td= location.price_kid_and_bed
-          %td= location.price_kid_without_bed
-          %td= location.description
-          %td 
-            - if is_admin?
-              =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
-              = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+        %th= 'عملیات'      
+        
+        - @tour.locationtours.each_with_index do |location, i|        
+          %tr{:class => I18n.locale}
+            %td= (i+1)
+            -if location.hotels.collect(&:title_fa).present?
+              %td
+                - location.hotels.each do |hotel|
+                  %span= hotel.title_fa + ','                  
+              %td
+                - if location.hotels.first.class_hotel.present?
+                  = location.hotels.first.class_hotel.title
+                
+            %td= location.price_two_bed
+            %td= location.price_one_bed
+            %td= location.price_kid_and_bed
+            %td= location.price_kid_without_bed
+            %td= location.description
+            %td 
+              - if is_admin?
+                =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
+                = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
       
-
+    
   
-  = link_to 'بازگشت', locationtours_path

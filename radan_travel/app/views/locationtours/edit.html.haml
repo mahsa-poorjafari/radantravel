@@ -1,7 +1,7 @@
 .margin3.fa    
-  %h1= 'ویرایش اطلاعات  ' + @locationtour.hotel.title
-  .col-xs-4.well
+  %h1{:class => I18n.locale}= 'ویرایش اطلاعات  ' + @locationtour.tour.title
+  .col-xs-10.well
     = render 'form'
-  .col-xs-8
   
-  = link_to 'بازگشت', :back
+  
+  = link_to 'بازگشت', new_locationtour_path(:tour_id => @tour.id)

@@ -37,7 +37,10 @@ class LocationtoursController < ApplicationController
   # POST /locationtours.json
   def create
     @locationtour = Locationtour.new(locationtour_params)
-    
+    p '-------------modual_ids-------------'
+    p @modual_ids = params[:h].split(',').map(&:to_i)
+    p '-------------locationtour.hotel_ids-------------'
+    p @locationtour.hotel_ids = @modual_ids
     if @locationtour.save
       redirect_to :back
     else
@@ -51,7 +54,7 @@ class LocationtoursController < ApplicationController
   def update
     
     if @locationtour.update(locationtour_params)
-      redirect_to :back        
+      render :show
     end
   end
 
@@ -70,6 +73,8 @@ class LocationtoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locationtour_params
-      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed, :description)
+      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed, :description, :price_three_bed)
     end
 end
+
+

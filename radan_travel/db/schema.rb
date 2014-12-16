@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211105955) do
+ActiveRecord::Schema.define(version: 20141215133415) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -112,6 +112,13 @@ ActiveRecord::Schema.define(version: 20141211105955) do
     t.integer  "class_hotel_id"
   end
 
+  create_table "hotels_locationtours", force: true do |t|
+    t.integer  "hotel_id"
+    t.integer  "locationtour_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "links", force: true do |t|
     t.string   "title_fa"
     t.string   "title_en"
@@ -136,6 +143,15 @@ ActiveRecord::Schema.define(version: 20141211105955) do
     t.string   "price_kid_and_bed"
     t.string   "price_kid_without_bed"
     t.string   "description"
+    t.string   "price_three_bed"
+    t.integer  "row_position"
+  end
+
+  create_table "locationtours_hotels", force: true do |t|
+    t.integer  "hotel_id"
+    t.integer  "locationtour_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "massages", force: true do |t|
