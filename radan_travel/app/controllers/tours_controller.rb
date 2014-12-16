@@ -67,8 +67,8 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params)   
     if @tour.save      
-      
-    else      
+      render :show  
+         
     end
     
   end
