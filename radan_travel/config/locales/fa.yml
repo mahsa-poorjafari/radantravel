@@ -108,6 +108,7 @@ fa:
     hotel-star: 'درجه هتل'
     two_bed: 'دوتخته'
     one_bed: 'یک تخته'
+    three_bed: 'سه تخته'
     kid_and_bed: 'کودک با تخت، ۶ تا ۱۲ سال'
     kid_no_bed: 'کودک بدون تخت، ۲ تا ۶ سال'
     description: 'اطلاعات بیشتر'
