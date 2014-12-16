@@ -19,28 +19,30 @@
         %table.table
           %tr
             %th= t('location.row')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "Hotels" }= t('location.hotel-name')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "class_hotel" }= t('location.hotel-star')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "two_bed" }= t('location.two_bed')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "one_bed" }= t('location.one_bed')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "kid_and_bed" }= t('location.kid_and_bed')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "kid_no_bed" }= t('location.kid_no_bed')
-            %th{:id => "Iran's_air_travel_and_tourism_services_" + "description" }= t('location.description')
+            %th= t('location.hotel-name')
+            %th= t('location.hotel-star')
+            %th= t('location.two_bed')
+            %th= t('location.one_bed')
+            %th= t('location.three_bed')
+            %th= t('location.kid_and_bed')
+            %th= t('location.kid_no_bed')
+            %th= t('location.description')
             - if is_admin?
               %th= 'عملیات'
           - @tour.locationtours.each_with_index do |location, i|
-            %tr{:class => I18n.locale}
+            %tr{:class => I18n.locale, :id => 'row_' +location.id.to_s }
               %td= (i+1)
               -if location.hotels.collect(&:title_fa).present?
                 %td
                   - location.hotels.each do |hotel|
-                    %span= hotel.title_fa + ', '                  
+                    %p{:style => "text-align:center"}= hotel.title
               %td
                 - if location.hotels.first.class_hotel.present?
                   %span=image_tag 'Star.png'
                   = location.hotels.first.class_hotel.title
               %td= location.price_two_bed
               %td= location.price_one_bed
+              %td= location.price_three_bed
               %td= location.price_kid_and_bed
               %td= location.price_kid_without_bed
               %td= location.description
