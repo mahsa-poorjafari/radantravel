@@ -400,3 +400,6 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
   margin:2%;-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s; width:15%; float:left}
 .continent-cat:hover, .continent-cat.active {cursor:pointer; background:#7F7F7F; color:#FFA500;}
+#Container .mix{
+  display: none;
+}
