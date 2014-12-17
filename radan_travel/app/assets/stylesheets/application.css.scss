@@ -398,12 +398,23 @@ span.unread {padding:2%;  border-radius:50%; background:#0D4A3E; color:#fff}
 
 tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
 #list_hotels {border: solid #7F7F7F 1px}
-.continent-cat {text-align:center; padding:1%; background:#25394C; color:#fff; font-size:18px; 
+.continent-cat {text-align:center; padding:1%;border-bottom:2px solid #25394C; color:#25394C; font-size:18px; 
   margin:2%;-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 1s; width:12%; float:left}
-.continent-cat:hover, .continent-cat.active {cursor:pointer; background:#7F7F7F; color:#FFA500;}
+  transition: all 1s; width:100%;
+  
+  text-align:center;
+  
+  }
+.continent-cat:hover, .continent-cat.active {cursor:pointer; border-bottom:2px solid #7F7F7F; color:#FFA500;
+}
 #Container .mix{
   display: none;
 }
 .nav-tabs > li.en {float:left}
 .nav-tabs > li.ar, .nav-tabs > li.fa {float:right}
+.city-cat {text-align:center; padding:1%; background:#4D4D4D; color:#fff; font-size:18px; 
+  margin:2%;-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  opacity:.8;
+  transition: all 1s; width:150px; float:left}
+.city-cat:hover, .city-cat.active  {opacity:1;cursor:pointer; color:#FFA500;}
+.show-tours {margin-top:5%;}
