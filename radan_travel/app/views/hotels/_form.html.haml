@@ -27,7 +27,9 @@
         .form-group
           = f.label 'تعداد ستاره های هتل', :class => "control-label"          
           = f.select :class_hotel_id, options_for_select(ClassHotel.all.collect{ |u| [u.title, u.id] }), prompt: "درجه هتل"
-          
+        .form-group
+          = f.label 'بازه مکانی هتل', :class => "control-label"          
+          = f.select :hotel_type, options_for_select([['هتلهای خارجی',1],['هتلهای داخلی',2]]),:class => "form-control"  
         .clear-float
         .form-group
           = f.label 'امکانات هتل', :class => "control-label"

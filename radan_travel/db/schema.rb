@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216132532) do
+ActiveRecord::Schema.define(version: 20141217091325) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20141216132532) do
     t.datetime "updated_at"
     t.integer  "class_hotels_id"
     t.integer  "class_hotel_id"
+    t.integer  "hotel_type"
   end
 
   create_table "hotels_locationtours", force: true do |t|

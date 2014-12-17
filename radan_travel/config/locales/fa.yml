@@ -8,6 +8,8 @@ fa:
   visitsite: 'برای کسب اطلاعات بیشتر به سایت مراجعه کنید.'
   sight: 'بازدید از ایران'
   hotel: 'هتل ها'
+  local-hotels: 'هتلهای داخلی'
+  foreign-hotels: 'هتلهای خارجی'
   imp-package: 'پکیج های لحظه ای'
   not-found: 'موردی یافت نشد'
   packages: 'پکیج تورها'
@@ -70,7 +72,7 @@ fa:
     validate_date_until: 'تاریخ اعتبار تا'
     validate_date_from: 'تاریخ اعتبار از'
     search: 'نتیجه جستجو تور'
-    
+  show-all-tours: 'نمایش همه'
   tour_comment:
     user-name: 'نام خود را وارد کنید'
     user-email: 'ایمیل خود را وارد کنید'
