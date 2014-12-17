@@ -5,7 +5,7 @@
   .col-xs-12{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}  
     .filter.continent-cat{"data-filter" => "all"}= t('show-all-tours')
     - ContinentCategory.all.each do |continent|
-      .filter.continent-cat{"data-filter" => ".category-" + continent.id.to_s}= continent.title  
+      .filter.city-cat{"data-filter" => ".category-" + continent.id.to_s}= continent.title  
       
         
   .show-tours.col-xs-12.set-center#Container

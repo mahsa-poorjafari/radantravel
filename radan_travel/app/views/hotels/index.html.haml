@@ -1,13 +1,25 @@
 .margin3  
   %h1{:title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}=' لیست هتلها'
   -if is_admin?
-    = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"
-    .filter.continent-cat{"data-filter" => ".category-1" }= t('local-hotels')
-    .filter.continent-cat{"data-filter" => ".category-2" }= t('foreign-hotels')
-    .filter.continent-cat{"data-filter" => "all" }= t('show-all-tours')
+    = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"  
+    .col-xs-12      
+      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+    .col-xs-12
+      .col-xs-6
+        .continent-cat.set-center= t('local-hotels')
+        - City.all.each do |city|
+          - if city.country_id.present?
+            - if city.country.title_fa == 'ایران'
+              .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
+      .col-xs-6
+        .continent-cat= t('foreign-hotels')
+        - City.all.each do |city|
+          - if city.country_id.present?
+            - unless city.country.title_fa == 'ایران'
+              .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
   .show-tours.col-xs-12.set-center#Container
-    - @hotels.each_with_index do |hotel|
-      .tours-index.mix{:class => "category-" + hotel.hotel_type.to_s, "data-my-order" => hotel.id}
+    - @hotels.each do |hotel|
+      .tours-index.mix{:class => "category-" + hotel.city.country.id.to_s, "data-my-order" => hotel.id}
         = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
           %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
           - if hotel.photos.present?
