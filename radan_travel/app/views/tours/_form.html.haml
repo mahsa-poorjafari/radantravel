@@ -37,7 +37,11 @@
     .col-xs-12 
       .form-group
         = f.label 'پرواز', :class => "control-label"
-        = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"              
+        = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
+      .form-group
+        = f.label 'گروبندی بر اساس قاره', :class => "control-label"
+        = f.select :continent_category_id, options_for_select(ContinentCategory.all.collect{ |u| [u.title_fa, u.id] }), prompt: "قاره را انتخاب کنید.", :class => "form-control"  
+        
       
     .col-xs-12 
       .form-group.col-xs-12 

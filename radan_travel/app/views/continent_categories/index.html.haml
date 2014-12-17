@@ -1,0 +1,23 @@
+%h1 Listing continent_categories
+
+%table
+  %tr
+    %th Title fa
+    %th Title en
+    %th Title ar
+    %th
+    %th
+    %th
+
+  - @continent_categories.each do |continent_category|
+    %tr
+      %td= continent_category.title_fa
+      %td= continent_category.title_en
+      %td= continent_category.title_ar
+      %td= link_to 'Show', continent_category
+      %td= link_to 'Edit', edit_continent_category_path(continent_category)
+      %td= link_to 'Destroy', continent_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Continent category', new_continent_category_path

@@ -1,0 +1,19 @@
+= form_for @continent_category do |f|
+  - if @continent_category.errors.any?
+    #error_explanation      
+      %ul
+        - @continent_category.errors.full_messages.each do |msg|
+          %li= msg
+  .col-xs-6
+  .col-xs-6
+    .form-group
+      = f.label 'اسم قاره به فارسی:', :class => "control-label"
+      = f.text_field :title_fa, :class => "form-control" 
+    .form-group
+      = f.label 'اسم قاره به انگلیسی:', :class => "control-label"
+      = f.text_field :title_en, :class => "form-control" 
+    .form-group
+      = f.label 'اسم قاره به عربی:', :class => "control-label"
+      = f.text_field :title_ar, :class => "form-control" 
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"

@@ -8,6 +8,7 @@ class Tour < ActiveRecord::Base
   persian_dates :validate_date_from, :validate_date_until
   #belongs_to :hotel
   belongs_to :plane
+  belongs_to :continent_category
   #belongs_to :city
   
   has_many :photos, dependent: :destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215133415) do
+ActiveRecord::Schema.define(version: 20141216132532) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20141215133415) do
 
   create_table "class_hotels", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "continent_categories", force: true do |t|
+    t.string   "title_fa"
+    t.string   "title_en"
+    t.string   "title_ar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -301,6 +309,8 @@ ActiveRecord::Schema.define(version: 20141215133415) do
     t.string   "info_content_type"
     t.integer  "info_file_size"
     t.datetime "info_updated_at"
+    t.integer  "continent_category_id"
+    t.boolean  "special",                       default: false
   end
 
   create_table "users", force: true do |t|
