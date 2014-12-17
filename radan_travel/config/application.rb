@@ -27,6 +27,7 @@ module RadanTravel
     Rails.application.config.assets.precompile += %w( expressInstall.swf )
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    Rails.application.config.assets.precompile += %w( jquery.mixitup.js )
     
     
   end
