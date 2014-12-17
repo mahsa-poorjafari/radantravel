@@ -39,14 +39,14 @@
         = f.label 'پرواز', :class => "control-label"
         = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
       .form-group
-        = f.label 'گروبندی بر اساس قاره', :class => "control-label"
-        = f.select :continent_category_id, options_for_select(ContinentCategory.all.collect{ |u| [u.title_fa, u.id] }), prompt: "قاره را انتخاب کنید.", :class => "form-control"  
+        = f.label 'تور را به یک کشور انتساب دهید', :class => "control-label"
+        = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
         
       
     .col-xs-12 
       .form-group.col-xs-12 
-        %p="برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:"
-        %p{ :style=> "color:#ec523f"}= "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد."
+        %p{:class => I18n.locale}="برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:"
+        %p{ :style=> "color:#ec523f", :class => I18n.locale}= "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد."
         = f.link_to_add content_tag(:span, "افزودن تصویر", :class => "btn btn-warning" ), :photos, :id => "add_new_picture", :class => "btn"  
       .col-xs-12 
         = f.fields_for :photos do |picture|  

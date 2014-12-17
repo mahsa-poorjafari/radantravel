@@ -11,7 +11,13 @@
             = image_tag country.photos.first.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + country.title, :alt => 'آژانس هواپیمایی رادان سیر_' + country.title,  :id => "country-photos-" + country.photos.first.id.to_s
           
       .col-xs-7.country-text.margin-bottom{:class => I18n.locale}        
-        %h2.country-title{:class => I18n.locale}= country.title
+        %p          
+          %h2.country-title{:class => I18n.locale}            
+            - if country.continent_category_id.present?
+              %span=  country.continent_category.title + ','
+            = country.title
+            
+          
         %div{:class => I18n.locale}= raw country.text
         .country-cities-list
           %h3{:class => I18n.locale}= t('city') 
