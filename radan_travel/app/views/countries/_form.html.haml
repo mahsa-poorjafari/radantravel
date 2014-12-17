@@ -19,6 +19,9 @@
           = f.text_field :title_ar, :class => "form-control"
       .col-xs-6        
         .form-group
+          = f.label 'گروبندی بر اساس قاره', :class => "control-label"
+          = f.select :continent_category_id, options_for_select(ContinentCategory.all.collect{ |u| [u.title_fa, u.id] }), prompt: "قاره را انتخاب کنید.", :class => "form-control"  
+        .form-group
           - if @country.country_flag.present?
             = image_tag @country.country_flag(:original)
           = f.label 'پرچم کشور:', :class => "control-label"

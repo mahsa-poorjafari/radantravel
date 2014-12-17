@@ -3,6 +3,7 @@ class ContinentCategory < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_en
   has_many :tours
+  has_many :countries
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")

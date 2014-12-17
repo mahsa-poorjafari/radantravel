@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217091325) do
+ActiveRecord::Schema.define(version: 20141217094008) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20141217091325) do
     t.string   "country_flag_content_type"
     t.integer  "country_flag_file_size"
     t.datetime "country_flag_updated_at"
+    t.integer  "continent_category_id"
   end
 
   create_table "custom_tours", force: true do |t|

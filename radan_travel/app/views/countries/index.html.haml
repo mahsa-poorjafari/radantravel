@@ -4,22 +4,22 @@
   %h1.title-tours{:class => I18n.locale, :title => "آژانس_هواپیمایی_رادان_سیر"}= t('country')
   .country-tabs
     - if I18n.locale == :en  
-      %ul.nav.nav-tabs.pull-left#CountryTab.col-xs-3{:role => "tablist", :class => I18n.locale }
+      %ul.nav.nav-tabs.pull-left#CountryTab.col-xs-12{:role => "tablist", :class => I18n.locale }
         = render 'countries/country_title_tap'  
-      .tab-content.col-xs-9.pull-left
+      .tab-content.col-xs-12.pull-left
         = render 'countries/country_details'
     - else
-      %ul.nav.nav-tabs.pull-right#CountryTab.col-xs-3{:role => "tablist", :class => I18n.locale }
+      %ul.nav.nav-tabs.pull-right#CountryTab.col-xs-12{:role => "tablist", :class => I18n.locale }
         = render 'countries/country_title_tap'    
-      .tab-content.col-xs-9.pull-right
+      .tab-content.col-xs-12.pull-right
         = render 'countries/country_details'
       
     
-  :javascript
-    
-    $('.country-tabs ul#CountryTab li:first').addClass('active');
-    $('.country-tabs .tab-content .tab-pane:first').addClass('active');
-    $(function () {
-      $('#CountryTab a:last').tab('show')
-    });
-    
+:javascript
+  
+  $('.country-tabs ul#CountryTab li:first').addClass('active');
+  $('.country-tabs .tab-content .tab-pane:first').addClass('active');
+  $(function () {
+    $('#CountryTab a:last').tab('show')
+  });
+  

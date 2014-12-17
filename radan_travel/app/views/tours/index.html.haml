@@ -10,7 +10,8 @@
         
   .show-tours.col-xs-12.set-center#Container
     - @tours.each_with_index do |tour|
-      .tours-index.mix{:class => "category-" + tour.continent_category_id.to_s, "data-my-order" => tour.id}
+      
+      .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present? ), "data-my-order" => tour.id}
         = link_to tour, :class => "tour-box" do
           %h5.tour-title{:class => I18n.locale}= tour.title
           - if tour.photos.present?

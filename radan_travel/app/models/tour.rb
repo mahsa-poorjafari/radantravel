@@ -9,7 +9,7 @@ class Tour < ActiveRecord::Base
   #belongs_to :hotel
   belongs_to :plane
   belongs_to :continent_category
-  #belongs_to :city
+  belongs_to :country
   
   has_many :photos, dependent: :destroy
   has_many :locationtours
