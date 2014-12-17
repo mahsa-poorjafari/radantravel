@@ -6,17 +6,20 @@
       .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
     .col-xs-12
       .col-xs-6
-        .continent-cat.set-center= t('local-hotels')
-        - City.all.each do |city|
-          - if city.country_id.present?
-            - if city.country.title_fa == 'ایران'
-              .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
-      .col-xs-6
-        .continent-cat= t('foreign-hotels')
-        - City.all.each do |city|
-          - if city.country_id.present?
-            - unless city.country.title_fa == 'ایران'
-              .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
+        .continent-cat.set-center{'divname' => 'local-hotels'}= t('local-hotels')
+        .city-titels#local-hotels
+          - City.all.each do |city|
+            - if city.hotels.present?
+              - if city.country_id.present?
+                - if city.country.title_fa == 'ایران'
+                  .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
+      .col-xs-6{:style => "position:relative"}
+        .continent-cat{'divname' => 'foreign-hotels'}= t('foreign-hotels')
+        .city-titels#foreign-hotels
+          - City.all.each do |city|
+            - if city.country_id.present?
+              - unless city.country.title_fa == 'ایران'
+                .filter.city-cat{"data-filter" => ".category-"+ city.country.id.to_s }= city.title
   .show-tours.col-xs-12.set-center#Container
     - @hotels.each do |hotel|
       .tours-index.mix{:class => "category-" + hotel.city.country.id.to_s, "data-my-order" => hotel.id}
@@ -39,4 +42,8 @@
   $(function(){
     $('#Container').mixItUp();  
   });
-       
+  $('.continent-cat').click(function(){
+    var divd = $(this).attr('divname');
+    $('#'+divd).toggle(1000);
+  });
+  

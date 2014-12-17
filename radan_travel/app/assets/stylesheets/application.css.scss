@@ -412,9 +412,23 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
 }
 .nav-tabs > li.en {float:left}
 .nav-tabs > li.ar, .nav-tabs > li.fa {float:right}
-.city-cat {text-align:center; padding:1%; background:#4D4D4D; color:#fff; font-size:18px; 
-  margin:2%;-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+.city-cat {text-align:center; padding:1%; background:#4D4D4D; color:#fff; font-size:16px; 
+  margin:1%;-webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   opacity:.8;
-  transition: all 1s; width:150px; float:left}
+  transition: all 1s; width:100px; float:left}
 .city-cat:hover, .city-cat.active  {opacity:1;cursor:pointer; color:#FFA500;}
 .show-tours {margin-top:5%;}
+.city-titels {
+  position: absolute;
+  min-height: 100px;
+  width: 96%;
+  display:none;
+  text-align: center;
+  background: #1a1a1a;
+  opacity:.8;
+  right: 3%;
+  left: 3%;
+  z-index:100;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  }
