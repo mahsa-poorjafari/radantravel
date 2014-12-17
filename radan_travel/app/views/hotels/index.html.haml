@@ -2,11 +2,14 @@
   %h1{:title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}=' لیست هتلها'
   -if is_admin?
     = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"
-  .show-tours.col-xs-12.set-center
+    .filter.continent-cat{"data-filter" => ".category-1" }= t('local-hotels')
+    .filter.continent-cat{"data-filter" => ".category-2" }= t('foreign-hotels')
+    .filter.continent-cat{"data-filter" => "all" }= t('show-all-tours')
+  .show-tours.col-xs-12.set-center#Container
     - @hotels.each_with_index do |hotel|
-      .tours-index
+      .tours-index.mix{:class => "category-" + hotel.hotel_type.to_s, "data-my-order" => hotel.id}
         = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-          %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title
+          %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
           - if hotel.photos.present?
             .tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
           .clear-float  
@@ -20,3 +23,8 @@
             = link_to 'مشاهده', hotel, :class => "btn btn-warning"   , :title => "آژانس_هواپیمایی_رادان_سیر"    
             = link_to 'ویرایش', edit_hotel_path(hotel), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
             = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
+:javascript
+  $(function(){
+    $('#Container').mixItUp();  
+  });
+       

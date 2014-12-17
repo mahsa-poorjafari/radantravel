@@ -29,6 +29,8 @@ en:
   visitsite: 'For Getting More Information Visit Site'
   sight: 'Visit Iran'
   hotel: 'Hotels'
+  local-hotels: 'Domestic Hotels'
+  foreign-hotels: 'Foreign Hotels'
   imp-package: 'Package Moment'
   not-found: 'Not Found'
   packages: 'Packages'
@@ -88,6 +90,7 @@ en:
     validate_date_until: 'Exp Date Until'
     validate_date_from: 'Start Date From'
     search: 'Tour Result'
+  show-all-tours: 'Show All'
   tour_comment:
     user-name: 'Your Name:'
     user-email: 'Your Email:'

@@ -4,13 +4,13 @@ ar:
   
   sight: 'زيارة إيران'
   hotel: 'الفنادق'
-  
+  local-hotels: 'الفنادق المحلية'
+  foreign-hotels: 'الفنادق الأجنبية'
   contact-us: 'اتصل بنا'
   about-us: 'معلومات عنا'
   phone: '۰۵۱۳-۸۴۳۱۱۱۵'
   index: 'فهرس'  
-  visitsite: 'للحصول على مزيد من المعلومات زيارة الموقع'
-  
+  visitsite: 'للحصول على مزيد من المعلومات زيارة الموقع'  
   imp-package: 'حزمة لحظة'
   not-found: 'لم يتم العثور على'
   packages: 'حزم'
@@ -69,6 +69,7 @@ ar:
     validate_date_until: 'إكسب التاريخ وحتى'
     validate_date_from: 'تاريخ النشر من بدء'
     search: 'نتيجة جولة'
+  show-all-tours: 'عرض كل'
   tour_comment:
     user-name: 'اسمك:'
     user-email: 'البريد الإلكتروني الخاص بك:'
