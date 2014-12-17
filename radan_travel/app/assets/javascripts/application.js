@@ -17,5 +17,13 @@
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require ahoy
-//= require swfobject
-//= require_tree .
+//= require bootstrap
+//= require demo
+//= require html5shiv.min
+//= require jquery.desoslide.min
+//= require jquery.smooth-scroll
+//= require lightbox-2.6.min
+//= require modernizr.custom
+//= require zoomSlider
+//= require jquery.mixitup
+//= require Gruntfile
