@@ -3,17 +3,20 @@
   -if is_admin?
     = link_to 'معرفی جاذبه دیدنی جدید', new_sight_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"  
       
-  .country-tabs
-    - if I18n.locale == :en  
-      %ul.nav.nav-tabs.pull-left#SightsTab{:role => "tablist", :class => I18n.locale }
-        = render 'sights/sight_title_tap'      
+  .country-tabs{:class => I18n.locale}
+    - if I18n.locale == :en      
+      %ul.nav.nav-tabs.pull-left#SightsTab.col-xs-12{:role => "tablist", :class => I18n.locale }
+        = render 'sights/sight_title_tap'   
+      .tab-content.col-xs-12.pull-left{:style=>'background-color:transparent; box-shadow:none'}
+        - City.all.each do |all_city|
+          = render 'sights/sight_details', :all_city => all_city
     - else       
-      %ul.nav.nav-tabs.pull-right#SightsTab{:role => "tablist", :class => I18n.locale }        
+      %ul.nav.nav-tabs.pull-right#SightsTab.col-xs-12{:role => "tablist", :class => I18n.locale }        
         = render 'sights/sight_title_tap'    
-         
-    .tab-content
-      - City.all.each do |all_city|
-        = render 'sights/sight_details', :all_city => all_city
+      .tab-content.col-xs-12.pull-right{:style=>'background-color:transparent; box-shadow:none'}
+        - City.all.each do |all_city|
+          = render 'sights/sight_details', :all_city => all_city   
+    
       
     
 :javascript

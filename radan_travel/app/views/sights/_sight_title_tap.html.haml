@@ -1,13 +1,13 @@
-%li
-  %h5{:class => I18n.locale}= t('foreign-sights')
+
+%h5{:class => I18n.locale}= t('foreign-sights')
 - City.all.each do  |city|  
   - if city.sights.present?
     - unless city.country.title_fa == 'ایران'        
-      %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
+      %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}
         = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s
-%li
-  %h5{:class => I18n.locale}= t('local-sights')
+.clear-float
+%h5{:class => I18n.locale}= t('local-sights')
 - @inner_sights.each do  |city|
   - if city.sights.present?    
-    %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر"}
+    %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}
       = link_to city.title, '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s
