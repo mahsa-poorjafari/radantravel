@@ -20,10 +20,16 @@ ar:
   reserv-login: 'تسجيل الدخول'
   reserv-en: 'الإنجليزية'
   reserv-fa: 'اللغة الفارسية'
+
   reserv-ar: 'العربية'
   search-tour: 'البحث جولة'
   agent: 'وكلاء'
   user: 'العام الدخول'
+
+  search-tour: 'البحث جولة'
+  agent: 'وكلاء'
+  user: 'المستخدمين'
+
   tour-country: 'بلد'
   tour-city: 'مدينة'
   tour-from: 'التاريخ من:'

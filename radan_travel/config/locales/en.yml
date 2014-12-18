@@ -40,10 +40,16 @@ en:
   reserv-login: 'Login'
   reserv-en: 'English'
   reserv-fa: 'Persian'
+
   reserv-ar: 'Arabic'
   search-tour: 'Search Tour'
   agent: 'Agents'
   user: 'Public login'
+
+  search-tour: 'Search Tour'
+  agent: 'Agents'
+  user: 'Users'
+
   tour-country: 'Country'
   tour-city: 'City'
   tour-from: 'Date from:'

@@ -19,10 +19,16 @@ fa:
   reserv-login: 'ورود به سیستم'
   reserv-en: 'انگلیسی'
   reserv-fa: 'فارسی'
+
   reserv-ar: 'عربی'
   search-tour: 'جستجوی تور'
   agent: 'ورود آژانس'
   user: 'ورود عمومی'
+
+  search-tour: 'جستجوی تور'
+  agent: 'ورود آژانس'
+  user: 'ورود مسافر'
+
   tour-country: 'کشور'
   tour-city: 'شهر'
   tour-from: 'تاریخ رفت از'
