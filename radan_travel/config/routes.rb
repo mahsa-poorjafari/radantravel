@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   
   root :to => 'static#index'
   get "index" => 'static#index'
+  get "home" => 'static#home'
   get "google46bde3a8d7d48d7d" => 'static#google46bde3a8d7d48d7d'
   get "sitemap.xml" => "static#sitemap", :format => "xml", :as => :sitemap
   get "BingSiteAuth.xml" => "static#BingSiteAuth", :format => "xml", :as => :BingSiteAuth

@@ -19,6 +19,5 @@ test:
 production:
   <<: *default
   database: radan_travel
-  username: da_admin
-  password: hllUXDhM
+  
 

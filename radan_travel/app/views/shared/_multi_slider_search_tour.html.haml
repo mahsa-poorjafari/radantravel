@@ -7,15 +7,13 @@
       = render 'shared/search_reserv'
   .clear-float
   .tab-content    
-    #reserv.tab-pane.active.fade.in{:role => "tabpanel"}
-      %b= 'در حال راه اندازی...'
-      -#
-        = form_tag '#', :method => "get", id: "reserv-form", :remote => true do 
-          = label_tag t('reserv-type')
-          = select_tag "type", options_for_select([t('user'), t('agent')])
-          = label_tag t('reserv-lang')
-          = select_tag "lang", options_for_select([t('reserv-en'), t('reserv-fa')])        
-          = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
+    #reserv.tab-pane.active.fade.in.col-xs-10{:role => "tabpanel"}      
+      = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin" do 
+        = label_tag t('reserv-type')
+        = select_tag params[:IsPublicLogin],  options_for_select([[t('user'),'true'], [t('agent'),'false']])
+        = label_tag t('reserv-lang')
+        = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
+        = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
         
     #search.tab-pane.fade{:role => "tabpanel"} 
       = form_tag search_tours_path, :method => "post", id: "search-tour" do 
@@ -77,3 +75,8 @@
       next.children(':first-child').clone().appendTo($(this));
     }
   });
+
+  function hash(formname) {
+    document.getElementById(formname).Password.value = hex_md5(document.getElementById(formname).Password.value);
+    return true;
+  }
