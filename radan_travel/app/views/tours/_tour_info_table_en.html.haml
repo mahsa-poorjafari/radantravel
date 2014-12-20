@@ -47,18 +47,18 @@
     .col-xs-3.th= t('tour.date')
     .col-xs-9.td 
       = render "/tours/show_english_date", :tour => tour  
-    - if tour.itinerary.present?
-      .col-xs-12.tr
-        .col-xs-3.th= t('tour.itinerary')
-        .col-xs-9.td= raw tour.itinerary
-    - if tour.documents.present?
-      .col-xs-12.tr
-        .col-xs-3.th= t('tour.documents')
-        .col-xs-9.td= raw tour.documents
-    
-    - if @tour.info.present?
-      .col-xs-12.tr
-        .col-xs-3.th= t('tour.get-file')
-        .col-xs-9.td
-          = link_to @tour.info.url, :target => "blank" do
-            %i.btn.btn-warning= 'Get File'
+  - if tour.itinerary.present?
+    .col-xs-12.tr
+      .col-xs-3.th= t('tour.itinerary')
+      .col-xs-9.td= raw tour.itinerary
+  - if tour.documents.present?
+    .col-xs-12.tr
+      .col-xs-3.th= t('tour.documents')
+      .col-xs-9.td= raw tour.documents
+  
+  - if @tour.info.present?
+    .col-xs-12.tr
+      .col-xs-3.th= t('tour.get-file')
+      .col-xs-9.td
+        = link_to @tour.info.url, :target => "blank" do
+          %i.btn.btn-warning= 'Get File'

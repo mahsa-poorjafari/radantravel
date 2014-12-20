@@ -21,7 +21,7 @@
     .col-xs-1.td.pull-right
       - if location.hotels.first.class_hotel.present?
         %span=image_tag 'Star.png'
-        = location.hotels.first.class_hotel.title
+        .en= location.hotels.first.class_hotel.title
     .col-xs-1.td.pull-right= location.price_two_bed
     .col-xs-1.td.pull-right= location.price_one_bed
     .col-xs-1.td.pull-right= location.price_three_bed
@@ -46,18 +46,18 @@
     .col-xs-3.th.pull-right= t('tour.date')
     .col-xs-9.td 
       = render "/tours/show_persian_date", :tour => tour
-    - if tour.itinerary.present?
-      .col-xs-12.tr
-        .col-xs-3.th.pull-right= t('tour.itinerary')
-        .col-xs-9.td= raw tour.itinerary
-    - if tour.documents.present?
-      .col-xs-12.tr
-        .col-xs-3.th.pull-right= t('tour.documents')
-        .col-xs-9.td= raw tour.documents
-    
-    - if @tour.info.present?
-      .col-xs-12.tr
-        .col-xs-3.th.pull-right= t('tour.get-file')
-        .col-xs-9.td
-          = link_to @tour.info.url, :target => "blank" do
-            %i.btn.btn-warning= 'دریافت فایل '
+  - if tour.itinerary.present?
+    .col-xs-12.tr
+      .col-xs-3.th.pull-right= t('tour.itinerary')
+      .col-xs-9.td= raw tour.itinerary
+  - if tour.documents.present?
+    .col-xs-12.tr
+      .col-xs-3.th.pull-right= t('tour.documents')
+      .col-xs-9.td= raw tour.documents
+  
+  - if @tour.info.present?
+    .col-xs-12.tr
+      .col-xs-3.th.pull-right= t('tour.get-file')
+      .col-xs-9.td
+        = link_to @tour.info.url, :target => "blank" do
+          %i= 'دریافت فایل '
