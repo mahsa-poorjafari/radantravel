@@ -1,10 +1,6 @@
-#slider1_container{:style => "position:relative; margin-top:3%; left: 0px; width: 100%; height: 400px; ", :title => "آژانس_هواپیمایی_رادان_سیر"}
-  -#
-    .tour-moment
-      = link_to t('imp-package'), tours_moment_tours_path, :title => "پکیج لحظه ای رادان سیر"
+#slider1_container{:style => "position:relative; margin-top:3%; left: 0px; width: 100%; height: 400px; ", :title => "آژانس_هواپیمایی_رادان_سیر"}  
   #wrapper
-    #zoom-slider      
-      
+    #zoom-slider  
       - slides.each do |slide|
         = image_tag slide.image(:slide_size), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر", :id => "slide-"+ slide.id.to_s
       

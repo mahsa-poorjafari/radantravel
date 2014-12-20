@@ -3,7 +3,7 @@
 .coin-slider#coin-slider-slider  
   .slides-index{:style => "margin:3%"}
     - Slide.all.each do |slide|
-      .col-xs-12
+      .col-xs-12.margin-bottom
         = image_tag slide.image(:small)
         %span= slide.text
         = link_to 'مشاهده', slide, :class => "btn btn-warning"         

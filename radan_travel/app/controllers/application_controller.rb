@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
           @page_slides = Slide.where(slide_type: @controller)
           p  @page_slides.count
         else
-          @other_slides = Slide.where("slide_type=? OR slide_type=?",0, 'other')
+          @other_slides = Slide.where("slide_type=? OR slide_type=?", nil, 'other')
           p  @other_slides.count
         end
       end
