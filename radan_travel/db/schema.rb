@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217094008) do
+ActiveRecord::Schema.define(version: 20141220073234) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -268,6 +268,7 @@ ActiveRecord::Schema.define(version: 20141217094008) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "slide_type"
   end
 
   create_table "tour_comments", force: true do |t|

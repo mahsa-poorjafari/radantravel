@@ -3,9 +3,8 @@
     .tour-moment
       = link_to t('imp-package'), tours_moment_tours_path, :title => "پکیج لحظه ای رادان سیر"
   #wrapper
-    #zoom-slider
-      - @slides = Slide.all
-      - @slides.each do |slide|
+    #zoom-slider      
+      - slides.each do |slide|
         = image_tag slide.image(:slide_size), :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر", :id => "slide-"+ slide.id.to_s
       
 

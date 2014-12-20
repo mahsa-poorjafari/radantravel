@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy, :sendtonewsletter]
-
+  
   # GET /tours
   # GET /tours.json
   def index
@@ -110,5 +110,10 @@ class ToursController < ApplicationController
       :price, :validate_date_from_fa, :validate_date_until_fa, :coming_soon, :itinerary_fa, :itinerary_en, :itinerary_ar,
       :documents_fa, :documents_en, :documents_ar, :decription_image, :info,  :delete_image,
       photos_attributes: [:id, :image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update])
+    end
+    def load_slides
+      @slides = Slide.where(slide_type: 1)
+      p '------------------print slide----------------'
+      p @general_slides = Slide.where(slide_type: nil)
     end
 end

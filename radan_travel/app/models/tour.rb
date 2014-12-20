@@ -10,7 +10,7 @@ class Tour < ActiveRecord::Base
   belongs_to :plane
   belongs_to :continent_category
   belongs_to :country
-  
+  has_many :slides
   has_many :photos, dependent: :destroy
   has_many :locationtours
   has_many :tour_comments

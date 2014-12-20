@@ -6,6 +6,7 @@ class Hotel < ActiveRecord::Base
   belongs_to :class_hotel
   has_many :tours
   has_many :photos, dependent: :destroy
+  has_many :slides
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   has_and_belongs_to_many :locationtours
   def title

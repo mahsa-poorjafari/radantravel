@@ -18,7 +18,8 @@
 //= require dataTables/jquery.dataTables
 //= require ahoy
 //= require bootstrap
-//= require demo
+//= require jquery-1.7.2.min
+//= require demos
 //= require html5shiv.min
 //= require jquery.desoslide.min
 //= require jquery.smooth-scroll
@@ -27,6 +28,7 @@
 //= require zoomSlider
 //= require jquery.mixitup
 //= require Gruntfile
-
 //= require md5
+
+
 

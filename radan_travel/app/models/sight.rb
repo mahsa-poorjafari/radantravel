@@ -5,7 +5,7 @@ class Sight < ActiveRecord::Base
   has_many :photos
   belongs_to :city
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
-  
+  has_many :slides
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")

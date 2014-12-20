@@ -15,6 +15,10 @@
       = f.label 'توضیحات به عربی', :class => "control-label"
       = f.text_field :text_ar, :class => "form-control"
     .form-group
+      = f.label 'گروه مربوط به اسلایدر', :class => "control-label"
+      = f.select :slide_type,  options_for_select([['tours',1], ['hotels',2], ['visit iran',3], ['others',4]]), :prompt => 'گروه اسلایدر را انتخاب کنید', :class => "form-control"
+      
+    .form-group
       = f.label 'تصویر', :class => "control-label"
       - if @slide.present?
         = image_tag @slide.image(:small)

@@ -4,10 +4,9 @@
   %head
     %title 
       = t("radantravel") #{@head.fetch(:title, '') if @head}        
-    = stylesheet_link_tag    'application', media: 'all'       
-
+    = stylesheet_link_tag    'application', media: 'all'  
     = javascript_include_tag 'application'   
-    
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"}
 
     = csrf_meta_tags
     %meta{:charset => "utf-8"}    
@@ -42,7 +41,18 @@
         - else
           = render 'shared/top_site_fa'
       = render 'shared/menu_bar'
-      = render 'slides/slider'
+      
+      - if @tour_slides.present? && current_page?(Tour) 
+        = render "slides/slider", slides:@tour_slides
+      - elsif @hotel_slides.present? && (current_page?(Hotel) || current_page?(url_for(:controller => 'hotels', :action => 'show')))
+        = render "slides/slider", slides:@hotel_slides
+      - elsif @iran_slides.present? && (current_page?(Sight) || current_page?(url_for(:controller => 'sights', :action => 'show')))
+        = render "slides/slider", slides:@iran_slides
+      - elsif @general_slides.present?
+        = render "slides/slider", slides:@general_slides
+      - else
+        = render "slides/slider", :slides => Slide.all
+        
       = render 'shared/multi_slider_search_tour', :tours => Tour.all
       .yield{:class => I18n.locale, :style => "overflow:hidden"}
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
