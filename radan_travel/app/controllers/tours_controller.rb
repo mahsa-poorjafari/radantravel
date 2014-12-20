@@ -111,9 +111,5 @@ class ToursController < ApplicationController
       :documents_fa, :documents_en, :documents_ar, :decription_image, :info,  :delete_image,
       photos_attributes: [:id, :image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update])
     end
-    def load_slides
-      @slides = Slide.where(slide_type: 1)
-      p '------------------print slide----------------'
-      p @general_slides = Slide.where(slide_type: nil)
-    end
+    
 end

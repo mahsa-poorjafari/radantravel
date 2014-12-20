@@ -31,8 +31,16 @@ class ApplicationController < ActionController::Base
       @contact = Page.find_by_title_en('Contact us')
     end
     def load_slides
-      p @controller = params[:controller]
-     
+      p @controller = params[:controller]     
+      if @controller.present? 
+        if @controller == 'tours' || @controller == 'hotels' || @controller == 'sights'
+          @page_slides = Slide.where(slide_type: @controller)
+          p  @page_slides.count
+        else
+          @other_slides = Slide.where("slide_type=? OR slide_type=?",0, 'other')
+          p  @other_slides.count
+        end
+      end
       
     end
 end

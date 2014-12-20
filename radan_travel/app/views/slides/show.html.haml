@@ -1,6 +1,13 @@
 .margin3  
   %div= image_tag @slide.image(:medium)
   %p
+    %b بخش مربوطه
+    - if @slide.slide_type == 'other' 
+      %b='سایر'
+    - else
+      %b= @slide.slide_type
+      
+  %p
     %b توضیحات به فارسی
     = @slide.text_fa
   %p
