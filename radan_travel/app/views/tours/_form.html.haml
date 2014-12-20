@@ -7,19 +7,7 @@
           %li= msg
   .margin3
         
-    .col-xs-12      
-      .col-xs-4
-      .col-xs-4
-        .form-group
-          = f.label 'عنوان فارسی', :class => "control-label"
-          = f.text_field :title_fa, :class => "form-control"
-        .form-group
-          = f.label 'عنوان انگلیسی', :class => "control-label"
-          = f.text_field :title_en, :class => "form-control"
-        .form-group
-          = f.label 'عنوان عربی', :class => "control-label"
-          = f.text_field :title_ar, :class => "form-control"
-      
+    .col-xs-12   
       .col-xs-4      
         .form-group
           = f.label 'تاریخ اعتبار از', :class => "control-label"
@@ -34,14 +22,45 @@
         .form-group
           = f.label 'بزودی', :class => "control-label"
           = f.check_box :coming_soon, :class => "form-control"
-    .col-xs-12 
-      .form-group
-        = f.label 'پرواز', :class => "control-label"
-        = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
-      .form-group
-        = f.label 'تور را به یک کشور انتساب دهید', :class => "control-label"
-        = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
+      
+      .col-xs-4
+        .form-group.col-xs-4
+          = f.label 'مبدا از fa', :class => "control-label"
+          = f.text_field :source, :class => "form-control"
+        .form-group.col-xs-4
+          = f.label 'مبدا از en', :class => "control-label"
+          = f.text_field :source_en, :class => "form-control"
+        .form-group.col-xs-4
+          = f.label 'مبدا از ar',  :class => "control-label"
+          = f.text_field :source_ar, :class => "form-control"
+        .form-group.col-xs-4
+          = f.label 'نوع سفر fa', :class => "control-label"
+          = f.text_field :travel_type, :class => "form-control"
+        .form-group.col-xs-4
+          = f.label 'نوع سفر en', :class => "control-label"
+          = f.text_field :travel_type_en, :class => "form-control" 
+        .form-group.col-xs-4
+          = f.label 'نوع سفر ar', :class => "control-label"
+          = f.text_field :travel_type_ar, :class => "form-control"
+        .form-group
+          = f.label 'پرواز', :class => "control-label"
+          = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
+        .form-group
+          = f.label 'تور را به یک کشور انتساب دهید', :class => "control-label"
+          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
         
+      .col-xs-4
+        .form-group
+          = f.label 'عنوان فارسی', :class => "control-label"
+          = f.text_field :title_fa, :class => "form-control"
+        .form-group
+          = f.label 'عنوان انگلیسی', :class => "control-label"
+          = f.text_field :title_en, :class => "form-control"
+        .form-group
+          = f.label 'عنوان عربی', :class => "control-label"
+          = f.text_field :title_ar, :class => "form-control"
+      
+      
       
     .col-xs-12 
       .form-group.col-xs-12 

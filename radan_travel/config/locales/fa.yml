@@ -3,6 +3,7 @@ fa:
   contact-us: 'ارتباط با ما '
   about-us: 'درباره ما'
   phone: '۰۵۱۳-۸۴۳۱۱۱۵ '
+  email: 'پست الکترونیکی'
   index: 'فارسی'
   home: 'صفحه اصلی'
   visitsite: 'برای کسب اطلاعات بیشتر به سایت مراجعه کنید.'
@@ -79,6 +80,12 @@ fa:
     validate_date_until: 'تاریخ اعتبار تا'
     validate_date_from: 'تاریخ اعتبار از'
     search: 'نتیجه جستجو تور'
+    source: 'مبدا از'
+    travel_type: 'نوع سفر'
+    date: 'تاریخ'
+    get-file: 'دریافت فایل'
+    
+    
   show-all-tours: 'نمایش همه'
   tour_comment:
     user-name: 'نام خود را وارد کنید'
@@ -120,4 +127,4 @@ fa:
     three_bed: 'سه تخته'
     kid_and_bed: 'کودک با تخت، ۶ تا ۱۲ سال'
     kid_no_bed: 'کودک بدون تخت، ۲ تا ۶ سال'
-    description: 'اطلاعات بیشتر'
+    description: 'توضیحات'

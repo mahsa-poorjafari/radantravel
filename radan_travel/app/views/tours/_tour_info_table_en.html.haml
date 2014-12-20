@@ -1,0 +1,64 @@
+
+.col-xs-12.firts-row
+  .col-xs-1.th= t('location.row')
+  .col-xs-2.th= t('location.hotel-name')
+  .col-xs-1.th= t('location.hotel-star')
+  .col-xs-1.th= t('location.two_bed')
+  .col-xs-1.th= t('location.one_bed')
+  .col-xs-1.th= t('location.three_bed')
+  .col-xs-1.th= t('location.kid_and_bed')
+  .col-xs-1.th= t('location.kid_no_bed')
+  .col-xs-2.th= t('location.description')      
+  - if is_admin?
+    .col-xs-1.th= 'عملیات'
+- @tour.locationtours.each_with_index do |location, i|
+  .col-xs-12.other-rows{:class => cycle("odd", "even") }
+    .col-xs-1.td= (i+1)
+    -if location.hotels.collect(&:title_fa).present?
+      .col-xs-2.td
+        - location.hotels.each do |hotel|
+          %p{:style => "text-align:center"}= link_to hotel.title, hotel_url(hotel.title)
+    .col-xs-1.td
+      - if location.hotels.first.class_hotel.present?
+        %span=image_tag 'Star.png'
+        = location.hotels.first.class_hotel.title
+    .col-xs-1.td= location.price_two_bed
+    .col-xs-1.td= location.price_one_bed
+    .col-xs-1.td= location.price_three_bed
+    .col-xs-1.td= location.price_kid_and_bed
+    .col-xs-1.td= location.price_kid_without_bed
+    .col-xs-2.td= location.description
+    - if is_admin?
+      .col-xs-1.td
+        =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
+        = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+
+.clear-float              
+.tour-description.margin-bottom              
+  .title_row
+    %h4{:class => I18n.locale}= t('tour.description')
+  .col-xs-12.tr
+    .col-xs-3.th= t('tour.source')
+    .col-xs-9.td= tour.source
+  .col-xs-12.tr
+    .col-xs-3.th= t('tour.travel_type')
+    .col-xs-9.td= tour.travel_type
+  .col-xs-12.tr
+    .col-xs-3.th= t('tour.date')
+    .col-xs-9.td 
+      = render "/tours/show_english_date", :tour => tour  
+    - if tour.itinerary.present?
+      .col-xs-12.tr
+        .col-xs-3.th= t('tour.itinerary')
+        .col-xs-9.td= raw tour.itinerary
+    - if tour.documents.present?
+      .col-xs-12.tr
+        .col-xs-3.th= t('tour.documents')
+        .col-xs-9.td= raw tour.documents
+    
+    - if @tour.info.present?
+      .col-xs-12.tr
+        .col-xs-3.th= t('tour.get-file')
+        .col-xs-9.td
+          = link_to @tour.info.url, :target => "blank" do
+            %i.btn.btn-warning= 'Get File'

@@ -9,6 +9,7 @@ ar:
   contact-us: 'اتصل بنا'
   about-us: 'معلومات عنا'
   phone: '۰۵۱۳-۸۴۳۱۱۱۵'
+  email: 'البريد الإلكتروني'
   index: 'فهرس'  
   visitsite: 'للحصول على مزيد من المعلومات زيارة الموقع'  
   imp-package: 'حزمة لحظة'
@@ -76,6 +77,11 @@ ar:
     validate_date_until: 'إكسب التاريخ وحتى'
     validate_date_from: 'تاريخ النشر من بدء'
     search: 'نتيجة جولة'
+    source: 'مصدر'
+    travel_type: 'نوع السفر'
+    date: 'موعد'
+    get-file: 'ملف التحميل'
+    
   show-all-tours: 'عرض كل'
   tour_comment:
     user-name: 'اسمك:'

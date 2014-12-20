@@ -24,6 +24,7 @@ en:
   contact-us: 'Contact Us'
   about-us: 'About Us'
   phone: '0513-8431115'
+  email: 'Email:'
   index: 'Index'
   home: 'Home'
   visitsite: 'For Getting More Information Visit Site'
@@ -97,6 +98,11 @@ en:
     validate_date_until: 'Exp Date Until'
     validate_date_from: 'Start Date From'
     search: 'Tour Result'
+    source: 'Source'
+    travel_type: 'Travel Type'
+    date: 'Date'
+    get-file: 'Get File'
+    
   show-all-tours: 'Show All'
   tour_comment:
     user-name: 'Your Name:'

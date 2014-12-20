@@ -1,4 +1,4 @@
-.margin3
+.margin3.margin-bottom
   %h1.title-tours{:class => I18n.locale}=  @tour.title  
   .col-xs-4 
   .col-xs-4 
@@ -10,99 +10,20 @@
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
   .tour-details
-    .col-xs-12        
-      .col-xs-10       
-        .col-xs-12
-          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-          %h3{:class => I18n.locale}= t('tour.description')
-          
-        %table.table
-          %tr
-            %th= t('location.row')
-            %th= t('location.hotel-name')
-            %th= t('location.hotel-star')
-            %th= t('location.two_bed')
-            %th= t('location.one_bed')
-            %th= t('location.three_bed')
-            %th= t('location.kid_and_bed')
-            %th= t('location.kid_no_bed')
-            %th= t('location.description')
-            - if is_admin?
-              %th= 'عملیات'
-          - @tour.locationtours.each_with_index do |location, i|
-            %tr{:class => I18n.locale, :id => 'row_' +location.id.to_s }
-              %td= (i+1)
-              -if location.hotels.collect(&:title_fa).present?
-                %td
-                  - location.hotels.each do |hotel|
-                    %p{:style => "text-align:center"}= hotel.title
-              %td
-                - if location.hotels.first.class_hotel.present?
-                  %span=image_tag 'Star.png'
-                  = location.hotels.first.class_hotel.title
-              %td= location.price_two_bed
-              %td= location.price_one_bed
-              %td= location.price_three_bed
-              %td= location.price_kid_and_bed
-              %td= location.price_kid_without_bed
-              %td= location.description
-              - if is_admin?
-                %td 
-                  =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
-                  = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
-
-                
-        
-        .clear-float    
-        
-        - if @tour.decription_image.present?
-          = link_to  @tour.decription_image(:original), "data-lightbox" => "example-set", :class => "tour-img", :title => 'آژانس هواپیمایی رادان سیر_' + @tour.title do
-            = image_tag @tour.decription_image(:medium), :class => "example-image", :alt => 'آژانس هواپیمایی رادان سیر_' + @tour.title, :id => @tour.id
-        .tour-description=raw @tour.description 
-      .col-xs-2
-        %p
-          %h2{:class => I18n.locale}= t('tour.itinerary')
-          / Large modal
-          %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"}= t('tour.show')
-          .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  %button.close{"data-dismiss" => "modal", :type => "button"}
-                    %span{"aria-hidden" => "true"} ×
-                    %span.sr-only= t('close')
-                  %h4.modal-title= t('tour.itinerary')
-                .modal-body
-                  =raw @tour.itinerary
-                .modal-footer
-                  %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
-          
-        %p
-          %h2{:class => I18n.locale}= t('tour.documents')
-          
-          / Button trigger modal
-          %button.btn.btn-primary{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
-            = t('tour.show')
-          / Modal
-          #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel1", :role => "dialog", :tabindex => "-1"}
-            .modal-dialog
-              .modal-content
-                .modal-header
-                  %button.close{"data-dismiss" => "modal", :type => "button"}
-                    %span{"aria-hidden" => "true"} ×
-                    %span.sr-only= t('close')
-                  %h4#myModalLabel1.modal-title= t('tour.documents')
-                .modal-body
-                  =raw @tour.documents
-                .modal-footer
-                  %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"}= t('close')
-        %p          
-          - if @tour.info.present?
-            = link_to @tour.info.url, :target => "blank" do
-              %i.btn.btn-warning= 'دریافت فایل '
-          
-      
     .col-xs-12
+      .col-xs-12
+        .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+        .col-xs-6{:style => "text-align:right"}
+          - if @tour.plane.present?
+            = image_tag @tour.plane.logo(:icon), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+      .col-xs-12.hotels-table.margin-bottom
+        %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+        - if I18n.locale == :en
+          = render 'tours/tour_info_table_en', :tour => @tour
+        - else
+          = render 'tours/tour_info_table_fa', :tour => @tour
+      
+    .col-xs-12.margin-bottom
       .col-xs-7        
         = render 'shared/slider_tumbnail', :model => @tour
       .col-xs-5.comment-box

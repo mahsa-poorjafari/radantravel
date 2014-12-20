@@ -67,7 +67,7 @@ body {padding:0; margin:0;  height:100%; width:100%}
 .logo #contact-info  { font-size:2em; font-weight:bold; color:#fff; 
   float:right;
   text-align:center; }
-.logo #contact-info  p{ font-size:.6em;padding-top:2%;font-weight:bold; color:#fff;text-align:center}
+.logo #contact-info  p{ font-size:.6em;font-weight:bold; color:#fff;text-align:center}
 .logo .flag_bar {
   text-align: left;
   position: absolute;
@@ -330,12 +330,12 @@ height: 50%;}
 }
 .admin-btn-tour {position:absolute; bottom:0;}
 .tour-details {}
-.tour-details .tour-description p, .country-show .country-text p, .country-text p {text-align:justify;direction:rtl; font-family: 'open_sansregular'; }
+.tour-details .tour-description p.fa, .country-show .country-text p, .country-text p {text-align:justify;direction:rtl; font-family: 'open_sansregular'; }
 .country-show h2.country-title {margin:4%}
 .comment-box {background-image: url(image-path('halftone.png'));
   background-repeat: repeat; }
 .title-tours {text-align:center; padding:1%; margin:1%;}
-.contact-top-site {margin-top: 15%;
+.contact-top-site {margin-top: 10%;
 margin-left: -40%;
 margin-right: -40%;}
 .country-cities-list {margin:6%}
@@ -436,3 +436,15 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
 #reserv {margin-right:10%; margin-left:10%;}
 
 .one-slide img{width:100%}
+.hotels-table .firts-row .th {font-weight:bold; text-align:center; 
+  border:1px solid #BFBFBF; height:100%; font-size:10px;}
+.hotels-table h3,h2{background:#FFA500; text-align:center; width:100%}
+.hotels-table .firts-row {background:#7F7F7F; height:80px; position:relative}
+.hotels-table .other-rows {border-bottom:1px solid #BFBFBF; position:relative}
+.hotels-table .other-rows .even{border-bottom:1px solid #BFBFBF; position:relative; background:#E6E6FA;}
+.hotels-table .other-rows .td{}
+.hotels-table .tour-description {width:100%}
+.hotels-table .tour-description .title_row {background:#FFA500; text-align:center;}
+.hotels-table .tour-description .tr {position:relative; height:30px}
+.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; padding:1%; height:100%}
+.hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;}

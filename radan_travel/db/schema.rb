@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220093333) do
+ActiveRecord::Schema.define(version: 20141220131038) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -314,6 +314,12 @@ ActiveRecord::Schema.define(version: 20141220093333) do
     t.datetime "info_updated_at"
     t.integer  "continent_category_id"
     t.boolean  "special",                       default: false
+    t.string   "source"
+    t.string   "travel_type"
+    t.string   "source_en"
+    t.string   "travel_type_en"
+    t.string   "source_ar"
+    t.string   "travel_type_ar"
   end
 
   create_table "users", force: true do |t|
