@@ -3,15 +3,31 @@
   .city-details.set-center 
     .col-xs-11
       %h2=  @city.title  
-    -#
-      .col-xs-1{:style => "padding-top:2%"}= image_tag @city.country.country_flag(:small)
-    .clear-float
-    .city.text
-      =raw @city.text
-    .row-fluid
-      - @city.photos.each do |pic|
-        .col-xs-5.city-image
-          = image_tag pic.image(:medium)
+      %span{:style => "padding-top:2%"}= image_tag @city.country.country_flag(:small)
     - if is_admin?
       = link_to 'ویرایش', edit_city_path(@city), :class => "btn btn-info" 
-     
+    
+    .clear-float
+    
+    .col-xs-6
+      - @city.photos.each do |pic|
+        .city-image
+          = image_tag pic.image(:medium)
+    .city.text.col-xs-6
+      =raw @city.text
+    
+    .col-xs-12
+      %h2.col-xs-12= t('places')
+      - @city.sights.each do |sight|        
+        .tours-index
+          = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
+            %h5.tour-title{:id => 'sight-'+sight.id.to_s}= sight.title
+            - if sight.photos.present?
+              .tour-sample-image= image_tag sight.photos.first.image(:medium), :id => "tour-sample-image-" + sight.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+            .clear-float
+
+          -if is_admin?
+            .admin-btn-tour
+              = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
+              = link_to 'مشاهده جزئیات', sight, :class => "btn btn-warning"       , :title => "آژانس_هواپیمایی_رادان_سیر"
+              = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"

@@ -12,6 +12,8 @@ ar:
   email: 'البريد الإلكتروني'
   index: 'فهرس'  
   visitsite: 'للحصول على مزيد من المعلومات زيارة الموقع'  
+  places: 'الأماكن'
+  other-tour: 'آخر...'
   imp-package: 'حزمة لحظة'
   not-found: 'لم يتم العثور على'
   packages: 'حزم'

@@ -93,6 +93,7 @@ font-size: 1.2em;
 height:100%;
 text-align: center;
 padding-top: 1%;
+position:relative;
 }
 .menu_bar ul li a{color:#fff}
 
@@ -407,9 +408,11 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
   }
 .continent-cat:hover, .continent-cat.active {cursor:pointer; border-bottom:2px solid #7F7F7F; color:#FFA500;
 }
+/*
 #Container .mix{
   display: none;
 }
+*/
 .nav-tabs > li.en {float:left}
 .nav-tabs > li.ar, .nav-tabs > li.fa {float:right}
 .city-cat {text-align:center; padding:1%; background:#4D4D4D; color:#fff; font-size:16px; 
@@ -448,3 +451,12 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
 .hotels-table .tour-description .tr {position:relative; height:30px}
 .hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; padding:1%; height:100%}
 .hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;}
+
+ul.sub-menu {width:100%; margin:0; padding:0; background:#4D4D4D; position: absolute;
+  top: 45px;
+  height: auto;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  display:none;
+}
+ul.sub-menu li{width:100%; margin:0; padding:5%; }
