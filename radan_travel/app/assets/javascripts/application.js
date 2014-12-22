@@ -17,6 +17,7 @@
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require ahoy
+//= require md5
 //= require bootstrap
 //= require modernizr.custom
 //= require zoomSlider
@@ -26,8 +27,5 @@
 //= require jquery.desoslide.min
 //= require jquery.smooth-scroll
 //= require lightbox-2.6.min
-//= require md5
 //= require jquery.mixitup
-
-
-
+//= require jquery.eachStep.min
