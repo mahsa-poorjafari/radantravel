@@ -448,13 +448,13 @@ tr.fa td, tr.ar td{direction:rtl; font-family: 'open_sansregular';}
 .one-slide img{width:100%}
 .hotels-table .firts-row .th {font-weight:bold; text-align:center; 
   border:1px solid #4D4D4D; height:100%; font-size:10px;}
-.hotels-table h3,h2{background:#FFA500; text-align:center; width:100%}
+.hotels-table h3,h2{background:#A52A2A; text-align:center; width:100%; color:#fff}
 .hotels-table .firts-row {background:#BFBFBF; height:80px; position:relative}
 .hotels-table .other-rows {border-bottom:1px solid #BFBFBF; position:relative}
 .hotels-table .other-rows .even{border-bottom:1px solid #BFBFBF; position:relative; background:#E6E6FA;}
 .hotels-table .other-rows .td{}
 .hotels-table .tour-description {width:100%}
-.hotels-table .tour-description .title_row {background:#FFA500; text-align:center;}
+.hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}
 .hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; padding:1%; height:100%}
 .hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;}
@@ -471,3 +471,4 @@ ul.sub-menu li{width:100%; margin:0; padding:5%; }
 ul.sub-menu li.en{text-align:left}
 ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 ul#main-menu li.item-menu:hover ul.sub-menu {height:auto}
+span.en {font-family:Arial;}

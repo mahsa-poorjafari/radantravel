@@ -21,7 +21,7 @@
     .col-xs-1.td.pull-right
       - if location.hotels.first.class_hotel.present?
         %span=image_tag 'Star.png'
-        .en= location.hotels.first.class_hotel.title
+        %span.en= location.hotels.first.class_hotel.title
     .col-xs-1.td.pull-right= location.price_two_bed
     .col-xs-1.td.pull-right= location.price_one_bed
     .col-xs-1.td.pull-right= location.price_three_bed
