@@ -1,28 +1,26 @@
 .menu_bar  
-  %ul.set-center{:class => I18n.locale}  
-    
-    
+  %ul#main-menu.set-center{:class => I18n.locale}  
     %li.home{ :class => ('active' if current_page?('/'))}
       = link_to t('home'), { :controller => "/static", :action => :index}
-    %li.sight{:class => ('active' if current_page?(Sight))}  
+    %li#sight.item-menu{:class => ('active' if current_page?(Sight))}  
       = link_to t('sight'), Sight, :title => "آژانس هواپیمایی رادان سیر" 
-      %ul.sub-menu
+      %ul.sub-menu.sight
         - City.all.each do |city|
           - if city.sights && city.country.title_fa == 'ایران'
-            %li= link_to city.title, city_url(city)
-    %li.tour{:class => ('active' if current_page?(Tour))}  
+            %li{:class => I18n.locale}= link_to city.title, city_url(city)
+    %li#tour.item-menu{:class => ('active' if current_page?(Tour))}  
       = link_to  t('tour.tours'), tours_path,  :title => "آژانس هواپیمایی رادان سیر"       
-      %ul.sub-menu
+      %ul.sub-menu.tour
         - Tour.where(validate_date_from:  Date.today..Date.today + 1.month).each do |tour|
-          %li
+          %li{:class => I18n.locale} 
             = link_to tour.title, tour_url(tour)
             %span= image_tag 'new-icon.png'
-        %li= link_to t('other-tour'), Tour
-    %li{:class => ('active' if current_page?(Hotel))}
+        %li{:class => I18n.locale}= link_to t('other-tour'), Tour
+    %li#hotel.item-menu{:class => ('active' if current_page?(Hotel))}
       = link_to  t('hotel'), Hotel,  :title => "آژانس هواپیمایی رادان سیر"
-      %ul.sub-menu
-        %li= link_to t('local-hotels'), Hotel
-        %li= link_to t('foreign-hotels'), Hotel
+      %ul.sub-menu.hotel
+        %li{:class => I18n.locale}= link_to t('local-hotels'), Hotel
+        %li{:class => I18n.locale}= link_to t('foreign-hotels'), Hotel
         
     %li{:class => ('active' if current_page?(Country))}
       = link_to  t('tour-country'),Country , :title => "آژانس هواپیمایی رادان سیر" 
@@ -30,4 +28,3 @@
     %li{:class => ('active' if current_page?(Page))}  
       = link_to  t('about-us'), page_path(1) , :title => "آژانس هواپیمایی رادان سیر" 
       
-

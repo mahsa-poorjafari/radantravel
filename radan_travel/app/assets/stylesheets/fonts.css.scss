@@ -21,4 +21,23 @@ Font-Face Icons
   font-weight: normal;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'phalls_khodkar';
+  src: url(font_path('phalls_khodkar.eot'));
+  src: url(font_path('phalls_khodkar.eot?#iefix')) format('embedded-opentype'),
+       url(font_path('phalls_khodkar.woff')) format('woff'),
+       url(font_path('phalls_khodkar.ttf')) format('truetype'),
+       url(font_path('phalls_khodkar.svg#MTCORSVA')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'arabswell';
+  src: url(font_path('arabswell.eot'));
+  src: url(font_path('arabswell.eot?#iefix')) format('embedded-opentype'),
+       url(font_path('arabswell.woff')) format('woff'),
+       url(font_path('arabswell.ttf')) format('truetype'),
+       url(font_path('arabswell.svg#MTCORSVA')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

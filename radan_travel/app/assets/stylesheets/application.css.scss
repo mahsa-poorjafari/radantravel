@@ -84,7 +84,13 @@ box-shadow: 0px 10px 31px 0px rgba(62,186,224,1);
    z-index:10;
    top:22%;
 }
-.menu_bar ul{width:95%; list-style:none; height:100%}
+.menu_bar ul{width:95%; list-style:none; height:100%; font-family:phalls_khodkar;}
+.menu_bar ul.fa{ font-family:phalls_khodkar;}
+.menu_bar ul.en{ font-family:Arial;}
+.menu_bar ul.ar{ font-family:arabswell;}
+.menu_bar ul.fa li { font-family:phalls_khodkar;}
+.menu_bar ul.en li { font-family:Arial;}
+.menu_bar ul.ar li { font-family:arabswell;}
 .menu_bar ul li {
   width: 10%;
 float: right;
@@ -94,6 +100,7 @@ height:100%;
 text-align: center;
 padding-top: 1%;
 position:relative;
+
 }
 .menu_bar ul li a{color:#fff}
 
@@ -457,6 +464,10 @@ ul.sub-menu {width:100%; margin:0; padding:0; background:#4D4D4D; position: abso
   height: auto;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
-  display:none;
+  height:0px;
+  overflow:hidden
 }
 ul.sub-menu li{width:100%; margin:0; padding:5%; }
+ul.sub-menu li.en{text-align:left}
+ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
+ul#main-menu li.item-menu:hover ul.sub-menu {height:auto}
