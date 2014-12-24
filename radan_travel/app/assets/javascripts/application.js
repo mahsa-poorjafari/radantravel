@@ -31,14 +31,3 @@
 //= require jquery.eachStep.min
 
 
-$(document).ready(function() {
-  $('#search-tour .tour-search-box').click(function(){
-    $('#search-tour').toggleClass('show-tour-search-box');
-    $('#reserv').removeClass('show-reservation-box');
-    
-  });
-  $('#reserv .reserv-box').click(function(){
-    $('#reserv').toggleClass('show-reservation-box');
-    $('#search-tour').removeClass('show-tour-search-box');
-  });
-});
