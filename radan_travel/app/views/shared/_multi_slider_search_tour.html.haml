@@ -1,48 +1,31 @@
-.tabs-on-slider.set-center
-  - if I18n.locale == :en
-    %ul.nav.nav-tabs.pull-left#myTab1{:role => "tablist", :class => I18n.locale }
-      = render 'shared/search_reserv'
-  - else
-    %ul.nav.nav-tabs.pull-right#myTab2{:role => "tablist", :class => I18n.locale }
-      = render 'shared/search_reserv'
-  .clear-float
-  .tab-content
-    #reserv.tab-pane.active.fade.in.col-xs-10{:role => "tabpanel"}      
-      = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
-        = label_tag t('reserv-type')
-        = select_tag params[:IsPublicLogin],  options_for_select([[t('user'),'true'], [t('agent'),'false']])
-        = label_tag t('reserv-lang')
-        = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
-        = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
-
-    #search.tab-pane.fade{:role => "tabpanel"} 
-      = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-        .col-xs-1.pull-left{:style => "margin-top:2%; margin-left:4%"}
-          = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn btn-info"
-        .col-xs-2.pull-right
-        .col-xs-2.pull-right
-          = label_tag t('tour-from')
-          = text_field_tag :start_date, params[:start_date], :class => "fa_date form-control", :id => "tour-exp"
-        .col-xs-2.pull-right
-          = label_tag t('tour-until')
-          = text_field_tag :exp_date, params[:exp_date], :class => "fa_date form-control", :id => "tour-start"
-        
-        .col-xs-2.pull-right
-          = label_tag t('tour-price')
-          = text_field_tag :price, params[:price], :class => "form-control", :id => "tour-price"                  
-        .col-xs-2.pull-right
-          = label_tag t('tour-country')
-          = text_field_tag :country, params[:country], :class => "form-control", :id => "tour-country"                  
-
-
-.imp-package.content  
-  
-  .col-md-12.col-md-offset-3{:style => "height:100%"}
+.multi-slider-package.col-xs-10  
+  .col-md-12.col-md-offset-3
     #myCarousel.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
       .carousel-inner#package-tour
         - tours.each do |tour|
           .item
-            .col-xs-3
+            .col-xs-4.tour-item
+              - if tour.photos.present?
+                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+              
+              .tour-hover{:class => I18n.locale}
+                %p.tour-title{:class => I18n.locale}= tour.title
+                - if I18n.locale == :fa
+                  = render "/tours/show_persian_date", :tour => tour
+                - else  
+                  = render "/tours/show_english_date", :tour => tour
+          
+      = link_to  "#myCarousel" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
+        = image_tag 'prev.png'
+      = link_to  "#myCarousel", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
+        = image_tag 'next.png'
+.multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
+  .col-md-12.col-md-offset-3{:style => "height:200px;"}
+    #myCarousel.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
+      .carousel-inner#package-tour
+        - tours.each do |tour|
+          .item
+            .col-xs-4.tour-item
               - if tour.photos.present?
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               

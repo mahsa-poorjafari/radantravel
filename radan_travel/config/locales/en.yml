@@ -32,6 +32,7 @@ en:
   other-tour: 'Others...'
   sight: 'Visit Iran'
   hotel: 'Hotels'
+  visa: 'Visa'
   local-hotels: 'Domestic Hotels'
   foreign-hotels: 'Foreign Hotels'
   imp-package: 'Package Moment'
@@ -75,6 +76,7 @@ en:
   send-customer-email: 'Your Register Done'
   thanks: 'Thank you, for choosing us'
   links: 'Other Link'
+  contact-info: 'Contact Us'
   copyright: 'All Rights Reserved This site is owned travel agency Radan.'
   
   linkedin: 'Linkedin'
@@ -97,6 +99,7 @@ en:
     description: 'Description'
     show: 'Click To show'
     tours: 'Tour'
+    about-tour: 'About tour'
     validate_date_until: 'Exp Date Until'
     validate_date_from: 'Start Date From'
     search: 'Tour Result'

@@ -4,6 +4,7 @@ ar:
   
   sight: 'زيارة إيران'
   hotel: 'الفنادق'
+  visa: 'تأشيرة'
   local-hotels: 'الفنادق المحلية'
   foreign-hotels: 'الفنادق الأجنبية'
   contact-us: 'اتصل بنا'
@@ -55,6 +56,7 @@ ar:
   send-customer-email: 'تسجيل عمله الخاص بك'
   thanks: 'شكرا لك، لاختيارك لنا'
   links: 'غيرها من لينك'
+  contact-info: 'اتصل بنا'
   copyright: 'جميع الحقوق محفوظة هذا الموقع مملوكة كالة سفر رادان.'
   send-mail: 'إرسال رابط الحالي إلى صديق'
   linkedin: 'Linkedin'
@@ -76,6 +78,7 @@ ar:
     description: 'وصف'
     show: 'إضغط للمزيد'
     tours: 'سياحة'
+    about-tour: 'حول الجولة'
     validate_date_until: 'إكسب التاريخ وحتى'
     validate_date_from: 'تاريخ النشر من بدء'
     search: 'نتيجة جولة'
