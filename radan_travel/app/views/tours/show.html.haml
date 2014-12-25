@@ -21,19 +21,19 @@
             .col-xs-12      
               = raw @tour.description
         .clear-float
-    - else
-      .col-xs-12
+      - else
         .col-xs-12
-          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-          .col-xs-6{:style => "text-align:right"}
-            - if @tour.plane.present?
-              = image_tag @tour.plane.logo(:icon), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-        .col-xs-12.hotels-table.margin-bottom
-          %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
-          - if I18n.locale == :en
-            = render 'tours/tour_info_table_en', :tour => @tour
-          - else
-            = render 'tours/tour_info_table_fa', :tour => @tour
+          .col-xs-12
+            .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+            .col-xs-6{:style => "text-align:right"}
+              - if @tour.plane.present?
+                = image_tag @tour.plane.logo(:icon), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          .col-xs-12.hotels-table.margin-bottom
+            %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+            - if I18n.locale == :en
+              = render 'tours/tour_info_table_en', :tour => @tour
+            - else
+              = render 'tours/tour_info_table_fa', :tour => @tour
       
     .col-xs-12.margin-bottom
       .col-xs-7        

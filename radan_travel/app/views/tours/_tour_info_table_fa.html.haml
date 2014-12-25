@@ -33,37 +33,43 @@
         =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
         = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
 
-.tour-description.pull-right.margin-bottom              
+.tour-description.margin-bottom
   .title_row
     %h4{:class => I18n.locale}= t('tour.description')
   .col-xs-12.tr
     .col-xs-3.th.pull-right= t('tour.source')
     .col-xs-9.td= tour.source
+    
   .col-xs-12.tr
     .col-xs-3.th.pull-right= t('tour.travel_type')
     .col-xs-9.td= tour.travel_type
+    
   .col-xs-12.tr
     .col-xs-3.th.pull-right= t('tour.date')
     .col-xs-9.td 
       = render "/tours/show_persian_date", :tour => tour
+    
   - if tour.itinerary.present?
     .col-xs-12.tr
       .col-xs-3.th.pull-right= t('tour.itinerary')
       .col-xs-9.td= raw tour.itinerary
+    
   - if tour.documents.present?
     .col-xs-12.tr
       .col-xs-3.th.pull-right= t('tour.documents')
       .col-xs-9.td= raw tour.documents
-  
+    
   - if @tour.info.present?
     .col-xs-12.tr
       .col-xs-3.th.pull-right= t('tour.get-file')
       .col-xs-9.td
         = link_to @tour.info.url, :target => "blank" do
           %i= 'دریافت فایل '
+      
   .clear-float
-  - if tour.description.present?
-    .title_row
+- if tour.description.present?
+  .tour-description.margin-bottom.clear-float
+    .title_row.col-xs-12
       %h4{:class => I18n.locale}= t('tour.about-tour')
     .col-xs-12      
       = raw tour.description
