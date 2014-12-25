@@ -2,22 +2,23 @@
   %p#notice= notice
   .city-details.set-center 
     .col-xs-11
-      %h2=  @city.title  
+      %h3{:class => I18n.locale}=  @city.title  
       %span{:style => "padding-top:2%"}= image_tag @city.country.country_flag(:small)
     - if is_admin?
       = link_to 'ویرایش', edit_city_path(@city), :class => "btn btn-info" 
     
     .clear-float
-    
+    .city.text.12
+      =raw @city.text
+      
     .col-xs-6
       - @city.photos.each do |pic|
         .city-image
           = image_tag pic.image(:medium)
-    .city.text.col-xs-6
-      =raw @city.text
+    .clear-float
     
     .col-xs-12
-      %h2.col-xs-12= t('places')
+      %h2.col-xs-12{:class => I18n.locale}= t('places')
       - @city.sights.each do |sight|        
         .tours-index
           = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do

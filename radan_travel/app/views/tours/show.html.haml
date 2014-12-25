@@ -15,11 +15,11 @@
         .col-xs-12
           .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
           .clear-float
-          - if tour.description.present?
+          - if @tour.description.present?
             .title_row
-              %h4{:class => I18n.locale}= t('description')
+              %h4{:class => I18n.locale}= t('tour.description')
             .col-xs-12      
-              = raw tour.description
+              = raw @tour.description
         .clear-float
     - else
       .col-xs-12
