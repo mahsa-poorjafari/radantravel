@@ -14,8 +14,8 @@
     
     .col-xs-12.form-group
       = f.text_field :email, :placeholder => t('newsletter_email'),   :id => "newsletter_email", :class => " form-msg form-control"
-    .col-xs-12{:style => "text-align:center"}
-      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn footer-btn I18n.locale"
+    .col-xs-12{:style => "text-align:center", :class => I18n.locale}
+      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn footer-btn "
 :javascript 
   $(function() { 
     $(':submit#newsletter-submit').click(function(e) {

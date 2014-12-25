@@ -3,7 +3,7 @@
     
     .col-xs-12.form-group
       = text_field_tag :name, params[:name] , :placeholder => t('customer_name'), :class => "form-msg form-control", :id => "customer-name", :title => "آژانس_هواپیمایی_رادان_سیر"
-    .col-xs-12{:style => "text-align:center"}
+    .col-xs-12{:style => "text-align:center", :class => I18n.locale}
       = submit_tag t('search_customer'), :name => "customer-submit", :id => "customer-submit" , :class => "btn footer-btn I18n.locale", :title => "آژانس_هواپیمایی_رادان_سیر"
 :javascript 
   $(function() { 
