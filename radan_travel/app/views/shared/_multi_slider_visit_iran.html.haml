@@ -7,33 +7,36 @@
     #myCarousel1.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
       .carousel-inner#package-tour1        
         - Sight.all.limit(@half_count).each do |sight|
-          - if sight.city.country.title_fa == 'ایران'
-            .item
-              .col-xs-4.tour-item{:id => sight.id.to_s}
-                - if sight.photos.present?
-                  = link_to (image_tag sight.photos.first.image(:medium), :class => "img-responsive"), sight, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                
-                .tour-hover{:class => I18n.locale}                  
-                  = render "/sights/show_sight_info", :sight => sight
+          - if sight.city.present?
+            - if sight.city.country.title_fa == 'ایران'
+              .item
+                .col-xs-4.tour-item{:id => sight.id.to_s}
+                  - if sight.photos.present?
+                    = link_to (image_tag sight.photos.first.image(:medium), :class => "img-responsive"), sight, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                  
+                  .tour-hover{:class => I18n.locale}                  
+                    = render "/sights/show_sight_info", :sight => sight
                  
           
       = link_to  "#myCarousel1" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
       = link_to  "#myCarousel1", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
         = image_tag 'next.png'
+
 .multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
   .col-md-12.col-md-offset-3{:style => "height:200px;"}
     #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
       .carousel-inner#package-tour2
         - Sight.all.offset(@half_count).each do |sight|
-          - if sight.city.country.title_fa == 'ایران'
-            .item
-              .col-xs-4.tour-item{:id => sight.id.to_s}
-                - if sight.photos.present?
-                  = link_to (image_tag sight.photos.first.image(:medium), :class => "img-responsive"), sight, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                
-                .tour-hover{:class => I18n.locale}                  
-                  = render "/sights/show_sight_info", :sight => sight
+          - if sight.city.present?
+            - if sight.city.country.title_fa == 'ایران'
+              .item
+                .col-xs-4.tour-item{:id => sight.id.to_s}
+                  - if sight.photos.present?
+                    = link_to (image_tag sight.photos.first.image(:medium), :class => "img-responsive"), sight, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                  
+                  .tour-hover{:class => I18n.locale}                  
+                    = render "/sights/show_sight_info", :sight => sight
           
       = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
