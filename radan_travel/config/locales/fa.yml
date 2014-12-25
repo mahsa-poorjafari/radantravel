@@ -14,6 +14,7 @@ fa:
   visa: 'ویزا'
   local-hotels: 'هتلهای داخلی'
   foreign-hotels: 'هتلهای خارجی'
+  iran-tours: 'پکیج های تور ایران'
   imp-package: 'پکیج های لحظه ای'
   not-found: 'موردی یافت نشد'
   packages: 'پکیج تورها'
@@ -97,6 +98,7 @@ fa:
     text: 'نظر خود را وارد کنید'
     your-comment: 'درباره این تور نظر دهید.'
     send-comment: 'کاربر گرامی نظر شما ثبت شد.'
+    send: 'ارسال'
   
   msg:
     contact-title:  'با ما در ارتباط باشید.'

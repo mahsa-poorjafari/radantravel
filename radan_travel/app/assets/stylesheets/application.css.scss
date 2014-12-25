@@ -42,12 +42,13 @@ body {padding:0; margin:0;  height:100%; width:100%}
   color:#fff;
 }
 .fa {direction:rtl; font-family:khodkar;}
-.ar {direction:rtl; font-family:arabswell; }
-.en {direction:ltr; font-family: 'open_sansregular'; }
+.fa input, .fa select, .fa textarea, .fa label, .admin-menu ul.fa  {direction:rtl; font-family: 'open_sansregular';}
+.ar, p.ar {direction:rtl; font-family:arabswell; }
+.en, p.en, span.en, h1.en, h2.en, h3.en, h4.en {direction:ltr; font-family:Arial}
 h2.fa, h3.fa, h4.fa {direction:rtl; font-family:khodkar; }
 h2.ar, h3.ar, h4.ar {direction:rtl; font-family:arabswell; }
 .fa p{direction:rtl; font-family: 'open_sansregular';}
-.en {direction:ltr}
+
 
 html, body{position:relative;margin:0; padding:0;}
 .main {position:absolute;margin:0; padding:0; top:0; z-index:0;}
@@ -70,7 +71,7 @@ html, body{position:relative;margin:0; padding:0;}
   transition: all 1s;}
 .show-social:hover{right:0; cursor:pointer}
 .show-social a {color:#fff; font-size:15px;}
-.show-social a span{ font-size:20px;}
+.show-social a span{ font-size:13px;}
 .show-social a:hover {color:#521010}
 .show-social .social-icon img{
   -webkit-transition: -webkit-transform 1s;
@@ -93,7 +94,7 @@ html, body{position:relative;margin:0; padding:0;}
 
 .title-site.fa { font-family: 'khodkar'; font-size:22px}
 .title-site.ar { font-family:arabswell; font-size:19px}
-.title-site.en { font-family: 'open_sansregular'; font-size:22px}
+.title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:32px}
 
 .logo-image {margin-top:-15px;}
 .menu_bar  {position:relative; height:80px;}
@@ -104,7 +105,7 @@ width: 100%; padding-top:4%}
 ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inline; }
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
-ul#main-menu.en li.item-menu, p.title-tour.en {font-family: 'open_sansregular';}
+ul#main-menu.en li.item-menu, p.title-tour.en {font-family: Arial}
 ul#main-menu li.item-menu.active, ul#main-menu li.item-menu:hover{
   background-image: url(image-path('active-menu.png'));  
   color:#fff;
@@ -118,7 +119,7 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
 .contact-top-site.fa span, .contact-top-site.ar span{font-size: 13px;}
 .contact-top-site.fa span.phone {font-size: 22px;}
 .contact-top-site.en span{font-size: 16px;}
-.flag_bar {width:100px; position:absolute; top:100px; left:0;}
+.flag_bar {width:100px; position:absolute; top:100px; left:4%;}
 
 
 .search-tour {  
@@ -136,16 +137,19 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
   transition: all 1s;
   }
 .admin-menu {position:absolute; top:130px;height: 37px;
-overflow: hidden;
-left:1%;
--webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 1s;
-  background:#ADD8E6;}
+  overflow: hidden;
+  left:15%; width:200px;
+  font-family: 'open_sansregular'; 
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+    transition: all 1s;
+    background:#ADD8E6;}
 .admin-menu:hover {height:400px}
+.admin-menu-title {padding:1%;}
+.unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
 .yield {position:relative;}
 
-.tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px}
-.tour-search-box span.en, .reserv-box span.en{color:#fff; font-size:13px}
+.tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px;}
+.tour-search-box span.en, .reserv-box span.en{color:#fff; font-size:13px; }
 .tour-search-box span.ar, .reserv-box span.ar{color:#fff; font-size:16px}
 .tour-search-box:hover span, .reserv-box:hover span{color:#FFA500}
 .search-tour:hover, .link-reservation:hover {cursor:pointer}
@@ -281,6 +285,7 @@ p.title-tour { border-radius:9px;
 }
 .admin-btn-tour {position:absolute; bottom:0;}
 .hotels-table .firts-row .th {font-weight:bold; text-align:center; 
+  padding:0;
   border:1px solid #4D4D4D; height:100%; font-size:10px;}
 .hotels-table h3,h2{background:#A52A2A; text-align:center; width:100%; color:#fff}
 .hotels-table .firts-row {background:#BFBFBF; height:80px; position:relative}
@@ -307,3 +312,8 @@ ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 .comment-box {background-image: url(image-path('halftone.png'));
   background-repeat: repeat; }
 .title-tours {text-align:center; padding:1%; margin:1%;}
+.hotel-hover span{color:#fff}
+.some-info {position: absolute;
+bottom: 3%;
+text-align: center;
+width: 100%;}

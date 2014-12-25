@@ -1,4 +1,4 @@
-.newsletter{:style => "padding:2%"}  
+.newsletter.clear-float{:style => "padding:2%"}  
   = form_for @customer ||= Customer.new, id: "newsletter_form" do |f| 
     - if  @customer.present? && @customer.errors.any?      
       .alert.alert-danger{:role => "alert"}
@@ -11,11 +11,11 @@
     - if flash[:Ecustomer].present?
       .alert.alert-danger
         = flash[:Ncustomer]
-    .col-xs-3
-      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn footer-btn I18n.locale"
-    .col-xs-9.form-group
+    
+    .col-xs-12.form-group
       = f.text_field :email, :placeholder => t('newsletter_email'),   :id => "newsletter_email", :class => " form-msg form-control"
-   
+    .col-xs-12{:style => "text-align:center"}
+      = f.submit t('newsletter_set') , :id => "newsletter-submit" , :class => "btn footer-btn I18n.locale"
 :javascript 
   $(function() { 
     $(':submit#newsletter-submit').click(function(e) {

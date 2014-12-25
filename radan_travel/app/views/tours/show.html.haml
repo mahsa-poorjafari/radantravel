@@ -10,18 +10,30 @@
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
   .tour-details
-    .col-xs-12
+    - if @tour.country.present?
+      - if @tour.country.title_fa == 'ایران'
+        .col-xs-12
+          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          .clear-float
+          - if tour.description.present?
+            .title_row
+              %h4{:class => I18n.locale}= t('description')
+            .col-xs-12      
+              = raw tour.description
+        .clear-float
+    - else
       .col-xs-12
-        .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-        .col-xs-6{:style => "text-align:right"}
-          - if @tour.plane.present?
-            = image_tag @tour.plane.logo(:icon), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-      .col-xs-12.hotels-table.margin-bottom
-        %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
-        - if I18n.locale == :en
-          = render 'tours/tour_info_table_en', :tour => @tour
-        - else
-          = render 'tours/tour_info_table_fa', :tour => @tour
+        .col-xs-12
+          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          .col-xs-6{:style => "text-align:right"}
+            - if @tour.plane.present?
+              = image_tag @tour.plane.logo(:icon), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+        .col-xs-12.hotels-table.margin-bottom
+          %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+          - if I18n.locale == :en
+            = render 'tours/tour_info_table_en', :tour => @tour
+          - else
+            = render 'tours/tour_info_table_fa', :tour => @tour
       
     .col-xs-12.margin-bottom
       .col-xs-7        

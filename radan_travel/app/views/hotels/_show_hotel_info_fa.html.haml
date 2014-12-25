@@ -1,0 +1,9 @@
+
+.col-xs-4.hotel-hover
+  %span=image_tag 'Star.png'
+  - if hotel.class_hotel_id.present?
+    %span.en= hotel.class_hotel.title
+.col-xs-8
+  %p= hotel.title
+%p.col-xs-12= hotel.city.title
+

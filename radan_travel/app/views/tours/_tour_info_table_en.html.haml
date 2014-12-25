@@ -19,9 +19,10 @@
         - location.hotels.each do |hotel|
           %p{:style => "text-align:center"}= link_to hotel.title, hotel_url(hotel.title)
     .col-xs-1.td
-      - if location.hotels.first.class_hotel.present?
-        %span=image_tag 'Star.png'
-        %span.en= location.hotels.first.class_hotel.title
+      - if location.hotels.present?
+        - if location.hotels.first.class_hotel.present?
+          %span=image_tag 'Star.png'
+          %span.en= location.hotels.first.class_hotel.title
     .col-xs-1.td= location.price_two_bed
     .col-xs-1.td= location.price_one_bed
     .col-xs-1.td= location.price_three_bed

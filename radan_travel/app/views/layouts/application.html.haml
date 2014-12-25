@@ -40,11 +40,15 @@
         = link_to (image_tag 'flag/ar_sm.png'), locale: :ar, :title => "وكالة سفر رادان"  
               
       = render 'shared/reservation_search_tour'
-      = render 'shared/four_main_icon'
-      .col-xs-12
-        .title-tour-line.col-xs-10
-        %p.title-tour.col-xs-3.set-center{:class => I18n.locale}= t('tour.tours')
-      = render 'shared/multi_slider_search_tour', :tours => Tour.all
+      - if current_page?('/') 
+        = render 'shared/four_main_icon'      
+      
+      - if params[:controller] == 'hotels'
+        = render 'shared/multi_slider_hotel'
+      - elsif params[:controller] == 'sights'
+        = render 'shared/multi_slider_visit_iran'
+      - else
+        = render 'shared/multi_slider_search_tour', :tours => Tour.all
       = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
       .yield.clear-float{:class => I18n.locale}
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
@@ -59,6 +63,7 @@
             - if @contact.present?
               %div{:class => I18n.locale, :style => "height:100px", :title => "آژانس هواپیمایی رادان سیر"}
                 =raw @contact.text
+          .clear-float
           %h4.contact{:class => I18n.locale}= t('sitevisit.statistics')          
           .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
             %p{:class => I18n.locale}
@@ -84,10 +89,10 @@
             = render 'shared/footer_menu'
           
         .col-xs-3.pull-left
-          %h4{:class => I18n.locale}= t('subscribe_to_newsletter')
+          %h4.clear-float{:class => I18n.locale}= t('subscribe_to_newsletter')
           = render 'shared/newsletter_subscribe'
-          %br
-          %h4{:class => I18n.locale}= t('customer_clube')
+          
+          %h4.clear-float{:class => I18n.locale}= t('customer_clube')
           = render 'shared/customer_clube'
         
         -#  
@@ -134,30 +139,27 @@
     = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
       = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
     
-  - unless current_page?('/')  || current_page?('/index') 
+  - unless current_page?('/') 
     :javascript
       $(document).ready(function() {
         $('html, body').animate({ scrollTop: 600 }, 'slow'); 
       });
     
-  :javascript
-    $('#package-tour :first').addClass('active');
-    $(function () {
-      $('#myTab a:last').tab('show')
-    });
-    
+  :javascript    
+    $('#package-tour1 :first').addClass('active');
+    $('#package-tour2 :first').addClass('active');
     $('.fa_date').datepicker();
     $('a#anchor1').smoothScroll();
     
     $(document).ready(function() {
-    $('#search-tour .tour-search-box').click(function(){
-      $('#search-tour').toggleClass('show-tour-search-box');
-      $('#reserv').removeClass('show-reservation-box');
-      
+      $('#search-tour .tour-search-box').click(function(){
+        $('#search-tour').toggleClass('show-tour-search-box');
+        $('#reserv').removeClass('show-reservation-box');
+        
+      });
+      $('#reserv .reserv-box').click(function(){
+        $('#reserv').toggleClass('show-reservation-box');
+        $('#search-tour').removeClass('show-tour-search-box');
+      });
     });
-    $('#reserv .reserv-box').click(function(){
-      $('#reserv').toggleClass('show-reservation-box');
-      $('#search-tour').removeClass('show-tour-search-box');
-    });
-  });
-
+  
