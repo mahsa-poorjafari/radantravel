@@ -340,9 +340,9 @@ width: 100%;}
 #Container .mix{
   display: none;
 }
-.country-tabs .nav-tabs > li {min-width:100px; min-height:45px;}
-.nav-tabs > li.fa, .nav-tabs > li.ar {float:right; text-align:left}
-.nav-tabs > li.en {float:left;}
+.country-tabs .nav-tabs > li {min-width:170px; min-height:45px;}
+.nav-tabs > li.fa, .nav-tabs > li.ar {float:right; text-align:right}
+.nav-tabs > li.en {float:left;text-align:left}
 .nav-tabs > li > a.country-name {background:transparent; border:none; font-size:20px; position:relative}
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   font-size:20px;
@@ -356,16 +356,15 @@ width: 100%;}
   position:absolute;
   width: 50px;
   height: 45px;
-  z-index: 20;
-  right:0;
+  z-index: 20;  
   top:0;
   -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
   transition: all .5s;
   }
-.country-tabs .nav-tabs > li  span.country-title-tab {
-  position: absolute;
-  left: 7%;
-  top: 10%;
-  }
+.nav-tabs > li.fa span.location-icon, .nav-tabs > li.ar span.location-icon {right:0;}
+.nav-tabs > li.en span.location-icon {left:0;}
+
+.country-tabs .nav-tabs > li.fa  span.country-title-tab, .country-tabs .nav-tabs > li.ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
+.country-tabs .nav-tabs > li.en  span.country-title-tab {left:50px;position: absolute;  top: 10%; }
 .country-tabs .nav-tabs > li:hover span.location-icon, .country-tabs .nav-tabs > li.active span.location-icon {background-position: 0 0;}
 
