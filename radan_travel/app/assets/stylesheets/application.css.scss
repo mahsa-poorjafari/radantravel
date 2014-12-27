@@ -216,13 +216,14 @@ p.title-tour { border-radius:9px;
   margin-top:5%;
   }
 .carousel-control.left, .carousel-control.right {background: transparent;}
-.tour-item {position:relative}
+.tour-item {position:relative; height:100%}
 .tour-item .tour-hover {position:absolute; top:140px; 
   min-height:60px;
   background-image: url(image-path('outlets.png')); 
   opacity:.8;
   text-align:center; width:91%; padding:1%;}
 .tour-item .tour-hover p, .tour-item .tour-hover  b{color:#fff}
+.tour-item .item-package img {height:100%}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
 
@@ -339,3 +340,27 @@ width: 100%;}
 #Container .mix{
   display: none;
 }
+.country-tabs .nav-tabs > li {min-width:100px;}
+.nav-tabs > li.fa, .nav-tabs > li.ar {float:right; text-align:left}
+.nav-tabs > li.en {float:left;}
+.nav-tabs > li > a.country-name {background:transparent; border:none; font-size:20px; position:relative}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  font-size:20px;
+  background-color: #E5E5E5;
+  }
+.nav-tabs > li.active , .nav-tabs > li:hover {background-color: #E5E5E5;}
+.nav-tabs > li span.location-icon {
+  background-image: url(image-path('location.png'));
+  background-repeat: no-repeat; 
+  background-position: 0 -40px;
+  position:absolute;
+  width: 50px;
+  height: 45px;
+  z-index: 20;
+  right:0;
+  top:0;
+  -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
+  transition: all .5s;
+  }
+.country-tabs .nav-tabs > li:hover span.location-icon, .country-tabs .nav-tabs > li.active span.location-icon {background-position: 0 0;}
+
