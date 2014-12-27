@@ -4,8 +4,7 @@
   %head
     %title 
       = t("radantravel") + (' Travel, سفر, بلیت, ایران, ویزا, visa, آژانس, آژانس هواپیمایی, iran travel, travle agency, ticket, visit iran, iran sights') 
-    = stylesheet_link_tag    'application', media: 'all'  
-    = javascript_include_tag 'application' 
+    = stylesheet_link_tag    'application', media: 'all'      
     = csrf_meta_tags
     %meta{:charset => "utf-8"}    
     %meta{:name => "keywords", :content =>   "شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر, تور لحظه ای ، تور لحظه آخری, آژانس هواپیمایی رادان سیر, هتلهای ایران, ویزا,دریافت ویزا,بازدید از ایران, Iran sight, visit Iran, Iran hotels, ایران, هتلهای ایران"}. 
@@ -143,7 +142,7 @@
       $(document).ready(function() {
         $('html, body').animate({ scrollTop: 600 }, 'slow'); 
       });
-    
+  = javascript_include_tag 'application'   
   :javascript    
     $('#package-tour1 :first').addClass('active');
     $('#package-tour2 :first').addClass('active');
