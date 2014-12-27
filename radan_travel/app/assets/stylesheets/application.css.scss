@@ -325,3 +325,16 @@ ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 bottom: 3%;
 text-align: center;
 width: 100%;}
+.city-cat {width:150px;  height:50px; float:left;}
+.city-cat:hover {cursor:pointer;}
+.set-btn {
+  background-image: url(image-path('btn.png'));
+  background-repeat: no-repeat; 
+  height: 100%;
+  font-size: 24px;
+  padding-top: 10%;
+  }
+.set-btn:hover {opacity:.8}
+#Container .mix{
+  display: none;
+}
