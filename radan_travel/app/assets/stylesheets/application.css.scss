@@ -229,7 +229,8 @@ p.title-tour { border-radius:9px;
 
 .footer  { background:#2B2B2B; margin-top:5%; position:relative; padding:2%;}
 .footer a{color:#76c38e;}
-.footer .fa input {font-family:khodkar;}
+.footer .fa input[type="reset"], .footer .fa input[type="submit"] {font-family:khodkar;}
+.footer .fa input[type="reset"]:hover, .footer .fa input[type="submit"]:hover {background:#609370;}
 .footer .en input {font-family:Arial;}
 .footer .ar input {font-family:arabswell;}
 .footer a:hover, .footer h4, .footer h3, .footer p, .footer b, .footer span{color:#fff;}
