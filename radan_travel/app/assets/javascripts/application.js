@@ -14,13 +14,11 @@
 //= require jquery-ui-1.10.4
 //= require ahoy
 //= require jquery_ujs
-
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require html5shiv.min
 //= require modernizr.custom
-
 //= require md5
 //= require bootstrap
 //= require jquery.smooth-scroll

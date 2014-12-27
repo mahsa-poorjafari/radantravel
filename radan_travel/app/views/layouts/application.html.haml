@@ -135,9 +135,9 @@
   - if is_admin?
     .admin-menu
       = render 'shared/admin_menu'
-  - unless current_page?('/') 
-    = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
-      = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+  
+  = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
+    = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
     
   - unless current_page?('/') 
     :javascript

@@ -338,7 +338,7 @@ width: 100%;}
   padding-top: 10%;
   }
 .set-btn:hover {opacity:.8}
-#Container .mix{
+#Container .mix, #Container1 .mix, #Containe2 .mix{
   display: none;
 }
 .nav-tabs > li {min-width:170px; min-height:45px;}
@@ -352,9 +352,8 @@ ul#SightsTab {margin-top:40px}
   background-color: #E5E5E5;
   }
 .nav-tabs > li.active , .nav-tabs > li:hover {background-color: #E5E5E5;}
-.nav-tabs > li span.location {  
-  background-repeat: no-repeat; 
-  
+span.location {  
+  background-repeat: no-repeat;  
   position:absolute;
   width: 50px;
   height: 45px;
@@ -363,12 +362,18 @@ ul#SightsTab {margin-top:40px}
   -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
   transition: all .5s;
   }
-.nav-tabs > li span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
-.nav-tabs > li span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -50px;}
-.nav-tabs > li.fa span.location, .nav-tabs > li.ar span.location-icon {right:0;}
-.nav-tabs > li.en span.location {left:0;}
+span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
+span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -50px;}
+.fa span.location,.ar span.location-icon {right:0;}
+ span.location {left:0;}
 
-.nav-tabs > li.fa  span.country-title-tab, .country-tabs .nav-tabs > li.ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
-.nav-tabs > li.en  span.country-title-tab {left:50px;position: absolute;  top: 10%; }
-.nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location {background-position: 0 0;}
+.fa  span.country-title-tab, .ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
+.en  span.country-title-tab {left:50px;position: absolute;  top: 10%; }
+.nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
+ .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
 
+.show-tours {min-width:200px;}
+.city-title-filter {position:relative;}
+.city-title-filter.fa .city-cat{position:relative; float:right; font-size:22px;}
+.fa #iran-hotel span , .fa #world-hotel span{font-size:22px;}
+.anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
