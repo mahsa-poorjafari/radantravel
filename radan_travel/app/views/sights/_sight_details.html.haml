@@ -1,7 +1,7 @@
 
 .tab-pane.fade.in.country-details{:role => "tabpanel", :id => 'city'+all_city.id.to_s}      
   - if all_city.sights.present?
-    - all_city.sights.each_with_index do |sight|
+    - all_city.sights.each do |sight|
       .tours-index
         = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
           %h5.tour-title{:id => 'sight-'+sight.id.to_s}= sight.title
