@@ -21,6 +21,7 @@
             %ul{:style => "list-type:circle"}
         .col-xs-6
           = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید.", :class => " form-control "
+          
           #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
           .form-group
             #location-tour-city-label= location.label "شهر مورد نظر را با کلیک انتخاب کنید", :class => "control-label location-city-label"         
@@ -54,9 +55,6 @@
         .form-group
           = location.label "توضیحات تکمیلی", :class => "control-label" 
           = location.text_field :description , :class => " form-control" 
-
-
-    
   .form-group
     = location.submit 'ثبت', :class => "btn btn-primary"
 :javascript
@@ -64,8 +62,6 @@
     w = $('#locationtour_hotel_id').val();
     $('#h').val(function( index, value ) {
       return value + w +",";
-    });     
-   
-    $('#list_hotels').append('<li>' + $('#locationtour_hotel_id option:selected').text() + '</li>');
-    
+    }); 
+    $('#list_hotels').append('<li>' + $('#locationtour_hotel_id option:selected').text() + '</li>');    
   });

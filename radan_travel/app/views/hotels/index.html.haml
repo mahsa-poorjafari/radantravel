@@ -1,16 +1,40 @@
-.margin3  
-  %h1{:title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}=' لیست هتلها'
+.margin3 
+  
   -if is_admin?
     = link_to 'معرفی هتل جدید', new_hotel_path, :class => "btn btn-success", :title => "آژانس_هواپیمایی_رادان_سیر"  
   .col-xs-12      
     .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+  
   .col-xs-12
-    .col-xs-6
-      .continent-cat.set-center{'divname' => 'local-hotels'}= t('local-hotels')
-      
-    .col-xs-6{:style => "position:relative"}
-      .continent-cat{'divname' => 'foreign-hotels'}= t('foreign-hotels')
-        
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('local-hotels')
+  .show-tours.col-xs-12.set-center#Container
+    - @hotels.each_with_index do |hotel, i|
+      .tours-index.mix{:class => "category-" + hotel.city.country.id.to_s, "data-my-order" => hotel.id}
+        = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
+          %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
+          - if hotel.photos.present?
+            .hover.panel{:id => "item-"+ (i+1).to_s}
+              .front
+                .pad.tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+              .back
+                .pad.tour-sample-image= image_tag hotel.photos.last.image(:medium), :id => "tour-sample-image-" + hotel.photos.last.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+          .clear-float 
+          .some-info 
+            %p
+              %span=image_tag 'Star.png'
+              - if hotel.class_hotel_id.present?
+                %span.en= hotel.class_hotel.title
+            %p= hotel.city.country.title + ' , ' + hotel.city.title
+        -if is_admin?
+          .admin-btn-tour
+            = link_to 'مشاهده', hotel, :class => "btn btn-warning"   , :title => "آژانس_هواپیمایی_رادان_سیر"    
+            = link_to 'ویرایش', edit_hotel_path(hotel), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
+            = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
+    
+  .col-xs-12
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('foreign-hotels') 
   .show-tours.col-xs-12.set-center#Container
     - @hotels.each_with_index do |hotel, i|
       .tours-index.mix{:class => "category-" + hotel.city.country.id.to_s, "data-my-order" => hotel.id}
@@ -38,11 +62,7 @@
   $(function(){
     $('#Container').mixItUp();  
   });
-  $('.continent-cat').click(function(){
-    var divd = $(this).attr('divname');
-    $('#'+divd).toggle(1000);
-  });
-
+ 
 
   $(document).ready(function(){    
     $('.hover').eachStep(700, function(i, el, duration){      

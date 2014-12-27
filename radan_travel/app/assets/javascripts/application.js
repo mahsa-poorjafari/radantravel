@@ -13,6 +13,7 @@
 //= require jquery-1.10.2
 //= require jquery-ui-1.10.4
 //= require ahoy
+//= require jquery_ujs
 
 //= require ckeditor/init
 //= require jquery_nested_form

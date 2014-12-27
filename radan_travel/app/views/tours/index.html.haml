@@ -1,5 +1,4 @@
-.margin3
-  %h1{:class => I18n.locale}= t('tour.tours')
+.margin3  
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
   .col-xs-12{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}  

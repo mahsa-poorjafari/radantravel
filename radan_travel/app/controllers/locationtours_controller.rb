@@ -11,9 +11,12 @@ class LocationtoursController < ApplicationController
   # GET /locationtours/1.json
   def show
   end
-  def dynamic_city
+  def dynamic_city    
     p country_id = params[:country_list]
     p @city = City.where( country_id: country_id)
+    respond_to do |format|
+      format.js
+    end
   end
   def dynamic_hotel 
     p '--------city_id -----------'
