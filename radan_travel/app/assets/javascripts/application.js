@@ -16,18 +16,17 @@
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
+//= require html5shiv.min
+//= require modernizr.custom
 //= require ahoy
+//= require Gruntfile
 //= require md5
 //= require bootstrap
-//= require modernizr.custom
-//= require zoomSlider
-//= require demos
-//= require Gruntfile
-//= require html5shiv.min
-//= require jquery.desoslide.min
 //= require jquery.smooth-scroll
 //= require lightbox-2.6.min
 //= require jquery.mixitup
 //= require jquery.eachStep.min
-
+//= require zoomSlider
+//= require demos
+//= require jquery.desoslide.min
 
