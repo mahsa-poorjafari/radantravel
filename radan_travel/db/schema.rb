@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141220131038) do
+ActiveRecord::Schema.define(version: 20141227135216) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20141220131038) do
     t.string   "title_ar"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   create_table "countries", force: true do |t|
