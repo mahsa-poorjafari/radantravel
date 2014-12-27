@@ -24,7 +24,6 @@ module RadanTravel
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     
-    Rails.application.config.assets.precompile += %w( expressInstall.swf )
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     
