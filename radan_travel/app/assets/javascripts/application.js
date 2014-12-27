@@ -19,7 +19,7 @@
 //= require dataTables/jquery.dataTables
 //= require html5shiv.min
 //= require modernizr.custom
-//= require Gruntfile
+
 //= require md5
 //= require bootstrap
 //= require jquery.smooth-scroll
