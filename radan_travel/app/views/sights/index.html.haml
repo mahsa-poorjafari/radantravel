@@ -16,8 +16,8 @@
       .tab-content.col-xs-12.pull-right{:style=>'background-color:transparent; box-shadow:none'}
         - City.all.each do |all_city|
           = render 'sights/sight_details', :all_city => all_city   
-    
-      
+  .col-xs-12  
+    %h5{:class => I18n.locale}= t('iran-tours')    
     
 :javascript
   

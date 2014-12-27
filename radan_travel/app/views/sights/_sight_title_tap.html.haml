@@ -1,11 +1,3 @@
-
-%h5{:class => I18n.locale}= t('iran-tours')
-- Tour.all.each do  |tour|    
-  - if tour.country.present?
-    - if tour.country.title_fa == 'ایران'        
-      %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}
-        = link_to tour.title, '#tour'+tour.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +tour.title_fa, :id => 'city-'+ tour.id.to_s
-.clear-float
 %h5{:class => I18n.locale}= t('local-sights')
 - @inner_sights.each do  |city|
   - if city.sights.present?    
