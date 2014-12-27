@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.ui.all
+//= require jquery-1.10.2
+//= require jquery-ui-1.10.4
+//= require ahoy
+
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require dataTables/jquery.dataTables
 //= require html5shiv.min
 //= require modernizr.custom
-//= require ahoy
 //= require Gruntfile
 //= require md5
 //= require bootstrap
