@@ -6,7 +6,7 @@
     .col-xs-4
     .col-xs-4
       .col-xs-6{:class => I18n.locale}
-        = link_to  '#iran', :id => "iran-hotel", :title => "آژانس هواپیمایی رادان سیر" do
+        = link_to hotels_path(:anchor => 'iran') do        
           %span= image_tag 'world.png'
           %span=  t('local-hotels')     
       .col-xs-6{:class => I18n.locale}
