@@ -373,7 +373,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
  .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
 
 .show-tours {min-width:200px;}
-.city-title-filter {position:relative;}
+.city-title-filter {position:relative; margin-top:5%; margin-bottom:5%}
 .city-title-filter.fa .city-cat{position:relative; float:right; font-size:22px;}
 #iran-hotel span ,#world-hotel span{color:#1A1A1A;}
 #iran-hotel:hover span ,#world-hotel:hover span{color:#791313;}

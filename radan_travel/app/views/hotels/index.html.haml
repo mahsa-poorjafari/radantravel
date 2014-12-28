@@ -19,7 +19,7 @@
     = link_to '', '#', :name => "#iran", :id => "local-hotels", :title => "آژانس هواپیمایی رادان سیر"
     .title-tour-line.col-xs-10
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('local-hotels')
-  .col-xs-12.city-title-filter.margin-bottom{:class => I18n.locale}
+  .col-xs-12.city-title-filter{:class => I18n.locale}
     -#
       .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
     - @iran = Country.find_by_title_fa('ایران')
@@ -60,7 +60,7 @@
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('foreign-hotels') 
     -#
       .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
-  .col-xs-12.city-title-filter.margin-bottom{:class => I18n.locale}    
+  .col-xs-12.city-title-filter{:class => I18n.locale}    
     - @world = Country.find_by_title_fa(!'ایران')
     - @world.cities.each do |city|
       -if city.hotels.present?
