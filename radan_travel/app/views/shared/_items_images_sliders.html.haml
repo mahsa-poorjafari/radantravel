@@ -1,18 +1,18 @@
 #sliderFrame
   - @numb_slide = model.photos.count
-  - if @numb_slide >1 
-    #slider
-      - model.photos.each do |pic|
-        = link_to (image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa )   , :class => "lazyImage"
-      
+  
+  #slider
+    - model.photos.each do |pic|
+      = link_to (image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa )   , :class => "lazyImage"
     
-    / thumbnails
-    #thumbs
-      - model.photos.each do |pic|
-        .thumb
-          = image_tag pic.image(:tumb), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa
-        
-  - else
-    .col-xs-12.one-slide{:style => "padding:0; position: initial;"}
-      = image_tag model.photos.first.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
+  
+  / thumbnails
+  #thumbs
+    - model.photos.each do |pic|
+      .thumb
+        = image_tag pic.image(:tumb), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa
+  -#      
+    - else
+      .col-xs-12.one-slide{:style => "padding:0; position: initial;"}
+        = image_tag model.photos.first.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
 
