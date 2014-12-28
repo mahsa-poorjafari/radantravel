@@ -1,28 +1,28 @@
 .margin3  
+  %h1.title-tours{:class => I18n.locale}=  @hotel.title
+  -if is_admin?    
+    = link_to 'ویرایش', edit_hotel_path(@hotel), :class => "btn btn-info"
   .col-xs-12.margin-bottom
-    %h1   
-      = @hotel.title
-    %p
-      %b توضیحات تکمیلی
-      =raw @hotel.text
-    %p
-      %b شهر محل هتل
-      = @hotel.city.title
-    %p
-      - if @hotel.class_hotel_id.present?
-        %b درجه هتل
-        = @hotel.class_hotel.title
-    %p
-      %b امکانات هتل
-      = @hotel.hotel_facilities
-  .col-xs-12
-    - @hotel.photos.each do |pic|      
-      .image-row
-        .image-set
-          = link_to pic.image(:original), "data-lightbox" => "example-set", :class => "hotel-img", :title => 'آژانس هواپیمایی رادان سیر_' + @hotel.title do
-            = image_tag pic.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + @hotel.title, :alt => 'آژانس هواپیمایی رادان سیر_' + @hotel.title
-        
-    -if is_admin?
-      .admin-btn-tour
-        = link_to 'ویرایش', edit_hotel_path(@hotel), :class => "btn btn-info"
+    .col-xs-7        
+      = render 'shared/items_images_sliders', :model => @hotel
+    .col-xs-5
+      %p
+        %b توضیحات تکمیلی
+        =raw @hotel.text
+      %p
+        %b محل هتل
+        = @hotel.city.country.title + ' - '+ @hotel.city.title
+      %p
+        - if @hotel.class_hotel_id.present?
+          %b درجه هتل
+          %p
+            %span=image_tag 'Star.png'
+            = @hotel.class_hotel.title
+      %p
+        %b امکانات هتل
+        = @hotel.hotel_facilities
+  
+    
+  .clear-float    
+  
 

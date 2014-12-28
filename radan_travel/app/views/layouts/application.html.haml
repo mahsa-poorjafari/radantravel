@@ -52,6 +52,13 @@
       .yield.clear-float{:class => I18n.locale}
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
         = yield
+        - if current_page?('/') 
+          .keywords.col-xs-12         
+            %p= t('Keywords.title')
+            %ul.tag-cloud{:class => I18n.locale}
+              %li.tag-cloud
+                = link_to t('radantravel'), '/' 
+            
       .footer.col-xs-12 
         .contact-box.col-xs-3.pull-right       
           .contact-form.pull-right{:class => I18n.locale}

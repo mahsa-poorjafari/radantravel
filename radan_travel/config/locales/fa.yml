@@ -91,7 +91,7 @@ fa:
     get-file: 'دریافت فایل'
     
     
-  show-all-tours: 'نمایش همه'
+  show-all-tours: 'نمایش تورهای تفریحی'
   tour_comment:
     user-name: 'نام خود را وارد کنید'
     user-email: 'ایمیل خود را وارد کنید'
@@ -134,3 +134,7 @@ fa:
     kid_and_bed: 'کودک با تخت، ۶ تا ۱۲ سال'
     kid_no_bed: 'کودک بدون تخت، ۲ تا ۶ سال'
     description: 'توضیحات'
+  Keywords:
+    title:  'کلمات کلیدی'
+  
+    

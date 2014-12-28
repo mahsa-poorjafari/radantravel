@@ -1,5 +1,5 @@
 - Country.all.each do  |country|
   %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر",:class => I18n.locale}
     = link_to  '#country'+country.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +country.title_fa, :id => 'country-'+ country.id.to_s, :class => "country-name" do
-      %span.location.world
+      %span.location= image_tag country.country_flag(:small)
       %span.country-title-tab= country.title

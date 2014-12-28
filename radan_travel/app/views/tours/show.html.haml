@@ -35,9 +35,9 @@
             - else
               = render 'tours/tour_info_table_fa', :tour => @tour
       
-    .col-xs-12.margin-bottom
-      .col-xs-7        
-        = render 'shared/slider_tumbnail', :model => @tour
+    .col-xs-12.margin-bottom      
+      .col-xs-7
+        = render 'shared/items_images_sliders', :model => @tour      
       .col-xs-5.comment-box
         - if flash[:SendComment].present?
           .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')

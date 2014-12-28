@@ -384,3 +384,6 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#A52A2A;}
 .fa .continent .country-title-tab{font-size:30px;right: 70px;
 top: 23px;}
+ul.tag-cloud.fa li.tag-cloud a {font-family: 'open_sansregular'; color:#E6E6FA;}
+ul.tag-cloud.fa li.tag-cloud a:hover {color:#FFFFFF;}
+.fa .country-name:hover .country-title-tab, .fa.active .country-name .country-title-tab {color:#6D1212;}
