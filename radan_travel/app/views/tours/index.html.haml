@@ -1,14 +1,16 @@
 .margin3  
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
-  .col-xs-12{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}  
-    .filter.continent{"data-filter" => "all"}      
-      %span.location= image_tag 'world.png'
-      %span.country-title-tab= t('show-all-tours')
+  .col-xs-1
+  .col-xs-10{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
     - ContinentCategory.all.each do |continent|      
       .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
         %span.location= image_tag continent.icon(:original)
         %span.country-title-tab= continent.title
+    .filter.continent{"data-filter" => "all"}
+      %span.location= image_tag 'world.png'
+      %span.country-title-tab= t('show-all-tours')
+  .col-xs-1
   .clear-float      
   .show-tours.col-xs-12.set-center#Container
     - @tours.each_with_index do |tour|      
