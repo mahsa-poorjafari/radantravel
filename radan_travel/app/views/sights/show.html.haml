@@ -3,10 +3,10 @@
   - if is_admin?
     = link_to 'ویرایش', edit_sight_path(@sight), :class => "btn btn-info" 
   .tour-details
-    .col-xs-12        
-      .col-xs-7        
-        = render 'shared/items_images_sliders', :model => @sight
-      .col-xs-5=raw @sight.text
+    .col-xs-12=raw @sight.text        
+    .col-xs-12       
+      = render 'shared/items_images_sliders', :model => @sight
+    
       
   
   
