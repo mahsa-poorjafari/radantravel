@@ -321,7 +321,8 @@ ul.sub-menu li{width:100%; margin:0; padding:5%; }
 ul.sub-menu li.en{text-align:left}
 ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 .comment-box {background-image: url(image-path('halftone.png'));
-  background-repeat: repeat; }
+  background-repeat: repeat;
+  margin-top:5%; }
 .title-tours {text-align:center; padding:1%; margin:1%;}
 .hotel-hover span{color:#fff}
 .some-info {position: absolute;
@@ -389,3 +390,4 @@ ul.tag-cloud.fa li.tag-cloud a {font-family: 'open_sansregular'; color:#E6E6FA;}
 ul.tag-cloud.fa li.tag-cloud a:hover {color:#FFFFFF;}
 .fa .country-name:hover .country-title-tab, .fa.active .country-name .country-title-tab {color:#6D1212;}
 .one-slide img {width:100%; }
+.mc-caption {display:none}

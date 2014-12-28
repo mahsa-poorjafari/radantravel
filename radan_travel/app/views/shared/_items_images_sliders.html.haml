@@ -1,39 +1,18 @@
-#items-wrapper
+#sliderFrame
   - @numb_slide = model.photos.count
   - if @numb_slide >1 
-    #zoom-slider.items-slider    
+    #slider
       - model.photos.each do |pic|
-        = image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
+        = link_to (image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa )   , :class => "lazyImage"
+      
+    
+    / thumbnails
+    #thumbs
+      - model.photos.each do |pic|
+        .thumb
+          = image_tag pic.image(:tumb), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa
+        
   - else
     .col-xs-12.one-slide{:style => "padding:0; position: initial;"}
       = image_tag model.photos.first.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
-  .items-footer-slider
-    %div{:style => "float:left;"}
-      = link_to '', '#', :class => "navPrev", "onclick" => "zoomSlider.previous()"
-      = link_to '', '#', :id => "auto", "onclick" => "switchAutoAdvance()"
-      = link_to '', '#', :class => "navNext","onclick" => "zoomSlider.next()"
 
-    %span#thumbs
-      - model.photos.each do |pic|
-        %span
-          = image_tag pic.image(:tumb), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
-        
-:javascript
-  //The following script is for custom navigation buttons.
-  function switchAutoAdvance() {
-      zoomSlider.switchAuto();
-      switchPlayPauseClass();
-  }
-  function switchPlayPauseClass() {
-      var auto = document.getElementById('auto');
-      if (auto) {
-          var isAutoPlay = zoomSlider.getAuto();
-          auto.className = isAutoPlay ? "navPause" : "navPlay";
-          auto.title = isAutoPlay ? "Pause" : "Play";
-      }
-  }
-  switchPlayPauseClass();
-
-
-  //Change the captionEffect. It is recommended to set { captionEffect: "fade" } directly through the zoomSliderOptions in the javascript file instead of using the approach below
-  zoomSlider.changeOptions({ captionEffect: "fade" });

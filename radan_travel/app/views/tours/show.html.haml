@@ -35,10 +35,10 @@
             - else
               = render 'tours/tour_info_table_fa', :tour => @tour
       
-    .col-xs-12.margin-bottom      
-      .col-xs-7
-        = render 'shared/items_images_sliders', :model => @tour      
-      .col-xs-5.comment-box
+    .col-xs-12     
+      = render 'shared/items_images_sliders', :model => @tour      
+    .col-xs-12.margin-bottom   
+      .col-xs-5.comment-box.pull-right
         - if flash[:SendComment].present?
           .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')
         .tour-comments
@@ -52,3 +52,4 @@
                 %b= comment.user_name
                 %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
                 %p= comment.text
+      .clear-float

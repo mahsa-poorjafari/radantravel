@@ -26,4 +26,6 @@
 //= require jquery.eachStep.min
 //= require zoomSlider
 //= require jquery.smooth-scroll
+//= require js-image-slider
+
 
