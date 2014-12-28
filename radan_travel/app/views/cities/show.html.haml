@@ -12,10 +12,10 @@
     .city.text.12
       =raw @city.text
       
-    .col-xs-6
-      - @city.photos.each do |pic|
-        .city-image
-          = image_tag pic.image(:medium)
+    
+    .col-xs-12     
+      = render 'shared/items_images_sliders', :model => @city   
+    
     .clear-float
     
     .col-xs-12
