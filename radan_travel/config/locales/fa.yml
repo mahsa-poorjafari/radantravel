@@ -92,6 +92,7 @@ fa:
     
     
   show-all-tours: 'نمایش تورهای تفریحی'
+  show-all: 'نمایش همه'
   tour_comment:
     user-name: 'نام خود را وارد کنید'
     user-email: 'ایمیل خود را وارد کنید'

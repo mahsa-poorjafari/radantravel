@@ -1,8 +1,12 @@
 #items-wrapper
-  #zoom-slider.items-slider
-    - model.photos.each do |pic|
-      = image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
-    
+  - @numb_slide = model.photos.count
+  - if @numb_slide >1 
+    #zoom-slider.items-slider    
+      - model.photos.each do |pic|
+        = image_tag pic.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
+  - else
+    .col-xs-12.one-slide{:style => "padding:0; position: initial;"}
+      = image_tag model.photos.first.image(:original), :title => "آژانس_هواپیمایی_رادان_سیر", :alt =>  "آژانس_هواپیمایی_رادان_سیر- تور "+ model.title_fa    
   .items-footer-slider
     %div{:style => "float:left;"}
       = link_to '', '#', :class => "navPrev", "onclick" => "zoomSlider.previous()"

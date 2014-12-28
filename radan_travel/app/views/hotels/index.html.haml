@@ -21,7 +21,7 @@
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('local-hotels')
   .col-xs-12.city-title-filter{:class => I18n.locale}
     -#
-      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all')
     - @iran = Country.find_by_title_fa('ایران')
     - @iran.cities.each do |city|
       -if city.hotels.present?
