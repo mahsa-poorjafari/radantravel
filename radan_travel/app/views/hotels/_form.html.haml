@@ -52,6 +52,9 @@
         = f.label "برای افزودن تصاویر برای این پروژه دکمه زیر را فشار دهید و در کادری که نمایش داده می شود تصویر مورد نظر را انتخاب کنید:", :class => "control-label"
         = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
         = f.link_to_add content_tag(:span, "افزودن تصویر" , :class => "btn btn-warning"), :photos, :id => "add_new_picture", :class => "btn"      
+      .form-group
+          = f.label 'درقسمت پیشنهاد ویژه قرار بگیرد؟', :class => "control-label"
+          = f.check_box :offer, :class => "form-control"
     .col-xs-12
       .form-group.editor
         = f.label 'متن فارسی', :class => "control-label"

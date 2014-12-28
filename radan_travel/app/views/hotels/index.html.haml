@@ -7,52 +7,43 @@
     .col-xs-4
       .col-xs-6{:class => I18n.locale}
         = link_to hotels_path(:anchor => 'iran'), :id => "iran-hotel" do        
-          %span= image_tag 'iran.png'
-          %span=  t('local-hotels')     
+          %span= image_tag 'offer.png'
+          %span=  t('best-offer')     
       .col-xs-6{:class => I18n.locale}
         = link_to   '#world', :id => "world-hotel", :title => "آژانس هواپیمایی رادان سیر" do
           %span= image_tag 'world.png'
           %span=  t('foreign-hotels')
     .col-xs-4
-  
-  .col-xs-12
-    = link_to '', '#', :name => "#iran", :id => "local-hotels", :title => "آژانس هواپیمایی رادان سیر"
-    .title-tour-line.col-xs-10
-    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('local-hotels')
-  .col-xs-12.city-title-filter{:class => I18n.locale}
-    -#
-      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all')
-    - @iran = Country.find_by_title_fa('ایران')
-    - @iran.cities.each do |city|
-      -if city.hotels.present?
-        .filter.city-cat{"data-filter" => ".iran-city-" + city.id.to_s}
-          %span.location.iran
-          %span.country-title-tab= city.title
-  
-  .show-tours.col-xs-12.set-center#Container1    
-    - @hotels.each_with_index do |hotel, i| 
-      - if hotel.city.country.title_fa == 'ایران'
-        .tours-index.mix{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
-          = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-            %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
-            - if hotel.photos.present?
-              .hover.panel{:id => "item-"+ (i+1).to_s}
-                .front
-                  .pad.tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
-                .back
-                  .pad.tour-sample-image= image_tag hotel.photos.last.image(:medium), :id => "tour-sample-image-" + hotel.photos.last.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
-            .clear-float 
-            .some-info 
-              %p
-                %span=image_tag 'Star.png'
-                - if hotel.class_hotel_id.present?
-                  %span.en= hotel.class_hotel.title
-              %p= hotel.city.country.title + ' , ' + hotel.city.title
-          -if is_admin?
-            .admin-btn-tour
-              = link_to 'مشاهده', hotel, :class => "btn btn-warning"   , :title => "آژانس_هواپیمایی_رادان_سیر"    
-              = link_to 'ویرایش', edit_hotel_path(hotel), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
-              = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
+  - if @hotels_offer.count > 0
+    .col-xs-12.margin-bottom
+      = link_to '', '#', :name => "#iran", :id => "local-hotels", :title => "آژانس هواپیمایی رادان سیر"
+      .title-tour-line.col-xs-10
+      %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('best-offer')
+      
+    .show-tours.col-xs-12.set-center#Container1    
+      - @hotels.each_with_index do |hotel, i| 
+        - if hotel.offer?
+          .tours-index.mix{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
+            = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
+              %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
+              - if hotel.photos.present?
+                .hover.panel{:id => "item-"+ (i+1).to_s}
+                  .front
+                    .pad.tour-sample-image= image_tag hotel.photos.first.image(:medium), :id => "tour-sample-image-" + hotel.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+                  .back
+                    .pad.tour-sample-image= image_tag hotel.photos.last.image(:medium), :id => "tour-sample-image-" + hotel.photos.last.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
+              .clear-float 
+              .some-info 
+                %p
+                  %span=image_tag 'Star.png'
+                  - if hotel.class_hotel_id.present?
+                    %span.en= hotel.class_hotel.title
+                %p= hotel.city.country.title + ' , ' + hotel.city.title
+            -if is_admin?
+              .admin-btn-tour
+                = link_to 'مشاهده', hotel, :class => "btn btn-warning"   , :title => "آژانس_هواپیمایی_رادان_سیر"    
+                = link_to 'ویرایش', edit_hotel_path(hotel), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
+                = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
     
   .col-xs-12
     = link_to '', '#', :name => "#world", :id => "foreign-hotels", :title => "آژانس هواپیمایی رادان سیر"
