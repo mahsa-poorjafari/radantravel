@@ -16,7 +16,10 @@
     - @tours.each_with_index do |tour|      
       .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present? ), "data-my-order" => tour.id}
         = link_to tour, :class => "tour-box" do
-          %h5.tour-title{:class => I18n.locale}= tour.title
+          - if tour.country.present? && tour.country.title_fa == 'ایران'
+            %h5.tour-title.en= tour.title
+          - else
+            %h5.tour-title{:class => I18n.locale}= tour.title
           - if tour.photos.present?
             .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
           .clear-float
