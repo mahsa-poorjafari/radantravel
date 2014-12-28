@@ -48,7 +48,7 @@
         = render 'shared/multi_slider_visit_iran'
       - else
         = render 'shared/multi_slider_search_tour', :tours => Tour.all
-      = link_to '', '#', :name => "#top", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
+      = link_to '', '#', :name => "#top", :id => "page-top", :title => "آژانس هواپیمایی رادان سیر"
       .yield.clear-float{:class => I18n.locale}
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
         = yield
@@ -136,20 +136,20 @@
     .admin-menu
       = render 'shared/admin_menu'
   
-  = link_to '#top', :id => "anchor1", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
-    = image_tag 'gotop.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
+  = link_to '#top', :id => "go-top-page", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
+    = image_tag 'gotop.png', :title => "بازگشت به بالای صفحه", :alt => "آژانس هواپیمایی رادان سیر - بازگشت به بالای صفحه"
     
-  - unless current_page?('/') 
-    :javascript
-      $(document).ready(function() {
-        $('html, body').animate({ scrollTop: 600 }, 'slow'); 
-      });
+  
   
   :javascript    
     $('#package-tour1 :first').addClass('active');
     $('#package-tour2 :first').addClass('active');
     $('.fa_date').datepicker();
-    $('a#anchor1').smoothScroll();
+    $('a#go-top-page').smoothScroll();
+    
+    $(document).ready(function() {
+      $('html, body').animate({ scrollTop: 600 }, 'slow'); 
+    });
     
     $(document).ready(function() {
       $('#search-tour .tour-search-box').click(function(){

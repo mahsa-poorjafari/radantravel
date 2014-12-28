@@ -17,7 +17,9 @@
     -if location.hotels.collect(&:title_fa).present?
       .col-xs-2.td
         - location.hotels.each do |hotel|
-          %p{:style => "text-align:center"}= link_to hotel.title, hotel_url(hotel.title)
+          %p{:style => "text-align:center"}
+            - if hotel.title.present?
+              = link_to hotel.title, hotel_url(hotel.title)
     .col-xs-1.td
       - if location.hotels.present?
         - if location.hotels.first.class_hotel.present?

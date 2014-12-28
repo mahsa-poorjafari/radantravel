@@ -6,8 +6,8 @@
     .col-xs-4
     .col-xs-4
       .col-xs-6{:class => I18n.locale}
-        = link_to hotels_path(:anchor => 'iran') do        
-          %span= image_tag 'world.png'
+        = link_to hotels_path(:anchor => 'iran'), :id => "iran-hotel" do        
+          %span= image_tag 'iran.png'
           %span=  t('local-hotels')     
       .col-xs-6{:class => I18n.locale}
         = link_to   '#world', :id => "world-hotel", :title => "آژانس هواپیمایی رادان سیر" do
@@ -16,11 +16,12 @@
     .col-xs-4
   
   .col-xs-12
-    = link_to '', '#', :name => "#iran", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
+    = link_to '', '#', :name => "#iran", :id => "local-hotels", :title => "آژانس هواپیمایی رادان سیر"
     .title-tour-line.col-xs-10
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('local-hotels')
   .col-xs-12.city-title-filter.margin-bottom{:class => I18n.locale}
-    .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+    -#
+      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
     - @iran = Country.find_by_title_fa('ایران')
     - @iran.cities.each do |city|
       -if city.hotels.present?
@@ -54,11 +55,12 @@
               = link_to 'حذف', hotel, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
     
   .col-xs-12
-    = link_to '', '#', :name => "#world", :id => "myAnchor", :title => "آژانس هواپیمایی رادان سیر"
+    = link_to '', '#', :name => "#world", :id => "foreign-hotels", :title => "آژانس هواپیمایی رادان سیر"
     .title-tour-line.col-xs-10
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('foreign-hotels') 
-  .col-xs-12.city-title-filter.margin-bottom{:class => I18n.locale}
-    .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+    -#
+      .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
+  .col-xs-12.city-title-filter.margin-bottom{:class => I18n.locale}    
     - @world = Country.find_by_title_fa(!'ایران')
     - @world.cities.each do |city|
       -if city.hotels.present?
@@ -97,8 +99,7 @@
   $(function(){
     $('#Container2').mixItUp();  
   });
-  $('a#iran-hotel').smoothScroll();
-  $('a#world-hotel').smoothScroll();
+  
   $(document).ready(function(){    
     $('.hover').eachStep(700, function(i, el, duration){      
       $(el).addClass('flip');

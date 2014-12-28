@@ -375,9 +375,12 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .show-tours {min-width:200px;}
 .city-title-filter {position:relative;}
 .city-title-filter.fa .city-cat{position:relative; float:right; font-size:22px;}
-.fa #iran-hotel span , .fa #world-hotel span{font-size:22px;}
+#iran-hotel span ,#world-hotel span{color:#1A1A1A;}
+#iran-hotel:hover span ,#world-hotel:hover span{color:#791313;}
+.fa #iran-hotel span , .fa #world-hotel span{font-size:22px; }
 .anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
-.continent {position:relative}
+.continent {position:relative; width:190px;  height:50px; float:left;}
+.continent:hover {cursor:pointer;}
 .continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#A52A2A;}
 .fa .continent .country-title-tab{font-size:30px;right: 70px;
 top: 23px;}

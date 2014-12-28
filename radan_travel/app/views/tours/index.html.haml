@@ -2,10 +2,11 @@
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
   .col-xs-12{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}  
-    .filter.continent-cat.city-cat{"data-filter" => "all"}
-      .set-btn= t('show-all-tours')
+    .filter.continent{"data-filter" => "all"}      
+      %span.location= image_tag 'world.png'
+      %span.country-title-tab= t('show-all-tours')
     - ContinentCategory.all.each do |continent|      
-      .filter.city-cat.continent{"data-filter" => ".category-" + continent.id.to_s}
+      .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
         %span.location= image_tag continent.icon(:original)
         %span.country-title-tab= continent.title
   .clear-float      
