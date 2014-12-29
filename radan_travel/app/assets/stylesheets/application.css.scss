@@ -394,10 +394,5 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .mc-caption {display:none}
 .sight-des, .sight-des  p {
   position:relative; text-align:justify;
-  -webkit-column-gap: 40%; /* Chrome, Safari, Opera */
-  -moz-column-gap: 40%; /* Firefox */
-  column-gap: 40%;
-  -webkit-column-count: 2; /* Chrome, Safari, Opera */
-  -moz-column-count: 2; /* Firefox */
-  column-count: 2;
+  
 }
