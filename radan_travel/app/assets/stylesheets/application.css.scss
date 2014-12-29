@@ -277,6 +277,7 @@ p.title-tour { border-radius:9px;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
 }
+.tour-box .tour-title.en {font-size:13px;}
 .tour-box:hover .tour-title{background:#A52A2A; color:#fff}
 .tour-box .tour-sample-image img{width:100%;  height:90%; margin-top:-2px;}
 .tour-date {position: absolute;  
