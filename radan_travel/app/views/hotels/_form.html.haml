@@ -53,8 +53,12 @@
         = f.label "دقت داشته باشید حجم هر عکس باید کمتر از ۵۰۰کیلوبایت باشد.", :class => "control-label", :style=> "color:#ec523f"
         = f.link_to_add content_tag(:span, "افزودن تصویر" , :class => "btn btn-warning"), :photos, :id => "add_new_picture", :class => "btn"      
       .form-group
-          = f.label 'درقسمت پیشنهاد ویژه قرار بگیرد؟', :class => "control-label"
+        .col-xs-8
+        .col-xs-4
+          = f.label 'درقسمت پیشنهاد ویژه قرار بگیرد؟', :class => "control-label "
+          %i= 'تیک مقابل را فعال کنید'
           = f.check_box :offer, :class => "form-control"
+        .clear-float
     .col-xs-12
       .form-group.editor
         = f.label 'متن فارسی', :class => "control-label"
