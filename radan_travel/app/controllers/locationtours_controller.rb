@@ -76,7 +76,7 @@ class LocationtoursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def locationtour_params
-      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed, :description, :price_three_bed)
+      params.require(:locationtour).permit(:hotel_id, :city_id, :tour_id, :price_two_bed, :price_one_bed, :price_kid_and_bed, :price_kid_without_bed, :description, :price_three_bed, :custom_hotel)
     end
 end
 

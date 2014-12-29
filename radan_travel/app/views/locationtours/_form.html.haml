@@ -33,7 +33,13 @@
             = select_tag :hotel_list, options_for_select({}), prompt: "هتل را انتخاب کنید", :class => " form-control ", :id => "locationtour_hotel_id"
             %span.btn.btn-warning#add_hotel= 'Add Hotel'
             = hidden_field_tag :h
-        
+      .col-xs-12  
+        .form-group
+          %i.alert.alert-warning{:style => "font-family: 'open_sansregular';"}= 'فیلد برای وارد کردن هتل های با عنوان تعداد ستاره'          
+          %b.alert.alert-danger{:style => "font-family: 'open_sansregular';"}= 'اگر این فیلد را پر می کنید، کادرهای بالای شهر و هتل ها را پر نکنید'          
+          .clear-float
+          .col-xs-6.pull-right
+            = location.text_field :custom_hotel , :class => " form-control" , :placeholder => "نام موردنظر خود را وارد کنید."
       .clear-float
       .col-xs-6
         .form-group

@@ -16,11 +16,18 @@
     -if location.hotels.collect(&:title_fa).present?
       .col-xs-2.td.pull-right
         - location.hotels.each do |hotel|
-          %p{:style => "text-align:center"}=link_to hotel.title, hotel_url(hotel.title)
+          %p{:style => "text-align:center"}
+            - if hotel.title.present?
+              = link_to hotel.title, hotel_url(hotel.title)
+        
+    - if location.custom_hotel.present?
+      .col-xs-2.td.pull-right
+        %p{:style => "text-align:center"}=  location.custom_hotel     
     .col-xs-1.td.pull-right
-      - if location.hotels.first.class_hotel.present?
-        %span=image_tag 'Star.png'
-        %span.en= location.hotels.first.class_hotel.title
+      - if location.hotels.present?
+        - if location.hotels.first.class_hotel.present?
+          %span=image_tag 'Star.png'
+          %span.en= location.hotels.first.class_hotel.title
     .col-xs-1.td.pull-right= location.price_two_bed
     .col-xs-1.td.pull-right= location.price_one_bed
     .col-xs-1.td.pull-right= location.price_three_bed

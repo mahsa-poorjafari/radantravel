@@ -23,9 +23,13 @@
               %td
                 - location.hotels.each do |hotel|
                   %span= hotel.title_fa + ','                  
+            - if location.custom_hotel.present?
+              %td                
+                %p{:style => "text-align:center"}=  location.custom_hotel
               %td
-                - if location.hotels.first.class_hotel.present?
-                  = location.hotels.first.class_hotel.title
+                - if location.hotels.present?
+                  - if location.hotels.first.class_hotel.present?
+                    = location.hotels.first.class_hotel.title
                 
             %td= location.price_two_bed
             %td= location.price_one_bed
