@@ -69,6 +69,13 @@ ar:
   local-sights: 'معالم الجذب المحلية'
   iran-sight: 'مشاهد إيران'
   best-offer: 'عرض خاص'
+  
+  iran-visa: 'تأشيرة إيران'
+  tour-to-iran: 'واردة جولات إيران'
+  iran-sights: 'أنشطة يمكن ممارستها في إيران'
+  iran-hole: 'فنادق إيران'
+  investment-in-iran: 'الاستثمار في إيران'
+  
   sitevisit:
     statistics: 'إحصائيات'
     total-views: 'عدد المشاهدات'

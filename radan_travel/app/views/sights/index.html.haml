@@ -28,11 +28,15 @@
       - @iran.tours.each do |tour|
         .tours-index
           = link_to tour, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-            %h5.tour-title.en{:id => 'iran-tour-'+tour.id.to_s}= tour.title
+            %h5.tour-title{:id => 'iran-tour-'+tour.id.to_s, :class => I18n.locale}= tour.title
             - if tour.photos.present?
               .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
             .clear-float
-
+          .tour-date
+            - if I18n.locale == :fa
+              = render "/tours/show_persian_date", :tour => tour
+            - else  
+              = render "/tours/show_english_date", :tour => tour      
           -if is_admin?
             .admin-btn-tour
               = link_to 'ویرایش ', edit_tour_path(tour), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"

@@ -70,6 +70,14 @@ fa:
   local-sights: 'جاذبه های داخلی'
   iran-sight: 'نقاط دیدنی ایران'
   best-offer: 'پیشنهاد ویژه'
+  
+  iran-visa: 'ویزای ایران'
+  tour-to-iran: 'تورهای ورودی ایران'
+  iran-sights: 'جاذبه های دیدنی ایران'
+  iran-hole: 'هتل های ایران'
+  investment-in-iran: 'سرمایه گذاری در ایران'
+    
+  
   sitevisit:
     statistics: 'آمار سایت'
     total-views: 'کل بازدیدها تاکنون'

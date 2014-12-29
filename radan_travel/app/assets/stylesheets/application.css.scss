@@ -266,12 +266,12 @@ p.title-tour { border-radius:9px;
 .tour-sample-image { height:200px; overflow:hidden}
 .tour-box .tour-title {width: 100%;
   color:#000;
-  font-size:13px;
+  font-size:20px;
   position: relative;
   right: 0;
   left: 0;
   height: 15%;
-  padding-top: 7%;
+  padding-top: 3%;
   margin: 0;
   border-bottom: 2px solid #00DBFF;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
@@ -365,10 +365,11 @@ span.location {
   }
 span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
 span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -50px;}
-.fa span.location,.ar span.location-icon {right:0;}
+.fa span.location,.ar span.location {right:0;}
  span.location {left:0;}
 
 .fa  span.country-title-tab, .ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
+.ar  span.country-title-tab {font-size:22px;}
 .en  span.country-title-tab {left:70px;position: absolute;  top: 10%; }
 .nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
  .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
@@ -383,7 +384,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .continent {position:relative; width:190px;  height:50px; float:left; margin-bottom:5%;}
 .continent:hover {cursor:pointer;}
 .continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#A52A2A;}
-.fa .continent .country-title-tab{font-size:30px;right: 70px;
+.fa .continent .country-title-tab, .ar .continent .country-title-tab{font-size:30px;right: 70px;
   line-height:1em;
 top: 23px;}
 ul.tag-cloud li.tag-cloud a {color:#E6E6FA;}
@@ -393,6 +394,6 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .one-slide img {width:100%; }
 .mc-caption {display:none}
 .sight-des, .sight-des  p {
-  position:relative; text-align:justify;
-  
+  position:relative; text-align:justify;  
 }
+.btn.btn-success {font-family: 'open_sansregular';}

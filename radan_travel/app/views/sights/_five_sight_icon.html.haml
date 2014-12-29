@@ -1,0 +1,23 @@
+
+.col-xs-11.main-icon{:class => I18n.locale, :style => "margin-left: 10%;margin-right: 10%;"}
+  .col-xs-2.icon-box    
+    = image_tag 'visa.png'    
+    %p=link_to t('iran-visa'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر" 
+    -#
+      %p.icon-des یک متن خلاصه و یا توضیحات خلاصه قرار میگیرد.
+  .col-xs-2.icon-box
+    = image_tag 'package.png'    
+    %p= link_to  t('tour-to-iran'), Sight, :title => "آژانس_هواپیمایی_رادان_سیر" 
+    
+  .col-xs-2.icon-box
+    = image_tag 'visit.png'    
+    %p= t('iran-sights')
+    
+  .col-xs-2.icon-box
+    = image_tag 'hotel.png'
+    %p= link_to   t('iran-hole'), Hotel,  :title => "آژانس_هواپیمایی_رادان_سیر" 
+  .col-xs-2.icon-box
+    = image_tag 'investiment.png'
+    %p= link_to   t('investment-in-iran'), Hotel,  :title => "آژانس_هواپیمایی_رادان_سیر"   
+
+

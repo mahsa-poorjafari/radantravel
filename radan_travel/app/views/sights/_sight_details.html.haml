@@ -4,7 +4,7 @@
     - all_city.sights.each do |sight|
       .tours-index
         = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-          %h5.tour-title{:id => 'sight-'+sight.id.to_s}= sight.title
+          %h5.tour-title{:id => 'sight-'+sight.id.to_s, :class => I18n.locale}= sight.title
           - if sight.photos.present?
             .tour-sample-image= image_tag sight.photos.first.image(:medium), :id => "tour-sample-image-" + sight.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
           .clear-float

@@ -42,6 +42,8 @@
       = render 'shared/reservation_search_tour'
       - if current_page?('/') 
         = render 'shared/four_main_icon'
+      - elsif current_page?(Sight) 
+        = render 'sights/five_sight_icon'
       - if params[:controller] == 'hotels'
         = render 'shared/multi_slider_hotel'
       - elsif params[:controller] == 'sights'
