@@ -14,7 +14,39 @@
       .tab-content.col-xs-12.pull-right
         = render 'countries/country_details'
       
-    
+  .keywords.full-width
+    %p= t('Keywords.title')
+    %ul.tag-cloud.full-width{:class => I18n.locale}
+      %li.tag-cloud
+        = link_to t('radantravel'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.a'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.b'), '/'              
+      %li.tag-cloud
+        = link_to t('Keywords.s'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.w'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.c'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.d'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.f'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.g'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.h'), Sight
+      %li.tag-cloud
+        = link_to t('Keywords.l'), Sight
+      %li.tag-cloud
+        = link_to t('Keywords.m'), Sight
+      %li.tag-cloud
+        = link_to t('Keywords.n'), Sight
+      %li.tag-cloud
+        = link_to t('Keywords.e'), '/' 
+      %li.tag-cloud
+        = link_to t('Keywords.p'), '/'   
 :javascript
   
   $('.country-tabs ul#CountryTab li:first').addClass('active');

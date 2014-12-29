@@ -55,13 +55,40 @@
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
         = yield
         - if current_page?('/') 
-          .keywords.col-xs-12         
+          .keywords.full-width
             %p= t('Keywords.title')
-            %ul.tag-cloud{:class => I18n.locale}
+            %ul.tag-cloud.full-width{:class => I18n.locale}
               %li.tag-cloud
                 = link_to t('radantravel'), '/' 
-                = link_to t('.keywords.a'), '/' 
-            
+              %li.tag-cloud
+                = link_to t('Keywords.a'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.b'), '/'              
+              %li.tag-cloud
+                = link_to t('Keywords.s'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.w'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.c'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.d'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.f'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.g'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.h'), Sight
+              %li.tag-cloud
+                = link_to t('Keywords.l'), Sight
+              %li.tag-cloud
+                = link_to t('Keywords.m'), Sight
+              %li.tag-cloud
+                = link_to t('Keywords.n'), Sight
+              %li.tag-cloud
+                = link_to t('Keywords.e'), '/' 
+              %li.tag-cloud
+                = link_to t('Keywords.p'), '/' 
+              
       .footer.col-xs-12 
         .contact-box.col-xs-3.pull-right       
           .contact-form.pull-right{:class => I18n.locale}

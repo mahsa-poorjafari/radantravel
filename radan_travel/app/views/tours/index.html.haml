@@ -37,7 +37,27 @@
             - @send_tour = @send_tour.to_i            
             - if @send_tour.present? && @send_tour == tour.id
               .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
-            
+  .keywords.full-width
+    %p= t('Keywords.title')
+    %ul.tag-cloud.full-width{:class => I18n.locale}
+      %li.tag-cloud
+        = link_to t('radantravel'), '/'           
+      %li.tag-cloud
+        = link_to t('Keywords.a'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.b'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.f'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.ir-package'), '/' 
+      %li.tag-cloud
+        = link_to t('tour-to-iran'), '/' 
+      - ContinentCategory.all.each do |continent|      
+        %li.tag-cloud
+          = link_to t('tour.tours') + ' ' + continent.title, Tour , :title => 'تور '+ continent.title
+      - @tours.each do |tour|
+        %li.tag-cloud
+          = link_to tour.title, tour, :title => tour.title
       
 :javascript
   $(function(){
