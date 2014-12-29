@@ -44,22 +44,22 @@
 .tour-description
   .title_row
     %h4{:class => I18n.locale}= t('tour.description')
-  .col-xs-12.tr
+  .full-width.tr
     .col-xs-3.th= t('tour.source')
     .col-xs-9.td= tour.source
-  .col-xs-12.tr
+  .full-width.tr
     .col-xs-3.th= t('tour.travel_type')
     .col-xs-9.td= tour.travel_type
-  .col-xs-12.tr
+  .full-width.tr
     .col-xs-3.th= t('tour.date')
     .col-xs-9.td 
       = render "/tours/show_english_date", :tour => tour  
   - if tour.itinerary.present?
-    .col-xs-12.tr
+    .full-width.tr
       .col-xs-3.th= t('tour.itinerary')
       .col-xs-9.td= raw tour.itinerary
   - if tour.documents.present?
-    .col-xs-12.tr
+    .full-width.tr
       .col-xs-3.th= t('tour.documents')
       .col-xs-9.td= raw tour.documents  
   -#
@@ -73,8 +73,8 @@
       
   .clear-float
   - if tour.description.present?
-    .title_row.clear-float
+    .title_row.full-width
       %h4{:class => I18n.locale}= t('description')
-    .col-xs-12      
+    .full-width      
       = raw tour.description
 .clear-float
