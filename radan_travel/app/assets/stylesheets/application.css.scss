@@ -393,7 +393,11 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .one-slide img {width:100%; }
 .mc-caption {display:none}
 .sight-des, .sight-des  p {
-  -webkit-column-width: 40%; /* Chrome, Safari, Opera */
-  -moz-column-width:40%; /* Firefox */
-  column-width: 40%;
+  position:relative; text-align:justify;
+  -webkit-column-gap: 40%; /* Chrome, Safari, Opera */
+  -moz-column-gap: 40%; /* Firefox */
+  column-gap: 40%;
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
 }
