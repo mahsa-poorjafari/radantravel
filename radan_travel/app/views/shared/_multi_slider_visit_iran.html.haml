@@ -34,7 +34,7 @@
                 - if tour.photos.present?
                   = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
                 .tour-hover{:class => I18n.locale}
-                  %p.tour-title{:class => I18n.locale}= tour.title
+                  %p.tour-title.en{:class => I18n.locale}= tour.title
                   - if I18n.locale == :fa
                     = render "/tours/show_persian_date", :tour => tour
                   - else  
