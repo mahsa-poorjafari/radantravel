@@ -153,7 +153,7 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
 .admin-menu-title {padding:1%;}
 .unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
 .yield {position:relative;}
-
+.link-reservation .reserv-box {width:250px;}
 .tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px;}
 .tour-search-box span.en, .reserv-box span.en{color:#fff; font-size:13px; }
 .tour-search-box span.ar, .reserv-box span.ar{color:#fff; font-size:16px}
@@ -171,12 +171,14 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
   height:60px;
   padding-top: 1%;  
   top:390px;
-  left: -48%;
+  left: 0;
+  width:20%;
+  overflow:hidden;
   padding-left: 0;
   padding-right: 0;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;}
-.show-reservation-box{left:0;}
+.show-reservation-box{width:60%;}
 
 
 .main-icon {height:350px; padding:3%; position:relative}

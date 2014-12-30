@@ -15,9 +15,9 @@
       = text_field_tag :country, params[:country],:placeholder => t('tour-country'), :class => "form-control", :id => "tour-country"  
 
 #reserv.col-xs-8.pull-left.link-reservation
-  .col-xs-4.reserv-box.pull-right{:class => I18n.locale}    
+  .reserv-box.pull-right{:class => I18n.locale}    
     %span= image_tag 'reserv-plane.png'
-    %span{:class => I18n.locale}= t('plane-reserv') 
+    %span{:class => I18n.locale, :style => "margin-bottom:12%"}= t('plane-reserv') 
   .col-xs-8
     = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
 
@@ -26,7 +26,7 @@
       = select_tag params[:IsPublicLogin],  options_for_select([[t('user'),'true'], [t('agent'),'false']])
       = label_tag t('reserv-lang')
       = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
-#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "top:325px; left: -82px"}
+#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "top:325px;"}
   = link_to url_with_protocol('www.hamyarhotel.com'), :target => "_blank" do
     .reserv-box{:class => I18n.locale}    
       %span= image_tag 'reserv-hotel.png'
