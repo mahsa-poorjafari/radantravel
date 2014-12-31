@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class LocationtoursController < ApplicationController
   before_action :set_locationtour, only: [:show, :edit, :update, :destroy]
 
