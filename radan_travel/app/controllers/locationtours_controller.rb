@@ -57,7 +57,7 @@ class LocationtoursController < ApplicationController
   def update
     
     if @locationtour.update(locationtour_params)
-      render :show
+      redirect_to :back
     end
   end
 
