@@ -1,7 +1,6 @@
 = nested_form_for @tour, :html => { :multipart => true  } do |f|
   - if @tour.errors.any?
-    #error_explanation
-      
+    #error_explanation      
       %ul
         - @tour.errors.each do |attr, msg|
           %li= msg

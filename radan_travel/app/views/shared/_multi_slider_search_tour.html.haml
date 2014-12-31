@@ -13,7 +13,10 @@
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               
               .tour-hover{:class => I18n.locale}
-                %p.tour-title{:class => I18n.locale}= tour.title
+                - if tour.country.title_fa == 'ایران'
+                  %p.tour-title.en= tour.title
+                - else
+                  %p.tour-title{:class => I18n.locale}= tour.title
                 - if I18n.locale == :fa
                   = render "/tours/show_persian_date", :tour => tour
                 - else  
@@ -34,7 +37,10 @@
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               
               .tour-hover{:class => I18n.locale}
-                %p.tour-title{:class => I18n.locale}= tour.title
+                - if tour.country.title_fa == 'ایران'
+                  %p.tour-title.en= tour.title
+                - else
+                  %p.tour-title{:class => I18n.locale}= tour.title
                 - if I18n.locale == :fa
                   = render "/tours/show_persian_date", :tour => tour
                 - else  
