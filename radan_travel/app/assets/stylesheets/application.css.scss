@@ -337,7 +337,7 @@ ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 bottom: 3%;
 text-align: center;
 width: 100%;}
-.city-cat {width:150px;  height:50px; float:left;}
+.city-cat {width:150px;  height:50px; float:left; position:relative}
 .city-cat:hover {cursor:pointer;}
 .set-btn {
   background-image: url(image-path('btn.png'));
