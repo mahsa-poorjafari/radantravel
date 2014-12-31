@@ -34,6 +34,7 @@ class LocationtoursController < ApplicationController
   # GET /locationtours/1/edit
   def edit
     @tour = Tour.find(params[:tour_id])
+    flash[:EditDone] = 'ویرایش اطلاعات انجام شد.'
   end
 
   # POST /locationtours
@@ -57,7 +58,7 @@ class LocationtoursController < ApplicationController
   def update
     
     if @locationtour.update(locationtour_params)
-      redirect_to :back
+      render :show
     end
   end
 
