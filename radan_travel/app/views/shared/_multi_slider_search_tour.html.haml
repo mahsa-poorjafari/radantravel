@@ -12,7 +12,7 @@
               - if tour.photos.present?
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               
-              .tour-hover{:class => I18n.locale}
+              .tour-hover
                 - if tour.country.present? && tour.country.title_fa == 'ایران'
                   %p.tour-title.en= tour.title
                 - else
@@ -36,7 +36,7 @@
               - if tour.photos.present?
                 = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
               
-              .tour-hover{:class => I18n.locale}
+              .tour-hover
                 - if tour.country.present? && tour.country.title_fa == 'ایران'
                   %p.tour-title.en= tour.title
                 - else
