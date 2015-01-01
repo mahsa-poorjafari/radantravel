@@ -77,7 +77,7 @@ class LocationtoursController < ApplicationController
   # DELETE /locationtours/1.json
   def destroy
     @locationtour.destroy
-    redirect_to tour_url(:id => @@tour1.id)
+    redirect_to :back
   end
 
   private
