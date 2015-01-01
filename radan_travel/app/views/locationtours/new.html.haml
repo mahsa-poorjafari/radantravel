@@ -22,28 +22,29 @@
         %th= t('location.description')
         %th= 'عملیات'      
     %tbody
-      - @tour.locationtours.each_with_index do |location, i|        
-        %tr{:class => I18n.locale}
-          %td= (i+1)
-          -if location.hotels.collect(&:title_fa).present?
-            %td
-              - location.hotels.each do |hotel|
-                %span= hotel.title_fa + ','                  
-          - if location.custom_hotel.present?
-            %td                
-              %p{:style => "text-align:center"}=  location.custom_hotel
-            %td
-              - if location.hotels.present?
-                - if location.hotels.first.class_hotel.present?
-                  = location.hotels.first.class_hotel.title
-              
-          %td= location.price_two_bed
-          %td= location.price_one_bed
-          %td= location.price_three_bed
-          %td= location.price_kid_and_bed
-          %td= location.price_kid_without_bed
-          %td= location.description
-          %td 
-            - if is_admin?
-              =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
-              = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+      - if @tour.present?
+        - @tour.locationtours.each_with_index do |location, i|        
+          %tr{:class => I18n.locale}
+            %td= (i+1)
+            -if location.hotels.collect(&:title_fa).present?
+              %td
+                - location.hotels.each do |hotel|
+                  %span= hotel.title_fa + ','                  
+            - if location.custom_hotel.present?
+              %td                
+                %p{:style => "text-align:center"}=  location.custom_hotel
+              %td
+                - if location.hotels.present?
+                  - if location.hotels.first.class_hotel.present?
+                    = location.hotels.first.class_hotel.title
+                
+            %td= location.price_two_bed
+            %td= location.price_one_bed
+            %td= location.price_three_bed
+            %td= location.price_kid_and_bed
+            %td= location.price_kid_without_bed
+            %td= location.description
+            %td 
+              - if is_admin?
+                =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
+                = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"

@@ -58,7 +58,7 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   overflow-x:hidden;
   width:100%;
   }
-#slider1_container {position:relative; left: 0px; width: 100%; height: 500px;
+#slider1_container {position:relative; left: 0px; width: 100%; height: 600px;
   z-index:0;
   }
 #wrapper img {width:100%; height:100%; position:absolute}
@@ -308,12 +308,14 @@ p.title-tour { border-radius:9px;
   border-left:1px solid #FFFFFF; height:100%; font-size:10px;}
 .hotels-table .firts-row .th.col-row, .hotels-table  .td.col-row  {width:5%;}
 .hotels-table .firts-row.fa .th {font-size:16px;font-family: 'open_sansregular'; }
-.hotels-table h3, .hotels-table h2{background:#A52A2A; text-align:center; width:100%; color:#fff}
+.hotels-table h3, .hotels-table h2{
+  background:#A52A2A; text-align:center; width:100%; color:#fff;  
+  }
 .hotels-table .firts-row {background:#BFBFBF; height:80px; position:relative}
 .hotels-table .other-rows {border-bottom:1px solid #BFBFBF; position:relative}
 .hotels-table .other-rows .locat-des{background:#4D4D4D; color:#fff; font-size:16px; text-align:center}
-.hotels-table .other-rows .even{border-bottom:1px solid #BFBFBF; position:relative; background:#E6E6FA;}
-.hotels-table .other-rows.fa .td{font-family: 'open_sansregular'; text-align:center}
+.hotels-table .other-rows.even {border-bottom:1px solid #BFBFBF; position:relative; background:#E6E6C3;}
+.hotels-table .other-rows.fa .td{font-family: 'open_sansregular'; text-align:center; text-size:18px; padding-top:1%}
 .hotels-table .tour-description {width:100%}
 .hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}

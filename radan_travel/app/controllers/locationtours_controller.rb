@@ -29,8 +29,8 @@ class LocationtoursController < ApplicationController
   # GET /locationtours/new
   def new
     @locationtour = Locationtour.new
-    @tour = Tour.find(params[:tour_id])
-    @@tour1 = @tour
+    p @tour = Tour.find(params[:tour_id])
+    
   end
 
   # GET /locationtours/1/edit
@@ -46,17 +46,24 @@ class LocationtoursController < ApplicationController
     p '-------------modual_ids-------------'
     p @modual_ids = params[:h].split(',').map(&:to_i)
     p '-------------locationtour.hotel_ids-------------'
-    p @locationtour.hotel_ids = @modual_ids
+    #@add_hotel = HotelsLocationtours.create!(hotel_id: 1, locationtour_id: @locationtour.id)    
+    @locationtour.hotel_ids = @modual_ids
     respond_to do |format|
       if @locationtour.save  
         format.html do
-          flash[:AddLoc] =  'هتل اضافه شد'         
+          flash[:AddLoc] =  'هتل اضافه شد'
           redirect_to :back
         end
 
       else
-        flash[:error] = 'خطا در ثبت اطلاعات رخ داده است'        
-        @tour = @@tour1
+        if  @locationtour.valid?
+          p '----------errors-----'
+          p @locationtour.errors.messages
+        else
+          p '----------no errors-----'
+          p @locationtour.errors.messages
+        end
+        flash[:error] = 'خطا در ثبت اطلاعات رخ داده است'  
         format.html { render :new }
       end        
     end
@@ -66,8 +73,7 @@ class LocationtoursController < ApplicationController
 
   # PATCH/PUT /locationtours/1
   # PATCH/PUT /locationtours/1.json
-  def update
-    
+  def update    
     if @locationtour.update(locationtour_params)
       redirect_to :back
     end

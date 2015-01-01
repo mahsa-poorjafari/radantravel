@@ -5,7 +5,8 @@
         - @locationtour.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = location.hidden_field :tour_id, :value => @tour.id
+    - if @tour.present?
+      = location.hidden_field :tour_id, :value => @tour.id
   .col-xs-12
     .upload-pic  
       .col-xs-6 
