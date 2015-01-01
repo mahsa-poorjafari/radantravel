@@ -1,21 +1,27 @@
 .margin3.fa     
-  %h1{:class => I18n.locale}= 'افزودن محل برای تور  ' + @tour.title_fa
-  .col-xs-10.well
+  %h1{:class => I18n.locale}= 'افزودن محل برای تور  '
+  -if flash[:AddLoc]        
+    .alert.alert-success= flash[:AddLoc]    
+  - elsif flash[:error]        
+    .alert.alert-warning= flash[:error]
+  .col-xs-10.well   
     = render 'form'
+-#
   .col-xs-12
     %table.table
-      %tr
-        %th= t('location.row')
-        %th= t('location.hotel-name')
-        %th= t('location.hotel-star')
-        %th= t('location.two_bed')
-        %th= t('location.one_bed')
-        %th= t('location.three_bed')
-        %th= t('location.kid_and_bed')
-        %th= t('location.kid_no_bed')
-        %th= t('location.description')
-        %th= 'عملیات'      
-        
+      %thead
+        %tr
+          %th= t('location.row')
+          %th= t('location.hotel-name')
+          %th= t('location.hotel-star')
+          %th= t('location.two_bed')
+          %th= t('location.one_bed')
+          %th= t('location.three_bed')
+          %th= t('location.kid_and_bed')
+          %th= t('location.kid_no_bed')
+          %th= t('location.description')
+          %th= 'عملیات'      
+      %tbody
         - @tour.locationtours.each_with_index do |location, i|        
           %tr{:class => I18n.locale}
             %td= (i+1)
@@ -41,6 +47,6 @@
               - if is_admin?
                 =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info"
                 = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
-      
+        #new-row
     
   

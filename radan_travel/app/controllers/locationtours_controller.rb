@@ -14,7 +14,7 @@ class LocationtoursController < ApplicationController
   end
   def dynamic_city    
     p country_id = params[:country_list]
-    p @city = City.where( country_id: country_id)
+    p @city = City.where( country_id: country_id).order(" created_at desc")
     respond_to do |format|
       format.js
     end
@@ -24,12 +24,13 @@ class LocationtoursController < ApplicationController
     p @city_id = params[:city_id]
     p @city = City.find(@city_id)
     p '=======city hotel========'
-    p @hotels = Hotel.where(city_id: @city)
+    p @hotels = Hotel.where(city_id: @city).order(" created_at desc")
   end
   # GET /locationtours/new
   def new
     @locationtour = Locationtour.new
     @tour = Tour.find(params[:tour_id])
+    @@tour1 = @tour
   end
 
   # GET /locationtours/1/edit
@@ -46,11 +47,20 @@ class LocationtoursController < ApplicationController
     p @modual_ids = params[:h].split(',').map(&:to_i)
     p '-------------locationtour.hotel_ids-------------'
     p @locationtour.hotel_ids = @modual_ids
-    if @locationtour.save
-      render :show
-    else
-      
+    respond_to do |format|
+      if @locationtour.save  
+        format.html do
+          flash[:AddLoc] =  'عضو جدید با موفقیت ثبت گردید.'         
+          redirect_to '/'
+        end
+
+      else
+        flash[:error] = 'خطا در ثبت اطلاعات رخ داده است'        
+        @tour = @@tour1
+        format.html { render :new }
+      end        
     end
+    
   
   end
 
@@ -67,7 +77,7 @@ class LocationtoursController < ApplicationController
   # DELETE /locationtours/1.json
   def destroy
     @locationtour.destroy
-    redirect_to :back
+    redirect_to '/'
   end
 
   private

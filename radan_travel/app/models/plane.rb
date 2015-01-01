@@ -2,7 +2,7 @@
 class Plane < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_en
-  has_attached_file :logo, :styles => { :original => "700x650>" , :small => "200x200>", :icon => "50x50>" }
+  has_attached_file :logo, :styles => { :original => "700x650>" , :small => "200x200>", :icon => "100x100>" }
   validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   def title
     if I18n.locale == :ar

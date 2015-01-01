@@ -1,7 +1,6 @@
 = form_for @locationtour ||= Locationtour.new do |location|
   - if @locationtour.errors.any?
-    #error_explanation
-      
+    #error_explanation      
       %ul
         - @locationtour.errors.full_messages.each do |msg|
           %li= msg
@@ -9,12 +8,13 @@
     = location.hidden_field :tour_id, :value => @tour.id
   .col-xs-12
     .upload-pic  
-      .col-xs-6        
-        -if @locationtour.hotels.collect(&:city_id).present?
-          %b= 'اطلاعات مکانی هتل'            
-          - @locationtour.hotels.each_with_index do |hotel, i|                        
-            %p= (i+1).to_s + '-'+ hotel.city.country.title + ',' +  hotel.city.title   + ',' + hotel.title
-            
+      .col-xs-6 
+        -#
+          -if @locationtour.hotels.collect(&:city_id).present?
+            %b= 'اطلاعات مکانی هتل'            
+            - @locationtour.hotels.each_with_index do |hotel, i|                        
+              %p= (i+1).to_s + '-'+ hotel.city.country.title + ',' +  hotel.city.title   + ',' + hotel.title
+              
       .col-xs-6
         .col-xs-6  
           #list_hotels
