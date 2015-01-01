@@ -16,7 +16,8 @@
           %td= (i+1)
           %td= user.user_name
           %td= user.email
-          %td= user.role.title
+          -if user.role.present?
+            %td= user.role.title
           %td
             - if is_admin?
               = link_to 'مشاهده', user, :class => "btn btn-warning" 
