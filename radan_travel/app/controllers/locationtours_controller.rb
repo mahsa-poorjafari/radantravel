@@ -50,7 +50,7 @@ class LocationtoursController < ApplicationController
     respond_to do |format|
       if @locationtour.save  
         format.html do
-          flash[:AddLoc] =  'عضو جدید با موفقیت ثبت گردید.'         
+          flash[:AddLoc] =  'هتل اضافه شد'         
           redirect_to :back
         end
 
@@ -69,7 +69,7 @@ class LocationtoursController < ApplicationController
   def update
     
     if @locationtour.update(locationtour_params)
-      redirect_to tour_url(:id => @@tour1.id)
+      redirect_to :back
     end
   end
 
