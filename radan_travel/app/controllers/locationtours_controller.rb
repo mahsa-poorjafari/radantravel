@@ -51,7 +51,7 @@ class LocationtoursController < ApplicationController
       if @locationtour.save  
         format.html do
           flash[:AddLoc] =  'عضو جدید با موفقیت ثبت گردید.'         
-          redirect_to '/'
+          redirect_to tour_url(:id => @@tour1.id)
         end
 
       else
@@ -69,7 +69,7 @@ class LocationtoursController < ApplicationController
   def update
     
     if @locationtour.update(locationtour_params)
-      render :show
+      redirect_to tour_url(:id => @@tour1.id)
     end
   end
 

@@ -18,9 +18,10 @@
           %p{:style => "text-align:center"}
             - if hotel.title.present?
               %b= link_to hotel.title, hotel_url(hotel.title)        
-              %p{:style => "text-align:center"}  
-                %span=image_tag 'Star.png'
-                %span.en= hotel.class_hotel.title  
+              - if hotel.class_hotel.present?
+                %p{:style => "text-align:center"}  
+                  %span=image_tag 'Star.png'
+                  %span.en= hotel.class_hotel.title  
     - if location.custom_hotel.present?
       .col-xs-2.td
         %p{:style => "text-align:center"}
