@@ -47,7 +47,7 @@ class LocationtoursController < ApplicationController
     p '-------------locationtour.hotel_ids-------------'
     p @locationtour.hotel_ids = @modual_ids
     if @locationtour.save
-      redirect_to :back
+      render :show
     else
       
     end
