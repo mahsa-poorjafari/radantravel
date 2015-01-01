@@ -51,7 +51,7 @@ class LocationtoursController < ApplicationController
       if @locationtour.save  
         format.html do
           flash[:AddLoc] =  'عضو جدید با موفقیت ثبت گردید.'         
-          redirect_to tour_url(:id => @@tour1.id)
+          redirect_to :back
         end
 
       else
