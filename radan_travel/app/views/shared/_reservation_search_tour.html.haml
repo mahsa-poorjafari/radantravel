@@ -27,7 +27,7 @@
       = label_tag t('reserv-lang')
       = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
 #reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "top:325px;"}
-  = link_to url_with_protocol('www.hamyarhotel.com'), :target => "_blank" do
+  = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
     .reserv-box{:class => I18n.locale}    
       %span= image_tag 'reserv-hotel.png'
       %span{:class => I18n.locale}= t('hotel-reserv')
