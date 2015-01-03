@@ -7,20 +7,21 @@
     #myCarousel1.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
       .carousel-inner#package-tour1
         - tours.limit(@half_count).each do |tour|
-          .item
-            .col-xs-4.tour-item{:id => tour.id.to_s}
-              - if tour.photos.present?
-                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-              
-              .tour-hover
-                - if tour.country.present? && tour.country.title_fa == 'ایران'
-                  %p.tour-title.en= tour.title
-                - else
-                  %p.tour-title{:class => I18n.locale}= tour.title
-                - if I18n.locale == :fa
-                  = render "/tours/show_persian_date", :tour => tour
-                - else  
-                  = render "/tours/show_english_date", :tour => tour
+          - unless tour.country.title_fa == 'ایران'
+            .item
+              .col-xs-4.tour-item{:id => tour.id.to_s}
+                - if tour.photos.present?
+                  = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                
+                .tour-hover
+                  - if tour.country.present? && tour.country.title_fa == 'ایران'
+                    %p.tour-title.en= tour.title
+                  - else
+                    %p.tour-title{:class => I18n.locale}= tour.title
+                  - if I18n.locale == :fa
+                    = render "/tours/show_persian_date", :tour => tour
+                  - else  
+                    = render "/tours/show_english_date", :tour => tour
           
       = link_to  "#myCarousel1" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
@@ -31,20 +32,21 @@
     #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
       .carousel-inner#package-tour2
         - tours.offset(@half_count).each do |tour|
-          .item
-            .col-xs-4.tour-item{:id => tour.id.to_s}
-              - if tour.photos.present?
-                = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-              
-              .tour-hover
-                - if tour.country.present? && tour.country.title_fa == 'ایران'
-                  %p.tour-title.en= tour.title
-                - else
-                  %p.tour-title{:class => I18n.locale}= tour.title
-                - if I18n.locale == :fa
-                  = render "/tours/show_persian_date", :tour => tour
-                - else  
-                  = render "/tours/show_english_date", :tour => tour
+          - unless tour.country.title_fa == 'ایران'
+            .item
+              .col-xs-4.tour-item{:id => tour.id.to_s}
+                - if tour.photos.present?
+                  = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                
+                .tour-hover
+                  - if tour.country.present? && tour.country.title_fa == 'ایران'
+                    %p.tour-title.en= tour.title
+                  - else
+                    %p.tour-title{:class => I18n.locale}= tour.title
+                  - if I18n.locale == :fa
+                    = render "/tours/show_persian_date", :tour => tour
+                  - else  
+                    = render "/tours/show_english_date", :tour => tour
           
       = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
