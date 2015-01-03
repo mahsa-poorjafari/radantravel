@@ -10,10 +10,7 @@
 - @tour.locationtours.each_with_index do |location, i|
   .col-xs-12.other-rows{:class => cycle("odd", "even") + " " + I18n.locale.to_s }
     -if location.hotels.collect(&:title_fa).present?
-      .col-xs-2.td
-        - if is_admin?
-          =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
-          = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+      .col-xs-2.td       
         - location.hotels.each do |hotel|
           %p{:style => "text-align:center"}
             - if hotel.title.present?
@@ -37,6 +34,11 @@
     .col-xs-12.other-rows
       .col-xs-2.locat-des.th=  t('location.description')        
       .col-xs-8.td= location.description
+  - if is_admin?
+    .col-xs-12.other-rows
+      =link_to 'ویرایش', edit_locationtour_path(location, :tour_id => @tour.id), :class => "btn btn-info", :title => "شرکت_خدمات_مسافرتی_هوایی_جهانگردی_رادان_سیر"
+      = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
+    
     
 .tour-description.clear-float
   .title_row
