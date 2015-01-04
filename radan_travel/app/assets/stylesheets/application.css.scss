@@ -58,7 +58,7 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   overflow-x:hidden;
   width:100%;
   }
-#slider1_container {position:relative; left: 0px; width: 100%; height: 600px;
+#slider1_container {position:relative; left: 0px; width: 100%; height: 500px;
   z-index:0;
   }
 #wrapper img {width:100%; height:100%; position:absolute}
@@ -257,7 +257,7 @@ p.title-tour { border-radius:9px;
 .tour-details .tour-description p.fa, .country-show .country-text p, .country-text p {text-align:justify;direction:rtl; font-family: 'open_sansregular'; }
 .tours-index { 
   margin-left:2%;  
-  position:relative; text-align:center; overflow:hidden; width:18%; float:right; height:300px;  
+  position:relative; text-align:center; overflow:hidden; width:23%; float:right; height:300px;  
   margin-bottom:5%; 
   -webkit-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
   -moz-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
@@ -379,7 +379,7 @@ span.location {
 span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
 span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -50px;}
 .fa span.location,.ar span.location {right:0;}
- span.location {left:0;}
+ span.location {left:0; padding-top:3%;}
 
 .fa  span.country-title-tab, .ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
 .ar  span.country-title-tab {font-size:22px;}
@@ -394,12 +394,12 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 #iran-hotel:hover span ,#world-hotel:hover span{color:#791313;}
 .fa #iran-hotel span , .fa #world-hotel span{font-size:22px; }
 .anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
-.continent {position:relative; width:190px;  height:50px; float:left; margin-bottom:5%;}
-.continent:hover {cursor:pointer;}
-.continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#A52A2A;}
-.fa .continent .country-title-tab, .ar .continent .country-title-tab{font-size:30px;right: 70px;
-  line-height:1em;
-top: 23px;}
+.continent {  position:relative; width:190px;  height:50px; float:left; margin-bottom:5%; border-bottom:1px solid #4D4D4D  }
+.continent:hover, .continent.active {cursor:pointer; background:#4D4D4D; opacity:.8; }
+.continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#fff}
+.fa .continent .country-title-tab, .ar .continent .country-title-tab{
+  font-size:20px;right: 50px;
+  line-height:1em;}
 ul.tag-cloud {list-style:none}
 ul.tag-cloud li.tag-cloud  {margin:.5%; float:right;  }
 ul.tag-cloud li.tag-cloud a {color:#6AB5FF; text-decoration:underline}
@@ -413,3 +413,11 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 }
 .btn.btn-success {font-family: 'open_sansregular';}
 .keywords { height:50px; overflow-y:scroll}
+
+.coming_soon {position: absolute;
+  z-index: 10;
+  top: 20%;
+
+  width: 80%;
+  right: 10%;
+  left: 10%;}

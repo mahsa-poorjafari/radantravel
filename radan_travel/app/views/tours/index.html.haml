@@ -1,22 +1,35 @@
 .margin3  
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
-  .col-xs-1
-  .col-xs-10{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
-    - ContinentCategory.all.each do |continent|      
-      .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
-        %span.location= image_tag continent.icon(:original)
-        %span.country-title-tab= continent.title
-    .filter.continent{"data-filter" => "all"}
-      %span.location= image_tag 'world.png'
-      %span.country-title-tab= t('show-all-tours')
-  .col-xs-1
-  .clear-float      
-  .show-tours.col-xs-12.set-center#Container
-    - @tours.each_with_index do |tour| 
+  - if I18n.locale == :en
+    .col-xs-2.pull-left{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
+      .filter.continent{"data-filter" => "all"}
+        %span.location= image_tag 'w.png'
+        %span.country-title-tab= t('show-all-tours')
+    
+      - ContinentCategory.all.each do |continent|      
+        .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
+          %span.location= image_tag 'arrow-bullet-left.png'
+          %span.country-title-tab= continent.title
+  - else
+    .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
+      .filter.continent{"data-filter" => "all"}
+        %span.location= image_tag 'w.png'
+        %span.country-title-tab= t('show-all-tours')
+    
+      - ContinentCategory.all.each do |continent|      
+        .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
+          %span.location= image_tag 'arrow-bullet-right.png'
+          %span.country-title-tab= continent.title
+      
+  
+  .show-tours.col-xs-10.set-center#Container
+    - @tours.each_with_index do |tour|       
       - if tour.country.present? && tour.country.title_fa != 'ایران'
-        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present? ), "data-my-order" => tour.id}
-          = link_to tour, :class => "tour-box" do          
+        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id}        
+          - if tour.coming_soon?
+            .coming_soon= image_tag 'coming.png'
+          = link_to tour, :class => "tour-box" do 
             %h5.tour-title{:class => I18n.locale}= tour.title
             - if tour.photos.present?
               .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s

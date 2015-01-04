@@ -1,12 +1,13 @@
 .col-xs-12{:style => "position:absolute"}
   .title-tour-line.col-xs-10
   %p.title-tour.col-xs-3.set-center{:class => I18n.locale}= t('hotel')
-.multi-slider-package.col-xs-10  
+- @half_count = (Hotel.count) / 2
+.multi-slider-package.col-xs-10
   .col-md-12.col-md-offset-3
     #myCarousel1.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
       .carousel-inner#package-tour1        
-        - Hotel.all.each do |hotel|
-          - if hotel.city.country.title_fa == 'ایران'
+        - Hotel.all.limit(@half_count).each do |hotel|
+          - unless hotel.city.country.title_fa == 'ایران'
             .item
               .col-xs-4.tour-item{:id => hotel.id.to_s}
                 - if hotel.photos.present?
@@ -24,7 +25,7 @@
   .col-md-12.col-md-offset-3{:style => "height:200px;"}
     #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
       .carousel-inner#package-tour2
-        - Hotel.all.each do |hotel|
+        - Hotel.all.offset(@half_count).each do |hotel|
           - unless hotel.city.country.title_fa == 'ایران'
             .item
               .col-xs-4.tour-item{:id => hotel.id.to_s}
