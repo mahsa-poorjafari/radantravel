@@ -286,7 +286,7 @@ p.title-tour { border-radius:9px;
 }
 .tour-box .tour-title.en {font-size:13px;}
 .tour-box:hover .tour-title{background:#A52A2A; color:#fff}
-.tour-box .tour-sample-image img{width:100%;  height:90%; margin-top:-2px;}
+.tour-box .tour-sample-image img{width:100%;  height:100%; margin-top:-2px;}
 .tour-date {position: absolute;  
   width: 100%; 
   left:0;
@@ -414,10 +414,11 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .btn.btn-success {font-family: 'open_sansregular';}
 .keywords { height:50px; overflow-y:scroll}
 
-.coming_soon {position: absolute;
+.coming_soon {
+  position: absolute;
   z-index: 10;
-  top: 20%;
-
-  width: 80%;
-  right: 10%;
-  left: 10%;}
+  top: 15%;
+  width: 100%;
+  height: 60%;
+  }
+.set-coming-soon {background:#4D4D4D; opacity:.5;}
