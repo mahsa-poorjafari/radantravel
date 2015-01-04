@@ -75,6 +75,11 @@ class LocationtoursController < ApplicationController
   # PATCH/PUT /locationtours/1.json
   def update    
     if @locationtour.update(locationtour_params)
+      p '-------------modual_ids-------------'
+      p @modual_ids = params[:h].split(',').map(&:to_i)
+      p '-------------locationtour.hotel_ids-------------'
+      @locationtour.hotel_ids = @modual_ids
+      @locationtour.save 
       redirect_to :back
     end
   end

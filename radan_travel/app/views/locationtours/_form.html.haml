@@ -32,8 +32,15 @@
           .form-group#location-hotel-list
             = location.label "هتل را انتخاب کنید", :class => "control-label"
             = select_tag :hotel_list, options_for_select({}), prompt: "هتل را انتخاب کنید", :class => " form-control ", :id => "locationtour_hotel_id"
-            %span.btn.btn-warning#add_hotel= 'Add Hotel'
-            = hidden_field_tag :h
+            %span.btn.btn-warning#add_hotel= 'Add Hotel' 
+            - if @locationtour.hotel_ids.present?
+              = hidden_field_tag :h, ' '  , :multiple => true, :value => @locationtour.hotel_ids.join(',') + ','
+              - @locationtour.hotel_ids.each do |hotel|
+                - @hotelname = Hotel.find(hotel)
+                %b= @hotelname.title
+            - else
+              = hidden_field_tag :h
+            
       .col-xs-12  
         .form-group
           %i.alert.alert-warning{:style => "font-family: 'open_sansregular';"}= 'فیلد برای وارد کردن هتل های با عنوان تعداد ستاره'          

@@ -26,6 +26,8 @@
           = f.select :city_id, {}, prompt: "شهر را انتخاب کنید"
         .form-group
           = f.label 'تعداد ستاره های هتل', :class => "control-label"          
+          - if @hotel.class_hotel_id.present?
+            %b= @hotel.class_hotel.title
           = f.select :class_hotel_id, options_for_select(ClassHotel.all.collect{ |u| [u.title, u.id] }), prompt: "درجه هتل"
         .form-group
           = f.label 'بازه مکانی هتل', :class => "control-label"          
