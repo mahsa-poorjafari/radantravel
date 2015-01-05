@@ -187,7 +187,7 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;   
   text-align:center}
-  
+.main-icon .icon-box  img {height:117px}
 .main-icon .icon-box a {color:#4D4D4D;}
 .main-icon .icon-box a:hover {color:#FFA500;}
 .main-icon .icon-box:hover{background:#A93030; cursor:pointer}
@@ -257,7 +257,7 @@ p.title-tour { border-radius:9px;
 .tour-details .tour-description p.fa, .country-show .country-text p, .country-text p {text-align:justify;direction:rtl; font-family: 'open_sansregular'; }
 .tours-index { 
   margin-left:2%;  
-  position:relative; text-align:center; overflow:hidden; width:23%; float:right; height:300px;  
+  position:relative; text-align:center; overflow:hidden; width:18%; float:right; height:300px;  
   margin-bottom:5%; 
   -webkit-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
   -moz-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);

@@ -7,7 +7,7 @@
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
-      - ContinentCategory.all.each do |continent|      
+      - ContinentCategory.order(" created_at desc").each do |continent|      
         .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
           %span.location= image_tag 'arrow-bullet-left.png'
           %span.country-title-tab= continent.title
@@ -17,7 +17,7 @@
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
-      - ContinentCategory.all.each do |continent|      
+      - ContinentCategory.order(" created_at desc").each do |continent|      
         .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
           %span.location= image_tag 'arrow-bullet-right.png'
           %span.country-title-tab= continent.title
@@ -26,7 +26,7 @@
   .show-tours.col-xs-10.set-center#Container
     - @tours.each_with_index do |tour|       
       - if tour.country.present? && tour.country.title_fa != 'ایران'
-        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id}        
+        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id, :style => "width:23%"}        
           - if tour.coming_soon?
             .coming_soon= image_tag 'coming.png'
           = link_to tour, :class => "tour-box" do 
