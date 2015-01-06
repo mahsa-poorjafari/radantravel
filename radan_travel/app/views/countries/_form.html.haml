@@ -20,7 +20,7 @@
       .col-xs-6        
         .form-group
           = f.label 'گروبندی بر اساس قاره', :class => "control-label"
-          = f.select :continent_category_id, options_for_select(ContinentCategory.all.collect{ |u| [u.title_fa, u.id] }), prompt: "قاره را انتخاب کنید.", :class => "form-control"  
+          = f.select :continent_category_id, options_for_select(ContinentCategory.all.collect{ |u| [u.title_fa, u.id] }, :selected => @country.continent_category_id), prompt: "قاره را انتخاب کنید.", :class => "form-control"  
         .form-group
           - if @country.country_flag.present?
             = image_tag @country.country_flag(:original)

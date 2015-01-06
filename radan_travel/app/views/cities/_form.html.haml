@@ -12,7 +12,7 @@
       .col-xs-6
         .form-group
           = f.label 'کشور مربوط را انتخاب کنید'   , :class => "control-label"       
-          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید"
+          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }, :selected =>@city.country_id), prompt: "کشور را انتخاب کنید"
         .form-group
           = f.label 'عنوان فارسی', :class => "control-label"
           = f.text_field :title_fa, :class => "form-control"

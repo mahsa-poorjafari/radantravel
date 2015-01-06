@@ -5,17 +5,18 @@
         - @tour.errors.each do |attr, msg|
           %li= msg
   .margin3
-        
     .col-xs-12{:style => "background:#90EE90"}
       .col-xs-6.pull-right
         %h2{:class => I18n.locale}= 'انتساب تور به یک دسته '
         .form-group
           = f.label 'تور را به یکی از دسته های زیر انتساب دهید', :class => "control-label"
-          = f.select :continent_category_id, options_for_select(ContinentCategory.all.offset(5).collect{ |u| [u.title_fa, u.id] }), prompt: "دسته موردنظر را انتخاب کنید.", :class => "form-control"  
+          - if @tour.continent_category_id.present?
+            %b{:style => "font-size:20px"}= @tour.continent_category.title_fa
+          = f.select :continent_category_id, options_for_select(ContinentCategory.all.offset(5).collect{ |u| [u.title_fa, u.id] }, :selected => @tour.continent_category_id), prompt: "دسته موردنظر را انتخاب کنید.", :class => "form-control"  
       .col-xs-6
         .form-group
           = f.label 'تور را به یک کشور انتساب دهید', :class => "control-label"
-          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
+          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.country_id), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
     .col-xs-12
       .col-xs-4
         .form-group
@@ -53,9 +54,9 @@
           = f.text_field :travel_type_ar, :class => "form-control"
         .form-group
           = f.label 'پرواز', :class => "control-label"
-          = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] }), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
+          = f.select :plane_id, options_for_select(Plane.all.collect{ |u| [u.title_fa, u.id] } , :selected =>  @tour.plane_id), prompt: "پرواز را انتخاب کنید", :class => "form-control"  
         
-        
+
       .col-xs-4
         .form-group
           = f.label 'عنوان فارسی', :class => "control-label"
@@ -66,8 +67,7 @@
         .form-group
           = f.label 'عنوان عربی', :class => "control-label"
           = f.text_field :title_ar, :class => "form-control"
-      
-      
+
       
     .col-xs-12 
       .form-group.col-xs-12 
