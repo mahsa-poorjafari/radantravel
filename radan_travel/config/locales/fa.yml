@@ -25,7 +25,7 @@ fa:
   reserv-login: 'ورود به سیستم'
   reserv-en: 'انگلیسی'
   reserv-fa: 'فارسی'
-
+  package-code: 'کد پکیج'
   reserv-ar: 'عربی'
   search-tour: 'جستجوی تور'
   agent: 'ورود آژانس'
@@ -93,11 +93,11 @@ fa:
     tours: 'تورها'
     about-tour: 'درباره تور'
     validate_date_until: 'تاریخ اعتبار تا'
-    validate_date_from: 'تاریخ اعتبار از'
+    validate_date_from: 'تاریخ فروش از'
     search: 'نتیجه جستجو تور'
     source: 'مبدا از'
     travel_type: 'نوع سفر'
-    date: 'تاریخ'
+    date: 'تاریخ اعتبار فروش'
     get-file: 'دریافت فایل'
     
     
@@ -166,3 +166,4 @@ fa:
     hotel: 'هتل '
     star:  ' ستاره '
     
+  

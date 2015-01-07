@@ -10,10 +10,19 @@
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
   .tour-details
+    - if is_admin?
+      .col-xs-12        
+        .tour-source
+          %b= 'مشخصات مبدا پکیج تور'
+          %div{:style => "margin-top:3%"}= @tour.tour_source 
     - if @tour.country.present?
       - if @tour.country.title_fa == 'ایران'
         .col-xs-12
-          .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          .col-xs-6{:style => "text-align:left"}
+            = image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+            %p
+              %i= t('package-code')
+              %b=  @tour.package_code
           .clear-float
           - if @tour.description.present?
             .title_row
@@ -24,10 +33,16 @@
       - else
         .col-xs-12
           .col-xs-12
-            .col-xs-6{:style => "text-align:left"}= image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+            .col-xs-6{:style => "text-align:left"}
+              = image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+              %p
+                %i= t('package-code')
+                %b=  @tour.package_code              
+                
             .col-xs-6{:style => "text-align:right"}
               - if @tour.plane.present?
                 = image_tag @tour.plane.logo(:small), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          
           .col-xs-12.hotels-table.margin-bottom
             %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
             - if I18n.locale == :en

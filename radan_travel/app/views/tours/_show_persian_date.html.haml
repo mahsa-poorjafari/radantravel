@@ -3,7 +3,7 @@
 - elsif tour.validate_date_from.present?
   
   %p.col-xs-7{:class => I18n.locale}= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-  %b.col-xs-5{:class => I18n.locale}= t('tour.validate_date_from')
+  %span.col-xs-5{:class => I18n.locale, :style => "font-size:15px;font-family: 'open_sansregular';"}= t('tour.validate_date_from')
   .clear-float
 - elsif   tour.validate_date_until.present?
   

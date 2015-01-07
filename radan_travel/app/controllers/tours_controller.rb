@@ -108,7 +108,7 @@ class ToursController < ApplicationController
       params.require(:tour).permit(:title_fa, :title_en, :title_ar, :description_fa, :description_en, :description_ar,
       :plane_id, :hotel_id, :country_id, :city_id, :continent_category_id, :special, :source, :travel_type, :travel_type_en, :travel_type_ar,
       :price, :validate_date_from_fa, :validate_date_until_fa, :coming_soon, :itinerary_fa, :itinerary_en, :itinerary_ar, :source_ar, :source_en,
-      :documents_fa, :documents_en, :documents_ar, :decription_image, :info,  :delete_image,
+      :documents_fa, :documents_en, :documents_ar, :decription_image, :info,  :delete_image, :package_code, :tour_source,
       photos_attributes: [:id, :image, :description_fa, :description_en, :description_ar, :tour_id, :_destroy, :_update] )
     end
     

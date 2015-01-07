@@ -242,7 +242,7 @@ p.title-tour { border-radius:9px;
 .tour-item .item-package img {height:100%}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
-
+.tour-hover span {color:#fff}
 
 .footer  { background:#2B2B2B; margin-top:5%; position:relative; padding:2%;}
 .footer a{color:#76c38e;}
@@ -327,8 +327,8 @@ p.title-tour { border-radius:9px;
 .hotels-table .tour-description {width:100%}
 .hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}
-.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; }
-.hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;}
+.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px;}
+.hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;font-size:18px;}
 
 ul.sub-menu {width:100%; margin:0; padding:0; background:#4D4D4D; position: absolute;
   top: 45px;
@@ -458,3 +458,11 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
   }
 
 
+.tour-source {background:#ADCFE6; border-radius:9px; padding:2%; margin:1%; border: 2px solid #4D4D4D}
+.tour-source b {font-size:30px; margin-bottom:4%}
+.yellow {background:#F6F633;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  }
+.white {background:#fff; -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;}

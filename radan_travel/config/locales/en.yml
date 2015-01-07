@@ -46,7 +46,7 @@ en:
   reserv-login: 'Login'
   reserv-en: 'English'
   reserv-fa: 'Persian'
-
+  package-code: 'Package Code'
   reserv-ar: 'Arabic'
   search-tour: 'Search Tour'
   agent: 'Agents'

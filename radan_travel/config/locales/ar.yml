@@ -26,7 +26,7 @@ ar:
   reserv-login: 'تسجيل الدخول'
   reserv-en: 'الإنجليزية'
   reserv-fa: 'اللغة الفارسية'
-
+  package-code: 'Package Code'
   reserv-ar: 'العربية'
   search-tour: 'البحث جولة'
   agent: 'وكلاء'

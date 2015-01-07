@@ -8,7 +8,7 @@
         %span.country-title-tab= t('show-all-tours')
     
       - ContinentCategory.order(" created_at desc").each do |continent|      
-        .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
+        .filter.continent.tour-group{"data-filter" => ".category-" + continent.id.to_s}
           %span.location= image_tag 'arrow-bullet-left.png'
           %span.country-title-tab= continent.title
   - else
@@ -18,7 +18,7 @@
         %span.country-title-tab= t('show-all-tours')
     
       - ContinentCategory.order(" created_at desc").each do |continent|      
-        .filter.continent{"data-filter" => ".category-" + continent.id.to_s}
+        .filter.continent.tour-group{"data-filter" => ".category-" + continent.id.to_s}
           %span.location= image_tag 'arrow-bullet-right.png'
           %span.country-title-tab= continent.title
       
@@ -75,4 +75,10 @@
   $(function(){
     $('#Container').mixItUp();  
   });
-       
+  $('.tour-group').first().addClass('white');
+  setInterval(
+    function(){
+      $('.tour-group').first().toggleClass('yellow white');
+    },1000);
+  
+  
