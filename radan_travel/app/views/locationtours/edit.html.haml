@@ -1,5 +1,6 @@
 .margin3.fa    
-  %h1{:class => I18n.locale}= 'ویرایش اطلاعات  ' + @locationtour.tour.title
+  %h1{:class => I18n.locale}= 'ویرایش اطلاعات  ' 
+  %h2{:class => I18n.locale}= link_to @locationtour.tour.title, tour_url(@locationtour.tour.title)
   .col-xs-10.well
     = render 'form'
   

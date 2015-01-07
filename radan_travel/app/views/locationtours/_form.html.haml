@@ -20,7 +20,7 @@
         .col-xs-6  
           #list_hotels
             %ul{:style => "list-type:circle"}
-        .col-xs-6
+        .col-xs-12
           = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید.", :class => " form-control "
           
           #loading{:style => "display:none"}= image_tag 'ajax-loader.gif'        
@@ -34,10 +34,19 @@
             = select_tag :hotel_list, options_for_select({}), prompt: "هتل را انتخاب کنید", :class => " form-control ", :id => "locationtour_hotel_id"
             %span.btn.btn-warning#add_hotel= 'Add Hotel' 
             - if @locationtour.hotel_ids.present?
+            
               = hidden_field_tag :h, ' '  , :multiple => true, :value => @locationtour.hotel_ids.join(',') + ','
-              - @locationtour.hotel_ids.each do |hotel|
+              %p
+                %h2{:class => I18n.locale}= 'حذف هتل'
+                %i= 'هتلی که می خواهید حذف کنید را از لیست انتخاب کنید.'
+                = select_tag :h, options_for_select(@locationtour.hotel_ids.collect{ |u| [Hotel.find(u).title_fa, u] }), :multiple => "multiple", :id => "example-multiple-selected"
+              
+              -#
+                - @locationtour.hotel_ids.each_with_index do |hotel, i|
                 - @hotelname = Hotel.find(hotel)
-                %b= @hotelname.title
+                %p
+                  %span{:class => I18n.locale}= @hotelname.title
+                  %span.hotel-locate= link_to (image_tag 'delete.png') , '#', :id =>  @hotelname.id
             - else
               = hidden_field_tag :h
             
@@ -79,3 +88,4 @@
     }); 
     $('#list_hotels').append('<li>' + $('#locationtour_hotel_id option:selected').text() + '</li>');    
   });
+  $('#example-multiple-selected').multiselect();

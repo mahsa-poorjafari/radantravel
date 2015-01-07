@@ -21,11 +21,13 @@
 //= require modernizr.custom
 //= require md5
 //= require bootstrap
+//= require bootstrap-multiselect
 //= require lightbox-2.6.min
 //= require jquery.mixitup
 //= require jquery.eachStep.min
 //= require zoomSlider
 //= require jquery.smooth-scroll
 //= require js-image-slider
+//= require prettify
 
 

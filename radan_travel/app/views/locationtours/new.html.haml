@@ -1,5 +1,6 @@
 .margin3.fa     
   %h1{:class => I18n.locale}= 'افزودن محل برای تور  '
+  %h2{:class => I18n.locale}= link_to @tour.title, tour_url(@tour.title)
   -if flash[:AddLoc]        
     .alert.alert-success= flash[:AddLoc]    
   - elsif flash[:error]        
