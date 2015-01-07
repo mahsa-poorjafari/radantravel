@@ -14,12 +14,18 @@
           -if @locationtour.hotels.collect(&:city_id).present?
             %b= 'اطلاعات مکانی هتل'            
             - @locationtour.hotels.each_with_index do |hotel, i|                        
-              %p= (i+1).to_s + '-'+ hotel.city.country.title + ',' +  hotel.city.title   + ',' + hotel.title
-              
-      .col-xs-6
-        .col-xs-6  
-          #list_hotels
-            %ul{:style => "list-type:circle"}
+              %p= (i+1).to_s + '-'+ hotel.city.country.title + ',' +  hotel.city.title   + ',' + hotel.title       
+        
+        %ul#list_hotels{:style => "list-type:circle"}      
+        .well
+          %h3{:class => I18n.locale}= 'نحوه حذف کردن هتل'
+          %p= '۱- ابتدا هتلی که می خواهید به این ردیف اضافه کنید انتخاب کنید'
+          %p= '۲- دکمه ثبت را بزنید.'
+          %p= '۳- سپس از کشوی قسمت حذف هتل، تنها هتل و یا هتلهایی که می خواهید در لیست بمانند را مجددا انتخاب کنید.'
+          %p= '۴- دکمه ثبت را بزنید.'
+          %p= '۵- برای مشاهده تور مربوط کافیست روی اسم تور در بالای فرم کلیک کنید.'
+      .col-xs-6 
+          
         .col-xs-12
           = select_tag :country_list, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id] }), :'data-remote' => 'true', :'data-url' => url_for(:controller => 'locationtours', :action => 'dynamic_city', format: 'js'), prompt: "کشور مربوط را انتخاب کنید.", :class => " form-control "
           
@@ -38,7 +44,7 @@
               = hidden_field_tag :h, ' '  , :multiple => true, :value => @locationtour.hotel_ids.join(',') + ','
               %p
                 %h2{:class => I18n.locale}= 'حذف هتل'
-                %i= 'هتلی که می خواهید حذف کنید را از لیست انتخاب کنید.'
+                .alert.alert-info{:style => "font-size:18px"}= 'هتلی که می خواهید در لیست بماند را انتخاب کنید'
                 = select_tag :h, options_for_select(@locationtour.hotel_ids.collect{ |u| [Hotel.find(u).title_fa, u] }), :multiple => "multiple", :id => "example-multiple-selected"
               
               -#
