@@ -406,7 +406,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .continent:hover, .continent.active {cursor:pointer; background:#4D4D4D; opacity:.8; }
 .continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#fff}
 .fa .continent .country-title-tab, .ar .continent .country-title-tab{
-  font-size:20px;right: 50px;
+  right: 50px;
   line-height:1em;}
 ul.tag-cloud {list-style:none}
 ul.tag-cloud li.tag-cloud  {margin:.5%; float:right;  }
@@ -457,12 +457,16 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
     .carousel-inner .prev		 { left: -25%; }	
   }
 
-
 .tour-source {background:#ADCFE6; border-radius:9px; padding:2%; margin:1%; border: 2px solid #4D4D4D}
 .tour-source b {font-size:30px; margin-bottom:4%}
-.yellow {background:#F6F633;
+
+.yellow {color:#B21313;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
-  }
-.white {background:#fff; -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
-  transition: all 1s;}
+  font-size:2.5em;
+}
+.white {color:#FFA500; -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;  
+  font-size:2em;
+}
+

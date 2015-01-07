@@ -9,6 +9,8 @@ class ToursController < ApplicationController
     p '===================='
     p @send_tour = params[:send_tour]
     p '===================='
+    @norouz = ContinentCategory.find_by_title_fa('نوروز 94')
+    p @norouz
   end
 
   # GET /tours/1
