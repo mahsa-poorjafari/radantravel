@@ -31,3 +31,6 @@
     .reserv-box{:class => I18n.locale}    
       %span= image_tag 'reserv-hotel.png'
       %span{:class => I18n.locale}= t('hotel-reserv')
+:javascript      
+  $('#tour-exp').datepicker();
+  $('#tour-start').datepicker();

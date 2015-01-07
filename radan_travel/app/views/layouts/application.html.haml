@@ -176,12 +176,26 @@
   = link_to '#top', :id => "go-top-page", :class => "anchorLink", :title => "آژانس هواپیمایی رادان سیر" do
     = image_tag 'gotop.png', :title => "بازگشت به بالای صفحه", :alt => "آژانس هواپیمایی رادان سیر - بازگشت به بالای صفحه"
     
-  
-  
-  :javascript    
-    $('#package-tour1 :first').addClass('active');
+  :javascript  
+    $('.carousel[data-type="multi"] .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+      
+      for (var i=1;i<2;i++) {
+        next=next.next();
+        if (!next.length) {
+          next = $(this).siblings(':first');
+        }
+        
+        next.children(':first-child').clone().appendTo($(this));
+      }
+    });
+    $('#package-tour1 :first').addClass('active');   
     $('#package-tour2 :first').addClass('active');
-    $('.fa_date').datepicker();
+    
     $('a#go-top-page').smoothScroll();
     
     $(document).ready(function() {
