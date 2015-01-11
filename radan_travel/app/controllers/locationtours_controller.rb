@@ -14,7 +14,7 @@ class LocationtoursController < ApplicationController
   end
   def dynamic_city    
     p country_id = params[:country_list]
-    p @city = City.where( country_id: country_id).order(" created_at desc")
+    p @city = City.where( country_id: country_id).order(" title_fa desc")
     respond_to do |format|
       format.js
     end
@@ -24,7 +24,7 @@ class LocationtoursController < ApplicationController
     p @city_id = params[:city_id]
     p @city = City.find(@city_id)
     p '=======city hotel========'
-    p @hotels = Hotel.where(city_id: @city).order(" created_at desc")
+    p @hotels = Hotel.where(city_id: @city).order(" title_fa desc")
   end
   # GET /locationtours/new
   def new
