@@ -25,7 +25,7 @@ module RadanTravel
     config.assets.enabled = true    
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')    
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-    config.middleware.use "PDFKit::Middleware", :print_media_type => true
+    
     
     
     
