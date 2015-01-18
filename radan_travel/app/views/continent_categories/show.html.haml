@@ -33,7 +33,7 @@
             %span.location= image_tag 'arrow-bullet-right.png'
             %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
   - if  @continent_category.title_fa == 'تورهای تفریحی'
-    = render 'tours/fun_tours'
+    = render 'tours/fun_tours', :continent_category => @continent_category
   - else
     .show-tours.col-xs-10.set-center#Container
       -if @continent_category.tours.present?
@@ -62,3 +62,5 @@
                     - @send_tour = @send_tour.to_i            
                     - if @send_tour.present? && @send_tour == tour.id
                       .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
+      - else
+        %p= image_tag 'coming.png'

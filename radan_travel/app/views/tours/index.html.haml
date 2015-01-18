@@ -7,7 +7,7 @@
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
-      - ContinentCategory.order(" created_at desc").each do |continent| 
+      - ContinentCategory.offset(5).order(" created_at desc").each do |continent| 
         .continent.tour-group
           %span.location= image_tag 'arrow-bullet-left.png'
           %h4.en.country-title-tab{:class => ('white blink' if continent.title_fa == 'نوروز 94')}
@@ -85,5 +85,4 @@
     },1000);
   
   
--# 
-  .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id, :style => "width:23%"}        
+
