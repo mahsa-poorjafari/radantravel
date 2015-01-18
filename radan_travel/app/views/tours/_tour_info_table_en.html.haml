@@ -14,7 +14,7 @@
         - location.hotels.each do |hotel|
           %p{:style => "text-align:center"}
             - if hotel.title.present?
-              %b= link_to hotel.title, hotel_url(hotel.title)        
+              %b{:id => 'hotel-' + hotel.id.to_s}= link_to hotel.title, hotel_url(hotel.title)        
               - if hotel.class_hotel.present?
                 %p{:style => "text-align:center"}  
                   %span=image_tag 'Star.png'

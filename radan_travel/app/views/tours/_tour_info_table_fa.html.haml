@@ -8,13 +8,13 @@
   .col-xs-2.th.pull-right= t('location.kid_no_bed')
   
 - @tour.locationtours.each_with_index do |location, i|
-  .col-xs-12.other-rows{:class => cycle("odd", "even") + " " + I18n.locale.to_s }
+  .col-xs-12.other-rows{:class => cycle("odd", "even") + " " + I18n.locale.to_s , :id => 'location-' +location.id.to_s}
     -if location.hotels.collect(&:title_fa).present?
       .col-xs-2.td.pull-right        
         - location.hotels.each do |hotel|
           %p{:style => "text-align:center"}
             - if hotel.title.present?
-              %b= link_to hotel.title, hotel_url(hotel.title)        
+              %b{:id => 'hotel-' + hotel.id.to_s}= link_to hotel.title, hotel_url(hotel.title)        
               - if hotel.class_hotel.present?
                 %p{:style => "text-align:center"}  
                   %span=image_tag 'Star.png'
