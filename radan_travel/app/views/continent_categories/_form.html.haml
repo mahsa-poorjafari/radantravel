@@ -19,9 +19,9 @@
       = f.label 'آیکن گروه:', :class => "control-label"
       = f.file_field :icon, :class => "form-control"
     .form-group
-      = f.label الویت نمایش گروه', :class => "control-label"
+      = f.label 'الویت نمایش گروه', :class => "control-label"
       - if @continent_category.present?
-        %p= 'با انتساب یک عدد بین صفر تا ' + @continent_category.count + 'اولیت نمایش گروه را مشخص کنید.'
+        %p= 'با انتساب یک عدد بین صفر تا ' + ContinentCategory.count.to_s + ' اولیت نمایش گروه را مشخص کنید.'
         %i= 'اولیت با عدد بزرگتر است.'
       = f.text_field :set_order, :class => "form-control" 
     .form-group
