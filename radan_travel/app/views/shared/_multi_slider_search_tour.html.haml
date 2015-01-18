@@ -6,57 +6,57 @@
 .multi-slider-package.col-xs-10  
   .col-md-12.col-md-offset-3
     #myCarousel1.carousel.slide{"data-interval" => "3000", "data-ride" => "carousel", "data-type" => "multi"}
-      .carousel-inner#package-tour1
-        - tours.limit(@half_count).each do |tour|
-          - if tour.country.present?
-            - unless  tour.country.title_fa == 'ایران'
+      .carousel-inner#package-tour1 
+        - Country.all.each do |country|
+          - unless country.title_fa == 'ایران'
+            - if country.tours.present?
+              - @first_tour = country.tours.first
               .item
-                .col-xs-4.col-sm-4.col-xs-12.tour-item{:id => tour.id.to_s}
-                  - if tour.photos.present?
-                    = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                  
-                  .tour-hover
-                    - if tour.country.present? && tour.country.title_fa == 'ایران'
-                      %p.tour-title.en= tour.title
-                    - else
-                      %p.tour-title{:class => I18n.locale}= tour.title
+                .col-xs-4.col-sm-4.col-xs-12.tour-item{:id => @first_tour.id.to_s}
+                  .tour-hover                    
+                    %p.tour-title{:class => I18n.locale}= @first_tour.title
                     - if I18n.locale == :fa
-                      = render "/tours/show_persian_date", :tour => tour
+                      = render "/tours/show_persian_date", :tour => @first_tour
                     - else  
-                      = render "/tours/show_english_date", :tour => tour
-         
-      = link_to  "#myCarousel1" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
-        = image_tag 'prev.png'
-      = link_to  "#myCarousel1", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
-        = image_tag 'next.png'
-
+                      = render "/tours/show_english_date", :tour => @first_tour
+                  - if @first_tour.photos.present?
+                    = link_to (image_tag @first_tour.photos.first.image(:medium), :class => "img-responsive"), @first_tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                  .more-info= t('more-info')
+                  
+                  
+       
+    = link_to  "#myCarousel1" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
+      = image_tag 'prev.png'
+    = link_to  "#myCarousel1", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
+      = image_tag 'next.png'
+-#
  
-.multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
-  .col-md-12.col-md-offset-3{:style => "height:200px;"}
-    #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
-      .carousel-inner#package-tour2
-        - tours.offset(@half_count).each do |tour|
-          - if tour.country.present?
-            - unless tour.country.title_fa == 'ایران'
-              .item
-                .col-xs-4.col-sm-4.col-xs-12.tour-item{:id => tour.id.to_s}
-                  - if tour.photos.present?
-                    = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                  
-                  .tour-hover
-                    - if tour.country.present? && tour.country.title_fa == 'ایران'
-                      %p.tour-title.en= tour.title
-                    - else
-                      %p.tour-title{:class => I18n.locale}= tour.title
-                    - if I18n.locale == :fa
-                      = render "/tours/show_persian_date", :tour => tour
-                    - else  
-                      = render "/tours/show_english_date", :tour => tour
-          
-      = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
-        = image_tag 'prev.png'
-      = link_to  "#myCarousel2", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
-        = image_tag 'next.png'
+  .multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
+    .col-md-12.col-md-offset-3{:style => "height:200px;"}
+      #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
+        .carousel-inner#package-tour2
+          - tours.offset(@half_count).each do |tour|
+            - if tour.country.present?
+              - unless tour.country.title_fa == 'ایران'
+                .item
+                  .col-xs-4.col-sm-4.col-xs-12.tour-item{:id => tour.id.to_s}
+                    - if tour.photos.present?
+                      = link_to (image_tag tour.photos.first.image(:medium), :class => "img-responsive"), tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                    
+                    .tour-hover
+                      - if tour.country.present? && tour.country.title_fa == 'ایران'
+                        %p.tour-title.en= tour.title
+                      - else
+                        %p.tour-title{:class => I18n.locale}= tour.title
+                      - if I18n.locale == :fa
+                        = render "/tours/show_persian_date", :tour => tour
+                      - else  
+                        = render "/tours/show_english_date", :tour => tour
+            
+        = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
+          = image_tag 'prev.png'
+        = link_to  "#myCarousel2", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
+          = image_tag 'next.png'
 
 
  

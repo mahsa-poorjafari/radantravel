@@ -153,7 +153,7 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
 .admin-menu-title {padding:1%;}
 .unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
 .yield {position:relative;}
-.link-reservation .reserv-box {width:250px;}
+.link-reservation .reserv-box {width:250px; height:33px; padding-top:5%}
 .tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px;}
 .tour-search-box span.en, .reserv-box span.en{color:#fff; font-size:13px; }
 .tour-search-box span.ar, .reserv-box span.ar{color:#fff; font-size:16px}
@@ -168,8 +168,8 @@ ul#main-menu li.item-menu ul.sub-menu{display:none}
   border-bottom-right-radius:5px;
   background-image: url(image-path('search.png')); 
   position:absolute;
-  height:60px;
-  padding-top: 1%;  
+  height:70px;
+  
   top:390px;
   left: 0;
   width:20%;
@@ -220,10 +220,11 @@ p.title-tour { border-radius:9px;
   margin-right:8%;
   margin-left:8%;
   margin-top:5%;
+  margin-bottom:5%;
   }
 .carousel-control img{
   position: absolute;
-  top: 19%;
+  top: 75px;
   right: 2%;
   left: 2%;
 }
@@ -232,34 +233,43 @@ p.title-tour { border-radius:9px;
   border-right: 3px #fff solid;
   border-left: 3px #fff solid;
   }
-.tour-item .tour-hover {position:absolute; top:140px; 
+.tour-item .tour-hover {position:absolute; top:0px; 
   min-height:60px;
-  background-image: url(image-path('outlets.png')); 
+  background:#000000; 
   opacity:.8;
   text-align:center; width:100%; padding:1%;}
-.tour-item .tour-hover p, .tour-item .tour-hover  b{color:#fff}
+.tour-item .tour-hover p{color:#fff; font-size:1em}
+
 .tour-hover p.tour-title.en {direction:ltr; font-family:Arial}
+.tour-hover p.tour-title.fa {direction:rtl; font-family: 'open_sansregular';}
 .tour-item .item-package img {height:100%}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
 .tour-hover span {color:#fff}
-
+.more-info {position:absolute; bottom:0px; 
+  min-height:15px;
+  background:#1A1A1A; 
+  opacity:.8;
+  width:100%; padding:1%;
+  color: #fff;
+text-align: left;
+font-size: 1.5em;}
+.more-info:hover {cursor:pointer; color:#C01E1E;}
 .footer  { background:#2B2B2B; margin-top:5%; position:relative; padding:2%;}
-.footer a{color:#76c38e;}
+.footer a{color:#BF3838;}
 .footer .fa input[type="reset"], .footer .fa input[type="submit"] {font-family:khodkar;}
-.footer .fa input[type="reset"]:hover, .footer .fa input[type="submit"]:hover {background:#609370;}
+.footer .fa input[type="reset"]:hover, .footer .fa input[type="submit"]:hover {background:#BF3838;}
 .footer .en input {font-family:Arial;}
 .footer .ar input {font-family:arabswell;}
 .footer a:hover, .footer h4, .footer h3, .footer p, .footer b, .footer span{color:#fff;}
 .footer h4.contact {text-align:center}
 .footer .form-msg { background:#1A1A1A; opacity:.8;}
-.footer .footer-btn {background:#76c38f;color:#1a1a1a}
+.footer .footer-btn {background:#E94343;color:#1a1a1a}
 .form-control, .form-control:focus {border-color:#4D4D4D;}
 .footer-menu ul.fa {font-family: 'open_sansregular';}
 .footer-menu ul {margin-top:5%;}
 .footer-menu ul li{margin:2%;}
 .copyright {background:#4D4D4D; color:#fff; padding:2%; text-align:center; font-size:18px}
-
 
 
 .tour-details .tour-description p.fa, .country-show .country-text p, .country-text p {text-align:justify;direction:rtl; font-family: 'open_sansregular'; }
@@ -288,7 +298,7 @@ p.title-tour { border-radius:9px;
   height: 15%;
   padding-top: 3%;
   margin: 0;
-  border-bottom: 2px solid #00DBFF;
+  border-bottom: 2px solid #E72B25;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
 }
@@ -420,7 +430,7 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
   position:relative; text-align:justify;  
 }
 .btn.btn-success {font-family: 'open_sansregular';}
-.keywords { height:50px; overflow-y:scroll}
+.keywords { height:50px; overflow-y:scroll; width:0;}
 
 .coming_soon {
   position: absolute;
@@ -472,3 +482,26 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 
 .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {right:0}
 #list_hotels li {font-slize:25px; font-family: 'open_sansregular';}
+
+
+
+@media print {
+  body {
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  #line_items {
+    page-break-before: always;
+  }
+  
+  #pdf_link {
+    display: none;
+  }
+}

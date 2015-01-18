@@ -13,24 +13,32 @@
       = text_field_tag :price, params[:price],:placeholder => t('tour-price'), :class => "form-control", :id => "tour-price"                  
     .col-xs-2.pull-right      
       = text_field_tag :country, params[:country],:placeholder => t('tour-country'), :class => "form-control", :id => "tour-country"  
+-#
+  #reserv.col-xs-8.pull-left.link-reservation
+    .reserv-box.pull-right{:class => I18n.locale}    
+      %span= image_tag 'reserv-plane.png'
+      %span{:class => I18n.locale, :style => "margin-bottom:12%"}= t('plane-reserv') 
+    .col-xs-8
+      = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
 
-#reserv.col-xs-8.pull-left.link-reservation
-  .reserv-box.pull-right{:class => I18n.locale}    
-    %span= image_tag 'reserv-plane.png'
-    %span{:class => I18n.locale, :style => "margin-bottom:12%"}= t('plane-reserv') 
-  .col-xs-8
-    = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
-
-      = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
-      = label_tag t('reserv-type')
-      = select_tag params[:IsPublicLogin],  options_for_select([[t('user'),'true'], [t('agent'),'false']])
-      = label_tag t('reserv-lang')
-      = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
-#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "top:325px;"}
-  = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
-    .reserv-box{:class => I18n.locale}    
-      %span= image_tag 'reserv-hotel.png'
-      %span{:class => I18n.locale}= t('hotel-reserv')
+        = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
+        = label_tag t('reserv-type')
+        = select_tag params[:IsPublicLogin],  options_for_select([[t('user'),'true'], [t('agent'),'false']])
+        = label_tag t('reserv-lang')
+        = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
+        
+        
+#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "bottom:0"}
+  .col-xs-1.pull-right{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
+  .col-xs-9.pull-right
+    = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
+      .reserv-box{:class => I18n.locale}
+        %span{:class => I18n.locale}= t('hotel-reserv')
+    
+    = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
+      .reserv-box{:class => I18n.locale}            
+        %span{:class => I18n.locale}= t('plane-reserv')
+  
 :javascript      
   $('#tour-exp').datepicker();
   $('#tour-start').datepicker();

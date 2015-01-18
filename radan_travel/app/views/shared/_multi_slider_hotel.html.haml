@@ -5,40 +5,42 @@
 .multi-slider-package.col-xs-10
   .col-md-12.col-md-offset-3
     #myCarousel1.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000"}
-      .carousel-inner#package-tour1        
-        - Hotel.all.limit(@half_count).each do |hotel|
-          - unless hotel.city.country.title_fa == 'ایران'
-            .item
-              .col-xs-4.tour-item{:id => hotel.id.to_s}
-                - if hotel.photos.present?
-                  = link_to (image_tag hotel.photos.first.image(:medium), :class => "img-responsive"), hotel, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+      .carousel-inner#package-tour1               
+        - City.all.each do |city|
+          -if city.hotels.present?            
+          - @city_hotel = city.hotels.first
+            .item   
+              .col-xs-4.tour-item{:id => @city_hotel.id.to_s}
+                - if @city_hotel.photos.present?
+                  = link_to (image_tag @city_hotel.photos.first.image(:medium), :class => "img-responsive"), @city_hotel, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
                 
                 .tour-hover{:class => I18n.locale}                  
-                  = render "/hotels/show_hotel_info_fa", :hotel => hotel
+                  = render "/hotels/show_hotel_info_fa", :hotel => @city_hotel
                  
           
       = link_to  "#myCarousel1" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
         = image_tag 'prev.png'
       = link_to  "#myCarousel1", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
         = image_tag 'next.png'
-.multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
-  .col-md-12.col-md-offset-3{:style => "height:200px;"}
-    #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
-      .carousel-inner#package-tour2
-        - Hotel.all.offset(@half_count).each do |hotel|
-          - unless hotel.city.country.title_fa == 'ایران'
-            .item
-              .col-xs-4.tour-item{:id => hotel.id.to_s}
-                - if hotel.photos.present?
-                  = link_to (image_tag hotel.photos.first.image(:medium), :class => "img-responsive"), hotel, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                
-                .tour-hover{:class => I18n.locale}                  
-                  = render "/hotels/show_hotel_info_fa", :hotel => hotel
-          
-      = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
-        = image_tag 'prev.png'
-      = link_to  "#myCarousel2", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
-        = image_tag 'next.png'
+-#
+  .multi-slider-package.col-xs-10{:style => "margin-bottom:5%"}   
+    .col-md-12.col-md-offset-3{:style => "height:200px;"}
+      #myCarousel2.carousel.slide{"data-ride" => "carousel", "data-type" => "multi", "data-interval" => "3000", :style => "height:100%"}
+        .carousel-inner#package-tour2
+          - Hotel.all.offset(@half_count).each do |hotel|
+            - unless hotel.city.country.title_fa == 'ایران'
+              .item
+                .col-xs-4.tour-item{:id => hotel.id.to_s}
+                  - if hotel.photos.present?
+                    = link_to (image_tag hotel.photos.first.image(:medium), :class => "img-responsive"), hotel, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
+                  
+                  .tour-hover{:class => I18n.locale}                  
+                    = render "/hotels/show_hotel_info_fa", :hotel => hotel
+            
+        = link_to  "#myCarousel2" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
+          = image_tag 'prev.png'
+        = link_to  "#myCarousel2", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
+          = image_tag 'next.png'
 
 :javascript
   $('.carousel[data-type="multi"] .item').each(function(){

@@ -1,20 +1,26 @@
 .col-xs-2
 .col-xs-8.main-icon{:class => I18n.locale}
   .col-xs-3.icon-box
-    = image_tag 'package.png'    
-    %p=link_to t('imp-package'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر" 
+    
+    %p
+      =link_to  tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"  do
+        = image_tag 'package.png'    
+        %p= t('imp-package')
     -#
       %p.icon-des یک متن خلاصه و یا توضیحات خلاصه قرار میگیرد.
-  .col-xs-3.icon-box
-    = image_tag 'visit.png'
-    %p= link_to  t('sight'), Sight, :title => "آژانس_هواپیمایی_رادان_سیر" 
-    
+  .col-xs-3.icon-box    
+    %p
+      = link_to   Sight, :title => "آژانس_هواپیمایی_رادان_سیر" do
+        = image_tag 'visit.png'
+        %p= t('sight')
   .col-xs-3.icon-box
     = image_tag 'visa.png'
     %p= t('visa')
     
   .col-xs-3.icon-box
-    = image_tag 'hotel.png'
-    %p= link_to   t('hotel'), Hotel,  :title => "آژانس_هواپیمایی_رادان_سیر" 
     
+    %p
+      = link_to   Hotel,  :title => "آژانس_هواپیمایی_رادان_سیر"  do
+        = image_tag 'hotel.png'
+        %p= t('hotel')
 .col-xs-2

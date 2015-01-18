@@ -17,39 +17,43 @@
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
-      - ContinentCategory.order(" created_at desc").each do |continent|      
+      - ContinentCategory.offset(5).order("set_order asc").each do |continent|      
         .filter.continent.tour-group{"data-filter" => ".category-" + continent.id.to_s}
           %span.location= image_tag 'arrow-bullet-right.png'
           %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
       
   
   .show-tours.col-xs-10.set-center#Container
-    - @tours.each_with_index do |tour|       
-      - if tour.country.present? && tour.country.title_fa != 'ایران'
-        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id, :style => "width:23%"}        
-          - if tour.coming_soon?
-            .coming_soon= image_tag 'coming.png'
-          = link_to tour, :class => "tour-box" do 
-            %h5.tour-title{:class => I18n.locale}= tour.title
-            - if tour.photos.present?
-              .tour-sample-image{:class => ('set-coming-soon' if tour.coming_soon?)}= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
-            .clear-float
-          .tour-date
-            - if I18n.locale == :fa
-              = render "/tours/show_persian_date", :tour => tour
-            - else  
-              = render "/tours/show_english_date", :tour => tour      
-          -if is_admin?
-            .admin-btn-tour
-              = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
-              = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"                   
-              = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
-              = link_to 'ارسال به اعضا خبرنامه', sendtonewsletter_tour_path(tour), :class => "btn btn-default"       
-              - @send_tour = @send_tour.to_i            
-              - if @send_tour.present? && @send_tour == tour.id
-                .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
-                
-  .keywords.full-width
+    - Country.all.each do |country|
+      - unless country.title_fa == 'ایران'
+        - if country.tours.present?
+          - @country_tour = country.tours.last
+    
+          
+          .tours-index.mix{ "data-my-order" => @country_tour.id, :style => "width:23%"}        
+            - if @country_tour.coming_soon?
+              .coming_soon= image_tag 'coming.png'
+            = link_to @country_tour, :class => "tour-box" do 
+              %h5.tour-title{:class => I18n.locale}= @country_tour.title
+              - if @country_tour.photos.present?
+                .tour-sample-image{:class => ('set-coming-soon' if @country_tour.coming_soon?)}= image_tag @country_tour.photos.first.image(:medium), :id => "tour-sample-image-" + @country_tour.photos.first.id.to_s
+              .clear-float
+            .tour-date
+              - if I18n.locale == :fa
+                = render "/tours/show_persian_date", :tour => @country_tour
+              - else  
+                = render "/tours/show_english_date", :tour => @country_tour      
+            -if is_admin?
+              .admin-btn-tour
+                = link_to 'ویرایش تور', edit_tour_path(@country_tour), :class => "btn btn-info"
+                = link_to 'مشاهده جزئیات', @country_tour, :class => "btn btn-warning"                   
+                = link_to 'حذف تور', @country_tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+                = link_to 'ارسال به اعضا خبرنامه', sendtonewsletter_tour_path(@country_tour), :class => "btn btn-default"       
+                - @send_tour = @send_tour.to_i            
+                - if @send_tour.present? && @send_tour == @country_tour.id
+                  .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
+                    
+  .keywords
     %p= t('Keywords.title')
     %ul.tag-cloud.full-width{:class => I18n.locale}
       %li.tag-cloud
@@ -82,3 +86,5 @@
     },1000);
   
   
+-# 
+  .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?).to_s + (" category-" + tour.continent_category_id.to_s if tour.continent_category_id.present?).to_s, "data-my-order" => tour.id, :style => "width:23%"}        

@@ -55,7 +55,7 @@
         = link_to '', '#', :name => "yield", :id => "yieldAnchor", :title => "آژانس هواپیمایی رادان سیر"
         = yield
         - if current_page?('/') 
-          .keywords.full-width
+          .keywords
             %p= t('Keywords.title')
             %ul.tag-cloud.full-width{:class => I18n.locale}
               %li.tag-cloud

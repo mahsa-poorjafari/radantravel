@@ -69,6 +69,6 @@ class ContinentCategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def continent_category_params
-      params.require(:continent_category).permit(:title_fa, :title_en, :title_ar, :icon)
+      params.require(:continent_category).permit(:title_fa, :title_en, :title_ar, :icon, :set_order)
     end
 end

@@ -7,16 +7,22 @@
   .col-xs-6
   .col-xs-6
     .form-group
-      = f.label 'اسم قاره به فارسی:', :class => "control-label"
+      = f.label 'اسم گروه به فارسی:', :class => "control-label"
       = f.text_field :title_fa, :class => "form-control" 
     .form-group
-      = f.label 'اسم قاره به انگلیسی:', :class => "control-label"
+      = f.label 'اسم گروه به انگلیسی:', :class => "control-label"
       = f.text_field :title_en, :class => "form-control" 
     .form-group
-      = f.label 'اسم قاره به عربی:', :class => "control-label"
+      = f.label 'اسم گروه به عربی:', :class => "control-label"
       = f.text_field :title_ar, :class => "form-control" 
     .form-group
-      = f.label 'آیکن قاره:', :class => "control-label"
+      = f.label 'آیکن گروه:', :class => "control-label"
       = f.file_field :icon, :class => "form-control"
+    .form-group
+      = f.label الویت نمایش گروه', :class => "control-label"
+      - if @continent_category.present?
+        %p= 'با انتساب یک عدد بین صفر تا ' + @continent_category.count + 'اولیت نمایش گروه را مشخص کنید.'
+        %i= 'اولیت با عدد بزرگتر است.'
+      = f.text_field :set_order, :class => "form-control" 
     .form-group
       = f.submit 'ثبت', :class => "btn btn-primary"

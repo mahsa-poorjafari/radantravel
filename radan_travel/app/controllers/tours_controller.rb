@@ -20,7 +20,12 @@ class ToursController < ApplicationController
   end
   
   def show
-    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "info-"+ @tour.title_en
+      end
+    end
   end
   def sendtonewsletter    
     UserMailer.send_tour_info_to_newsletter(@tour).deliver 

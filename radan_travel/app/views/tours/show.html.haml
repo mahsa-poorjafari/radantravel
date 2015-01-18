@@ -10,8 +10,9 @@
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
   .tour-details
+    
     - if is_admin?
-      .col-xs-12        
+      .col-xs-12 
         .tour-source
           %b= 'مشخصات مبدا پکیج تور'
           %div{:style => "margin-top:3%"}= @tour.tour_source 
