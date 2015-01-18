@@ -3,24 +3,26 @@
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
   - if I18n.locale == :en
     .col-xs-2.pull-left{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
-      .filter.continent{"data-filter" => "all"}
+      .continent{:class => ('active' if current_page?(Tour))+ ' '+ I18n.locale.to_s}
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
       - ContinentCategory.order(" created_at desc").each do |continent| 
-        .filter.continent.tour-group{"data-filter" => ".category-" + continent.id.to_s}
+        .continent.tour-group
           %span.location= image_tag 'arrow-bullet-left.png'
-          %h4.en.country-title-tab{:class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
+          %h4.en.country-title-tab{:class => ('white blink' if continent.title_fa == 'نوروز 94')}
+            = link_to continent.title, continent.title
   - else
-    .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
-      .filter.continent{"data-filter" => "all"}
+    .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%"} 
+      .continent{:class => ('active' if current_page?(Tour))+ ' '+ I18n.locale.to_s}
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     
-      - ContinentCategory.offset(5).order("set_order asc").each do |continent|      
-        .filter.continent.tour-group{"data-filter" => ".category-" + continent.id.to_s}
-          %span.location= image_tag 'arrow-bullet-right.png'
-          %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
+      - ContinentCategory.offset(5).order("set_order asc").each do |continent| 
+        = link_to continent do
+          .continent.tour-group
+            %span.location= image_tag 'arrow-bullet-right.png'
+            %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
       
   
   .show-tours.col-xs-10.set-center#Container
@@ -30,7 +32,7 @@
           - @country_tour = country.tours.last
     
           
-          .tours-index.mix{ "data-my-order" => @country_tour.id, :style => "width:23%"}        
+          .tours-index{ "data-my-order" => @country_tour.id, :style => "width:23%"}        
             - if @country_tour.coming_soon?
               .coming_soon= image_tag 'coming.png'
             = link_to @country_tour, :class => "tour-box" do 
@@ -76,9 +78,6 @@
           = link_to tour.title, tour, :title => tour.title
       
 :javascript
-  $(function(){
-    $('#Container').mixItUp();  
-  });
   
   setInterval(
     function(){

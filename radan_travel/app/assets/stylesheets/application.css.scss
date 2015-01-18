@@ -213,6 +213,8 @@ p.title-tour { border-radius:9px;
   margin-left:37%;
   top:-20px
   }
+p.title-tour a {color:#fff}
+p.title-tour a:hover, p.title-tour a:visited{color:#fff}
 .multi-slider-package {
   height:200px; 
   overflow:hidden;
@@ -413,7 +415,10 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 #iran-hotel:hover span ,#world-hotel:hover span{color:#791313;}
 .fa #iran-hotel span , .fa #world-hotel span{font-size:22px; }
 .anchorLink {position:fixed; height:30px; width:100px;  z-index:200; bottom:10%; left:1%}
-.continent {  position:relative; width:190px;  height:50px; float:left; margin-bottom:5%; border-bottom:1px solid #4D4D4D  }
+.continent {  position:relative; width:190px;  height:50px;
+ float:left; margin-bottom:5%; border-bottom:1px solid #4D4D4D ; }
+.continent.fa, .continent.ar, .fa  .continent, .ar .continent{font-size:2em; }
+.continent.en, .en .continent {font-size:1.5em; }
 .continent:hover, .continent.active {cursor:pointer; background:#4D4D4D; opacity:.8; }
 .continent:hover .country-title-tab, .continent.active .country-title-tab{ color:#fff}
 .fa .continent .country-title-tab, .ar .continent .country-title-tab{

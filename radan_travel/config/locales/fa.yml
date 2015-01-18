@@ -101,7 +101,7 @@ fa:
     get-file: 'دریافت فایل'
     
     
-  show-all-tours: 'نمایش تورهای تفریحی'
+  show-all-tours: 'تورهای اخیر'
   show-all: 'نمایش همه'
   tour_comment:
     user-name: 'نام خود را وارد کنید'
