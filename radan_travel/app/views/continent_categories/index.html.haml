@@ -1,23 +1,24 @@
-%h1 Listing continent_categories
-
-%table
-  %tr
-    %th Title fa
-    %th Title en
-    %th Title ar
-    %th
-    %th
-    %th
-
-  - @continent_categories.each do |continent_category|
+.margin3 
+  %h1 لیست گروه تورها
+  -if is_admin?
+    = link_to 'تعریف گروه جدید برای تورها', new_continent_category_path, :class => "btn btn-success"
+      
+  %table.table
     %tr
-      %td= continent_category.title_fa
-      %td= continent_category.title_en
-      %td= continent_category.title_ar
-      %td= link_to 'Show', continent_category
-      %td= link_to 'Edit', edit_continent_category_path(continent_category)
-      %td= link_to 'Destroy', continent_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th ردیف
+      %th عنوان گروه       
+      %th الویت
+      %th
 
-%br
+    - @continent_categories.each_with_index do |continent_category, i|
+      %tr
+        %td= (i+1)
+        %td= continent_category.title      
+        %td= continent_category.set_order
+        %td
+          = link_to 'مشاهده', continent_category, :class => "btn btn-warning"
+          = link_to 'ویرایش', edit_continent_category_path(continent_category), :class => "btn btn-info"
+          = link_to 'حذف', continent_category, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
 
-= link_to 'New Continent category', new_continent_category_path
+
+  

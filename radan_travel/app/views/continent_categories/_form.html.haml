@@ -22,7 +22,7 @@
       = f.label 'الویت نمایش گروه', :class => "control-label"
       - if @continent_category.present?
         %p= 'با انتساب یک عدد بین صفر تا ' + ContinentCategory.count.to_s + ' اولیت نمایش گروه را مشخص کنید.'
-        %i= 'اولیت با عدد بزرگتر است.'
+        %i= 'اولیت با عدد کوچکتر است.'
       = f.text_field :set_order, :class => "form-control" 
     .form-group
       = f.submit 'ثبت', :class => "btn btn-primary"
