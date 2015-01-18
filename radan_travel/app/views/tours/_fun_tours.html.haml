@@ -1,5 +1,5 @@
 .col-xs-10.pull-left{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}       
-  - ContinentCategory.all.limit(5).order("title_fa desc").each do |continent| 
+  - ContinentCategory.all.limit(5).each do |continent| 
     .continent-group.tour-group.pull-right.filter{:style => 'width:'+ (100/5).to_s + '%;', "data-filter" => '.category-'+continent.id.to_s}      
       %h3.en.country-title-tab{:class => I18n.locale}=  continent.title
         
