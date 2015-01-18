@@ -241,7 +241,7 @@ p.title-tour { border-radius:9px;
 .tour-item .tour-hover p{color:#fff; font-size:1em}
 
 .tour-hover p.tour-title.en {direction:ltr; font-family:Arial}
-.tour-hover p.tour-title.fa {direction:rtl; font-family: 'open_sansregular';}
+.tour-hover p.tour-title.fa {direction:rtl; font-family: 'open_sansregular',Arial ;}
 .tour-item .item-package img {height:100%}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
@@ -291,7 +291,7 @@ font-size: 1.5em;}
 .tour-sample-image { height:200px; overflow:hidden}
 .tour-box .tour-title {width: 100%;
   color:#000;
-  font-size:20px;
+  font-size:16px;
   position: relative;
   right: 0;
   left: 0;
@@ -303,6 +303,7 @@ font-size: 1.5em;}
   transition: all 1s;
 }
 .tour-box .tour-title.en {font-size:13px;}
+.tour-box .tour-title.fa {font-family:'open_sansregular', Arial;}
 .tour-box:hover .tour-title{background:#A52A2A; color:#fff}
 .tour-box .tour-sample-image img{width:100%;  height:100%; margin-top:-2px;}
 .tour-date {position: absolute;  
