@@ -50,7 +50,7 @@
                         - if sight.photos.count <= 1
                           = image_tag sight.photos.first.image(:medium)
                         - else
-                          = render 'shared/slight_slider', :pictures => sight.photos
+                          = render 'shared/slight_slider', :pictures => sight.photos, :sight => sight
                       
                     
         
