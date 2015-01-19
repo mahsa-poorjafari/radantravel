@@ -23,8 +23,8 @@
         %li.foreign-hotels{:class => I18n.locale}
           = link_to t('foreign-hotels'), Hotel
           %ul.details_menu
-            - Country.all.order(" title_fa desc").each do |country|
-              - country.cities.limit(5).each_with_index do |city, i|
+            - Country.all.order(" title_fa asc").limit(6).each do |country|
+              - country.cities.each_with_index do |city, i|
                 - if city.hotels.present?
                   - @number = (i+1)
               -if @number
