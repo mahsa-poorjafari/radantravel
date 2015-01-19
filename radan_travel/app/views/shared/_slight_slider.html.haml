@@ -1,0 +1,20 @@
+#myCarousel4.carousel.slide{"data-ride" => "carousel"}
+  / Indicators
+  %ol.carousel-indicators
+    - pictures.each_with_index do |item, i|    
+      %li.active{"data-slide-to" => (i+1), "data-target" => "#myCarousel4"}    
+    
+  / Wrapper for slides
+  .carousel-inner#slight-slider{:role => "listbox"}
+    - pictures.each_with_index do |item, i|    
+      .item
+        = image_tag item.image(:medium), :alt => item.image_file_name
+        
+  / Left and right controls
+  = link_to  "#myCarousel4" , :class => "left carousel-control", "data-slide" => "prev", :title => "آژانس_هواپیمایی_رادان_سیر"  do  
+    = image_tag 'prev.png'
+  = link_to  "#myCarousel4", :class => "right carousel-control", "data-slide" => "next", :title => "آژانس_هواپیمایی_رادان_سیر"  do           
+    = image_tag 'next.png'
+:javascript  
+  $('.carousel').carousel()
+  $('#slight-slider :first').addClass('active'); 

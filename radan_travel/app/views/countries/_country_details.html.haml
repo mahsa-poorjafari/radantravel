@@ -39,10 +39,19 @@
               - if city.sights.present?
                 - city.sights.each do |sight|
                   .col-xs-12.country-sights.margin-top5{:class =>  cycle("odd", "even")}
-                    .col-xs-8.sights-info
+                    - if is_admin?
+                      = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
+                      = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
+                    .col-xs-7.sights-info
                       %h2{:class => I18n.locale}= sight.title
                       .col-xs-12.margin-top5= raw sight.text
-                    .col-xs-4
+                    .col-xs-5{:style => "min-height:300px; position:relative"}
+                      - if sight.photos.present? 
+                        - if sight.photos.count <= 1
+                          = image_tag sight.photos.first.image(:medium)
+                        - else
+                          = render 'shared/slight_slider', :pictures => sight.photos
+                      
                     
         
           
