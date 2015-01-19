@@ -64,6 +64,7 @@ en:
   tour-info: 'Tour Information'
   tour-price: 'Price'
   info: 'Information'
+  
   country: 'Countries List'
   city: 'Countries Cities'
   close: 'Close'
@@ -98,7 +99,8 @@ en:
   iran-sights: 'Attractions Iran'
   iran-hole: 'Hotels of Iran'
   investment-in-iran: 'Investment in Iran'
-  
+  ir-tours: 'Packages Iran'
+  ir-cities: 'Cities Iran'
   
   sitevisit:
     statistics: 'Statistics'

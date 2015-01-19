@@ -108,7 +108,7 @@ ul#main-menu {list-style:none;position: relative;
 height:100%;
 width: 100%; padding-top:4%}
 
-ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inline; }
+ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inline; position:relative }
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
 ul#main-menu.en li.item-menu, p.title-tour.en {font-family: Arial}
@@ -118,8 +118,9 @@ ul#main-menu li.item-menu.active, ul#main-menu li.item-menu:hover{
   border-radius:3px;
   border-top:#FF2D2D 2px solid;
   }
+ul#main-menu li.item-menu:hover .sub-menu {display:block}
 ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#fff}
-ul#main-menu li.item-menu ul.sub-menu{display:none}
+
 .contact-top-site.fa, .contact-top-site.ar {padding:2%}
 .contact-top-site.en {padding:5%}
 .contact-top-site.fa span, .contact-top-site.ar span{font-size: 13px;}
@@ -343,15 +344,25 @@ font-size: 1.5em;}
 .hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px;}
 .hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;font-size:18px;}
 
-ul.sub-menu {width:100%; margin:0; padding:0; background:#4D4D4D; position: absolute;
-  top: 45px;
-  height: auto;
+ul.sub-menu {width:100%; margin:0; padding:0; 
+  background-image: url(image-path('active-menu.png'));  
+  position: absolute;
+  top: 60px;  
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
-  height:0px;
-  overflow:hidden
+  min-height:100px;
+  right:0;  
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;
+  list-style: none;
+  display:none;
 }
-ul.sub-menu li{width:100%; margin:0; padding:5%; }
+ul.sub-menu.hotel li.foreign-hotels:hover .details_menu{display:block} 
+ul.sub-menu li{width:100%; margin:0; padding:5%; color:#fff; position:relative; min-height:50px}
+ul.sub-menu li:hover{background:#A52A2A;}
+ul.sub-menu li a{width:100%; margin:0; padding:5%; color:#fff; font-size:1.5em; position:absolute; height:100%}
+ul.sub-menu li.fa a{}
+
 ul.sub-menu li.en{text-align:left}
 ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 .comment-box {background-image: url(image-path('halftone.png'));
@@ -372,7 +383,17 @@ width: 100%;}
   font-size: 24px;
   padding-top: 10%;
   }
+.details_menu {position: absolute;
+  list-style:none;
+  right: 100%;
+  top:0;
+  padding:4%;
+  background-image: url(image-path('active-menu.png'));  
+  width: 100%;
+  display: none;
+}
 .set-btn:hover {opacity:.8}
+
 #Container .mix, #Container1 .mix, #Container2 .mix{
   display: none;
 }

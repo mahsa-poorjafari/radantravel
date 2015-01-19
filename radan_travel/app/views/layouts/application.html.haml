@@ -27,8 +27,7 @@
       - elsif @other_slides.present?
         = render "slides/slider", :slides => @other_slides
       - else
-        = render "slides/slider", :slides => Slide.all
-      
+        = render "slides/slider", :slides => Slide.all      
       .logo.col-xs-12
         .col-xs-5
           = render 'shared/top_site_en'
