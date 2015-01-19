@@ -21,6 +21,7 @@
 .set-center {margin-right:auto; margin-left:auto}
 .margin3 {margin:3%}
 .margin-bottom {margin-bottom:10%}
+.margin-bottom5 {margin-bottom:5%}
 a { color:#521010;}
 a:hover, visited {  text-decoration:none}
 html {padding:0; margin:0;  height:100%}
@@ -372,7 +373,7 @@ ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 .title-tours {text-align:center; padding:1%; margin:1%;}
 .hotel-hover span{color:#fff}
 .some-info {position: absolute;
-bottom: 3%;
+bottom: 0;
 text-align: center;
 width: 100%;}
 .city-cat {width:150px;  height:50px; float:left; position:relative}
@@ -511,8 +512,10 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {right:0}
 #list_hotels li {font-slize:25px; font-family: 'open_sansregular';}
 
-
-
+.continent-group:hover {cursor:pointer}
+.continent-group:hover h3.country-title-tab{color:#8F1111;}
+.fa li.city-title, .ar li.city-title {font-size:20px}
+.en li.city-title {font-size:13px}
 @media print {
   body {
     background-color: #FFF;

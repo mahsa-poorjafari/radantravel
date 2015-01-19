@@ -1,23 +1,27 @@
 .margin3
-  %h1.title-tours{:class => I18n.locale}= t('tour.search')
+  .col-xs-12.margin-bottom
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('tour.search')
+  
     
   .show-tours.col-xs-12.set-center
     - if @tour_result
       - @tour_result.each do |tour|      
-        .tours-index
+        .tours-index{:class => I18n.locale}
           = link_to tour, :class => "tour-box" do
-            %h5.tour-title= tour.title
+            %h5.tour-title{:class => I18n.locale}= tour.title
             - if tour.photos.present?
               .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
             .clear-float
           .tour-date
-            - if tour.validate_date_from.present? && tour.validate_date_until.present?
-              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y") + 'تا' + JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")
-            - elsif tour.validate_date_from.present?
-              %b= t('tour.validate_date_from')
-              %p= JalaliDate.new(tour.validate_date_from).strftime("%A %e %b %Y")            
-            - elsif   tour.validate_date_until.present?
-              %b= t('tour.validate_date_until')
-              %p= JalaliDate.new(tour.validate_date_until).strftime("%A %e %b %Y")            
-    
-  
+            - if I18n.locale == :fa
+              = render "/tours/show_persian_date", :tour => tour
+            - else  
+              = render "/tours/show_english_date", :tour => tour
+            -if is_admin?
+              .admin-btn-tour
+                = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
+                = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"                   
+                = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+                
+                
