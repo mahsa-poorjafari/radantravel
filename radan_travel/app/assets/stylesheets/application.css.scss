@@ -20,6 +20,7 @@
 .full-width {clear:both; width:100%}
 .set-center {margin-right:auto; margin-left:auto}
 .margin3 {margin:3%}
+.margin-top5 {margin-top:5%;}
 .margin-bottom {margin-bottom:10%}
 .margin-bottom5 {margin-bottom:5%}
 a { color:#521010;}
@@ -47,7 +48,8 @@ body {padding:0; margin:0;  height:100%; width:100%}
 .fa input, .fa select, .fa textarea, .fa label, .admin-menu ul.fa  {direction:rtl; font-family: 'open_sansregular';}
 .ar, p.ar {direction:rtl; font-family:arabswell; }
 .en, p.en, span.en, h1.en, h2.en, h3.en, h4.en {direction:ltr; font-family:Arial}
-h2.fa, h3.fa, h4.fa {direction:rtl; font-family:khodkar; }
+h2.fa, h3.fa, h4.fa, h4.fa span, h2.fa span, p.title.fa{direction:rtl; font-family:khodkar; }
+.country-title.fa span.fa{direction:rtl; font-family:khodkar; }
 h2.ar, h3.ar, h4.ar {direction:rtl; font-family:arabswell; }
 .fa p{direction:rtl; font-family: 'open_sansregular';}
 
@@ -203,6 +205,22 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   margin-right:8%;
   margin-left:8%;
   position:relative;
+  }
+.title-line {height:3px; background:#821212;
+  margin-right:8%;
+  margin-left:8%;
+  position:relative;
+}  
+p.title { border-radius:9px;
+  position:absolute;  background:#821212;
+  font-size:25px;  
+  color:#fff;
+  padding:5px;
+  text-align:center;
+  z-index:10;
+  margin-right:42%;
+  margin-left:42%;
+  top:-15px
   }
 p.title-tour { border-radius:9px;
   position:absolute;  background:#353535;
@@ -516,6 +534,14 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .continent-group:hover h3.country-title-tab{color:#8F1111;}
 .fa li.city-title, .ar li.city-title {font-size:20px}
 .en li.city-title {font-size:13px}
+
+.country-cities-list ul li { position:relative; min-height:20px;}
+.country-cities-list ul li a{ position:absolute; width:100%; height:100%; color:#353535;}
+.country-cities-list ul li:hover a{ color:#821212;}
+.country-cities-list ul li.fa,.country-cities-list ul li.ar  {font-size:20px; float:right; position:relative; min-height:20px;}
+.country-cities-list ul li.en  {font-size:13px;}
+.country-sights.odd .sights-info {float:right}
+.country-sights.even .sights-info {float:left}
 @media print {
   body {
     background-color: #FFF;

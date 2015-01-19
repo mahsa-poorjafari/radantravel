@@ -4,26 +4,46 @@
       = link_to 'ویرایش', edit_country_path(country), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
     
     .country-show{:class => I18n.locale}
-      
-      .col-xs-5.set-center.margin-bottom{:style => "overflow:hidden"}
-        - if country.photos.present?
-          = link_to  country.photos.first.image(:original), "data-lightbox" => "example-set",  :title => 'آژانس هواپیمایی رادان سیر_' + country.title do
-            = image_tag country.photos.first.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + country.title, :alt => 'آژانس هواپیمایی رادان سیر_' + country.title,  :id => "country-photos-" + country.photos.first.id.to_s
-        
-        .country-cities-list
-          - if country.cities.present?
-            %h3{:class => I18n.locale}= t('city') 
-            %ul{:style => "list-style:circle", :title => "آژانس_هواپیمایی_رادان_سیر"}
-              - country.cities.each do |city|        
-                %li= link_to  city.title, city, :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" + city.title_fa, :id => "city-"+city.id.to_s, :class => I18n.locale
-    
-      
-      .col-xs-7.country-text.margin-bottom{:class => I18n.locale}        
-        %p          
+      -#
+        .col-xs-5.set-center.margin-bottom{:style => "overflow:hidden"}
+          - if country.photos.present?
+            = link_to  country.photos.first.image(:original), "data-lightbox" => "example-set",  :title => 'آژانس هواپیمایی رادان سیر_' + country.title do
+              = image_tag country.photos.first.image(:medium), :class => "example-image", :title => 'آژانس هواپیمایی رادان سیر_' + country.title, :alt => 'آژانس هواپیمایی رادان سیر_' + country.title,  :id => "country-photos-" + country.photos.first.id.to_s
+
+      .col-xs-12.country-text.margin-bottom{:class => I18n.locale}        
+        %p
           %h2.country-title{:class => I18n.locale}            
             - if country.continent_category_id.present?
-              %span=  country.continent_category.title + ','
+              %span{:class => I18n.locale}=  country.continent_category.title + ','
             = country.title
             
-        %div{:class => I18n.locale}= raw country.text  
-       
+        .margin-bottom5{:class => I18n.locale}
+          = raw country.text  
+      .col-xs-12.margin-bottom5
+        .title-line.col-xs-10
+        %p.col-xs-2.set-center.title{:class => I18n.locale}= t('city')      
+        .country-cities-list.margin-bottom5          
+          %ul{:style => "list-style:disc; margin-top:5%;", :title => "آژانس_هواپیمایی_رادان_سیر"}
+            - country.cities.each do |city| 
+              - if I18n.locale == :en
+                %li.col-xs-2.pull-left{:class => I18n.locale}= link_to  city.title, city, :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" + city.title_fa, :id => "city-"+city.id.to_s, :class => I18n.locale
+              - else
+                %li.col-xs-2.pull-right{:class => I18n.locale}= link_to  city.title, city, :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" + city.title_fa, :id => "city-"+city.id.to_s, :class => I18n.locale
+    
+      .col-xs-12.margin-bottom5
+        .title-line.col-xs-10
+        %p.col-xs-2.set-center.title{:class => I18n.locale}= t('sights')            
+        .col-xs-12.margin-bottom5  
+          - if country.cities.present?
+            - country.cities.each do |city|
+              - if city.sights.present?
+                - city.sights.each do |sight|
+                  .col-xs-12.country-sights.margin-top5{:class =>  cycle("odd", "even")}
+                    .col-xs-8.sights-info
+                      %h2{:class => I18n.locale}= sight.title
+                      .col-xs-12.margin-top5= raw sight.text
+                    .col-xs-4
+                    
+        
+          
+            

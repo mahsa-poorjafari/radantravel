@@ -1,5 +1,4 @@
-.margin3  
-  
+.margin3 
   - if is_admin?
     .col-xs-12
       = link_to 'ویرایش کشور', edit_country_path(@country), :class => "btn btn-info" 
@@ -19,12 +18,13 @@
           %li.col-xs-3.city-title.pull-left= link_to city.title, city
         - else
           %li.col-xs-3.city-title.pull-right= link_to city.title, city
-  .col-xs-12.margin-bottom5
-    .title-tour-line.col-xs-10
-    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('hotel')
+  
   .col-xs-12.margin-bottom5  
     - @country.cities.order('title_fa asc').each do |city|
       -if city.hotels.present?
+        .col-xs-12.margin-bottom5
+          .title-tour-line.col-xs-10
+          %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('hotel')
         .show-tours.col-xs-12.set-center
           - city.hotels.order('title_fa asc').each_with_index do |hotel, i|
             .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
@@ -51,13 +51,14 @@
       
 
   
-  .col-xs-12.margin-bottom5
-    .title-tour-line.col-xs-10
-    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('sights') 
+  
   
   .col-xs-12.margin-bottom5  
     - @country.cities.order('title_fa asc').each do |city|    
       - if city.sights.present?
+        .col-xs-12.margin-bottom5
+          .title-tour-line.col-xs-10
+          %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('sights') 
         .show-tours.col-xs-12.set-center
           - city.sights.order('title_fa asc').each_with_index do |hotel, i|
             .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}

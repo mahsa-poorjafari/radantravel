@@ -10,8 +10,7 @@
     width:720px;
     margin:0 auto; /*center-aligned*/
     padding:20px;
-    background:#191919;
-    border:1px solid #066;
+    
     border-radius:6px;
 } 
 
@@ -20,7 +19,7 @@
 }
 
 #slider {
-	background:black url(loading.gif) no-repeat 50% 50%;
+	background: url(loading.gif) no-repeat 50% 50%;
 	position:relative;
 	margin:0 auto; /*center-aligned*/
     transform: translate3d(0,0,0);
