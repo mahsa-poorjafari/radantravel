@@ -362,7 +362,8 @@ ul.sub-menu li{width:100%; margin:0; padding:5%; color:#fff; position:relative; 
 ul.sub-menu li:hover{background:#A52A2A;}
 ul.sub-menu li a{width:100%; margin:0; padding:5%; color:#fff; font-size:1.5em; position:absolute; height:100%}
 ul.sub-menu li.fa a{}
-
+.sub-menu.tour {width:190%;}
+.sub-menu.hotel {width:120%;}
 ul.sub-menu li.en{text-align:left}
 ul.sub-menu li.fa, ul.sub-menu li.ar {text-align:right}
 .comment-box {background-image: url(image-path('halftone.png'));
