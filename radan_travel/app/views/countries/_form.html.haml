@@ -5,9 +5,14 @@
       %ul
         - @country.errors.each do |attr, msg|
           %li= msg
-  .row   
+  .row 
+    -#
+      .col-xs-12
+        .form-group{:style => "background:#FFA500"}
+          = f.label 'جهت نمایش در زیرمنو برای بخش هتلهای خارجی تیک زیر را برای این کشور فعال کنید.', :class => "control-label"
+          = f.check_box :show_in_submenu, :class => "form-control"
     .col-xs-12
-      .col-xs-6        
+      .col-xs-6
         .form-group
           = f.label 'عنوان فارسی', :class => "control-label"
           = f.text_field :title_fa, :class => "form-control"

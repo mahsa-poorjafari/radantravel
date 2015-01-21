@@ -356,12 +356,14 @@ font-size: 1.5em;}
 .hotels-table .other-rows {border-bottom:1px solid #BFBFBF; position:relative}
 .hotels-table .other-rows .locat-des{background:#4D4D4D; color:#fff; font-size:16px; text-align:center}
 .hotels-table .other-rows.even {border-bottom:1px solid #BFBFBF; position:relative; background:#E6E6C3;}
-.hotels-table .other-rows.fa .td{font-family: 'open_sansregular'; text-align:center; text-size:18px; padding-top:1%}
+.hotels-table .other-rows.fa .td{font-family: 'open_sansregular'; text-align:center; font-size:18px; padding-top:1%}
 .hotels-table .tour-description {width:100%}
 .hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}
 .hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px;}
-.hotels-table .tour-description .tr .th{background:#BFBFBF; padding:1%; height:100%; border-bottom:1px solid #E5E5E5;font-size:18px;}
+.hotels-table .tour-description .tr .th{
+  background:#BFBFBF; padding:1%; height:50px; border-bottom:1px solid #E5E5E5;font-size:25px;
+  }
 
 ul.sub-menu {width:100%; margin:0; padding:0; 
   background-image: url(image-path('active-menu.png'));  

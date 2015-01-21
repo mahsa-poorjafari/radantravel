@@ -80,7 +80,11 @@ Rails.application.routes.draw do
   get "sitemap.xml" => "static#sitemap", :format => "xml", :as => :sitemap
   get "BingSiteAuth.xml" => "static#BingSiteAuth", :format => "xml", :as => :BingSiteAuth
   
-  
+  get '/html_with_images', :to => 'tours#html_with_images'
+  get '/html_with_table', :to => 'tours#html_with_table'
+  get '/to_pdf_images', :to => 'tours#to_pdf_images'
+  get '/to_pdf_table', :to => 'tours#to_pdf_table'
+  get '/to_pdf_tour_show', :to => 'tours#to_pdf_tour_show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

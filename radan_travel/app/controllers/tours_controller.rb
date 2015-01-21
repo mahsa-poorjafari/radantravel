@@ -19,14 +19,32 @@ class ToursController < ApplicationController
     @imp_tours = Tour.where(validate_date_from:  2.days.ago..Date.today)
   end
   
+  def to_pdf_tour_show
+    @tour = Tour.friendly.find(params[:tour_id])
+    html = render_to_string(:action => "show.pdf.haml", :layout => false, :locals => {:tour => @tour})
+    kit = PDFKit.new(html)    
+    kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/tour-pdf.css.scss"    
+    send_data(kit.to_pdf, :filename => 'Tour_Info.pdf', :type => 'application/pdf')
+  end
+  def html_with_images
+  end
+  def html_with_table
+  end
   def show
     respond_to do |format|
       format.html
       format.pdf do
-        render :pdf => "info-"+ @tour.title_en
+        render :pdf => "Tour_info",
+          :layout => 'pdf.html',
+          template: 'tours/show.pdf.haml',
+          disposition: 'attachment',
+          :page_size => 'A4',
+          :footer => { :left => '[page] of [topage]' },
+          :toc => { :depth => 2, :header_text => 'TEXT', disable_links: false }   
       end
     end
   end
+  
   def sendtonewsletter    
     UserMailer.send_tour_info_to_newsletter(@tour).deliver 
     p '-------------'

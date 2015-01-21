@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'pdfkit'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,8 +26,7 @@ module RadanTravel
     config.assets.enabled = true    
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')    
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-    
-    
+    config.middleware.use PDFKit::Middleware, :print_media_type => true
     
     
   end

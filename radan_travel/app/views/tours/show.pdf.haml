@@ -1,27 +1,87 @@
-#container
-  .row
-    
-  .row
-    .col-xs-6
-      %h3
-        Lorem ipsum
-      %p
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum semper placerat. Aenean mattis fringilla risus ut fermentum. Fusce posuere dictum venenatis. Aliquam id tincidunt ante, eu pretium eros. Sed eget risus a nisl aliquet scelerisque sit amet id nisi. Praesent porta molestie ipsum, ac commodo erat hendrerit nec. Nullam interdum ipsum a quam euismod, at consequat libero bibendum. Nam at nulla fermentum, congue lectus ut, pulvinar nisl. Curabitur consectetur quis libero id laoreet. Fusce dictum metus et orci pretium, vel imperdiet est viverra. Morbi vitae libero in tortor mattis commodo. Ut sodales libero erat, at gravida enim rhoncus ut.
-    .col-xs-6
-      %h3
-        Duis vel
-      %p
-        Duis vel tortor elementum, ultrices tortor vel, accumsan dui. Nullam in dolor rutrum, gravida turpis eu, vestibulum lectus. Pellentesque aliquet dignissim justo ut fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut venenatis massa non eros venenatis aliquet. Suspendisse potenti. Mauris sed tincidunt mauris, et vulputate risus. Aliquam eget nibh at erat dignissim aliquam non et risus. Fusce mattis neque id diam pulvinar, fermentum luctus enim porttitor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-  .row
-    %table.table.table-striped
-      %thead        
-        %th Product
-        %th Price
-      %tbody
-        
-        %tr
-          %td
-            = @tour.id
-          %td
-            = @tour.title
+.margin3
+  .pdf-tour-details{:class => I18n.locale}
+    %h1{:class => I18n.locale, :style => 'text-align:center; height:100px;'}= t('radantravel')
+    %h2{:class => I18n.locale, :style => 'text-align:center;'}= @tour.title
+    .width100{:style => 'height:70px; overflow:hidden'}      
+      %h4.width50= t('tour.date')
+      %p.width50
+        = render "/tours/show_persian_date", :tour => tour
+    .clear-float
+    .width100      
+      .width100
+        .width50{:style => "text-align:left"}
+          -#
+            = image_tag './images/menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+          - if @tour.package_code.present?
+            %p
+              %i= t('package-code')
+              %b=  @tour.package_code
+              
+        .width50{:style => "text-align:right"}
+          - if @tour.plane.present?
+            %p
+              %span= t('plane') + ' '   +  @tour.plane.title
+            -#
+              = image_tag @tour.plane.logo(:small), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+      .clear-float
+    .width100.hotels-table.margin-bottom
+      %h4{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+      %table.width100
+        %tr.first-sow{:class => I18n.locale}
+          %td= t('location.row')
+          %td= t('location.hotel-name')
+          %td= t('location.one_bed')
+          %td= t('location.two_bed')
+          %td= t('location.three_bed')
+          %td= t('location.kid_and_bed')
+          %td= t('location.kid_no_bed')
           
+        - @tour.locationtours.each_with_index do |location, i|
+          %tr.tour-hotels-row{:class => cycle(" odd", " even")}
+            %td= (i+1)
+            -if location.hotels.collect(&:title_fa).present?
+              %td
+                - location.hotels.each do |hotel|
+                  - if hotel.title.present?                  
+                    %h5= hotel.title
+                    - if hotel.class_hotel.present?
+                      %p.show-hotel-star{:style => "text-align:center"}  
+                        %span=image_tag 'Star.png'
+                        %span.en= hotel.class_hotel.title  
+            - elsif location.custom_hotel.present?
+              %td= location.custom_hotel    
+            - else
+              %td= 'خطا '
+            %td= location.price_one_bed
+            %td= location.price_two_bed
+            %td= location.price_three_bed
+            %td= location.price_kid_and_bed
+            %td= location.price_kid_without_bed 
+          - if location.description.present?
+            %tr
+              %td{:style => "background:#4D4D4D; color:#fff"}= t('location.description')
+              %td= location.description
+        .clear-float
+      .width100
+        %h4{:class => I18n.locale, :style => "text-align:center"}= t('tour.description')
+        %table.width100.other-info
+          - if tour.source.present?
+            %tr{:class => I18n.locale}  
+              %td.first-col= t('tour.source')
+              %td= tour.source
+          - if tour.travel_type.present?
+            %tr
+              %td.first-col= t('tour.travel_type')
+              %td= tour.travel_type
+          - if tour.itinerary.present?
+            %tr
+              %td.first-col= t('tour.itinerary')
+              %td= raw tour.itinerary
+          - if tour.documents.present?
+            %tr
+              %td.first-col= t('tour.documents')
+              %td= raw tour.documents
+      - if tour.description.present?
+        %h4{:class => I18n.locale, :style => "text-align:center"}= t('tour.about-tour')                      
+        .width100.tour-more-info{:class => I18n.locale}= raw tour.description
+                      

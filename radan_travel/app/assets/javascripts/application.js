@@ -12,6 +12,7 @@
 //
 //= require jquery-1.10.2
 //= require jquery-ui-1.10.4
+//= require jquery-ui-1.8.17.custom.min
 //= require ahoy
 //= require jquery_ujs
 //= require ckeditor/init
@@ -30,4 +31,9 @@
 //= require js-image-slider
 //= require prettify
 
+//= require jspdf.min
+//= require jspdf.plugin.addhtml
+//= require jspdf.plugin.addimage
+//= require from-html
+//= require basic
 

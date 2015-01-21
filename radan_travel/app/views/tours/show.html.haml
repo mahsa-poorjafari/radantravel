@@ -1,6 +1,9 @@
-.margin3.margin-bottom
+.margin3.margin-bottom#content
   %h1.title-tours{:class => I18n.locale}=  @tour.title  
-  .col-xs-4 
+  .col-xs-4#editor    
+    = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )
+    
+    
   .col-xs-4 
     - if I18n.locale == :fa
       = render "/tours/show_persian_date", :tour => @tour
@@ -9,8 +12,7 @@
   - if is_admin?
     = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
     = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-  .tour-details
-    
+  .tour-details    
     - if is_admin?
       .col-xs-12 
         .tour-source
@@ -53,7 +55,7 @@
       
     .col-xs-12     
       = render 'shared/items_images_sliders', :model => @tour      
-    .col-xs-12.margin-bottom   
+    .col-xs-12.margin-bottom5
       .col-xs-5.comment-box.pull-right
         - if flash[:SendComment].present?
           .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')

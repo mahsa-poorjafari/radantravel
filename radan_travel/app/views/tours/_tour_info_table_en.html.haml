@@ -44,13 +44,15 @@
   .title_row
     %h4{:class => I18n.locale}= t('tour.description')
   .full-width.tr
-    .col-xs-3.th= t('tour.source')
-    .col-xs-9.td= tour.source
+    - if tour.source.present?
+      .col-xs-3.th= t('tour.source')
+      .col-xs-9.td= tour.source
     .clear-float
     
   .full-width.tr
-    .col-xs-3.th= t('tour.travel_type')
-    .col-xs-9.td= tour.travel_type
+    - if tour.travel_type.present?
+      .col-xs-3.th= t('tour.travel_type')
+      .col-xs-9.td= tour.travel_type
     
   .full-width.tr
     .col-xs-3.th= t('tour.date')
@@ -65,7 +67,9 @@
   - if tour.documents.present?
     .full-width.tr
       .col-xs-3.th= t('tour.documents')
-      .col-xs-9.td= raw tour.documents
+      .col-xs-9.td
+        .col-xs-10= raw tour.documents
+        .col-xs-2= image_tag 'madarek.jpg'
   -#  
     - if @tour.info.present?
       .col-xs-12.tr
@@ -76,7 +80,7 @@
         
   .clear-float
 - if tour.description.present?
-  .tour-description.margin-bottom.clear-float
+  .tour-description.margin-bottom5.clear-float
     .title_row.full-width
       %h4{:class => I18n.locale}= t('tour.about-tour')
     .full-width
