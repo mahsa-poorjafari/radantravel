@@ -31,9 +31,4 @@
 //= require js-image-slider
 //= require prettify
 
-//= require jspdf.min
-//= require jspdf.plugin.addhtml
-//= require jspdf.plugin.addimage
-//= require from-html
-//= require basic
 
