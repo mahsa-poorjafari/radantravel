@@ -11,13 +11,13 @@
     
   .col-xs-2.icon-box
     = image_tag 'visit.png'     , :alt => "جاذبه های ایران_آژانس هواپیمایی رادان سیر"
-    %p= t('iran-sights'), '#iran-sights'
+    %p= link_to t('iran-sights'), '#iran-sights'
     
   .col-xs-2.icon-box
     = image_tag 'hotel.png' , :alt => "هتل های ایران‍_آژانس هواپیمایی رادان سیر"
     %p= link_to   t('iran-hole'), url_with_protocol('www.radanhotel.com'),  :title => "آژانس_هواپیمایی_رادان_سیر" 
   .col-xs-2.icon-box
     = image_tag 'investiment.png' , :alt => "سرمایه گذاری در ایران_آژانس هواپیمایی رادان سیر"
-    %p= link_to   t('investment-in-iran'), '',  :title => "آژانس_هواپیمایی_رادان_سیر"   
+    %p= link_to   t('investment-in-iran'), '#',  :title => "آژانس_هواپیمایی_رادان_سیر"   
 
 
