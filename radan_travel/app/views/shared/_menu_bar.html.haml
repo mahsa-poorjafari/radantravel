@@ -28,7 +28,7 @@
                 - country.cities.each_with_index do |city, i|
                   - if city.hotels.present?
                     - @number = (i+1)
-                -if @number
+                - unless @number.blank?
                   %li{:class => I18n.locale}                  
                     = link_to country.title, country
                     %ul.cities-hotels

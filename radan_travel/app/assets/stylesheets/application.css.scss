@@ -414,6 +414,7 @@ width: 100%;}
   background-image: url(image-path('active-menu.png'));  
   width: 100%;
   display: none;
+  z-index:1000;
 }
 ul.sub-menu li ul.details_menu li {min-height:30px;}
 .set-btn:hover {opacity:.8}

@@ -58,5 +58,6 @@
               = link_to 'ویرایش ', edit_sight_path(sight), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
               = link_to 'مشاهده جزئیات', sight, :class => "btn btn-warning"       , :title => "آژانس_هواپیمایی_رادان_سیر"
               = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
-  .col-xs-12     
-    = render 'shared/items_images_sliders', :model => @city   
+  - if @city.photos.present?
+    .col-xs-12     
+      = render 'shared/items_images_sliders', :model => @city   
