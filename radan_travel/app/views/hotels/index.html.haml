@@ -116,8 +116,16 @@
     $('#Container2').mixItUp();  
   });
   
-  $(document).ready(function(){    
+  $(document).ready(function(){ 
     $('.hover').eachStep(700, function(i, el, duration){      
       $(el).addClass('flip');
-    });
+      alert (i);
+      alert (el);
+      alert (duration);
+      if( i == $('.hover').length ){
+        $('.hover').eachStep(700, function(i, el, duration){      
+          $(el).removeClass('flip'); 
+        }
+      });
+    });    
   });
