@@ -22,23 +22,21 @@
         %li{:class => I18n.locale}= link_to t('best-offer'), Hotel
         %li.foreign-hotels{:class => I18n.locale}
           = link_to t('foreign-hotels'), Hotel
-          %ul.details_menu
+          %ul.details_menu          
             - Country.all.order(" title_fa asc").each do |country|
-              - country.cities.each_with_index do |city, i|
-                - if city.hotels.present?
-                  - @number = (i+1)
-              -if @number
-                %li{:class => I18n.locale}                  
-                  = link_to country.title, country
-                  %ul.cities-hotels
-                    - country.cities.each_with_index do |city, i|
-                      - if city.hotels.present?
-                        - @cnumber = (i+1)
-                        - @city = city
-                    - if  @cnumber
-                      %li{:class => I18n.locale}                  
-                        = link_to @city.title, @city
-                  
+              - unless country.title_fa == 'ایران'
+                - country.cities.each_with_index do |city, i|
+                  - if city.hotels.present?
+                    - @number = (i+1)
+                -if @number
+                  %li{:class => I18n.locale}                  
+                    = link_to country.title, country
+                    %ul.cities-hotels
+                      - country.cities.each_with_index do |city, i|
+                        - if city.hotels.present?
+                          %li{:class => I18n.locale}                  
+                            = link_to @city.title, @city
+                    
                   
             
         
