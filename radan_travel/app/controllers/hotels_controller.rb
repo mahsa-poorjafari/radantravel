@@ -5,7 +5,7 @@ class HotelsController < ApplicationController
   # GET /hotels
   # GET /hotels.json
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.order("RAND()").limit(8)
     @hotels_offer = Hotel.where(offer: true )
   end
 
