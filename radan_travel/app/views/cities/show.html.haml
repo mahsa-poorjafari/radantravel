@@ -14,8 +14,8 @@
       
   .col-xs-12.margin-bottom5  
     .col-xs-12.margin-bottom5
-      .title-tour-line.col-xs-10
-      %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('hotel')
+      .title-line.col-xs-10
+      %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel')
     .show-tours.col-xs-12.set-center{:class => I18n.locale}
       - @city.hotels.order('title_fa asc').each_with_index do |hotel, i|
         .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
@@ -42,8 +42,8 @@
         
   - if @city.sights.present?
     .col-xs-12.margin-bottom5
-      .title-tour-line.col-xs-10
-      %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('places')
+      .title-line.col-xs-10
+      %p.col-xs-2.set-center.title{:class => I18n.locale}= t('places')
     .col-xs-12
       - @city.sights.each do |sight|        
         .tours-index

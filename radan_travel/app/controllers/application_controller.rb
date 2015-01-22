@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     
     def online_info
       @online_day = Visit.where(started_at:  Date.today.beginning_of_day..Date.today.end_of_day).count
-      @online_now = Visit.where(started_at:  1.hour.ago..Time.now).count
+      @online_now = Visit.where(started_at:  5.hour.ago..Time.now).count
       @contact = Page.find_by_title_en('Contact us')
     end
     def load_slides

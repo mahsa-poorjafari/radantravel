@@ -9,8 +9,8 @@
   .col-xs-12.margin-bottom5.country-text{:class => I18n.locale}= raw @country.text
   
   .col-xs-12.margin-bottom5
-    .title-tour-line.col-xs-10
-    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('city')
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('city')
   .col-xs-12.margin-bottom5
     %ul{:class => I18n.locale}
       - @country.cities.order('title_fa asc').each do |city|
@@ -23,13 +23,13 @@
     - @country.cities.order('title_fa asc').each do |city|
       -if city.hotels.present?
         .col-xs-12.margin-bottom5
-          .title-tour-line.col-xs-10
-          %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('hotel')
+          .title-line.col-xs-10
+          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel')
         .show-tours.col-xs-12.set-center
           - city.hotels.order('title_fa asc').each_with_index do |hotel, i|
             .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
               = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-                %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
+                %h5.tour-title{:id => "hotel-"+hotel.id.to_s, :class => I18n.locale}= hotel.title          
                 - if hotel.photos.present?
                   .hover.panel{:id => "item-"+ (i+1).to_s}
                     .front
@@ -57,13 +57,13 @@
     - @country.cities.order('title_fa asc').each do |city|    
       - if city.sights.present?
         .col-xs-12.margin-bottom5
-          .title-tour-line.col-xs-10
-          %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('sights') 
+          .title-line.col-xs-10
+          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('sights') 
         .show-tours.col-xs-12.set-center
           - city.sights.order('title_fa asc').each_with_index do |hotel, i|
             .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
               = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-                %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
+                %h5.tour-title{:id => "hotel-"+hotel.id.to_s, :class => I18n.locale}= hotel.title          
                 - if hotel.photos.present?
                   .hover.panel{:id => "item-"+ (i+1).to_s}
                     .front
