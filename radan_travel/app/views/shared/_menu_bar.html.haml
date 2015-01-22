@@ -26,10 +26,10 @@
             - Country.all.order(" title_fa asc").each do |country|
               - unless country.title_fa == 'ایران'
                 - country.cities.each_with_index do |city, i|
+                  - @country_city = Array.new
                   - if city.hotels.present?
-                    - @number = i
-                    = @number
-                - if @number.present?
+                    - @country_city.push(city.id)                    
+                - unless @country_city.empty?
                   %li{:class => I18n.locale}                  
                     = link_to country.title, country
                     %ul.cities-hotels
