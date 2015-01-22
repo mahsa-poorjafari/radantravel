@@ -1,23 +1,38 @@
-
+  
 .col-xs-11.main-icon{:class => I18n.locale, :style => "margin-left: 10%;margin-right: 10%;"}
   .col-xs-2.icon-box    
-    = image_tag 'irv.png'    , :alt => "ویزای ایران_آژانس هواپیمایی رادان سیر"
-    %p=link_to t('iran-visa'), tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر" 
+    
+    %p
+      =link_to  tours_moment_tours_path, :title => "آژانس_هواپیمایی_رادان_سیر"  do
+        = image_tag 'irv.png'    , :alt => "ویزای ایران_آژانس هواپیمایی رادان سیر"
+        %p= t('iran-visa')
     -#
       %p.icon-des یک متن خلاصه و یا توضیحات خلاصه قرار میگیرد.
   .col-xs-2.icon-box
-    = image_tag 'package.png'     , :alt => "تورها_آژانس هواپیمایی رادان سیر"
-    %p= link_to  t('tour-to-iran'), '#tour-to-iran', :title => "آژانس_هواپیمایی_رادان_سیر" 
+    
+    %p
+      = link_to '#tour-to-iran', :title => "آژانس_هواپیمایی_رادان_سیر"  do
+        = image_tag 'package.png'     , :alt => "تورها_آژانس هواپیمایی رادان سیر"
+        %p= t('tour-to-iran')
     
   .col-xs-2.icon-box
-    = image_tag 'visit.png'     , :alt => "جاذبه های ایران_آژانس هواپیمایی رادان سیر"
-    %p= link_to t('iran-sights'), '#iran-sights'
+    
+    %p
+      = link_to  '#iran-sights' do
+        = image_tag 'visit.png'     , :alt => "جاذبه های ایران_آژانس هواپیمایی رادان سیر"
+        %p= t('iran-sights')
     
   .col-xs-2.icon-box
-    = image_tag 'hotel.png' , :alt => "هتل های ایران‍_آژانس هواپیمایی رادان سیر"
-    %p= link_to   t('iran-hole'), url_with_protocol('www.radanhotel.com'),  :title => "آژانس_هواپیمایی_رادان_سیر" 
+    
+    %p
+      = link_to   url_with_protocol('www.radanhotel.com'), :target => "_blank",  :title => "آژانس_هواپیمایی_رادان_سیر"  do
+        = image_tag 'hotel.png' , :alt => "هتل های ایران‍_آژانس هواپیمایی رادان سیر"
+        %p= t('iran-hole')
   .col-xs-2.icon-box
-    = image_tag 'investiment.png' , :alt => "سرمایه گذاری در ایران_آژانس هواپیمایی رادان سیر"
-    %p= link_to   t('investment-in-iran'), '#',  :title => "آژانس_هواپیمایی_رادان_سیر"   
+    
+    %p
+      = link_to   '#',  :title => "آژانس_هواپیمایی_رادان_سیر"   do
+        = image_tag 'investiment.png' , :alt => "سرمایه گذاری در ایران_آژانس هواپیمایی رادان سیر"
+        %p= t('investment-in-iran')
 
 
