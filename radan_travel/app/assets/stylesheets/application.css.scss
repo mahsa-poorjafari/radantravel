@@ -379,6 +379,7 @@ ul.sub-menu {width:100%; margin:0; padding:0;
   display:none;
 }
 ul.sub-menu.hotel li.foreign-hotels:hover .details_menu{display:block} 
+ul.sub-menu.hotel li.foreign-hotels .details_menu li:hover .cities-hotels{display:block} 
 ul.sub-menu li{width:100%; margin:0; padding:5%; color:#fff; position:relative; min-height:50px}
 ul.sub-menu li:hover{background:#A52A2A;}
 ul.sub-menu li a{width:100%; margin:0; padding:5%; color:#fff; font-size:1.5em; position:absolute; height:100%}
@@ -405,7 +406,7 @@ width: 100%;}
   font-size: 24px;
   padding-top: 10%;
   }
-.details_menu {position: absolute;
+.details_menu, .cities-hotels {position: absolute;
   list-style:none;
   right: 100%;
   top:0;
@@ -414,6 +415,7 @@ width: 100%;}
   width: 100%;
   display: none;
 }
+ul.sub-menu li ul.details_menu li {min-height:30px;}
 .set-btn:hover {opacity:.8}
 
 #Container .mix, #Container1 .mix, #Container2 .mix{

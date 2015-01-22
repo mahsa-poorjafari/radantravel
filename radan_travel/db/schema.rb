@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 20150120061536) do
     t.string   "hotel_facilities"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "class_hotels_id"
     t.integer  "class_hotel_id"
     t.integer  "hotel_type"
     t.boolean  "offer",            default: false
@@ -161,25 +160,8 @@ ActiveRecord::Schema.define(version: 20150120061536) do
     t.string   "price_kid_without_bed"
     t.string   "description"
     t.string   "price_three_bed"
-    t.integer  "row_position"
     t.string   "custom_hotel"
     t.integer  "set_order",             default: 100
-  end
-
-  create_table "locationtours_hotels", force: true do |t|
-    t.integer  "hotel_id"
-    t.integer  "locationtour_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "massages", force: true do |t|
-    t.string   "user_name"
-    t.string   "email"
-    t.string   "phone"
-    t.text     "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "messages", force: true do |t|
