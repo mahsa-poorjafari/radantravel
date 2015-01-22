@@ -25,18 +25,19 @@
           %ul.details_menu          
             - Country.all.order(" title_fa asc").each do |country|
               - unless country.title_fa == 'ایران'
-                - country.cities.each_with_index do |city, i|
-                  - @country_city = Array.new
-                  - if city.hotels.present?
-                    - @country_city.push(city.id)                    
-                - unless @country_city.empty?
-                  %li{:class => I18n.locale}                  
-                    = link_to country.title, country
-                    %ul.cities-hotels
-                      - country.cities.each_with_index do |city, i|
-                        - if city.hotels.present?
-                          %li{:class => I18n.locale}                  
-                            = link_to city.title, city
+                - if country.cities.present?
+                  - country.cities.each_with_index do |city, i|
+                    - @country_city = Array.new
+                    - if city.hotels.present?
+                      - @country_city.push(city.id)                    
+                  - unless @country_city.empty?
+                    %li{:class => I18n.locale}                  
+                      = link_to country.title, country
+                      %ul.cities-hotels
+                        - country.cities.each_with_index do |city, i|
+                          - if city.hotels.present?
+                            %li{:class => I18n.locale}                  
+                              = link_to city.title, city
                     
                   
             
