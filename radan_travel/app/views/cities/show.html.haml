@@ -16,11 +16,11 @@
     .col-xs-12.margin-bottom5
       .title-tour-line.col-xs-10
       %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('hotel')
-    .show-tours.col-xs-12.set-center
+    .show-tours.col-xs-12.set-center{:class => I18n.locale}
       - @city.hotels.order('title_fa asc').each_with_index do |hotel, i|
         .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
           = link_to hotel, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-            %h5.tour-title{:id => "hotel-"+hotel.id.to_s}= hotel.title          
+            %h5.tour-title{:id => "hotel-"+hotel.id.to_s, :class => I18n.locale}= hotel.title          
             - if hotel.photos.present?
               .hover.panel{:id => "item-"+ (i+1).to_s}
                 .front
@@ -48,7 +48,7 @@
       - @city.sights.each do |sight|        
         .tours-index
           = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-            %h5.tour-title{:id => 'sight-'+sight.id.to_s}= sight.title
+            %h5.tour-title{:id => 'sight-'+sight.id.to_s, :class => I18n.locale}= sight.title
             - if sight.photos.present?
               .tour-sample-image= image_tag sight.photos.first.image(:medium), :id => "tour-sample-image-" + sight.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
             .clear-float
