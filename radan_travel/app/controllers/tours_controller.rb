@@ -22,7 +22,7 @@ class ToursController < ApplicationController
   def to_pdf_tour_show
     @tour = Tour.friendly.find(params[:tour_id])
     html = render_to_string(:action => "show.pdf.haml", :layout => false, :locals => {:tour => @tour})
-    kit = PDFKit.new(html)    
+    kit = PDFKit.new(html) 
     kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/tour-pdf.css.scss"    
     send_data(kit.to_pdf, :filename => 'Tour_Info.pdf', :type => 'application/pdf')
   end

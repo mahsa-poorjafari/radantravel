@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120061536) do
+ActiveRecord::Schema.define(version: 20150124061828) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150120061536) do
     t.string   "hotel_facilities"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "class_hotels_id"
     t.integer  "class_hotel_id"
     t.integer  "hotel_type"
     t.boolean  "offer",            default: false
@@ -160,8 +161,25 @@ ActiveRecord::Schema.define(version: 20150120061536) do
     t.string   "price_kid_without_bed"
     t.string   "description"
     t.string   "price_three_bed"
+    t.integer  "row_position"
     t.string   "custom_hotel"
     t.integer  "set_order",             default: 100
+  end
+
+  create_table "locationtours_hotels", force: true do |t|
+    t.integer  "hotel_id"
+    t.integer  "locationtour_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "massages", force: true do |t|
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", force: true do |t|
@@ -334,6 +352,29 @@ ActiveRecord::Schema.define(version: 20150120061536) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "visa_types", force: true do |t|
+    t.string   "title_en"
+    t.string   "title_fa"
+    t.string   "title_ar"
+    t.text     "text_en"
+    t.text     "text_fa"
+    t.text     "text_ar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "visas", force: true do |t|
+    t.string   "title_en"
+    t.string   "title_fa"
+    t.string   "title_ar"
+    t.text     "text_en"
+    t.text     "text_fa"
+    t.text     "text_ar"
+    t.integer  "visa_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "visits", force: true do |t|
     t.uuid     "visitor_id"

@@ -1,0 +1,41 @@
+= form_for @visa do |f|
+  - if @visa.errors.any?
+    #error_explanation
+      
+      %ul
+        - @visa.errors.full_messages.each do |msg|
+          %li= msg
+  .col-xs-12
+    .col-xs-6
+      .form-group{:style => "background:#F6F656"}
+        = f.label 'گروه ویزا مربوط را انتخاب کنید'   , :class => "control-label"       
+        = f.select :visa_type_id, options_for_select(VisaType.order("title_fa asc").collect{ |u| [u.title_fa, u.id] }, :selected =>@visa.visa_type_id), prompt: "گروه ویزا را انتخاب کنید"
+      
+    .col-xs-6
+      .form-group
+        = f.label 'عنوان فارسی', :class => "control-label"
+        = f.text_field :title_fa, :class => "form-control"
+      .form-group
+        = f.label 'عنوان انگلیسی', :class => "control-label"
+        = f.text_field :title_en, :class => "form-control"
+      .form-group
+        = f.label 'عنوان عربی', :class => "control-label"
+        = f.text_field :title_ar, :class => "form-control"
+  .col-xs-12
+    .form-group
+      = f.label 'متن فارسی', :class => "control-label"
+      .editor
+        = f.text_area :text_fa, :class => "ckeditor"
+    .form-group
+      = f.label 'متن انگلیسی', :class => "control-label"
+      .editor
+        = f.text_area :text_en, :class => "ckeditor"
+    .form-group
+      = f.label 'متن عربی', :class => "control-label"
+      .editor
+        = f.text_area :text_ar, :class => "ckeditor"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"
+  
+
+  

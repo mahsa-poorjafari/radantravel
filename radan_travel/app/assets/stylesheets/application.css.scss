@@ -112,6 +112,7 @@ height:100%;
 width: 100%; padding-top:4%}
 
 ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inline; position:relative }
+ul#main-menu.en li.item-menu{ font-size:1.3em;}
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
 ul#main-menu.en li.item-menu, p.title-tour.en {font-family: Arial}
@@ -163,7 +164,9 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .tour-search-box span.ar, .reserv-box span.ar{color:#fff; font-size:16px}
 .tour-search-box:hover span, .reserv-box:hover span{color:#FFA500}
 .reserv-box span {float:right; margin-right:1%;}
-
+.link-reservation.en .reserv-en-link{position:relative; text-align:left}
+.link-reservation.en .reserv-en-link .reserv-box{position:relative; text-align:left}
+.link-reservation.en .reserv-en-link .reserv-box span{position:absolute; }
 .search-tour:hover, .link-reservation:hover {cursor:pointer}
 .show-tour-search-box{right:0;}
 
@@ -233,6 +236,19 @@ p.title-tour { border-radius:9px;
   margin-left:37%;
   top:-20px
   }
+p.title-visa { border-radius:9px;
+  position:absolute;  background:#353535;
+  font-size:20px;  
+  color:#fff;
+  padding:1%;
+  text-align:center;
+  z-index:10;
+  margin-right:15%;
+  margin-left:15%;
+  line-height:1.2em;
+  top:-20px
+  }
+.visa-text.fa p, .visa-text.fa span, .visa-text.fa p span, .fa.visa-title {direction:rtl; font-family: 'open_sansregular'; font-size:16px; line-height:1.5em}
 p.title-tour a {color:#fff}
 p.title-tour a:hover, p.title-tour a:visited{color:#fff}
 .multi-slider-package {
@@ -304,8 +320,23 @@ font-size: 1.5em;}
   box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);  
   background:#fff;
 }
+.visas-index {
+margin-left:2%;  
+  position:relative; text-align:center; overflow:hidden; width:40%; float:right; height:100px;  
+  margin-bottom:5%; 
+  -webkit-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
+  -moz-box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);
+  box-shadow: 0px 14px 21px 5px rgba(0,0,0,0.63);  
+  background:#fff;
+  }
+
 .tour-box {  
   height:100%; 
+  overflow:hidden; 
+  position:absolute;  
+  width:100%; right:0; left:0;  
+  text-align:center;}
+.visa-box {height:100%; 
   overflow:hidden; 
   position:absolute;  
   width:100%; right:0; left:0;  
@@ -324,6 +355,21 @@ font-size: 1.5em;}
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
 }
+.visa-title {width: 100%;
+  color:#000;
+  font-size:16px;
+  position: relative;
+  right: 0;
+  left: 0;
+  height: 60%;
+  line-height:1.5em;
+  padding-top: 3%;
+  margin: 0;
+  border-bottom: 2px solid #E72B25;
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+}
+.visa-box:hover .visa-title{background:#A52A2A; color:#fff}
 .tour-box .tour-title.en {font-size:13px;}
 .tour-box .tour-title.fa {font-family:'open_sansregular', Arial;}
 .tour-box:hover .tour-title{background:#A52A2A; color:#fff}
@@ -548,7 +594,7 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
 .country-cities-list ul li.en  {font-size:13px;}
 .country-sights.odd .sights-info {float:right}
 .country-sights.even .sights-info {float:left}
-
+table.table.city tr td {font-size:16px}
 .carousel.slide {
     width: 100%;
     height: 100%;

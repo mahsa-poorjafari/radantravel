@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   
 
-  resources :class_hotels
+  
 
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :continent_categories
+    resources :visas
+
+    resources :visa_types
+
+    resources :class_hotels
     resources :slides
     resources :locationtours do
       collection do

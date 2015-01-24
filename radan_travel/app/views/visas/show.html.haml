@@ -1,0 +1,32 @@
+.margin3 
+  - if is_admin?
+    .col-xs-12
+      = link_to 'ویرایش ویزا', edit_visa_path(@visa), :class => "btn btn-info" 
+  .col-xs-12.margin-bottom5
+    .title-tour-line.col-xs-10
+    %p.col-xs-8.set-center.title-visa{:class => I18n.locale}= @visa.title
+  - if I18n.locale == :en
+    .col-xs-3.pull-left{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
+      .continent{:class =>  I18n.locale}
+        %span.location= image_tag 'v.png'
+        %span.country-title-tab= link_to t('show-all-visas'), Visa
+    
+      - VisaType.order("title_fa asc").each do |vistatype| 
+        .continent.tour-group{:class => ('active' if vistatype.id == @visa.visa_type_id)}
+          %span.location= image_tag 'arrow-bullet-left.png'
+          %h4.en.country-title-tab
+            = link_to vistatype.title, vistatype
+    .col-xs-9.visa-text.well{:class => I18n.locale}= raw @visa.text
+  - else
+    .col-xs-3.pull-right{:style => "text-align:center; margin-bottom:4%"} 
+      .continent{:class => I18n.locale}
+        %span.location= image_tag 'v.png'
+        %span.country-title-tab= link_to t('show-all-visas'), Visa
+    
+      - VisaType.order("title_fa asc").each do |vistatype| 
+        = link_to vistatype do
+          .continent.tour-group{:class => ('active' if vistatype.id == @visa.visa_type_id)}
+            %span.location= image_tag 'arrow-bullet-right.png'
+            %h4.fa.country-title-tab= vistatype.title
+    .col-xs-9.visa-text.well{:class => I18n.locale}= raw @visa.text
+  

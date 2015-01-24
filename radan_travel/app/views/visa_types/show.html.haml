@@ -1,0 +1,77 @@
+.margin3 
+  - if is_admin?
+    .col-xs-12
+      = link_to 'ویرایش گروه ویزا', edit_visa_type_path(@visa_type), :class => "btn btn-info" 
+  .col-xs-12.margin-bottom5
+    .title-tour-line.col-xs-10
+    %p.col-xs-8.set-center.title-visa{:class => I18n.locale}= @visa_type.title
+  - if I18n.locale == :en
+    .col-xs-3.pull-left{:style => "text-align:center; margin-bottom:4%", "data-option-key" => "filter"}     
+      .continent{:class =>  I18n.locale}
+        %span.location= image_tag 'v.png'
+        %span.country-title-tab= link_to t('show-all-visas'), Visa
+    
+      - VisaType.order("title_fa asc").each do |vistatype| 
+        .continent.tour-group{:class => ('active' if vistatype.id == @visa_type.id)}
+          %span.location= image_tag 'arrow-bullet-left.png'
+          %h4.en.country-title-tab
+            = link_to vistatype.title, vistatype
+    - if @visa_type.text.present?
+      .col-xs-9.visa-text.well{:class => I18n.locale}= raw @visa_type.text
+    - if @visa_type.visas.present?
+      .show-tours.col-xs-9.set-center#Container
+        - @visa_type.visas.each do |visa| 
+          .visas-index{ "data-my-order" => visa.id}        
+            -#
+              - if @country_tour.coming_soon?
+                .coming_soon= image_tag 'coming.png'
+            = link_to visa, :class => "visa-box" do 
+              %h5.visa-title{:class => I18n.locale}= visa.title
+              -#
+                - if @country_tour.photos.present?
+                  .tour-sample-image{:class => ('set-coming-soon' if @country_tour.coming_soon?)}= image_tag @country_tour.photos.first.image(:medium), :id => "tour-sample-image-" + @country_tour.photos.first.id.to_s
+              .clear-float
+            
+            -if is_admin?
+              .admin-btn-tour
+                = link_to 'ویرایش تور', edit_visa_path(visa), :class => "btn btn-info"
+                = link_to 'مشاهده جزئیات', visa, :class => "btn btn-warning"                   
+                = link_to 'حذف تور', visa, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+    - else
+      %p= image_tag 'coming.png'
+              
+  - else
+    .col-xs-3.pull-right{:style => "text-align:center; margin-bottom:4%"} 
+      .continent{:class =>  I18n.locale}
+        %span.location= image_tag 'v.png'
+        %span.country-title-tab= link_to t('show-all-visas'), Visa
+    
+      - VisaType.order("title_fa asc").each do |vistatype| 
+        = link_to vistatype do
+          .continent.tour-group{:class => ('active' if vistatype.id == @visa_type.id)}
+            %span.location= image_tag 'arrow-bullet-right.png'
+            %h4.fa.country-title-tab= vistatype.title
+    - if @visa_type.text.present?
+      .col-xs-9.visa-text.well{:class => I18n.locale}= raw @visa_type.text
+    - if @visa_type.visas.present?
+      .show-tours.col-xs-9.set-center#Container
+        - @visa_type.visas.each do |visa| 
+          .visas-index{ "data-my-order" => visa.id}        
+            -#
+              - if @country_tour.coming_soon?
+                .coming_soon= image_tag 'coming.png'
+            = link_to visa, :class => "visa-box" do 
+              %h5.visa-title{:class => I18n.locale}= visa.title
+              -#
+                - if @country_tour.photos.present?
+                  .tour-sample-image{:class => ('set-coming-soon' if @country_tour.coming_soon?)}= image_tag @country_tour.photos.first.image(:medium), :id => "tour-sample-image-" + @country_tour.photos.first.id.to_s
+              .clear-float
+            
+            -if is_admin?
+              .admin-btn-tour
+                = link_to 'ویرایش تور', edit_visa_path(visa), :class => "btn btn-info"
+                = link_to 'مشاهده جزئیات', visa, :class => "btn btn-warning"                   
+                = link_to 'حذف تور', visa, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+              
+    - else
+      %p= image_tag 'coming.png'

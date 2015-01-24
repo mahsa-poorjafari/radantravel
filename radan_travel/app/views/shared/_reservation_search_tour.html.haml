@@ -28,17 +28,28 @@
         = select_tag params[:Language], options_for_select([[t('reserv-fa'), 'FA'], [t('reserv-en'), 'EN'], [t('reserv-ar'), 'AR']])                
         
         
-#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "bottom:0"}
-  .col-xs-1.pull-right{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
-  .col-xs-9.pull-right
-    = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
-      .reserv-box{:class => I18n.locale}
-        %span{:class => I18n.locale}= t('hotel-reserv')
+#reserv-hotel.col-xs-3.pull-left.link-reservation{:style => "bottom:0", :class => I18n.locale}
+  - if I18n.locale == :en    
+    .col-xs-9.reserv-en-link
+      = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
+        .reserv-box{:class => I18n.locale}
+          %span{:class => I18n.locale}= t('hotel-reserv')
+      
+      = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
+        .reserv-box{:class => I18n.locale}            
+          %span{:class => I18n.locale}= t('plane-reserv')
+    .col-xs-1{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
+  - else
+    .col-xs-1.pull-right{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
+    .col-xs-9.pull-right
+      = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
+        .reserv-box{:class => I18n.locale}
+          %span{:class => I18n.locale}= t('hotel-reserv')
+      
+      = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
+        .reserv-box{:class => I18n.locale}            
+          %span{:class => I18n.locale}= t('plane-reserv')
     
-    = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
-      .reserv-box{:class => I18n.locale}            
-        %span{:class => I18n.locale}= t('plane-reserv')
-  
 :javascript      
   $('#tour-exp').datepicker();
   $('#tour-start').datepicker();
