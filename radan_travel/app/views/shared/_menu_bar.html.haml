@@ -46,7 +46,7 @@
       = link_to  t('tour-country'),Country , :title => "آژانس هواپیمایی رادان سیر" 
     %li.item-menu{:class => ('active' if current_page?(Visa))}
       = link_to  t('visa'),Visa , :title => "ویزا از طریق رادان سیر" 
-      -if VisaType.all > 0
+      -if VisaType.count > 0
         %ul.sub-menu.tour
           - VisaType.order("title_fa asc").each do |visatype|
             %li{:class => I18n.locale}
