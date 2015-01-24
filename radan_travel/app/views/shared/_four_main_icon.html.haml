@@ -14,8 +14,11 @@
         = image_tag 'visit.png'
         %p= t('sight')
   .col-xs-3.icon-box
-    = image_tag 'visa.png'
-    %p= t('visa')
+    = link_to   Visa, :title => "آژانس_هواپیمایی_رادان_سیر" do
+      = image_tag 'visa.png'
+      %p= t('visa')
+    
+    
     
   .col-xs-3.icon-box
     
