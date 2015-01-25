@@ -8,6 +8,7 @@
   - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link + @unread_visa_form
   %span.unread= @notifications
 %ul{:class => I18n.locale}  
+  %li= link_to 'تعریف سرمایه گذاری در ایران', InvestmentInIran, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'تعریف گروه ویزا', VisaType, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'معرفی ویزای جدید', Visa, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li

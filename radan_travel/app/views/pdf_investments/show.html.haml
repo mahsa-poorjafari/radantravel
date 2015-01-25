@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title en:
+  = @pdf_investment.title_en
+%p
+  %b Title fa:
+  = @pdf_investment.title_fa
+%p
+  %b Title ar:
+  = @pdf_investment.title_ar
+%p
+  %b Text en:
+  = @pdf_investment.text_en
+%p
+  %b Text fa:
+  = @pdf_investment.text_fa
+%p
+  %b Text ar:
+  = @pdf_investment.text_ar
+%p
+  %b Investment in iran:
+  = @pdf_investment.investment_in_iran_id
+
+= link_to 'Edit', edit_pdf_investment_path(@pdf_investment)
+\|
+= link_to 'Back', pdf_investments_path

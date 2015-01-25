@@ -1,0 +1,54 @@
+= nested_form_for @investment_in_iran , :html => { :multipart => true  } do |f|
+  - if @investment_in_iran.errors.any?
+    #error_explanation      
+      %ul
+        - @investment_in_iran.errors.each do |attr, msg|
+          %li= msg
+  .col-xs-12
+    .col-xs-6
+      .form-group
+        = f.label 'تصویر', :class => "control-label"
+        - if @investment_in_iran.image.present?
+          = image_tag @investment_in_iran.image(:small)
+        = f.file_field :image, :class => "form-control"
+    .col-xs-6
+      .form-group
+        = f.label 'عنوان فارسی', :class => "control-label"
+        = f.text_field :title_fa, :class => "form-control"
+      .form-group
+        = f.label 'عنوان انگلیسی', :class => "control-label"
+        = f.text_field :title_en, :class => "form-control"
+      .form-group
+        = f.label 'عنوان عربی', :class => "control-label"
+        = f.text_field :title_ar, :class => "form-control"
+  .col-xs-12 
+    - if @investment_in_iran.pdf_investments.present?
+      - @investment_in_iran.pdf_investments.each do |pdf_file|
+        .col-xs-2
+          = image_tag 'pdf-icon.png'
+          %p= pdf_file.title
+          
+    .form-group.col-xs-12 
+      %p{:class => I18n.locale}= 'فایل های پی دی اف مربوط را  در این قسمت به این آیتم اضافه کنید.'      
+      = f.link_to_add content_tag(:span, "افزودن فایل pdf", :class => "btn btn-warning" ), :pdf_investments, :id => "add_new_picture"
+    .col-xs-12 
+      = f.fields_for :pdf_investments do |pdf_investment|  
+        .col-xs-4
+          = render "pdf_investments/upload_pdf_form", :f => pdf_investment
+  
+  .col-xs-12
+    .form-group
+      = f.label 'متن فارسی', :class => "control-label"
+      .editor
+        = f.text_area :text_fa, :class => "ckeditor"
+    .form-group
+      = f.label 'متن انگلیسی', :class => "control-label"
+      .editor
+        = f.text_area :text_en, :class => "ckeditor"
+    .form-group
+      = f.label 'متن عربی', :class => "control-label"
+      .editor
+        = f.text_area :text_ar, :class => "ckeditor"
+    .form-group
+      = f.submit 'ثبت', :class => "btn btn-primary"
+

@@ -1,0 +1,31 @@
+%h1 Listing pdf_investments
+
+%table
+  %tr
+    %th Title en
+    %th Title fa
+    %th Title ar
+    %th Text en
+    %th Text fa
+    %th Text ar
+    %th Investment in iran
+    %th
+    %th
+    %th
+
+  - @pdf_investments.each do |pdf_investment|
+    %tr
+      %td= pdf_investment.title_en
+      %td= pdf_investment.title_fa
+      %td= pdf_investment.title_ar
+      %td= pdf_investment.text_en
+      %td= pdf_investment.text_fa
+      %td= pdf_investment.text_ar
+      %td= pdf_investment.investment_in_iran_id
+      %td= link_to 'Show', pdf_investment
+      %td= link_to 'Edit', edit_pdf_investment_path(pdf_investment)
+      %td= link_to 'Destroy', pdf_investment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pdf investment', new_pdf_investment_path

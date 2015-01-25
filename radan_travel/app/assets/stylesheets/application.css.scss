@@ -424,6 +424,7 @@ ul.sub-menu {width:100%; margin:0; padding:0;
   list-style: none;
   display:none;
 }
+ul.sub-menu.sight {width:120%;}
 ul.sub-menu.hotel li.foreign-hotels:hover .details_menu{display:block} 
 ul.sub-menu.hotel li.foreign-hotels .details_menu li:hover .cities-hotels{display:block} 
 ul.sub-menu li{width:100%; margin:0; padding:5%; color:#fff; position:relative; min-height:50px}
@@ -632,3 +633,5 @@ table.table.city tr td {font-size:16px}
 .table.en tr.first-row th {text-align:left}
 tr.visa-forms-list {font-weight:bold}
 tr.visa-forms-list.visited {font-weight:normal}
+.investment-text p, .investment-text p span {line-height:2em; text-align:justify}
+.pdf_investment h5, .pdf_investment h4, .pdf_investment p {text-align:center}

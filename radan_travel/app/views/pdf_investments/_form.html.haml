@@ -1,0 +1,31 @@
+= form_for @pdf_investment do |f|
+  - if @pdf_investment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pdf_investment.errors.count, "error")} prohibited this pdf_investment from being saved:"
+      %ul
+        - @pdf_investment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title_en
+    = f.text_field :title_en
+  .field
+    = f.label :title_fa
+    = f.text_field :title_fa
+  .field
+    = f.label :title_ar
+    = f.text_field :title_ar
+  .field
+    = f.label :text_en
+    = f.text_area :text_en
+  .field
+    = f.label :text_fa
+    = f.text_area :text_fa
+  .field
+    = f.label :text_ar
+    = f.text_area :text_ar
+  .field
+    = f.label :investment_in_iran_id
+    = f.number_field :investment_in_iran_id
+  .actions
+    = f.submit 'Save'

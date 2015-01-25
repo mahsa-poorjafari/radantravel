@@ -7,4 +7,5 @@ class Photo < ActiveRecord::Base
   belongs_to :sight
   belongs_to :tour
   belongs_to :hotel
+  
 end

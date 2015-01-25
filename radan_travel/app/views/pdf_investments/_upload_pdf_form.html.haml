@@ -1,0 +1,27 @@
+.col-xs-12.well
+  .form-group.alert.alert-danger
+    = f.label "برای حذف این کادر روی آیکن سطل آشغال مقابل کلیک کنید.", :class => "control-label" 
+    = f.link_to_remove (image_tag ("Delete_Icon.png"), :class => "recyclebin-icon"), :class => "remove-task col-sm-3", :title => "آژانس_هواپیمایی_رادان_سیر"
+  .form-group
+    = f.label 'فایل pdf را انتخاب کنید.', :class => "control-label"
+    = f.file_field :pdf_file, :class => "form-control"
+  .form-group
+    = f.label 'عنوان انگلیسی', :class => "control-label"
+    = f.text_field :title_en, :class => "form-control"
+  .form-group
+    = f.label 'عنوان فارسی', :class => "control-label"
+    = f.text_field :title_fa, :class => "form-control"
+  .form-group
+    = f.label 'عنوان عربی', :class => "control-label"
+    = f.text_field :title_ar, :class => "form-control"
+  .form-group
+    = f.label 'توضیحات انگلیسی', :class => "control-label"
+    = f.text_area :text_en, :class => "form-control"
+  .form-group
+    = f.label 'توضیحات فارسی', :class => "control-label"
+    = f.text_area :text_fa, :class => "form-control"
+  .form-group
+    = f.label 'توضیحات عربی', :class => "control-label"
+    = f.text_area :text_ar, :class => "form-control"
+
+  

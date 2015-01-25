@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125080952) do
+ActiveRecord::Schema.define(version: 20150125094714) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -136,6 +136,21 @@ ActiveRecord::Schema.define(version: 20150125080952) do
     t.datetime "updated_at"
   end
 
+  create_table "investment_in_irans", force: true do |t|
+    t.string   "title_en"
+    t.string   "title_fa"
+    t.string   "title_ar"
+    t.text     "text_en"
+    t.text     "text_fa"
+    t.text     "text_ar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "links", force: true do |t|
     t.string   "title_fa"
     t.string   "title_en"
@@ -237,6 +252,22 @@ ActiveRecord::Schema.define(version: 20150125080952) do
     t.integer  "visa_form_id"
     t.string   "gender"
     t.string   "Marital_status"
+  end
+
+  create_table "pdf_investments", force: true do |t|
+    t.string   "title_en"
+    t.string   "title_fa"
+    t.string   "title_ar"
+    t.text     "text_en"
+    t.text     "text_fa"
+    t.text     "text_ar"
+    t.integer  "investment_in_iran_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "pdf_file_file_name"
+    t.string   "pdf_file_content_type"
+    t.integer  "pdf_file_file_size"
+    t.datetime "pdf_file_updated_at"
   end
 
   create_table "photos", force: true do |t|

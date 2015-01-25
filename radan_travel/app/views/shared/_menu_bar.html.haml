@@ -7,6 +7,7 @@
       %ul.sub-menu.sight
         %li{:class => I18n.locale}= link_to t('ir-tours'), Sight
         %li{:class => I18n.locale}= link_to t('ir-cities'), Sight
+        %li{:class => I18n.locale}= link_to t('investment-in-iran'), InvestmentInIran
     %li#tour.item-menu{:class => ('active' if current_page?(Tour))}  
       = link_to  t('tour.tours'), tours_path,  :title => "آژانس هواپیمایی رادان سیر"       
       %ul.sub-menu.tour

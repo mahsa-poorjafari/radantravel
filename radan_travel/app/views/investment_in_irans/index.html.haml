@@ -1,0 +1,47 @@
+.margin3.margin-bottom
+  -if is_admin?
+    = link_to 'معرفی آیتم جدید در سرمایه گذاری در ایران', new_investment_in_iran_path, :class => "btn btn-success"
+  .col-xs-12.margin-bottom
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('investment-in-iran')
+    
+  .show-tours.col-xs-12.set-center
+    - @investment_in_irans.each do |investment_in_iran|
+      .tours-index{ :style => "width:23%"}                
+        = link_to investment_in_iran, :class => "tour-box" do 
+          %h5.tour-title{:class => I18n.locale}= investment_in_iran.title
+          - if investment_in_iran.image.present?
+            .tour-sample-image= image_tag investment_in_iran.image(:medium), :id => "invest-sample-image-" + investment_in_iran.id.to_s
+          .clear-float
+       
+        -if is_admin?
+          .admin-btn-tour
+            = link_to 'ویرایش آیتم', edit_investment_in_iran_path(investment_in_iran), :class => "btn btn-info"
+            = link_to 'مشاهده جزئیات', investment_in_iran, :class => "btn btn-warning"                   
+            = link_to 'حذف آیتم', investment_in_iran, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+           
+
+  
+  .keywords
+    %p= t('Keywords.title')
+    %ul.tag-cloud.full-width{:class => I18n.locale}
+      %li.tag-cloud
+        = link_to t('radantravel'), '/'           
+      %li.tag-cloud
+        = link_to t('Keywords.a'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.b'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.f'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.ir-package'), '/' 
+      %li.tag-cloud
+        = link_to t('tour-to-iran'), '/' 
+      - @investment_in_irans.each do |investment_in_iran|
+        %li.tag-cloud
+          = link_to  investment_in_iran.title, investment_in_iran 
+      - Tour.all.each do |tour|
+        %li.tag-cloud
+          = link_to tour.title, tour, :title => tour.title
+
+
