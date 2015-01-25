@@ -1,0 +1,69 @@
+%h1 Listing passengers
+
+%table
+  %tr
+    %th First name
+    %th Last name
+    %th Gender
+    %th Marital status
+    %th Date of birth
+    %th Birth place
+    %th Birth other place
+    %th Fathers name
+    %th Grand fathers name
+    %th Occupation
+    %th Job title
+    %th Your company
+    %th Nationality
+    %th Previous nationality
+    %th Passport no
+    %th Passport type
+    %th Date of passport issue
+    %th Place of passport issue
+    %th Date of passport expiry
+    %th Where collect your visa
+    %th Phone no
+    %th Email
+    %th Duration of stay in iran
+    %th Travel entrance to iran
+    %th Times have you been to iran
+    %th Date of your last visit to iran
+    %th
+    %th
+    %th
+
+  - @passengers.each do |passenger|
+    %tr
+      %td= passenger.First_Name
+      %td= passenger.Last_Name
+      %td= passenger.gender
+      %td= passenger.Marital_status
+      %td= passenger.Date_of_Birth
+      %td= passenger.Birth_Place
+      %td= passenger.Birth_other_Place
+      %td= passenger.Fathers_Name
+      %td= passenger.Grand_Fathers_Name
+      %td= passenger.Occupation
+      %td= passenger.Job_title
+      %td= passenger.Your_Company
+      %td= passenger.Nationality
+      %td= passenger.Previous_Nationality
+      %td= passenger.Passport_No
+      %td= passenger.Passport_type
+      %td= passenger.Date_Of_Passport_Issue
+      %td= passenger.Place_Of_Passport_Issue
+      %td= passenger.Date_Of_Passport_Expiry
+      %td= passenger.Where_collect_your_visa
+      %td= passenger.Phone_No
+      %td= passenger.Email
+      %td= passenger.Duration_Of_Stay_In_Iran
+      %td= passenger.Travel_Entrance_To_Iran
+      %td= passenger.Times_Have_You_Been_To_Iran
+      %td= passenger.date_of_Your_Last_Visit_To_Iran
+      %td= link_to 'Show', passenger
+      %td= link_to 'Edit', edit_passenger_path(passenger)
+      %td= link_to 'Destroy', passenger, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Passenger', new_passenger_path

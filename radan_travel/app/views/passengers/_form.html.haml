@@ -1,0 +1,87 @@
+= form_for @passenger do |f|
+  - if @passenger.errors.any?
+    #error_explanation      
+      %ul
+        - @passenger.errors.each do |attr, msg|
+          %li= msg
+  .col-xs-12
+    .form-group
+      = f.label :First_Name
+      = f.text_field :First_Name
+    .field
+      = f.label :Last_Name
+      = f.text_field :Last_Name
+    .field
+      = f.label :gender
+      = f.check_box :gender
+    .field
+      = f.label :Marital_status
+      = f.check_box :Marital_status
+    .field
+      = f.label :Date_of_Birth
+      = f.date_select :Date_of_Birth
+    .field
+      = f.label :Birth_Place
+      = f.text_field :Birth_Place
+    .field
+      = f.label :Birth_other_Place
+      = f.text_field :Birth_other_Place
+    .field
+      = f.label :Fathers_Name
+      = f.text_field :Fathers_Name
+    .field
+      = f.label :Grand_Fathers_Name
+      = f.text_field :Grand_Fathers_Name
+    .field
+      = f.label :Occupation
+      = f.text_field :Occupation
+    .field
+      = f.label :Job_title
+      = f.text_field :Job_title
+    .field
+      = f.label :Your_Company
+      = f.text_field :Your_Company
+    .field
+      = f.label :Nationality
+      = f.text_field :Nationality
+    .field
+      = f.label :Previous_Nationality
+      = f.text_field :Previous_Nationality
+    .field
+      = f.label :Passport_No
+      = f.text_field :Passport_No
+    .field
+      = f.label :Passport_type
+      = f.text_field :Passport_type
+    .field
+      = f.label :Date_Of_Passport_Issue
+      = f.text_field :Date_Of_Passport_Issue
+    .field
+      = f.label :Place_Of_Passport_Issue
+      = f.text_field :Place_Of_Passport_Issue
+    .field
+      = f.label :Date_Of_Passport_Expiry
+      = f.date_select :Date_Of_Passport_Expiry
+    .field
+      = f.label :Where_collect_your_visa
+      = f.text_field :Where_collect_your_visa
+    .field
+      = f.label :Phone_No
+      = f.text_field :Phone_No
+    .field
+      = f.label :Email
+      = f.text_field :Email
+    .field
+      = f.label :Duration_Of_Stay_In_Iran
+      = f.text_field :Duration_Of_Stay_In_Iran
+    .field
+      = f.label :Travel_Entrance_To_Iran
+      = f.text_field :Travel_Entrance_To_Iran
+    .field
+      = f.label :Times_Have_You_Been_To_Iran
+      = f.text_field :Times_Have_You_Been_To_Iran
+    .field
+      = f.label :date_of_Your_Last_Visit_To_Iran
+      = f.date_select :date_of_Your_Last_Visit_To_Iran
+    .actions
+      = f.submit 'Save'

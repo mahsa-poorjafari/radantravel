@@ -1,0 +1,77 @@
+.margin3.margin-bottom
+  .col-xs-12.margin-bottom
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('visa-app')
+  -if flash[:CodeSend]
+    .alert.alert-success{:style => "font-size:16px; text-align:center"}  
+      = flash[:CodeSend]
+  .col-xs-12
+    .col-xs-6
+      .pull-left.col-xs-3= image_tag 'menu_logo.png'
+    .col-xs-6
+      .pull-right.col-xs-3= image_tag 'visa.png'
+  .col-xs-12
+
+    .alert.alert-info{:class => I18n.locale, :style => "font-size:20px; text-align:center;"}
+      %b= t('passenger.request-code')
+      .en= @visa_form.request_code
+    
+    - if @visa_form.passengers.present?
+      %table.table{:class => I18n.locale, "data-toggle"=>"table"}
+        %tr.first-row
+          %th= t('passenger.row')
+          %th= t('passenger.First_Name') + ' ' + t('passenger.Last_Name')
+          %th= t('passenger.gender')
+          %th= t('passenger.Marital_status')
+          %th= t('passenger.Date_of_Birth')
+          %th= t('passenger.Passport_No')
+          %th= t('passenger.Passport_type')
+        - @visa_form.passengers.each_with_index do |passenger, i|
+          %tr
+            %td= (i+1)
+            %td= passenger.First_Name + ' ' + passenger.Last_Name
+            %td= passenger.gender
+            %td= passenger.Marital_status
+            %td= passenger.Date_of_Birth
+            %td= passenger.Passport_No
+            %td= passenger.Passport_type
+            - if is_admin?
+              %td
+                = link_to 'مشاهده', passenger, :class => "btn btn-warning"
+                = link_to 'ویرایش', edit_passenger_path(passenger), :class => "btn btn-info"
+                = link_to 'حذف', passenger, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
+
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('visa-more-info')
+  .col-xs-12.margin-bottom5{:class => I18n.locale}
+    .col-xs-6
+      %h4 Incoming Flight to Tehran from International Location:
+      %p
+        %b Departure airport:
+        = @visa_form.Incoming_Flight_Departure_Airport
+      %p
+        %b Flight no
+        = @visa_form.Incoming_Flight_No
+      %p
+        %b Arrival date
+        = @visa_form.Arrival_date
+      %p
+        %b Arrival city
+        = @visa_form.Arrival_City
+    .col-xs-6  
+      %h4 Outgoing Flight to International Destination:
+      %p
+        %b Destination
+        = @visa_form.Outgoing_Fligh_Destination
+      %p
+        %b Flight no
+        = @visa_form.Outgoing_Flight_No
+      %p
+        %b Departure date
+        = @visa_form.Departure_date
+      %p
+        %b Departure city
+        = @visa_form.Departure_City
+          
+

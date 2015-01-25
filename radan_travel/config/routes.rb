@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   
 
+  resources :passengers
+
+  resources :visa_forms
+
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
     resources :continent_categories

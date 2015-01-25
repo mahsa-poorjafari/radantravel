@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124061828) do
+ActiveRecord::Schema.define(version: 20150125080952) do
 
   create_table "ahoy_events", force: true do |t|
     t.uuid     "visit_id"
@@ -207,6 +207,38 @@ ActiveRecord::Schema.define(version: 20150124061828) do
     t.datetime "image_updated_at"
   end
 
+  create_table "passengers", force: true do |t|
+    t.string   "First_Name"
+    t.string   "Last_Name"
+    t.date     "Date_of_Birth"
+    t.string   "Birth_Place"
+    t.string   "Birth_other_Place"
+    t.string   "Fathers_Name"
+    t.string   "Grand_Fathers_Name"
+    t.string   "Occupation"
+    t.string   "Job_title"
+    t.string   "Your_Company"
+    t.string   "Nationality"
+    t.string   "Previous_Nationality"
+    t.string   "Passport_No"
+    t.string   "Passport_type"
+    t.string   "Date_Of_Passport_Issue"
+    t.string   "Place_Of_Passport_Issue"
+    t.date     "Date_Of_Passport_Expiry"
+    t.string   "Where_collect_your_visa"
+    t.string   "Phone_No"
+    t.string   "Email"
+    t.string   "Duration_Of_Stay_In_Iran"
+    t.string   "Travel_Entrance_To_Iran"
+    t.string   "Times_Have_You_Been_To_Iran"
+    t.date     "date_of_Your_Last_Visit_To_Iran"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "visa_form_id"
+    t.string   "gender"
+    t.string   "Marital_status"
+  end
+
   create_table "photos", force: true do |t|
     t.string   "description_fa"
     t.string   "description_en"
@@ -352,6 +384,24 @@ ActiveRecord::Schema.define(version: 20150124061828) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "visa_forms", force: true do |t|
+    t.string   "request_code"
+    t.text     "visa_agreement"
+    t.text     "important_notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "I_agree"
+    t.string   "Incoming_Flight_Departure_Airport"
+    t.string   "Incoming_Flight_No"
+    t.date     "Arrival_date"
+    t.string   "Arrival_City"
+    t.string   "Outgoing_Fligh_Destination"
+    t.string   "Outgoing_Flight_No"
+    t.date     "Departure_date"
+    t.string   "Departure_City"
+    t.boolean  "admin_visited",                     default: false
+  end
 
   create_table "visa_types", force: true do |t|
     t.string   "title_en"

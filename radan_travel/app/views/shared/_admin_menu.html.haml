@@ -3,12 +3,17 @@
     = current_user.email
   - @unread_tour_comment = TourComment.where(confirm_comment: 0).count
   - @unread_msg = Message.where(visited: 0).count
+  - @unread_visa_form = VisaForm.where(admin_visited: 0).count
   - @unread_custom_link = CustomTour.where(visited: 0).count
-  - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link
+  - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link + @unread_visa_form
   %span.unread= @notifications
 %ul{:class => I18n.locale}  
   %li= link_to 'تعریف گروه ویزا', VisaType, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'معرفی ویزای جدید', Visa, :title => "آژانس_هواپیمایی_رادان_سیر"
+  %li
+    = link_to 'گزارشگیری درخواستهای ویزا', VisaForm, :title => "آژانس_هواپیمایی_رادان_سیر"
+    - if @unread_visa_form != 0
+      %span.unread= @unread_visa_form
   %li= link_to 'مدیریت خبرنامه', Customer, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'مدیریت صفحات متنی', Page, :title => "آژانس_هواپیمایی_رادان_سیر"
   %li= link_to 'کشورها', countries_path, :title => "آژانس_هواپیمایی_رادان_سیر"

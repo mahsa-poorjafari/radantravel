@@ -1,0 +1,31 @@
+.margin3.margin-bottom
+  .col-xs-12.margin-bottom
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('visa-request')
+
+
+  %table.table{:class => I18n.locale, "data-toggle"=>"table"}
+    %tr.first-row
+      %th= t('passenger.row')
+      %th= t('passenger.request-code')
+      %th= t('passenger.number')
+      
+      %th
+      %th
+      - if is_admin?
+        %th
+
+    - @visa_forms.each_with_index do |visa_form, i|
+      %tr.visa-forms-list{:class => ('visited' if visa_form.admin_visited)}
+        %td= (i+1)
+        %td.en{:style => "text-align:center"}= visa_form.request_code
+        - if visa_form.passengers.present?
+          %td= visa_form.passengers.count
+        - else 
+          %td 0
+      
+        - if is_admin?
+          %td            
+            = link_to 'مشاهده', visa_form, :class => "btn btn-warning"
+            = link_to 'حذف', visa_form, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
+

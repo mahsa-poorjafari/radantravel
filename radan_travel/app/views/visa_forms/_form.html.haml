@@ -1,0 +1,79 @@
+= nested_form_for @visa_form, :html => { :multipart => true  } do |f|
+  - if @visa_form.errors.any?
+    #error_explanation
+      
+      %ul
+        - @visa_form.errors.each do |attr, msg|
+          %li= msg
+
+  .col-xs-12 
+    .form-group
+      %p{:class => I18n.locale}="برای افزودن اطلاعات خود دکمه افزودن فرد را فشار دهید و فرم را پرنمایید. :"
+      %p{ :style=> "color:#ec523f", :class => I18n.locale}= "می توانید در هر فرم درخواست ویزا اطلاعات تا ۱۰ نفر را وارد کنید."
+      = f.link_to_add content_tag(:span, t('passenger.add-person'), :class => "btn btn-info btn-lg" ), :passengers, :id => "add_new_picture"
+    .col-xs-12 
+      = f.fields_for :passengers do |passenger|  
+        .col-xs-3
+          = render "passengers/upload_passenger_form", :f => passenger
+  .col-xs-12.form-group 
+    %p Arrival and Departure Information (If you don't have your tickets yet, just fill out the date of your arrival and departure.)
+  .col-xs-12.well   
+    .col-xs-2.en
+      %p.en Incoming Flight to Tehran from International Location:
+    .col-xs-10
+      .form-group.col-xs-3
+        = f.label :Departure_Airport, :class => "control-label" 
+        = f.text_field :Incoming_Flight_Departure_Airport, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Flight_No, :class => "control-label" 
+        = f.text_field :Incoming_Flight_No, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Arrival_date, :class => "control-label" 
+        = f.text_field :Arrival_date, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Arrival_City, :class => "control-label" 
+        = f.text_field :Arrival_City, :class => "form-control"
+  .col-xs-12.well   
+    .col-xs-2.en
+      %p.en Outgoing Flight to International Destination:
+    .col-xs-10
+      .form-group.col-xs-3
+        = f.label :Destination , :class => "control-label" 
+        = f.text_field :Outgoing_Fligh_Destination, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Flight_No, :class => "control-label" 
+        = f.text_field :Outgoing_Flight_No, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Departure_date, :class => "control-label" 
+        = f.text_field :Departure_date, :class => "form-control"
+      .form-group.col-xs-3
+        = f.label :Departure_City, :class => "control-label" 
+        = f.text_field :Departure_City, :class => "form-control"
+    
+  .col-xs-12.form-group 
+    %h2 Visa process agreement
+    .col-xs-12 
+      1. 1. I agree that I will choose my tour IT (itinerary) and accommodations (with or without PTA’s consultation) and travel according to this IT. In the event that I am forced to change my IT due to certain unforeseen circumstances, I will inform PTA by the following e-mail address: visa@key2persia.com. 
+      2. In the case that I do not travel according to the itinerary I have submitted and do not abide by the details of this contract, I myself am responsible for any problem that arises and will not file any complaint against Pars Tourist Agency. 
+      3. Finally, I confirm the correctness of all the information I have given in the itinerary form.
+    .form-group.col-xs-12.well   
+      = f.check_box :I_agree
+      = f.label :I_agree, :class => "control-label" 
+  .col-xs-12.form-group 
+    %h2    Important Notes: 
+    .col-xs-12 
+      1. PTA can reserve your chosen hotels without any extra charge. However, this is not compulsory. If you choose to reserve your hotels on your own, simply mention the names of the selected hotels on your IT. 
+      2. Some countries have more than one Iranian Consulate while others have none. Please specify the exact Iranian Consulate from which you would like to pick up your visa. You may click on the link above to find a list of Iranian Consulates. 
+      3. We will take appropriate actions in order to extend your visa if it will expire during your visit, once you are in Iran. 
+      4. We will do our best to secure your visa and take care of all necessary details regarding it; however, the final decision of granting permission for you to enter and travel in the country rests with the government of Iran. We cannot, therefore, guarantee when and if a visa will be granted. 
+      5. Your passport must be valid for at least 6 months after your planned arrival date.
+  .col-xs-12.form-group 
+    %h2    Important Notes: 
+    .col-xs-12
+      
+      1. Some countries have more than one Iranian consulate while others have none. Please specify the exact consulate in which you would like to pick up your visa. You may click on the link above to find a list of consulates. 
+      2. We will take appropriate actions in order to extend your visa if it will expire during your visit, once you are in Iran. 
+      3. We will do our best to secure your visa and take care of all the necessary details; however the final decision rests with the government of Iran therefore we cannot guarantee when and if a visa will be granted. 
+      4. Your passport should be valid for at least 6 months.
+  .form-group.col-xs-12 
+    = f.submit t('passenger.save-visa-form'), :class => "btn btn-primary"

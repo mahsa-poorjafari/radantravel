@@ -1,0 +1,84 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @passenger.First_Name
+%p
+  %b Last name:
+  = @passenger.Last_Name
+%p
+  %b Gender:
+  = @passenger.gender
+%p
+  %b Marital status:
+  = @passenger.Marital_status
+%p
+  %b Date of birth:
+  = @passenger.Date_of_Birth
+%p
+  %b Birth place:
+  = @passenger.Birth_Place
+%p
+  %b Birth other place:
+  = @passenger.Birth_other_Place
+%p
+  %b Fathers name:
+  = @passenger.Fathers_Name
+%p
+  %b Grand fathers name:
+  = @passenger.Grand_Fathers_Name
+%p
+  %b Occupation:
+  = @passenger.Occupation
+%p
+  %b Job title:
+  = @passenger.Job_title
+%p
+  %b Your company:
+  = @passenger.Your_Company
+%p
+  %b Nationality:
+  = @passenger.Nationality
+%p
+  %b Previous nationality:
+  = @passenger.Previous_Nationality
+%p
+  %b Passport no:
+  = @passenger.Passport_No
+%p
+  %b Passport type:
+  = @passenger.Passport_type
+%p
+  %b Date of passport issue:
+  = @passenger.Date_Of_Passport_Issue
+%p
+  %b Place of passport issue:
+  = @passenger.Place_Of_Passport_Issue
+%p
+  %b Date of passport expiry:
+  = @passenger.Date_Of_Passport_Expiry
+%p
+  %b Where collect your visa:
+  = @passenger.Where_collect_your_visa
+%p
+  %b Phone no:
+  = @passenger.Phone_No
+%p
+  %b Email:
+  = @passenger.Email
+%p
+  %b Duration of stay in iran:
+  = @passenger.Duration_Of_Stay_In_Iran
+%p
+  %b Travel entrance to iran:
+  = @passenger.Travel_Entrance_To_Iran
+%p
+  %b Times have you been to iran:
+  = @passenger.Times_Have_You_Been_To_Iran
+%p
+  %b Date of your last visit to iran:
+  = @passenger.date_of_Your_Last_Visit_To_Iran
+
+= link_to 'Edit', edit_passenger_path(@passenger)
+\|
+= link_to 'Back', passengers_path

@@ -154,7 +154,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
     background:#ADD8E6;}
-.admin-menu:hover {height:400px}
+.admin-menu:hover {height:430px}
 .admin-menu-title {padding:1%;}
 .unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
 .yield {position:relative;}
@@ -621,3 +621,14 @@ table.table.city tr td {font-size:16px}
     display: none;
   }
 }
+.upload-passenger {border: 1px solid #f2c47e;
+  background:#fee6ba;
+  }
+.well .form-group {text-align:center}
+.table tr td {font-size:16px;}
+.table tr.first-row {background:#7F7F7F;}
+.table tr.first-row th  {font-size:18px;}
+.table.fa tr.first-row th, .table.ar tr.first-row th {text-align:right}
+.table.en tr.first-row th {text-align:left}
+tr.visa-forms-list {font-weight:bold}
+tr.visa-forms-list.visited {font-weight:normal}
