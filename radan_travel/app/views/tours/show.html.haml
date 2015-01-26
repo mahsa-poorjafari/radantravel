@@ -1,7 +1,8 @@
 .margin3.margin-bottom#content
   %h1.title-tours{:class => I18n.locale}=  @tour.title  
-  .col-xs-4#editor    
-    = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )
+  -#
+    .col-xs-4#editor
+      = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )
     
     
   .col-xs-4 
@@ -52,7 +53,7 @@
               = render 'tours/tour_info_table_en', :tour => @tour
             - else
               = render 'tours/tour_info_table_fa', :tour => @tour
-      
+    
     .col-xs-12     
       = render 'shared/items_images_sliders', :model => @tour      
     .col-xs-12.margin-bottom5
