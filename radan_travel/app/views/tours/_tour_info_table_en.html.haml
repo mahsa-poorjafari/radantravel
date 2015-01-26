@@ -1,4 +1,5 @@
 - if @tour.locationtours.present?
+  %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
   .col-xs-12.firts-row{:class => I18n.locale}
     
     .col-xs-2.th= t('location.hotel-name')  

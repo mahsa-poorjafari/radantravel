@@ -48,7 +48,7 @@
                 = image_tag @tour.plane.logo(:small), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
           
           .col-xs-12.hotels-table.margin-bottom
-            %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+            
             - if I18n.locale == :en
               = render 'tours/tour_info_table_en', :tour => @tour
             - else
