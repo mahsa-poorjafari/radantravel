@@ -8,6 +8,7 @@
         %li{:class => I18n.locale}= link_to t('ir-tours'), Sight
         %li{:class => I18n.locale}= link_to t('ir-cities'), Sight
         %li{:class => I18n.locale}= link_to t('investment-in-iran'), InvestmentInIran
+        %li{:class => I18n.locale}= link_to t('visa-app'), new_visa_form_path
     %li#tour.item-menu{:class => ('active' if current_page?(Tour))}  
       = link_to  t('tour.tours'), tours_path,  :title => "آژانس هواپیمایی رادان سیر"       
       %ul.sub-menu.tour
@@ -47,11 +48,11 @@
       = link_to  t('tour-country'),Country , :title => "آژانس هواپیمایی رادان سیر" 
     %li.item-menu{:class => ('active' if current_page?(Visa))}
       = link_to  t('visa'),Visa , :title => "ویزا از طریق رادان سیر"       
-      %ul.sub-menu.visa{:style => "width:200px;"}
-        %li{:class => I18n.locale}= link_to t('visa-app'), new_visa_form_path
-        - VisaType.order("title_fa asc").each do |visatype|
-          %li{:class => I18n.locale}
-            = link_to visatype.title, visatype
+      -if VisaType.count != 0
+        %ul.sub-menu.visa{:style => "width:200px;"}
+          - VisaType.order("title_fa asc").each do |visatype|
+            %li{:class => I18n.locale}
+              = link_to visatype.title, visatype
         
       
     %li.item-menu{:class => ('active' if current_page?(Page))}  
