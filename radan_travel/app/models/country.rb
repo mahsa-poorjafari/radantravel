@@ -4,6 +4,8 @@ class Country < ActiveRecord::Base
   validates_attachment :country_flag, 
     :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"], :message => "فرمت عکس پرچم صحیح نمی باشد." },
     :size => { :in => 0..20.kilobytes , :message => "حجم تصویر پرچم بیشتر از ۲۰ کیلوبایت است."}
+  validates :title_en, :title_fa, :title_ar, :continent_category_id,  :presence => {:message => 'فیلدهای ضروری را پر کنید'}
+  validates :title_fa, :title_en, :title_ar, :uniqueness => {:message => 'عنوان تکراری است'}
     
   extend FriendlyId  
   friendly_id :title_en
