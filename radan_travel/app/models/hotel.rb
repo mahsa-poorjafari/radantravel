@@ -9,7 +9,7 @@ class Hotel < ActiveRecord::Base
   has_many :slides
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
   has_and_belongs_to_many :locationtours
-  validates :city_id, :hotel_type, :presence => {:message => 'فیلدهای ضروری را پر کنید'}
+  validates :city_id, :hotel_type, :title_fa, :title_en, :title_ar, :presence => {:message => 'فیلدهای ضروری را پر کنید'}
   validates :title_fa, :title_en, :title_ar, :uniqueness => {:message => 'عنوان تکراری است'}
   def title
     if I18n.locale == :ar

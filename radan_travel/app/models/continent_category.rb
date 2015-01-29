@@ -6,6 +6,9 @@ class ContinentCategory < ActiveRecord::Base
   has_many :countries
   has_attached_file :icon, :styles => { :original => "70x65>" , :medium => "45x45>", :small => "30x30>"}
   validates_attachment_content_type :icon, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  validates_attachment :icon, 
+    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"], :message => "فرمت عکس آیکن صحیح نمی باشد." },
+    :size => { :in => 0..20.kilobytes , :message => "حجم تصویر آیکن بیشتر از ۲۰ کیلوبایت است."}
   def title
     if I18n.locale == :ar
       self.read_attribute("title_ar")

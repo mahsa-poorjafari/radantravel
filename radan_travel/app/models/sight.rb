@@ -5,6 +5,9 @@ class Sight < ActiveRecord::Base
   has_many :photos
   belongs_to :city
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
+  validates :title_fa, :title_en, :title_ar, :uniqueness => {:message => 'عنوان تکراری است'}  
+  validates :title_fa, :title_en, :title_ar,  :city_id, :presence => {:message => 'فیلدهای ضروری را پرکنید'}  
+  
   has_many :slides
   def title
     if I18n.locale == :ar

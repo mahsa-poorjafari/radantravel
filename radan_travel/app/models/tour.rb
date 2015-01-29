@@ -17,9 +17,10 @@ class Tour < ActiveRecord::Base
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
  
   
-  has_attached_file :decription_image, :styles => {  :medium => "450x450>", :small => "300x350>" }
-  validates_attachment_content_type :decription_image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-  
+  has_attached_file :decription_image, :styles => {  :medium => "450x450>", :small => "300x350>" }  
+   validates_attachment :decription_image, 
+    :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"], :message => "فرمت عکس صحیح می باشد." },
+    :size => { :in => 0..300.kilobytes , :message => "حجم تصویر بیشتر از 300 کیلوبایت است."}
   has_attached_file :info,
                     :url  => "/assets/circulars/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/circulars/:id/:style/:basename.:extension"
@@ -36,6 +37,9 @@ class Tour < ActiveRecord::Base
       "image/jpg", "image/jpeg", "image/png"] ,
       
       :message => "نوع فایل نامعتبر است. "
+  
+  validates :title_fa, :title_en, :title_ar, :uniqueness => {:message => 'عنوان تکراری است'}  
+  validates :title_fa, :title_en, :title_ar,  :country_id, :continent_category_id, :package_code, :presence => {:message => 'فیلدهای ضروری را پرکنید'}  
   
   def delete_image
     @delete_image ||= false

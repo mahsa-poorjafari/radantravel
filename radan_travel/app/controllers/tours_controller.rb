@@ -91,10 +91,14 @@ class ToursController < ApplicationController
   # POST /tours.json
   def create
     @tour = Tour.new(tour_params)   
-    if @tour.save      
+    if @tour.save
       render :show  
          
+    else
+      render :new
     end
+    
+    
     
   end
 
