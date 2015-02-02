@@ -1,0 +1,8 @@
+%ul.tour-groups-sub-menu
+  - ContinentCategory.all.limit(5).each do |continent|  
+    %li
+      .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}      
+        %h3.en.country-title-tab{:class => I18n.locale}
+          =  continent.title
+        - if  continent.title_fa == 'آسیا'
+          %span.location= image_tag 'arrow-bullet-right.png'

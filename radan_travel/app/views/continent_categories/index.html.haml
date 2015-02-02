@@ -1,5 +1,5 @@
 .margin3 
-  %h1 لیست گروه تورها
+  %h1{:class => I18n.locale} لیست گروه تورها
   -if is_admin?
     = link_to 'تعریف گروه جدید برای تورها', new_continent_category_path, :class => "btn btn-success"
       

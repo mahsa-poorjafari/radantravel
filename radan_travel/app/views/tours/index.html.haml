@@ -6,24 +6,26 @@
       .continent{:class => ('active' if current_page?(Tour))+ ' '+ I18n.locale.to_s}
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
-    
-      - ContinentCategory.offset(5).order(" created_at desc").each do |continent| 
-        .continent.tour-group
-          %span.location= image_tag 'arrow-bullet-left.png'
-          %h4.en.country-title-tab{:class => ('white blink' if continent.title_fa == 'نوروز 94')}
-            = link_to continent.title, continent.title
+      %ul.tour-groups
+        - ContinentCategory.offset(5).order(" created_at desc").each do |continent| 
+          %li.continent.tour-group.tour-group-item
+            %span.location= image_tag 'arrow-bullet-left.png'
+            %h4.en.country-title-tab{:class => ('white blink' if continent.title_fa == 'نوروز 94')}
+              = link_to continent.title, continent.title
   - else
     .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%"} 
       .continent{:class => ('active' if current_page?(Tour))+ ' '+ I18n.locale.to_s}
         %span.location= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
-    
-      - ContinentCategory.offset(5).order("set_order asc").each do |continent| 
-        = link_to continent do
-          .continent.tour-group
-            %span.location= image_tag 'arrow-bullet-right.png'
-            %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
-  
+      %ul.tour-groups
+        - ContinentCategory.offset(5).order("set_order asc").each do |continent|         
+          %li.tour-group-item
+            = link_to continent do
+              .continent.tour-group
+                %span.location= image_tag 'arrow-bullet-right.png'
+                %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
+            - if   continent.title_fa == 'تورهای تفریحی' ||  continent.title_fa == 'نوروز 94'
+              = render 'tour_groups_submenu', :continent => continent
       
   
   .show-tours.col-xs-10.set-center#Container

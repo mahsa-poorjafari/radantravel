@@ -16,8 +16,6 @@
           %li{:class => I18n.locale}
             = link_to category.title, category
         
-        
-        %li{:class => I18n.locale}= link_to t('other-tour'), Tour
     %li#hotel.item-menu{:class => ('active' if current_page?(Hotel))}
       = link_to  t('hotel'), Hotel,  :title => "آژانس هواپیمایی رادان سیر"
       %ul.sub-menu.hotel

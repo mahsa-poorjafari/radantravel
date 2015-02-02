@@ -1,7 +1,7 @@
-%h1 Editing continent_category
+.margin3.fa
+  %h1{:class => I18n.locale} ویرایش گروه تورها
 
-= render 'form'
-
-= link_to 'Show', @continent_category
-\|
-= link_to 'Back', continent_categories_path
+  = render 'form'
+  - if is_admin?
+    = link_to 'مشاهده', @continent_category, :class => "btn btn-warning"
+ 

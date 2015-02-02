@@ -17,8 +17,8 @@
     - if is_admin?
       .col-xs-12 
         .tour-source
-          %b= 'مشخصات مبدا پکیج تور'
-          %div{:style => "margin-top:3%"}= @tour.tour_source 
+          %b.col-xs-3.pull-right= 'مشخصات مبدا پکیج تور'
+          .col-xs-3.pull-right{:style => " font-size:2em; color:#080836; direction:rtl; font-family: 'open_sansregular';"}= @tour.tour_source 
     - if @tour.country.present?
       - if @tour.country.title_fa == 'ایران'
         .col-xs-12
@@ -63,13 +63,15 @@
         .tour-comments
           %h3{:class => I18n.locale}= t('tour_comment.your-comment')          
           = render 'tour_comments/form', :tour_comment => TourComment.new
-      
+        .clear-float
         .show_comments          
           - @tour.tour_comments.each do |comment|
             - if comment.confirm_comment
               .well
-                %b= comment.user_name
-                %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
+                %p
+                  %b= comment.user_name
+                %p
+                  %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
                 %p= comment.text
       .clear-float
   .keywords.full-width
