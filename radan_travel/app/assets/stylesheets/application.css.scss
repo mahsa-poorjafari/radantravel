@@ -424,12 +424,12 @@ ul.sub-menu {width:100%; margin:0; padding:0;
   list-style: none;
   display:none;
 }
-ul.sub-menu.sight {width:120%;}
+ul.sub-menu.sight {width:140%;}
 ul.sub-menu.hotel li.foreign-hotels:hover .details_menu{display:block} 
 ul.sub-menu.hotel li.foreign-hotels .details_menu li:hover .cities-hotels{display:block} 
-ul.sub-menu li{width:100%; margin:0; padding:5%; color:#fff; position:relative; min-height:50px}
+ul.sub-menu li{width:100%; margin:0; color:#fff; position:relative; min-height:50px}
 ul.sub-menu li:hover{background:#A52A2A;}
-ul.sub-menu li a{width:100%; margin:0;  color:#fff; font-size:1.5em; position:absolute; height:100%; text-align:center}
+ul.sub-menu li a{width:100%; margin:0;  color:#fff; font-size:1em; position:absolute; height:100%; text-align:center}
 ul.sub-menu li.fa a{}
 .sub-menu.tour {width:190%;}
 .sub-menu.hotel {width:120%;}
