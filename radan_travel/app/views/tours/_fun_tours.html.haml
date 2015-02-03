@@ -10,7 +10,7 @@
   -if continent_category.tours.present?
     - continent_category.tours.order(" created_at desc").each do |tour|
       - if tour.country_id.present? && tour.country.title_fa != 'ایران'
-        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
+        .tours-index.mix{:class => ("category-" + tour.country.continent_category_id.to_s if tour.country_id.present?) + (" country-" + tour.country_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
           - if tour.coming_soon?
             .coming_soon= image_tag 'coming.png'
           = link_to tour, :class => "tour-box" do 

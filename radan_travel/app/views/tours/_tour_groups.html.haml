@@ -41,18 +41,20 @@
           - if  continent.title_fa == 'تورهای تفریحی'              
             %ul.tour-groups-sub-menu
               - ContinentCategory.all.limit(5).each do |continent|  
-                %li
+                %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
                   .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}      
                     - if  continent.title_fa == 'آسیا'
                       %span.location= image_tag 'arrow-bullet-right.png'
                     %h3.en.country-title-tab{:class => I18n.locale}
                       =  continent.title
-                    
+                   
+                  .clear-float
                   - if  continent.title_fa == 'آسیا'
                     %ul.continent-sub-menu
                       - continent.countries.each do |country|
-                        %li
-                          .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
-                            %h3.en.country-title-tab{:class => I18n.locale}
-                              = country.title
+                        - unless country.title_fa == 'ایران'
+                          %li
+                            .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                              %h3.en.country-title-tab{:class => I18n.locale}
+                                = country.title
                         
