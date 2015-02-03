@@ -53,8 +53,9 @@
                     %ul.continent-sub-menu
                       - continent.countries.each do |country|
                         - unless country.title_fa == 'ایران'
-                          %li
-                            .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
-                              %h3.en.country-title-tab{:class => I18n.locale}
-                                = country.title
+                          - if country.tours.present?
+                            %li
+                              .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                                %h3.en.country-title-tab{:class => I18n.locale}
+                                  = country.title
                         
