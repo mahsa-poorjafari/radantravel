@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class CitiesController < ApplicationController
-  before_action :set_city, only: [:show, :edit, :update, :destroy]
+  before_action :set_city, only: [:show, :edit, :update, :destroy, :show_fun_tours_for_city]
 
   # GET /cities
   # GET /cities.json
@@ -11,6 +11,9 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
+  end
+  def show_fun_tours_for_city
+    
   end
   def dynamic_city
     p '...................'

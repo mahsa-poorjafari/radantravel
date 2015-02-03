@@ -32,9 +32,14 @@ Rails.application.routes.draw do
     resources :cities do
       collection do
         get :dynamic_city
+        get :show_fun_tours_for_city
       end
     end
-    resources :countries
+    resources :countries do
+      collection do
+        get :show_fun_tours_for_country
+      end
+    end
 
     resources :tours do
       collection do

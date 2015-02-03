@@ -7,37 +7,60 @@
 
     %ul.tour-groups
       - ContinentCategory.offset(5).order("set_order asc").each do |continent| 
-        %li.tour-group-item
+        %li.tour-group-item{:id => 'continent-'+continent.id.to_s}
           = link_to continent do
-            .continent.tour-group{:class => ('active' if current_page?(continent))}
-              
+            .continent.tour-group{:class => ('active' if current_page?(continent))}              
               %h4.en.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
               - if   continent.title_fa == 'تورهای تفریحی' ||  continent.title_fa == 'نوروز 94'
                 %span.location= image_tag 'arrow-bullet-left.png'
-          - if  continent.title_fa == 'تورهای تفریحی'              
-            %ul.tour-groups-sub-menu{:class => I18n.locale}
-              - ContinentCategory.all.limit(5).each do |continent|  
-                %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
-                  .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}                          
-                    %h3.en.country-title-tab{:class => I18n.locale}
-                      =  continent.title
-                    - if  continent.title_fa == 'آسیا'
-                      %span.location= image_tag 'arrow-bullet-left.png'
-                  .clear-float
+        - if   continent.title_fa == 'تورهای تفریحی' 
+          %ul.tour-groups-sub-menu{:class => I18n.locale}
+            - ContinentCategory.all.limit(5).each do |continent|  
+              %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
+                .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}                          
+                  %h3.en.country-title-tab{:class => I18n.locale}
+                    = link_to  continent.title, continent
                   - if  continent.title_fa == 'آسیا'
-                    %ul.continent-sub-menu{:class => I18n.locale}
-                      - continent.countries.each do |country|
-                        - unless country.title_fa == 'ایران'
-                          - if country.tours.present?
-                            - @coutry_tour = 0
-                            - country.tours.each do |country_tour|
-                              - if country_tour.continent_category_id.present? && country_tour.continent_category.title_fa  == 'تورهای تفریحی' 
-                                - @coutry_tour = @coutry_tour + 1
-                          - if @coutry_tour > 0
-                            %li
-                              .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
-                                %h3.en.country-title-tab{:class => I18n.locale}
-                                  = country.title
+                    %span.location= image_tag 'arrow-bullet-left.png'
+                .clear-float
+                - if  continent.title_fa == 'آسیا'
+                  %ul.continent-sub-menu{:class => I18n.locale}
+                    - continent.countries.each do |country|
+                      - unless country.title_fa == 'ایران'
+                        - if country.tours.present?
+                          - @coutry_tour = 0
+                          - country.tours.each do |country_tour|
+                            - if country_tour.continent_category_id.present? && country_tour.continent_category.title_fa  == 'تورهای تفریحی' 
+                              - @coutry_tour = @coutry_tour + 1
+                        - if @coutry_tour > 0
+                          %li
+                            .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                              %h3.en.country-title-tab{:class => I18n.locale}
+                                =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+        - elsif continent.title_fa == 'نوروز 94'
+          %ul.tour-groups-sub-menu{:class => I18n.locale}
+            - ContinentCategory.all.limit(5).each do |continent|  
+              %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
+                .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}                          
+                  %h3.en.country-title-tab{:class => I18n.locale}
+                    = link_to  continent.title, continent
+                  - if  continent.title_fa == 'آسیا'
+                    %span.location= image_tag 'arrow-bullet-left.png'
+                .clear-float
+                - if  continent.title_fa == 'آسیا'
+                  %ul.continent-sub-menu{:class => I18n.locale}
+                    - continent.countries.each do |country|
+                      - unless country.title_fa == 'ایران'
+                        - if country.tours.present?
+                          - @coutry_tour = 0
+                          - country.tours.each do |country_tour|
+                            - if country_tour.continent_category_id.present? && country_tour.continent_category.title_fa  == 'نوروز 94'
+                              - @coutry_tour = @coutry_tour + 1
+                        - if @coutry_tour > 0
+                          %li
+                            .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                              %h3.en.country-title-tab{:class => I18n.locale}
+                                =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
                        
 - else
   .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%; margin-left:0", :class => I18n.locale}     
@@ -47,13 +70,13 @@
         %span.country-title-tab= t('show-all-tours')
     %ul.tour-groups
       - ContinentCategory.offset(5).order("set_order asc").each do |continent| 
-        %li.tour-group-item
+        %li.tour-group-item{:id => 'continent-'+continent.id.to_s}
           = link_to continent do
             .continent.tour-group{:class => ('active' if current_page?(continent))}
               - if   continent.title_fa == 'تورهای تفریحی' ||  continent.title_fa == 'نوروز 94'
                 %span.location= image_tag 'arrow-bullet-right.png'
               %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
-          - if  continent.title_fa == 'تورهای تفریحی'              
+          - if   continent.title_fa == 'تورهای تفریحی' 
             %ul.tour-groups-sub-menu{:class => I18n.locale}
               - ContinentCategory.all.limit(5).each do |continent|  
                 %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
@@ -61,7 +84,7 @@
                     - if  continent.title_fa == 'آسیا'
                       %span.location= image_tag 'arrow-bullet-right.png'
                     %h3.en.country-title-tab{:class => I18n.locale}
-                      =  continent.title
+                      .fa= link_to continent.title, continent
                   .clear-float
                   - if  continent.title_fa == 'آسیا'
                     %ul.continent-sub-menu
@@ -76,4 +99,28 @@
                             %li
                               .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
                                 %h3.en.country-title-tab{:class => I18n.locale}
-                                  = country.title
+                                  = link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+          - elsif continent.title_fa == 'نوروز 94'
+            %ul.tour-groups-sub-menu{:class => I18n.locale}
+              - ContinentCategory.all.limit(5).each do |continent|  
+                %li{:id => ('asia-submenu' if  continent.title_fa == 'آسیا')}
+                  .continent-group.tour-group.filter{ "data-filter" => '.category-'+continent.id.to_s}      
+                    - if  continent.title_fa == 'آسیا'
+                      %span.location= image_tag 'arrow-bullet-right.png'
+                    %h3.en.country-title-tab{:class => I18n.locale}
+                      .fa= link_to continent.title, continent
+                  .clear-float
+                  - if  continent.title_fa == 'آسیا'
+                    %ul.continent-sub-menu
+                      - continent.countries.each do |country|
+                        - unless country.title_fa == 'ایران'
+                          - if country.tours.present?
+                            - @coutry_tour = 0
+                            - country.tours.each do |country_tour|
+                              - if country_tour.continent_category_id.present? && country_tour.continent_category.title_fa == 'نوروز 94'
+                                - @coutry_tour = @coutry_tour + 1
+                          - if @coutry_tour > 0
+                            %li
+                              .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                                %h3.en.country-title-tab{:class => I18n.locale}
+                                  = link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)

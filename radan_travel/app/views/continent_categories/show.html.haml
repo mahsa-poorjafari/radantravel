@@ -9,7 +9,7 @@
       = link_to 'ویرایش', edit_continent_category_path(@continent_category), :class => "btn btn-info" 
   
   
-  - if  @continent_category.title_fa == 'تورهای تفریحی'
+  - if  @continent_category.title_fa == 'تورهای تفریحی' || @continent_category.title_fa == 'نوروز 94'
     = render '/tours/tour_groups'
     = render 'tours/fun_tours', :continent_category => @continent_category
   - elsif @continent_category.id.between?(1,5) 
@@ -19,7 +19,7 @@
         - @continent_category.countries.order(" created_at desc").each do |country|
           - if country.tours.present? && country.title_fa != 'ایران'
             - country.tours.order(" created_at desc").each do |tour|
-              - if tour.continent_category_id.present? && tour.continent_category.title_fa == 'تورهای تفریحی'
+              - if tour.continent_category_id.present? && (tour.continent_category.title_fa == 'تورهای تفریحی' || @continent_category.title_fa == 'نوروز 94')
                 .tours-index{:class =>  ("country-" + tour.country_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
                   - if tour.coming_soon?
                     .coming_soon= image_tag 'coming.png'

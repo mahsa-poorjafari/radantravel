@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,12 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+  end
+  def show_fun_tours_for_country
+    @country = Country.find(params[:country_id])
+    
+    @fun_group = ContinentCategory.find_by_title_fa('تورهای تفریحی')
+    
   end
 
   # GET /countries/new
