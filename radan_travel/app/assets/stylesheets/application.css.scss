@@ -653,7 +653,7 @@ ul.tour-groups {
   right: 0;
   width: 100%;
 }
-ul.tour-groups li { position:relative;}
+ul.tour-groups li { position:relative; clear:both}
 ul.tour-groups-sub-menu {
   left: -45%;
   z-index: 2;
@@ -664,7 +664,7 @@ ul.tour-groups-sub-menu {
   list-style:none; display:block; height:0px; overflow:hidden; 
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;}
-ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:none; 
+ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:block; 
   min-height:280px;
   max-height:280px;
   
