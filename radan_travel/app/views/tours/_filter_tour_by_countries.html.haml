@@ -35,7 +35,8 @@
                             %li
                               .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
                                 %h3.en.country-title-tab{:class => I18n.locale}
-                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+                                  - @fun = ContinentCategory.find_by_title_fa('تورهای تفریحی' )
+                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @fun.id)
           - elsif continent.title_fa == 'نوروز 94'
             %ul.tour-groups-sub-menu{:class => I18n.locale}
               - ContinentCategory.all.limit(5).each do |continent|  
@@ -59,7 +60,8 @@
                             %li
                               .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
                                 %h3.en.country-title-tab{:class => I18n.locale}
-                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+                                  - @norouz = ContinentCategory.find_by_title_fa('نوروز 94')
+                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @norouz.id)
                        
 - else
   .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%; margin-left:0", :class => I18n.locale}     
@@ -99,7 +101,8 @@
                             %li
                               .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
                                 %h3.en.country-title-tab{:class => I18n.locale}
-                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+                                  - @fun = ContinentCategory.find_by_title_fa('تورهای تفریحی' )
+                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @fun.id)
                             
 
           - elsif continent.title_fa == 'نوروز 94'
@@ -126,6 +129,7 @@
                             %li
                               .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
                                 %h3.en.country-title-tab{:class => I18n.locale}
-                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id)
+                                  - @norouz = ContinentCategory.find_by_title_fa('نوروز 94')
+                                  =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @norouz.id)
                             
 

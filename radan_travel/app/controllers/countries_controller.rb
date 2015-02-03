@@ -13,9 +13,9 @@ class CountriesController < ApplicationController
   def show
   end
   def show_fun_tours_for_country
-    @country = Country.find(params[:country_id])
+    @country = Country.find(params[:country_id])    
+    @tour_group = ContinentCategory.find(params[:continent_id])
     
-    @fun_group = ContinentCategory.find_by_title_fa('تورهای تفریحی')
     
   end
 
