@@ -56,9 +56,10 @@
                           - if country.tours.present?
                             - country.tours.each do |country_tour|
                               - if country_tour.continent_category_id.present? && country_tour.continent_category.title_fa  == 'تورهای تفریحی' 
-                               
-                                %li
-                                  .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
-                                    %h3.en.country-title-tab{:class => I18n.locale}
-                                      = country.title
+                                - @coutry_tour = @coutry_tour + 1
+                          - if @coutry_tour > 0
+                              %li
+                                .continent-group.tour-group.filter{ "data-filter" => '.country-'+country.id.to_s}      
+                                  %h3.en.country-title-tab{:class => I18n.locale}
+                                    = country.title
                             
