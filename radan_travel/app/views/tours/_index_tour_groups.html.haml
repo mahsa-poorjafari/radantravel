@@ -145,8 +145,10 @@
                                 %h3.en.country-title-tab{:class => I18n.locale}
                                   - @norouz = ContinentCategory.find_by_title_fa('نوروز 94')
                                   =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @norouz.id)
-                              -#
-                                - if  country.title_fa == 'ترکیه'
+                              
+                              - if  country.title_fa == 'ترکیه'
+                                %h3= country.title
+                                -#
                                   %ul.city-submenu
                                     - country.cities.each do |city|
                                       -if city.tours.present?
@@ -159,5 +161,5 @@
                                           .continent-group.tour-group
                                             %h3.en.country-title-tab{:class => I18n.locale}                                          
                                               =link_to city.title, show_fun_tours_for_city_cities_path(:city_id => city.id, :continent_id => @norouz.id)
-                                  
+                                    
                               
