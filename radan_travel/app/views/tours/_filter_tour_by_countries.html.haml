@@ -70,12 +70,12 @@
                                       - city.tours.each do |city_tours|
                                         - if city_tours.continent_category_id.present? && city_tours.continent_category.title_fa == 'نوروز 94' 
                                           - @city_tour = @city_tour + 1
-                                    - if @city_tour > 0
-                                      %li
-                                        .continent-group.tour-group
-                                          %h3.en.country-title-tab{:class => I18n.locale}                                          
-                                            =link_to city.title, show_fun_tours_for_city_cities_path(:city_id => city.id, :continent_id => @norouz.id)
-                                
+                                      - if @city_tour > 0
+                                        %li
+                                          .continent-group.tour-group
+                                            %h3.en.country-title-tab{:class => I18n.locale}                                          
+                                              =link_to city.title, show_fun_tours_for_city_cities_path(:city_id => city.id, :continent_id => @norouz.id)
+                                  
                             
 
 
@@ -156,13 +156,13 @@
                                       - city.tours.each do |city_tours|
                                         - if city_tours.continent_category_id.present? && city_tours.continent_category.title_fa == 'نوروز 94' 
                                           - @city_tour = @city_tour + 1
-                                    - if @city_tour > 0
-                                      %li
-                                        .continent-group.tour-group
-                                          %h3.en.country-title-tab{:class => I18n.locale}                                          
-                                            =link_to city.title, show_fun_tours_for_city_cities_path(:city_id => city.id, :continent_id => @norouz.id)
-                                  
-                            
+                                      - if @city_tour > 0
+                                        %li
+                                          .continent-group.tour-group
+                                            %h3.en.country-title-tab{:class => I18n.locale}                                          
+                                              =link_to city.title, show_fun_tours_for_city_cities_path(:city_id => city.id, :continent_id => @norouz.id)
+                                    
+                              
 
                             
 
