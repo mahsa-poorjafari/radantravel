@@ -146,17 +146,14 @@
                                   - @norouz = ContinentCategory.find_by_title_fa('نوروز 94')
                                   =link_to country.title, show_fun_tours_for_country_countries_path(:country_id => country.id, :continent_id => @norouz.id)
                               
-                              - if  country.title_fa == 'ترکیه'                                
+                              - if  country.title_fa == 'ترکیه'  
                                 %ul.city-submenu
-                                  - country.cities.each do |city|                                    
-                                    -if city.tours.present?
-                                      %h3= city.title
+                                  - country.cities.each do |city|
+                                    - if city.tours.present?                                       
                                       - @city_tour = 0
                                       - city.tours.each do |city_tours|
                                         - if city_tours.continent_category_id.present? && city_tours.continent_category.title_fa == 'نوروز 94' 
-                                          - @city_tour = @city_tour + 1
-                                          %h4= @city_tour
-                                    -#
+                                          - @city_tour = @city_tour + 1                                          
                                       - if @city_tour > 0
                                         %li
                                           .continent-group.tour-group
