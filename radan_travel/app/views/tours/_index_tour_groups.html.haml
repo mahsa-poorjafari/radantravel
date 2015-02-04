@@ -149,6 +149,7 @@
                               - if  country.title_fa == 'ترکیه'                                
                                 %ul.city-submenu
                                   - country.cities.each do |city|
+                                    %h3= city.title
                                     -if city.tours.present?
                                       - @city_tour = 0
                                       - city.tours.each do |city_tours|
