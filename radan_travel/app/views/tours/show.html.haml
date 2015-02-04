@@ -1,5 +1,9 @@
 .margin3.margin-bottom#content
-  %h1.title-tours{:class => I18n.locale}=  @tour.title  
+  - if @tour.country.title_fa == 'ایران'
+    %h1.title-tourse.en=  @tour.title  
+  - else
+    %h1.title-tours{:class => I18n.locale}=  @tour.title  
+  
   -#
     .col-xs-4#editor
       = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )

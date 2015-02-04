@@ -10,8 +10,6 @@
       - unless country.title_fa == 'ایران'
         - if country.tours.present?
           - @country_tour = country.tours.last
-    
-          
           .tours-index{ "data-my-order" => @country_tour.id, :style => "width:23%"}        
             - if @country_tour.coming_soon?
               .coming_soon= image_tag 'coming.png'

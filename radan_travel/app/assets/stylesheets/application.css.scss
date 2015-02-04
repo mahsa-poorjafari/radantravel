@@ -229,7 +229,7 @@ p.title-tour { border-radius:9px;
   position:absolute;  background:#353535;
   font-size:33px;  
   color:#fff;
-  padding:1%;
+  
   text-align:center;
   z-index:10;
   margin-right:37%;
@@ -406,7 +406,7 @@ margin-left:2%;
 .hotels-table .tour-description {width:100%}
 .hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}
-.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px;}
+.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px; min-height:50px;}
 .hotels-table .tour-description .tr .th{
   background:#BFBFBF; padding:1%; height:50px; border-bottom:1px solid #E5E5E5;font-size:25px;
   }
@@ -743,3 +743,4 @@ ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;
   
   color:#000000;}
 
+.tour-group-item.iran-city:hover {cursor:pointer}

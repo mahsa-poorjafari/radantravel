@@ -33,6 +33,12 @@
             = f.label 'لیست شهرهای ترکیه', :class => "control-label"
             %i= 'تور را به یکی از شهرهای ترکیه انتساب دهید.'
             = f.select :city_id, options_for_select(@tour.country.cities.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.city_id), prompt: "شهر را انتخاب کنید"
+        - if @tour.country.present? && @tour.country.title_fa == 'ایران'
+          .form-group
+            = f.label 'لیست شهرهای ایران', :class => "control-label"
+            %i= 'تور را به یکی از شهرهای ایران انتساب دهید.'
+            = f.select :city_id, options_for_select(@tour.country.cities.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.city_id), prompt: "شهر را انتخاب کنید"
+        
     .col-xs-12
       .col-xs-4
         .form-group
