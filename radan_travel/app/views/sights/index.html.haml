@@ -36,7 +36,7 @@
       - @iran.tours.each do |tour|
         .tours-index.mix{:style => "width:23%", "data-my-order" => tour.city_id , :class =>  ("iran-city-" + tour.city_id.to_s if tour.city_id.present?)}
           = link_to tour, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
-            %h5.tour-title.en{:id => 'iran-tour-'+tour.id.to_s, :class => I18n.locale}= tour.title
+            %h5.tour-title.en{:id => 'iran-tour-'+tour.id.to_s}= tour.title
             - if tour.photos.present?
               .tour-sample-image= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s, :title => "آژانس_هواپیمایی_رادان_سیر", :alt => "آژانس_هواپیمایی_رادان_سیر"
             .clear-float

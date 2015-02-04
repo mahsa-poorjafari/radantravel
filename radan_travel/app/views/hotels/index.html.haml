@@ -54,9 +54,9 @@
     - @world = Country.find_by_title_fa(!'ایران')
     - @world.cities.each do |city|
       -if city.hotels.present?
-        .filter.city-cat{"data-filter" => ".world-city-" + city.id.to_s}
-          %span.location.world
+        .filter.city-cat{"data-filter" => ".world-city-" + city.id.to_s}          
           %span.country-title-tab= city.title
+          %span.location.world
   
   .show-tours.col-xs-12.set-center#Container2
     - @hotels.each_with_index do |hotel, i|
@@ -115,9 +115,9 @@
   $(function(){
     $('#Container2').mixItUp();  
   });
-  
-  $(document).ready(function(){ 
-    $('.hover').eachStep(700, function(i, el, duration){      
+-#  
+  $(document).ready(function(){
+    $('.hover').eachStep(700, function(i, el, duration){
       $(el).addClass('flip');
       alert (i);
       alert (el);
@@ -125,7 +125,7 @@
       if( i == $('.hover').length ){
         $('.hover').eachStep(700, function(i, el, duration){      
           $(el).removeClass('flip'); 
-        }
+        });
       });
     });    
   });
