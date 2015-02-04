@@ -16,10 +16,14 @@
     = render '/tours/filter_tour_by_countries'
     .show-tours.col-xs-10.set-center#Container
       - if @continent_category.countries.present? 
-        - @continent_category.countries.order(" created_at desc").each do |country|
+        
+        - @continent_category.countries.order(" created_at desc").each do |country|  
+          
           - if country.tours.present? && country.title_fa != 'ایران'
+            
             - country.tours.order(" created_at desc").each do |tour|
-              - if tour.continent_category_id.present? && (tour.continent_category.title_fa == 'تورهای تفریحی' || @continent_category.title_fa == 'نوروز 94')
+              - if tour.continent_category_id.present? && (tour.continent_category.title_fa == 'تورهای تفریحی' || tour.continent_category.title_fa == 'نوروز 94')
+              
                 .tours-index{:class =>  ("country-" + tour.country_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
                   - if tour.coming_soon?
                     .coming_soon= image_tag 'coming.png'

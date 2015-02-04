@@ -26,7 +26,7 @@
                 - if  continent.title_fa == 'آسیا'
                   %ul.continent-sub-menu{:class => I18n.locale}
                     - continent.countries.each do |country|
-                      - unless country.title_fa == 'ایران'
+                      - unless country.title_fa == 'ایران'&& country.continent_category.title_fa != 'آسیا'
                         - if country.tours.present?
                           - @coutry_tour = 0
                           - country.tours.each do |country_tour|
@@ -50,7 +50,7 @@
                 - if  continent.title_fa == 'آسیا'
                   %ul.continent-sub-menu{:class => I18n.locale}
                     - continent.countries.each do |country|
-                      - unless country.title_fa == 'ایران'
+                      - unless country.title_fa == 'ایران'&& country.continent_category.title_fa != 'آسیا'
                         - if country.tours.present?
                           - @coutry_tour = 0
                           - country.tours.each do |country_tour|
@@ -89,7 +89,7 @@
                   - if  continent.title_fa == 'آسیا'
                     %ul.continent-sub-menu
                       - continent.countries.each do |country|
-                        - unless country.title_fa == 'ایران'
+                        - unless country.title_fa == 'ایران'&& country.continent_category.title_fa != 'آسیا'
                           - if country.tours.present?
                             - @coutry_tour = 0
                             - country.tours.each do |country_tour|
@@ -114,7 +114,7 @@
                   - if  continent.title_fa == 'آسیا'
                     %ul.continent-sub-menu
                       - continent.countries.each do |country|
-                        - unless country.title_fa == 'ایران'
+                        - unless country.title_fa == 'ایران' && country.continent_category.title_fa != 'آسیا'
                           - if country.tours.present?
                             - @coutry_tour = 0
                             - country.tours.each do |country_tour|
