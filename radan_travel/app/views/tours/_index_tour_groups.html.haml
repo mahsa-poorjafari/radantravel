@@ -79,7 +79,7 @@
                             
 
 - else
-  .col-xs-2.pull-right{:style => "text-align:center; margin-bottom:4%; margin-left:0", :class => I18n.locale}     
+  .col-xs-2.pull-right.menu-of-tours-group{:style => " margin-left:0", :class => I18n.locale}     
     = link_to Tour do
       .continent{:class => ('active' if current_page?(Tour))}
         %span.location{:style => "right:0"}= image_tag 'w.png'
@@ -89,9 +89,10 @@
         %li.tour-group-item{:id => 'continent-'+continent.id.to_s}
           = link_to continent do
             .continent.tour-group{:class => ('active' if current_page?(continent))}
+              %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
               - if   continent.title_fa == 'تورهای تفریحی' ||  continent.title_fa == 'نوروز 94'
                 %span.location= image_tag 'arrow-bullet-right.png'
-              %h4.fa.country-title-tab{ :class => ('white blink' if continent.title_fa == 'نوروز 94')}= continent.title
+              
           - if  continent.title_fa == 'تورهای تفریحی'
             %ul.tour-groups-sub-menu{:class => I18n.locale}
               - ContinentCategory.all.limit(5).each do |continent|  

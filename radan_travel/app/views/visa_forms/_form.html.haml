@@ -1,16 +1,16 @@
 = nested_form_for @visa_form, :html => { :multipart => true  } do |f|
   - if @visa_form.errors.any?
-    #error_explanation
+    .alert.alert-danger
       
       %ul
-        - @visa_form.errors.each do |attr, msg|
+        - @visa_form.errors.each do |attr, msg|          
           %li= msg
 
   .col-xs-12 
     .form-group
       %p{:class => I18n.locale}="برای افزودن اطلاعات خود دکمه افزودن فرد را فشار دهید و فرم را پرنمایید. :"
       %p{ :style=> "color:#ec523f", :class => I18n.locale}= "می توانید در هر فرم درخواست ویزا اطلاعات تا ۱۰ نفر را وارد کنید."
-      = f.link_to_add content_tag(:span, t('passenger.add-person'), :class => "btn btn-info btn-lg" ), :passengers, :id => "add_new_picture"
+      = f.link_to_add content_tag(:span, 'Add Passenger', :class => "btn btn-info btn-lg" ), :passengers, :id => "add_new_picture"
     .col-xs-12 
       = f.fields_for :passengers do |passenger|  
         .col-xs-3
@@ -76,4 +76,4 @@
       3. We will do our best to secure your visa and take care of all the necessary details; however the final decision rests with the government of Iran therefore we cannot guarantee when and if a visa will be granted. 
       4. Your passport should be valid for at least 6 months.
   .form-group.col-xs-12 
-    = f.submit t('passenger.save-visa-form'), :class => "btn btn-primary"
+    = f.submit 'Save Form', :class => "btn btn-primary"

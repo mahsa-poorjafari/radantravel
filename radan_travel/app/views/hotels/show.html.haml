@@ -1,24 +1,34 @@
 .margin3  
-  %h1.title-tours{:class => I18n.locale}=  @hotel.title
+  .col-xs-12.margin-bottom5
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= @hotel.title
+  
   -if is_admin?    
     = link_to 'ویرایش', edit_hotel_path(@hotel), :class => "btn btn-info"
   .col-xs-12.margin-bottom
     .col-xs-12
-      %p
-        %b توضیحات تکمیلی
-        =raw @hotel.text
-      %p
-        %b محل هتل
-        = @hotel.city.country.title + ' - '+ @hotel.city.title
-      %p
-        - if @hotel.class_hotel_id.present?
-          %b درجه هتل
-          %p
-            %span=image_tag 'Star.png'
-            = @hotel.class_hotel.title
-      %p
-        %b امکانات هتل
-        = @hotel.hotel_facilities
+      -#
+        %h3{:class => I18n.locale, :style => 'text-align:center'}
+          = @hotel.city.country.title + ' - '+ @hotel.city.title
+        %p
+          - if @hotel.class_hotel_id.present?
+            %p
+              %span=image_tag 'Star.png'
+              .en= @hotel.class_hotel.title
+      - if @hotel.text.present?        
+        .col-xs-12.margin-bottom5
+          .title-line.col-xs-10
+          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
+          
+        .col-xs-12=raw @hotel.text
+      
+    
+      - if @hotel.hotel_facilities.present?
+        .col-xs-12.margin-bottom5
+          .title-line.col-xs-10
+          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel-facilities')
+       
+          .col-xs-12= @hotel.hotel_facilities
   
     .col-xs-12        
       = render 'shared/items_images_sliders', :model => @hotel

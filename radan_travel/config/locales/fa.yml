@@ -101,7 +101,7 @@ fa:
     date: 'تاریخ اعتبار فروش'
     get-file: 'دریافت فایل'
     
-    
+  hotel-facilities: 'امکانات هتل'  
   show-all-tours: 'تورهای اخیر'
   show-all: 'نمایش همه'
   tour_comment:

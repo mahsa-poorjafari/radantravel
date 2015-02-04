@@ -121,7 +121,7 @@ en:
     travel_type: 'Travel Type'
     date: 'Date'
     get-file: 'Get File'
-    
+  hotel-facilities: 'Hotel Facilities'
   show-all-tours: 'Show All'
   tour_comment:
     user-name: 'Your Name:'

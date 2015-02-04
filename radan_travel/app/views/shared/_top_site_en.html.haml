@@ -4,10 +4,11 @@
     .logo-image= image_tag 'menu_logo.png'
 .col-xs-9{:style => "padding:2%"}
   .title-site{:class => I18n.locale}= t('radantravel')
-  %p.contact-top-site{:class => I18n.locale}
-    %span= image_tag 'phone-icon.png'
-    %span.phone{:class => I18n.locale}= t('phone')  
-    %br
-    %span= image_tag 'email.png'
-    %span= 'info@radantravel.com'
-    
+  .contact-top-site{:class => I18n.locale}
+     
+    .col-xs-6{:style => "padding:0"}
+      %span= image_tag 'email.png'
+      %span= 'info@radantravel.com'
+    .col-xs-6{:style => "padding:0"}
+      %span= image_tag 'phone-icon.png'
+      %span.phone{:class => I18n.locale}= t('phone') 

@@ -24,7 +24,7 @@
       -if city.hotels.present?
         .col-xs-12.margin-bottom5
           .title-line.col-xs-10
-          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel')
+          %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel') + ',' + city.title
         .show-tours.col-xs-12.set-center
           - city.hotels.order('title_fa asc').each_with_index do |hotel, i|
             .tours-index{:class => "iran-city-" + hotel.city.id.to_s, "data-my-order" => hotel.id}
