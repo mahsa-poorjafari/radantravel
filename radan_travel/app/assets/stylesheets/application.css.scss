@@ -285,7 +285,7 @@ p.title-tour a:hover, p.title-tour a:visited{color:#fff}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
 .tour-hover span {color:#fff}
-.more-info {position:absolute; bottom:0px; 
+.more-info {position:absolute; top:165px; 
   min-height:15px;
   background:#1A1A1A; 
   opacity:.8;
@@ -501,7 +501,7 @@ span.location {
   transition: all .5s;
   }
 span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
-span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -50px;}
+span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -28px;}
 .fa span.location,.ar span.location {left:0;}
 .en span.location {right:0; }
 
@@ -509,7 +509,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .ar  span.country-title-tab {font-size:22px;}
 .en  span.country-title-tab {left:70px;position: absolute;  top: 10%; }
 .nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
- .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
+ .city-title-filter.fa .city-cat.active span.location {background-position: 0 16px;}
 
 .show-tours {min-width:200px;}
 .city-title-filter {position:relative; margin-top:5%; margin-bottom:5%}
@@ -746,3 +746,4 @@ ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;
   color:#000000;}
 
 .tour-group-item.iran-city:hover {cursor:pointer}
+.carousel-inner>.item {height:200px}
