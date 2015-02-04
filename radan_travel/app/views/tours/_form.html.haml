@@ -27,7 +27,12 @@
       .col-xs-6
         .form-group
           = f.label 'تور را به یک کشور انتساب دهید', :class => "control-label"
-          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.country_id), prompt: "کشور را انتخاب کنید.", :class => "form-control"  
+          = f.select :country_id, options_for_select(Country.all.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.country_id), prompt: "کشور را انتخاب کنید.", :class => "form-control"            
+        - if @tour.country.present? && @tour.country.title_fa == 'ترکیه'
+          .form-group
+            = f.label 'لیست شهرهای ترکیه', :class => "control-label"
+            %i= 'تور را به یکی از شهرهای ترکیه انتساب دهید.'
+            = f.select :city_id, options_for_select(@tour.country.cities.collect{ |u| [u.title_fa, u.id]} , :selected => @tour.city_id), prompt: "شهر را انتخاب کنید"
     .col-xs-12
       .col-xs-4
         .form-group

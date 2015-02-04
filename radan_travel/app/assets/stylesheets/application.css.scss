@@ -149,12 +149,12 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   }
 .admin-menu {position:absolute; top:180px;height: 37px;
   overflow: hidden;
-  left:0; width:200px;
+  left:0; width:220px;
   font-family: 'open_sansregular'; 
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
-    background:#ADD8E6;}
-.admin-menu:hover {height:430px}
+    background-image: url(image-path('img-thing.jpg')); }
+.admin-menu:hover {height:480px}
 .admin-menu-title {padding:1%;}
 .unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
 .yield {position:relative;}
@@ -674,6 +674,7 @@ ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:block;
   
   }
 ul.tour-groups-sub-menu li#asia-submenu:hover .continent-sub-menu {display:block}
+ul.continent-sub-menu li#turkey-submenu:hover ul.city-submenu {display:block}
 ul.tour-groups ul.tour-groups-sub-menu li .continent-group:hover{background:#6D1212; opacity:.8; color:#fff}
 ul.tour-groups-sub-menu .continent-group {position:relative; width:100%; height:100%; padding:1%; margin:0}
 ul.tour-groups-sub-menu .continent-group span.location {width: 35px; padding-top:25% }
@@ -702,3 +703,10 @@ ul.continent-sub-menu li h3 {margin:0; padding:10%;}
 ul.continent-sub-menu li:hover {background:#6D1212; opacity:.8; color:#fff}
 ul.continent-sub-menu li:hover h3 {color:#fff}
 
+ul.city-submenu {position:absolute; left: -100%; z-index:3;  list-style:none; padding:0;   
+  -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
+  transition: all 1s;
+  top:0;  
+  text-align:center;
+  display:none;  
+  color:#fff;}

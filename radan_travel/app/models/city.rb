@@ -3,6 +3,7 @@ class City < ActiveRecord::Base
   extend FriendlyId  
   friendly_id :title_en
   belongs_to :country
+  has_many :tours, dependent: :destroy
   has_many :hotels, dependent: :destroy
   has_many :sights, dependent: :destroy
   has_many :photos, dependent: :destroy

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class CitiesController < ApplicationController
-  before_action :set_city, only: [:show, :edit, :update, :destroy, :show_fun_tours_for_city]
+  before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
   # GET /cities.json
@@ -13,6 +13,8 @@ class CitiesController < ApplicationController
   def show
   end
   def show_fun_tours_for_city
+    @country = City.find(params[:city_id])    
+    @tour_group = ContinentCategory.find(params[:continent_id])
     
   end
   def dynamic_city
