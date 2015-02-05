@@ -1,0 +1,52 @@
+.margin3
+  .col-xs-12.margin-bottom5
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}  سفارش تور ایران
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale} اطلاعات درخواست دهنده
+
+  .col-xs-12
+    %p
+      %b نام
+      = @iran_tour_reserv.fisrt_name
+    %p
+      %b نام خانوادگی
+      = @iran_tour_reserv.last_name
+    %p
+      %b شماره تلفن
+      = @iran_tour_reserv.phone_number
+    %p
+      %b ایمیل
+      = @iran_tour_reserv.email
+    %p
+      %b شماره همراه
+      = @iran_tour_reserv.mobile
+    %p
+      %b فکس
+      = @iran_tour_reserv.fax
+    %p
+      %b تاریخ شروع
+      = @iran_tour_reserv.start_date
+    %p
+      
+      %b My dates are flexible
+      - if @iran_tour_reserv.date_flexible
+        %b yes
+      - else
+        %b no
+      
+    %p
+      %b تعداد بزرگسالان
+      = @iran_tour_reserv.adults_no
+    %p
+      %b تعداد کودکان ۲ - ۱۱ سال
+      = @iran_tour_reserv.children_no
+    %p
+      %b تعداد نوزادان زیر ۲ سال
+      = @iran_tour_reserv.infants_no
+    %p
+      %b متن
+      = @iran_tour_reserv.remarks
+
+    

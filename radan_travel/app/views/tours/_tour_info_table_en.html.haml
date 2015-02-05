@@ -1,5 +1,8 @@
 - if @tour.locationtours.present?
-  %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel')
+  
   .col-xs-12.firts-row{:class => I18n.locale}
     
     .col-xs-2.th= t('location.hotel-name')  
@@ -33,7 +36,7 @@
       .col-xs-2.td= location.price_kid_and_bed
       .col-xs-2.td= location.price_kid_without_bed
     - if location.description.present?  
-      .col-xs-12.other-rows
+      .col-xs-12.other-rows.margin-bottom5
         .col-xs-2.locat-des.th=  t('location.description')        
         .col-xs-8.td= location.description
     - if is_admin?
@@ -43,6 +46,9 @@
       
       
 .tour-description.clear-float
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
   .title_row
     %h4{:class => I18n.locale}= t('tour.description')
   .full-width.tr

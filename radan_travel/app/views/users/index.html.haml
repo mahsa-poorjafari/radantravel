@@ -1,5 +1,5 @@
 .margin3
-  %h1 لیست کاربران عضو در سایت
+  %h1{:class => I18n.locale} لیست کاربران عضو در سایت
   
     
   %table.table.table-striped{id:"users_table"}
@@ -15,7 +15,7 @@
         %tr
           %td= (i+1)
           %td= user.user_name
-          %td= user.email
+          %td.en= user.email
           -if user.role.present?
             %td= user.role.title
           %td

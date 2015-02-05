@@ -1,6 +1,11 @@
 .margin3.margin-bottom#content
   - if @tour.country.title_fa == 'ایران'
     %h1.title-tourse.en=  @tour.title  
+    - if flash[:reservdone].present?
+      .alert.alert-success.en
+        = flash[:reservdone]  
+        - if flash[:trackingcode].present?
+          %h3.en{:style=>"text-align:center"}= flash[:trackingcode]
   - else
     %h1.title-tours{:class => I18n.locale}=  @tour.title  
   
@@ -33,10 +38,14 @@
               %b=  @tour.package_code
           .clear-float
           - if @tour.description.present?
-            .title_row
-              %h4{:class => I18n.locale}= t('tour.description')
+            .col-xs-12.margin-bottom5
+              .title-line.col-xs-10
+              %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
+
             .col-xs-12      
               = raw @tour.description
+          
+        
         .clear-float
       - else
         .col-xs-12
@@ -77,6 +86,13 @@
                 %p
                   %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
                 %p= comment.text
+      - if @tour.country.present?
+        - if @tour.country.title_fa == 'ایران'
+          .col-xs-7.en
+            %h3.en{:style => "color:#660505;"} Reserv Now
+            = render 'iran_tour_reservs/form'
+            
+      
       .clear-float
   .keywords.full-width
     %p= t('Keywords.title')

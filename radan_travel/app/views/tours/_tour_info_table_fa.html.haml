@@ -1,5 +1,7 @@
 - if @tour.locationtours.present?
-  %h3{:class => I18n.locale, :style => "text-align:center"}= t('hotel')
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('hotel')
   .col-xs-12.firts-row.pull-right{:class => I18n.locale}
     
     .col-xs-2.th.pull-right= t('location.hotel-name')  
@@ -33,7 +35,7 @@
       .col-xs-2.td.pull-right= location.price_kid_and_bed
       .col-xs-2.td.pull-right= location.price_kid_without_bed
     - if location.description.present?  
-      .col-xs-12.other-rows
+      .col-xs-12.other-rows.margin-bottom5
         .col-xs-2.locat-des.th.pull-right=  t('location.description')        
         .col-xs-8.td= location.description
     - if is_admin?
@@ -42,8 +44,10 @@
         = link_to 'حذف', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"
     
 .tour-description.clear-float
-  .title_row
-    %h4{:class => I18n.locale}= t('tour.description')
+  .col-xs-12.margin-bottom5
+    .title-line.col-xs-10
+    %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
+  
   
   - if tour.source.present?
     .full-width.tr

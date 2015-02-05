@@ -154,9 +154,14 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
     transition: all 1s;
     background-image: url(image-path('img-thing.jpg')); }
-.admin-menu:hover {height:480px}
+
+.admin-menu:hover {height:500px}
+.admin-menu ul li:hover a {font-size:16px;}
 .admin-menu-title {padding:1%;}
-.unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;}
+.unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;
+  padding-right: 4%;
+  padding-left: 4%;
+  }
 .yield {position:relative;}
 .link-reservation .reserv-box {width:250px; height:33px; padding-top:5%}
 .tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px;}
@@ -747,3 +752,8 @@ ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;
 
 .tour-group-item.iran-city:hover {cursor:pointer}
 .carousel-inner>.item {height:200px}
+.iran_tour_reserv .form-group{direction:ltr; font-family:Arial}
+.iran_tour_reserv .form-group label, .iran_tour_reserv .form-group input{direction:ltr; font-family:Arial}
+span.red-star {color:red}
+table.table tr th {text-align:right}
+tr.unvisite {font-weight:bold}

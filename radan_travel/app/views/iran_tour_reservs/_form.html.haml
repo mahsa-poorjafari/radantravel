@@ -1,0 +1,101 @@
+= form_for @iran_tour_reserv ||= IranTourReserv.new do |f|
+  - if @iran_tour_reserv.errors.any? 
+    .alert.alert-danger
+      %ul
+        - @iran_tour_reserv.errors.each do |attr, msg|
+          %li= msg
+  - if flash[:reservdone].present?
+    .alert.alert-success.en
+      = flash[:reservdone]  
+      - if flash[:trackingcode].present?
+        %h3.en{:style=>"text-align:center"}= flash[:trackingcode]
+  - if flash[:reservError].present?
+    .alert.alert-danger.en= flash[:reservError]
+  
+  .col-xs-12.en.iran_tour_reserv
+    %p.en{:style => 'direction:ltr'}
+      This form is NOT a reservation for a tour. You will be contacted to discuss the availablity of the tour times you requested and to confirm a scheduled tour. Thank you for your interest in visiting our tour.
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'First Name', :class => "control-label " 
+        %span.red-star *
+      .col-xs-6
+        = f.text_field :fisrt_name, :class => "form-control " , :id => "first-name"       
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Last Name', :class => "control-label " 
+        %span.red-star *
+      .col-xs-6
+        = f.text_field :last_name, :class => "form-control ", :id => "last-name"       
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Phone Number', :class => "control-label " 
+        %span.red-star *
+      .col-xs-6
+        = f.text_field :phone_number, :class => "form-control ", :id => "phone-number"       
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'E-mail', :class => "control-label " 
+        %span.red-star *
+      .col-xs-6
+        = f.text_field :email, :class => "form-control ", :id => "email"       
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Mobile', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :mobile, :class => "form-control "
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Fax', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :fax, :class => "form-control "
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Start Date', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :start_date, :class => "form-control "
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'My dates are flexible', :class => "control-label " 
+      .col-xs-6
+        = f.check_box :date_flexible
+    %p.clear-float{:style => 'direction:ltr'}
+      %h4 Number of participants:
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Adults', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :adults_no, :class => "form-control "
+   
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Children:(2 - 11 yrs)', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :children_no, :class => "form-control "
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Infants:(below 2 yrs)', :class => "control-label " 
+      .col-xs-6
+        = f.text_field :infants_no, :class => "form-control "
+    .form-group.col-xs-10
+      .col-xs-6
+        = f.label 'Remarks', :class => "control-label " 
+        %span.red-star *
+      .col-xs-6
+        = f.text_area :remarks, :class => "form-control ", :id => "remarks"       
+    .form-group.col-xs-10
+      = f.submit 'Save Form', :class => "btn btn-primary", :id => "reserv-set"
+    .clear-float
+    #reservError.alert.alert-danger.en{:style => "display:none"} Please Fill The Necessary Fields
+:javascript 
+  $(function() { 
+    $(':submit#reserv-set').click(function(e) {
+      $(':text#first-name,:text#last-name, :text#phone-number, :text#email, textarea#remarks').each(function() {
+        if ($(this).val().length == 0) {
+          $(this).css('border', '2px solid red');
+          $('#reservError').show();
+          e.preventDefault();
+        }
+      });
+    });
+  });

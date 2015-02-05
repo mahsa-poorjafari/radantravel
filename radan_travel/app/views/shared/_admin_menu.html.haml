@@ -5,7 +5,9 @@
   - @unread_msg = Message.where(visited: 0).count
   - @unread_visa_form = VisaForm.where(admin_visited: 0).count
   - @unread_custom_link = CustomTour.where(visited: 0).count
-  - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link + @unread_visa_form
+  - @iran_tour_reserve = IranTourReserv.where(visited: 0).count
+  - @notifications = @unread_tour_comment + @unread_msg + @unread_custom_link + @unread_visa_form + @iran_tour_reserve
+  
   %span.unread= @notifications
 %ul{:class => I18n.locale}  
   %li= link_to 'تعریف سرمایه گذاری در ایران', InvestmentInIran, :title => "آژانس_هواپیمایی_رادان_سیر"
@@ -36,7 +38,12 @@
     - if @unread_msg != 0
       %span.unread= @unread_msg
   %li
+    = link_to 'گزارش سفارش تورهای ایران', IranTourReserv, :title => "آژانس_هواپیمایی_رادان_سیر" 
+    - if @iran_tour_reserve != 0
+      %span.unread= @iran_tour_reserve
+  %li
     = link_to 'گزارش لینکهای ارسالی', SendLink, :title => "آژانس_هواپیمایی_رادان_سیر"    
+    
   -#
     %li
       = link_to 'گزارش تورهای درخواستی', CustomTour, :title => "آژانس_هواپیمایی_رادان_سیر"    
