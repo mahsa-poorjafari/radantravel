@@ -5,6 +5,7 @@
     %thead
       %tr
         %th ردیف
+        %th کدرهگیری
         %th نام و نام خانوادگی
         %th شماره تلفن
         %th ایمیل        
@@ -13,6 +14,7 @@
       - @iran_tour_reservs.each_with_index do |iran_tour_reserv, i|
         %tr{:class => ('unvisite' if iran_tour_reserv.visited == false)}
           %td= (i+1)
+          %td.en= iran_tour_reserv.track_code
           %td= iran_tour_reserv.fisrt_name + ',' + iran_tour_reserv.last_name          
           %td.en= iran_tour_reserv.phone_number
           %td.en= iran_tour_reserv.email          
