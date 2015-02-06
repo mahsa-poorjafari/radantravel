@@ -115,7 +115,8 @@ ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inl
 ul#main-menu.en li.item-menu{ font-size:1.3em;}
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
-ul#main-menu.en li.item-menu, p.title-tour.en {font-family: Arial}
+ul#main-menu.en li.item-menu {font-family: Arial; }
+ p.title-tour.en {font-family: Arial; font-size:25px; }
 ul#main-menu li.item-menu.active, ul#main-menu li.item-menu:hover{
   background-image: url(image-path('active-menu.png'));  
   color:#fff;
@@ -126,10 +127,10 @@ ul#main-menu li.item-menu:hover .sub-menu {display:block}
 ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#fff}
 
 .contact-top-site.fa, .contact-top-site.ar {padding:2%}
-.contact-top-site.en {padding:5%}
+.contact-top-site.en {}
 .contact-top-site.fa span, .contact-top-site.ar span{font-size: 13px;}
 .contact-top-site.fa span.phone {font-size: 22px;}
-.contact-top-site.en span{font-size: 16px;}
+.contact-top-site.en span{font-size: 14px;}
 .flag_bar {width:100px; position:absolute; top:100px; left:4%;}
 
 
@@ -436,6 +437,7 @@ ul.sub-menu.hotel li.foreign-hotels .details_menu li:hover .cities-hotels{displa
 ul.sub-menu li{width:100%; margin:0; color:#fff; position:relative; min-height:50px}
 ul.sub-menu li:hover{background:#A52A2A;}
 ul.sub-menu li a{width:100%; margin:0;  color:#fff; font-size:1em; position:absolute; height:100%; text-align:center}
+ul.sub-menu li.en a {font-size:14px}
 ul.sub-menu li.fa a{}
 .sub-menu.tour {width:190%;}
 .sub-menu.hotel {width:120%;}
@@ -505,14 +507,16 @@ span.location {
   -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
   transition: all .5s;
   }
+.fa span.location {left:0}  
+.en span.location {right:0}  
 span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
 span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -28px;}
-.fa span.location,.ar span.location {left:0;}
-.en span.location {right:0; }
+.fa span.location,.ar span.location {}
+.en span.location {}
 
 .fa  span.country-title-tab, .ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
 .ar  span.country-title-tab {font-size:22px;}
-.en  span.country-title-tab {left:70px;position: absolute;  top: 10%; }
+.en  span.country-title-tab {position: absolute;  top: 10%; left:27% }
 .nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
  .city-title-filter.fa .city-cat.active span.location {background-position: 0 16px;}
 
@@ -529,6 +533,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
   transition: all 1s;
  }
 .continent.fa, .continent.ar, .fa  .continent, .ar .continent{font-size:2em; border-right:4px solid #FFA500;}
+.continent.en, .en .continent {font-size:2em; border-left:4px solid #FFA500;}
 .continent.en, .en .continent {font-size:1.5em; }
 
 .continent:hover, .continent.active {background:#FFA500; opacity:.8;    }
@@ -599,7 +604,7 @@ ul.tag-cloud li.tag-cloud a:hover {color:#FFFFFF;}
   }
 
 .tour-source {background:#ADCFE6; border-radius:9px; padding:2%; margin:1%; border: 2px solid #4D4D4D; height:75px;}
-.tour-source b {font-size:30px; }
+.tour-source b {font-size:25px; font-family: 'open_sansregular';}
 
 .yellow {color:#B21313;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
@@ -692,7 +697,7 @@ ul.tour-groups-sub-menu {
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;}
 
-ul.tour-groups-sub-menu.en { left:110%;}
+ul.tour-groups-sub-menu.en {left:5%}
 
 ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:block; 
   
@@ -705,10 +710,14 @@ ul.tour-groups ul.tour-groups-sub-menu li .continent-group:hover{  color:#510505
 ul.tour-groups-sub-menu .continent-group {position:relative; width:100%;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
- height:100%; margin:2%; border-right:4px solid #6D1212;}
+ height:100%; margin:2%;}
+ul.tour-groups-sub-menu.fa .continent-group, ul.tour-groups-sub-menu.ar .continent-group { border-right:4px solid #6D1212;}
+ul.tour-groups-sub-menu.en .continent-group { border-left:4px solid #6D1212;}
 ul.tour-groups-sub-menu .continent-group.tour-group:hover {background:#6D1212}
 ul.tour-groups-sub-menu .continent-group span.location {width: 35px; padding-top:5% }
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab {color:#000000}
+ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab.en {font-size:15px}
+ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab {font-size:25px}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab:hover {color:#fff}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab a{color:#000000}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab:hover a{color:#fff}
@@ -734,12 +743,14 @@ ul.continent-sub-menu li {
   color: #fff;  
   
 }
-ul.continent-sub-menu.en {left:auto; right:-100%}
+ul.continent-sub-menu.en {left:5%; }
 ul.continent-sub-menu li h3 {margin:0; padding:5%;}
 ul.continent-sub-menu li:hover { color:#4D4D4D}
 ul.continent-sub-menu li:hover h3 {color:#fff}
-.continent-sub-menu .continent-group.tour-group {border-right: 4px solid #4D4D4D;}
-.city-submenu .continent-group.tour-group {border-right: 4px solid #1D1D74;}
+ul.tour-groups-sub-menu.fa .continent-sub-menu .continent-group.tour-group, ul.tour-groups-sub-menu.ar .continent-sub-menu .continent-group.tour-group {border-right: 4px solid #4D4D4D;}
+ul.tour-groups-sub-menu.en .continent-sub-menu .continent-group.tour-group {border-left: 4px solid #4D4D4D; border-right:none}
+ul.tour-groups-sub-menu.fa .continent-sub-menu .city-submenu .continent-group.tour-group, ul.tour-groups-sub-menu.ar .continent-sub-menu .city-submenu .continent-group.tour-group {border-right: 4px solid #1D1D74;}
+ ul.tour-groups-sub-menu.en .continent-sub-menu .city-submenu .continent-group.tour-group {border-left: 4px solid #1D1D74; border-right:none}
 ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;   
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
@@ -749,7 +760,7 @@ ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;
   text-align:center;
   
   color:#000000;}
-
+ul.city-submenu.en {left:5%}
 .tour-group-item.iran-city:hover {cursor:pointer}
 .carousel-inner>.item {height:200px}
 .iran_tour_reserv .form-group{direction:ltr; font-family:Arial}
@@ -757,3 +768,4 @@ ul.city-submenu {position:relative;  z-index:3;  list-style:none; padding:0;
 span.red-star {color:red}
 table.table tr th {text-align:right}
 tr.unvisite {font-weight:bold}
+h1.title-tourse {text-align:center}

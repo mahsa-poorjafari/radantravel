@@ -2,6 +2,6 @@
 - @inner_sights.each do  |city|
   - if city.sights.present?    
     %li{:role => "presentation",  :title => "آژانس_هواپیمایی_رادان_سیر", :class => I18n.locale}
-      = link_to '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s do      
-        %span.location.iran
+      = link_to '#city'+city.id.to_s, :role => "tab", "data-toggle" => "tab", :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" +city.title_fa, :id => 'city-'+ city.id.to_s do              
         %span.country-title-tab= city.title
+        %span.location.iran

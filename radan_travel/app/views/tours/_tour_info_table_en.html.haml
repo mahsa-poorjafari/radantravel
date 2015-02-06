@@ -49,8 +49,7 @@
   .col-xs-12.margin-bottom5
     .title-line.col-xs-10
     %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
-  .title_row
-    %h4{:class => I18n.locale}= t('tour.description')
+  
   .full-width.tr
     - if tour.source.present?
       .col-xs-3.th= t('tour.source')

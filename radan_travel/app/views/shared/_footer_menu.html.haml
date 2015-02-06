@@ -18,4 +18,9 @@
     
     = link_to  Country , :class => ('active' if current_page?(Country)), :title => "آژانس_هواپیمایی_رادان_سیر" do
       %li{:style => "border-left:none"}= t('tour-country')
+    = link_to  Visa , :class => ('active' if current_page?(Country)), :title => "آژانس_هواپیمایی_رادان_سیر" do
+      %li{:style => "border-left:none"}= t('visa')
+    = link_to  new_visa_form_path , :class => ('active' if current_page?(Country)), :title => "آژانس_هواپیمایی_رادان_سیر" do
+      %li{:style => "border-left:none"}= t('visa-app')
+    
 

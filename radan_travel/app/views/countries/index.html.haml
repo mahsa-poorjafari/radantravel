@@ -51,11 +51,10 @@
       %li.tag-cloud
         = link_to t('Keywords.p'), '/'   
 :javascript
-  
-  
-  
   $(function () {
     $('.tab-content .tab-pane:first').addClass('active');
     $('#CountryTab a:first').tab('show')
   });
- 
+  $('.country-title-tab').click(function(){    
+    $('html, body').animate({ scrollTop: 800 }, 'fast'); 
+  });

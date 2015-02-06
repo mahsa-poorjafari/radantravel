@@ -33,9 +33,9 @@
         .col-xs-12
           .col-xs-6{:style => "text-align:left"}
             = image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
-            %p
+            %p.package-code
               %i= t('package-code')
-              %b=  @tour.package_code
+              %b.en=  @tour.package_code
           .clear-float
           - if @tour.description.present?
             .col-xs-12.margin-bottom5
