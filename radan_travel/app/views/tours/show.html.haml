@@ -9,9 +9,9 @@
   - else
     %h1.title-tours{:class => I18n.locale}=  @tour.title  
   
-  -#
-    .col-xs-4#editor
-      = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )
+ 
+  .col-xs-4#editor
+    = link_to 'to pdf with pdfkit', to_pdf_tour_show_path(:tour_id => @tour )
     
     
   .col-xs-4 
