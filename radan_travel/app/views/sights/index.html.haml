@@ -48,7 +48,7 @@
           -if is_admin?
             .admin-btn-tour
               = link_to 'ویرایش ', edit_tour_path(tour), :class => "btn btn-info", :title => "آژانس_هواپیمایی_رادان_سیر"
-              = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"       , :title => "آژانس_هواپیمایی_رادان_سیر"
+              = link_to 'مشاهده جزئیات', iran_tour_tour_path(tour), :class => "btn btn-warning"       , :title => "آژانس_هواپیمایی_رادان_سیر"
               = link_to 'حذف ', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
   .keywords.full-width
     %p= t('Keywords.title')
