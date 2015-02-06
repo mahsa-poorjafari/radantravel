@@ -47,9 +47,11 @@ Rails.application.routes.draw do
       collection do
         post :search 
         get :tours_moment
+        
       end
       member do
         get :sendtonewsletter
+        get :iran_tour
       end
     end
 

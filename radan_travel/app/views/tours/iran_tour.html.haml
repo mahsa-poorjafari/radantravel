@@ -1,0 +1,88 @@
+.margin3.margin-bottom#content
+  - if @tour.country.title_fa == 'ایران'
+    %h1.title-tourse.en=  @tour.title  
+    - if flash[:reservdone].present?
+      .alert.alert-success.en
+        = flash[:reservdone]  
+        - if flash[:trackingcode].present?
+          %h3.en{:style=>"text-align:center"}= flash[:trackingcode]
+  .col-xs-4 
+    - if I18n.locale == :fa
+      = render "/tours/show_persian_date", :tour => @tour
+    - else  
+      = render "/tours/show_english_date", :tour => @tour 
+  - if is_admin?
+    = link_to 'ویرایش', edit_tour_path(@tour), :class => "btn btn-info" 
+    = link_to 'افزودن جزئیات محل تور', new_locationtour_path(tour_id: @tour.id), :class => "btn btn-warning", :title => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+  .tour-details    
+    - if is_admin?
+      .col-xs-12 
+        .tour-source
+          %b.col-xs-3.pull-right= 'مشخصات مبدا پکیج تور'
+          .col-xs-3.pull-right{:style => " font-size:2em; color:#080836; direction:rtl; font-family: 'open_sansregular';"}= @tour.tour_source 
+    - if @tour.country.present?
+      - if @tour.country.title_fa == 'ایران'
+        .col-xs-12
+          .col-xs-6{:style => "text-align:left"}
+            = image_tag 'menu_logo.png', :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
+            %p
+              %i= t('package-code')
+              %b=  @tour.package_code
+          .clear-float
+          - if @tour.description.present?
+            .col-xs-12.margin-bottom5
+              .title-line.col-xs-10
+              %p.col-xs-2.set-center.title{:class => I18n.locale}= t('tour.description')
+
+            .col-xs-12      
+              = raw @tour.description
+          
+        
+        .clear-float
+  .col-xs-12     
+    = render 'shared/items_images_sliders', :model => @tour      
+  .col-xs-12.margin-bottom5
+    .col-xs-5.comment-box.pull-right
+      - if flash[:SendComment].present?
+        .alert.alert-success{:class => I18n.locale}= t('tour_comment.send-comment')
+      .tour-comments
+        %h3{:class => I18n.locale}= t('tour_comment.your-comment')          
+        = render 'tour_comments/form', :tour_comment => TourComment.new
+      .clear-float
+      .show_comments          
+        - @tour.tour_comments.each do |comment|
+          - if comment.confirm_comment
+            .well
+              %p
+                %b= comment.user_name
+              %p
+                %i= JalaliDate.new(comment.created_at).strftime("%A %e %b %Y")
+              %p= comment.text
+    - if @tour.country.present?
+      - if @tour.country.title_fa == 'ایران'
+        .col-xs-7.en
+          %h3.en{:style => "color:#660505;"} Reserv Now
+          = render 'iran_tour_reservs/form'
+          
+      
+      .clear-float
+  .keywords.full-width
+    %p= t('Keywords.title')
+    %ul.tag-cloud.full-width{:class => I18n.locale}
+      %li.tag-cloud
+        = link_to t('radantravel'), '/'           
+      %li.tag-cloud
+        = link_to t('Keywords.a'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.b'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.f'), '/'    
+      %li.tag-cloud
+        = link_to t('Keywords.ir-package'), '/' 
+      %li.tag-cloud
+        = link_to t('tour-to-iran'), '/' 
+      - ContinentCategory.all.each do |continent|      
+        %li.tag-cloud
+          = link_to t('tour.tours') + ' ' + continent.title, Tour , :title => 'تور '+ continent.title
+      %li.tag-cloud
+        = link_to @tour.title, @tour, :title => @tour.title

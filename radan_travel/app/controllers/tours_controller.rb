@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class ToursController < ApplicationController
-  before_action :set_tour, only: [:show, :edit, :update, :destroy, :sendtonewsletter]
+  before_action :set_tour, only: [:show, :edit, :update, :destroy, :sendtonewsletter, :iran_tour]
   
   # GET /tours
   # GET /tours.json
@@ -44,7 +44,11 @@ class ToursController < ApplicationController
       end
     end
   end
-  
+  def iran_tour
+    respond_to do |format|
+      format.html { render layout: 'iran_tours' }
+    end
+  end
   def sendtonewsletter    
     UserMailer.send_tour_info_to_newsletter(@tour).deliver 
     p '-------------'
