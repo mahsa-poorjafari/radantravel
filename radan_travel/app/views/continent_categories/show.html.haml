@@ -10,20 +10,42 @@
   
   
   - if  @continent_category.title_fa == 'تورهای تفریحی' || @continent_category.title_fa == 'نوروز 94'
-    = render '/tours/tour_groups'
+    = render '/tours/tour_groups', :category => @continent_category
     = render 'tours/fun_tours', :continent_category => @continent_category
   - elsif @continent_category.id.between?(1,5) 
-    = render '/tours/filter_tour_by_countries'
+    = render '/tours/filter_tour_by_countries', :category => @continent_category
     .show-tours.col-xs-10.set-center#Container
-      - if @continent_category.countries.present? 
-        
-        - @continent_category.countries.order(" created_at desc").each do |country|  
-          
+      - if @continent_category.countries.present?
+        - @continent_category.countries.order(" created_at desc").each do |country|
           - if country.tours.present? && country.title_fa != 'ایران'
             
             - country.tours.order(" created_at desc").each do |tour|
-              - if tour.continent_category_id.present? && (tour.continent_category.title_fa == 'تورهای تفریحی' || tour.continent_category.title_fa == 'نوروز 94')
+              - if tour.continent_category_id.present? && ( tour.continent_category.title_fa == 'نوروز 94')
               
+                .tours-index{:class =>  ("country-" + tour.country_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
+                  - if tour.coming_soon?
+                    .coming_soon= image_tag 'coming.png'
+                  = link_to tour, :class => "tour-box" do 
+                    %h5.tour-title{:class => I18n.locale}= tour.title
+                    - if tour.photos.present?
+                      .tour-sample-image{:class => ('set-coming-soon' if tour.coming_soon?)}= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
+                    .clear-float
+                  .tour-date
+                    - if I18n.locale == :fa
+                      = render "/tours/show_persian_date", :tour => tour
+                    - else  
+                      = render "/tours/show_english_date", :tour => tour
+                  -if is_admin?
+                    .admin-btn-tour
+                      = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
+                      = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"                   
+                      = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+                      -#
+                        = link_to 'ارسال به اعضا خبرنامه', sendtonewsletter_tour_path(tour), :class => "btn btn-default"       
+                        - @send_tour = @send_tour.to_i            
+                        - if @send_tour.present? && @send_tour == tour.id
+                          .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
+              - if tour.continent_category_id.present? && ( tour.continent_category.title_fa == 'تورهای تفریحی')
                 .tours-index{:class =>  ("country-" + tour.country_id.to_s if tour.country_id.present?), "data-my-order" => tour.id, :style => "width:23%"}        
                   - if tour.coming_soon?
                     .coming_soon= image_tag 'coming.png'

@@ -696,7 +696,6 @@ ul.tour-groups-sub-menu {
   list-style:none; display:block; 
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;}
-
 ul.tour-groups-sub-menu.en {left:5%}
 
 ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:block; 
@@ -704,16 +703,20 @@ ul.tour-groups li.tour-group-item:hover ul.tour-groups-sub-menu {display:block;
   overflow:visible
   
   }
+
 ul.tour-groups-sub-menu li#asia-submenu:hover .continent-sub-menu {display:block}
 ul.continent-sub-menu li#turkey-submenu:hover ul.city-submenu {display:block}
 ul.tour-groups ul.tour-groups-sub-menu li .continent-group:hover{  color:#510505}
+ 
 ul.tour-groups-sub-menu .continent-group {position:relative; width:100%;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
  height:100%; margin:2%;}
+.continent-group.tour-group .country-title-tab a {font-size:23px}
 ul.tour-groups-sub-menu.fa .continent-group, ul.tour-groups-sub-menu.ar .continent-group { border-right:4px solid #6D1212;}
 ul.tour-groups-sub-menu.en .continent-group { border-left:4px solid #6D1212;}
-ul.tour-groups-sub-menu .continent-group.tour-group:hover {background:#6D1212}
+ul.tour-groups-sub-menu .continent-group.tour-group:hover, .tour-groups-sub-menu li .active.continent-group.tour-group {background:#6D1212; }
+ul.tour-groups-sub-menu .continent-group.tour-group:hover a, .tour-groups-sub-menu li .active.continent-group.tour-group .country-title-tab a{ color:#fff}
 ul.tour-groups-sub-menu .continent-group span.location {width: 35px; padding-top:5% }
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab {color:#000000}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab.en {font-size:15px}
@@ -772,3 +775,5 @@ h1.title-tourse {text-align:center}
 .nav-tabs>li.en>a {font-size:13px;}
 .nav-tabs>li.en.active>a {font-size:13px;}
 
+table.category_country tr th{font-size:2em}
+table.category_country tr td{font-size:2em}

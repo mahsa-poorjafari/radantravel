@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :category_countries
+
   resources :iran_tour_reservs
 
   mount Ckeditor::Engine => '/ckeditor'

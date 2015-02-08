@@ -1,0 +1,21 @@
+.margin3  
+  %h1{:class => I18n.locale} لیست قاره ها
+  -if is_admin?
+    = link_to 'افزودن نام قاره', new_category_country_path, :class => "btn btn-success"
+
+
+  %table.category_country
+    %tr
+      %th ردیف
+      %th عنوان     
+      %th عملیات
+
+    - @category_countries.each_with_index do |category_country, i|
+      %tr
+        %td= (i+1)
+        %td= category_country.title        
+        %td
+          -if is_admin?
+            = link_to 'مشاهده', category_country, :class => "btn btn-warning"
+            = link_to 'ویرایش', edit_category_country_path(category_country), :class => "btn btn-info"
+            = link_to 'حذف', category_country, :method => :delete, :data => { :confirm => 'آیا مطمئن هستید؟' }, :class => "btn btn-danger"
