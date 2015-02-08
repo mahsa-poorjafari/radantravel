@@ -28,7 +28,7 @@ class CategoryCountriesController < ApplicationController
 
     respond_to do |format|
       if @category_country.save
-        format.html { render :index, notice: 'Category country was successfully created.' }
+        format.html { redirect_to @category_country, notice: 'Category country was successfully created.' }
         format.json { render :show, status: :created, location: @category_country }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class CategoryCountriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category_country
-      @category_country = CategoryCountry.find(params[:id])
+      @category_country = CategoryCountry.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
