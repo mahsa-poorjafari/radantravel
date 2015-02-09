@@ -283,12 +283,14 @@ p.title-tour a:hover, p.title-tour a:visited{color:#fff}
   min-height:60px;
   background:#000000; 
   opacity:.8;
+  z-index:2;
   text-align:center; width:100%; padding:1%;}
-.tour-item .tour-hover p{color:#fff; font-size:1em}
+.tour-item .tour-hover p{color:#fff; font-size:1.2vw}
 
 .tour-hover p.tour-title.en {direction:ltr; font-family:Arial}
 .tour-hover p.tour-title.fa {direction:rtl; font-family: 'open_sansregular',Arial ;}
-.tour-item .item-package img {width:100%}
+.tour-item .item-package {width:100%;}
+.tour-item .item-package img {width:100%; position:absolute; height:100%}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
 .tour-hover span {color:#fff}
@@ -300,6 +302,8 @@ p.title-tour a:hover, p.title-tour a:visited{color:#fff}
   color: #fff;
 text-align: left;
 font-size: 1.5em;}
+.more-info a {color:#fff}
+.more-info:hover a {color:#C01E1E}
 .more-info:hover {cursor:pointer; color:#C01E1E;}
 .footer  { background:#2B2B2B; margin-top:5%; position:relative; padding:2%;}
 .footer a{color:#CE5252;}
@@ -636,9 +640,9 @@ table.table.city tr td {font-size:16px}
 .carousel.slide {
     width: 100%;
     height: 100%;
-    min-height: 300px;
+    min-height: 200px;
 }
-.carousel.slide .carousel-inner {min-height: 300px;}
+.carousel.slide .carousel-inner {min-height: 200px;}
 @media print {
   body {
     background-color: #FFF;

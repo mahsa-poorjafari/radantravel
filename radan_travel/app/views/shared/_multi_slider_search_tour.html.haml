@@ -21,7 +21,7 @@
                       = render "/tours/show_english_date", :tour => @first_tour
                   - if @first_tour.photos.present?
                     = link_to (image_tag @first_tour.photos.first.image(:medium), :class => "img-responsive"), @first_tour, :class => 'item-package', :title => "آژانس_هواپیمایی_رادان_سیر"
-                  .more-info= t('more-info')
+                  .more-info= link_to t('more-info'), @first_tour
                   
                   
        
