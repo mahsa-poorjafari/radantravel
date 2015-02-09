@@ -52,12 +52,20 @@
       .filter.continent-cat.set-center{"data-filter" => "all" }= t('show-all-tours')
   .col-xs-12.city-title-filter{:class => I18n.locale}    
     - @world = Country.find_by_title_fa(!'ایران')
-    - @world.cities.each do |city|
-      -if city.hotels.present?
-        .filter.city-cat{"data-filter" => ".world-city-" + city.id.to_s}          
-          %span.country-title-tab= city.title
-          %span.location.world
-  
+    
+    - Country.where.not(title_fa: 'ایران').each do |country|      
+      - @country_hotel = 0
+      - if country.cities.present?    
+        - country.cities.each do |city|
+          -if city.hotels.present?
+            - @country_hotel = @country_hotel +1 
+      - if   @country_hotel>0
+        = link_to country do
+          .city-cat{"id" => "hotels-country-" + country.id.to_s}
+            %span.country-title-tab= country.title
+            %span.location.world
+   
+
   .show-tours.col-xs-12.set-center#Container2
     - @hotels.each_with_index do |hotel, i|
       - unless hotel.city.country.title_fa == 'ایران'

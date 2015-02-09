@@ -81,6 +81,7 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
 .show-social:hover{right:0; cursor:pointer}
 .show-social a {color:#fff; font-size:15px;}
 .show-social a span{ font-size:13px;}
+.show-social.fa a span{ font-size:20px;}
 .show-social a:hover {color:#521010}
 .show-social .social-icon img{
   -webkit-transition: -webkit-transform 1s;
@@ -158,7 +159,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 
 .admin-menu:hover {height:500px}
 .admin-menu ul li:hover a {font-size:16px;}
-.admin-menu-title {padding:1%;}
+.admin-menu-title {padding:1%; color:#000000}
 .unread {border-radius:50%; background:#A52A2A; color:#fff; padding:2%;
   padding-right: 4%;
   padding-left: 4%;
@@ -518,7 +519,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .ar  span.country-title-tab {font-size:22px;}
 .en  span.country-title-tab {position: absolute;  top: 10%; left:27% }
 .nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
- .city-title-filter.fa .city-cat.active span.location {background-position: 0 16px;}
+ .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
 
 .show-tours {min-width:200px;}
 .city-title-filter {position:relative; margin-top:5%; margin-bottom:5%}
