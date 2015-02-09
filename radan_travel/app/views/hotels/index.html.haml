@@ -123,17 +123,31 @@
   $(function(){
     $('#Container2').mixItUp();  
   });
--#  
-  $(document).ready(function(){
-    $('.hover').eachStep(700, function(i, el, duration){
-      $(el).addClass('flip');
-      alert (i);
-      alert (el);
-      alert (duration);
-      if( i == $('.hover').length ){
-        $('.hover').eachStep(700, function(i, el, duration){      
-          $(el).removeClass('flip'); 
-        });
+
+  $(document).ready( function () {
+    function AddFlip(){
+      $('.hover').eachStep(700, function(i, el, duration){
+        $(el).addClass('flip');         
       });
-    });    
+      
+    };
+    
+    function RemoveFlip(){
+      $('.hover').eachStep(700, function(i, el, duration){
+        $(el).removeClass('flip');
+        
+      });
+      
+    };
+    
+    $.when( AddFlip() ).done(function( x ) {
+      alert( 'AddFlip done' ); // Alerts "123"
+      RemoveFlip();
+    });
+    
+    setTimeout(function() {
+      AddFlip();
+    }, 5000);
   });
+
+  
