@@ -723,6 +723,7 @@ ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab.en {fon
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab {font-size:25px}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab:hover {color:#fff}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab a{color:#000000}
+ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab.en a{font-size:16px}
 ul.tour-groups-sub-menu .continent-group.tour-group h3.country-title-tab:hover a{color:#fff}
  
 ul.continent-sub-menu {position:relative; z-index:3;  list-style:none; padding:0; 
@@ -736,8 +737,8 @@ ul.continent-sub-menu {position:relative; z-index:3;  list-style:none; padding:0
   width:90%;
   color:#fff;
   }
-ul.continent-sub-menu .continent-group.tour-group:hover {background:#4D4D4D}
-.continent-sub-menu .city-submenu .continent-group.tour-group:hover {background:#1D1D74}
+ul.continent-sub-menu .continent-group.tour-group:hover, ul.continent-sub-menu .continent-group.tour-group.active {background:#4D4D4D}
+.continent-sub-menu .city-submenu .continent-group.tour-group:hover, .continent-sub-menu .city-submenu .continent-group.tour-group.active {background:#1D1D74}
 ul.continent-sub-menu li {
   clear:both;
   position: relative;

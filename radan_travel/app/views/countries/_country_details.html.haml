@@ -13,8 +13,8 @@
       .col-xs-12.country-text.margin-bottom{:class => I18n.locale}        
         %p
           %h2.country-title{:class => I18n.locale}            
-            - if country.continent_category_id.present?
-              %span{:class => I18n.locale}=  country.continent_category.title + ','
+            - if country.category_country_id.present?
+              %span{:class => I18n.locale}=  country.category_country.title + ','
             = country.title
             
         .margin-bottom5{:class => I18n.locale}

@@ -1,10 +1,9 @@
 .margin3  
   -if is_admin?
     = link_to 'معرفی تور جدید', new_tour_path, :class => "btn btn-success"
-  - if current_page?(Tour)
-    = render '/tours/index_tour_groups'
-  - else
-    = render '/tours/tour_groups'
+  
+  = render '/tours/index_tour_groups'
+  
   .show-tours.col-xs-10.set-center#Container
     - Country.all.each do |country|
       - unless country.title_fa == 'ایران'

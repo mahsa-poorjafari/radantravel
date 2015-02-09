@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  resources :category_countries
+  
 
   resources :iran_tour_reservs
 
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", :locale => /en|fa|ar/ do  
+    resources :category_countries
     resources :continent_categories
     resources :visas
     resources :pdf_investments

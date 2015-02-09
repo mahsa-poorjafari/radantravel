@@ -13,7 +13,8 @@ class CitiesController < ApplicationController
   def show
   end
   def show_fun_tours_for_city
-    @country = City.find(params[:city_id])    
+    @city = City.find(params[:city_id])    
+    @country = Country.find(params[:country_id])    
     @tour_group = ContinentCategory.find(params[:continent_id])
     
   end

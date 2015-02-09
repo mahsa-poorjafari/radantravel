@@ -1,15 +1,45 @@
-%p#notice= notice
+.margin3.margin-bottom{:style => "min-height:230px;"}
+  .col-xs-12.margin-bottom
+    .title-tour-line.col-xs-10
+    %p.col-xs-3.set-center.title-tour{:class => I18n.locale}
+      =link_to @continent_category.title + ', ' + @category_country.title  , @category_country.title  
+  
+  - if is_admin?
+    .col-xs-12
+      = link_to 'ویرایش', edit_category_country_path(@category_country), :class => "btn btn-info" 
 
-%p
-  %b Title en:
-  = @category_country.title_en
-%p
-  %b Title fa:
-  = @category_country.title_fa
-%p
-  %b Title ar:
-  = @category_country.title_ar
-
-= link_to 'Edit', edit_category_country_path(@category_country)
-\|
-= link_to 'Back', category_countries_path
+  = render '/tours/tour_groups', :category => @continent_category
+  .show-tours.col-xs-10.set-center#Container
+    - if @category_country.countries.present?
+      - @category_country.countries.order(" created_at desc").each do |country|
+        - if country.tours.present? && country.title_fa != 'ایران'
+          
+          - country.tours.order(" created_at desc").each do |tour|
+            - if tour.continent_category_id.present? && ( tour.continent_category_id == @continent_category.id)
+            
+              .tours-index{ :style => "width:23%"}        
+                - if tour.coming_soon?
+                  .coming_soon= image_tag 'coming.png'
+                = link_to tour, :class => "tour-box" do 
+                  %h5.tour-title{:class => I18n.locale}= tour.title
+                  - if tour.photos.present?
+                    .tour-sample-image{:class => ('set-coming-soon' if tour.coming_soon?)}= image_tag tour.photos.first.image(:medium), :id => "tour-sample-image-" + tour.photos.first.id.to_s
+                  .clear-float
+                .tour-date
+                  - if I18n.locale == :fa
+                    = render "/tours/show_persian_date", :tour => tour
+                  - else  
+                    = render "/tours/show_english_date", :tour => tour
+                -if is_admin?
+                  .admin-btn-tour
+                    = link_to 'ویرایش تور', edit_tour_path(tour), :class => "btn btn-info"
+                    = link_to 'مشاهده جزئیات', tour, :class => "btn btn-warning"                   
+                    = link_to 'حذف تور', tour, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger"
+                    -#
+                      = link_to 'ارسال به اعضا خبرنامه', sendtonewsletter_tour_path(tour), :class => "btn btn-default"       
+                      - @send_tour = @send_tour.to_i            
+                      - if @send_tour.present? && @send_tour == tour.id
+                        .alert.alert-success='اطلاعات این تور برای اعضا خبرنامه ارسال شد.'
+            
+    - else
+      %p= image_tag 'coming.png'

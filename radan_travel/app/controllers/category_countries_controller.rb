@@ -9,7 +9,10 @@ class CategoryCountriesController < ApplicationController
 
   # GET /category_countries/1
   # GET /category_countries/1.json
-  def show
+  def show  
+    p '------------continent_id--------------'
+    p @continent = params[:continent_id]
+    @continent_category = ContinentCategory.find(@continent)
   end
 
   # GET /category_countries/new

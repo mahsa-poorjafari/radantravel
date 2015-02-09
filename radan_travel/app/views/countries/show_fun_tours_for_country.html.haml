@@ -3,12 +3,11 @@
     .col-xs-12.margin-bottom
       .title-tour-line.col-xs-10
       %p.col-xs-3.set-center.title-tour{:class => I18n.locale}
-        =link_to @tour_group.title + ',' +@country.title  , @country.title  
-      
-    - if current_page?(Tour)
-      = render '/tours/index_tour_groups'
-    - else
-      = render '/tours/tour_groups'
+        - if @country.category_country_id.present?
+          = link_to @tour_group.title + ',' + @country.category_country.title+',' +@country.title  , @country.title  
+        - else
+          = link_to @tour_group.title + ','  +@country.title  , @country.title  
+    = render '/tours/country_tour_groups', :category => @tour_group, :current_country => @country
     .show-tours.col-xs-10.set-center#Container
       - @country.tours.each do |country_tour|
         - if country_tour.continent_category_id == @tour_group.id 
