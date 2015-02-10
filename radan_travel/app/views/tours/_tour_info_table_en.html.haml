@@ -77,13 +77,14 @@
       .col-xs-9.td
         .col-xs-10= raw tour.documents
         .col-xs-2= image_tag 'madarek.jpg'
-  -#  
-    - if @tour.info.present?
-      .col-xs-12.tr
-        .col-xs-3.th= t('tour.get-file')
-        .col-xs-9.td
-          = link_to @tour.info.url, :target => "blank" do
-            %i= 'دریافت فایل '
+   
+  - if @tour.info.present?
+    .col-xs-12.tr
+      .col-xs-3.th= t('tour.get-file')
+      .col-xs-9.td
+        = link_to @tour.info.url, :target => "blank" do
+          %i= 'دریافت فایل pdf'
+          = image_tag 'pdf-icon.png'
         
   .clear-float
 - if tour.description.present?
