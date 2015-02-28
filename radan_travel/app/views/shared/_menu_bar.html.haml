@@ -47,7 +47,7 @@
     %li.item-menu{:class => ('active' if current_page?(Visa))}
       = link_to  t('visa'),Visa , :title => "ویزا از طریق رادان سیر"       
       -if VisaType.count != 0
-        %ul.sub-menu.visa{:style => "width:200px;"}
+        %ul.sub-menu.visa{:style => "width:200px; z-index:100"}
           - VisaType.order("title_fa asc").each do |visatype|
             %li{:class => I18n.locale}
               = link_to visatype.title, visatype
