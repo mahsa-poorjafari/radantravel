@@ -216,3 +216,4 @@ en:
     save-visa-form: 'Save Form'
     add-person: 'Add Person'
     request-code: 'Tracking Code visa'
+  captcha: 'Enter the captcha'  

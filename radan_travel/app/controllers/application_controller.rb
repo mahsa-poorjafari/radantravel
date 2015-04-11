@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale, :online_info
   before_filter :load_slides
   include ApplicationHelper
- 
+  include SimpleCaptcha::ControllerHelpers
   protected
     def check_autentication
       redirect_to :root unless current_user.role_id == 1

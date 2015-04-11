@@ -54,3 +54,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'simple_captcha2', '~> 0.3.4'
