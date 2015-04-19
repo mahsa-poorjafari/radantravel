@@ -6,6 +6,8 @@
       = t("radantravel") + (' Travel| سفر, بلیت, ایران, ویزا, visa, آژانس, آژانس هواپیمایی| iran travel| travle agency| ticket| visit iran| iran sights') 
     = stylesheet_link_tag    'application', media: 'all'      
     = javascript_include_tag 'application'   
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+    %meta{:name => "description", :content => "#{t("radantravel")}, Radan Travel Agency, آژانس هواپیمایی رادان سیر, خاطره انگیزترین سفرهایتان رابا رادان سیرتجربه کنید شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر با حدود 10 سال سابقه در صنعت گردشگری و به کار گیری کادر اجرایی کارآزموده، متخصص و با تجربه، به یکی از شرکت های برتر در زمینه برنامه ریزی، سازماندهی و اجرای تورهای داخلی، تورهای خارجی و تورهای ورودی در بازار گردشگری ایران تبدیل شده است."}
     = csrf_meta_tags
     %meta{:charset => "utf-8"}    
     %meta{:name => "keywords", :content =>   "شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر, تور لحظه ای ، تور لحظه آخری, آژانس هواپیمایی رادان سیر, هتلهای ایران, ویزا,دریافت ویزا,بازدید از ایران, Iran sight, visit Iran, Iran hotels, ایران, هتلهای ایران"}. 
@@ -14,8 +16,8 @@
     %meta{:name => "slurp", :content => "NoIndex,follow"}
     %meta{:name => "msnbot", :content => "NoIndex,follow"}
     %meta{:name => "teoma", :content => "NoIndex,follow"}
-    %meta{:name => "description", :content => "#{t("radantravel")}, Radan Travel Agency, آژانس هواپیمایی رادان سیر"}
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+    
+    
     %meta{:content => "8ana4hAqdsH47iRKOF8mRJ50NCHxxcp9G58sWpS4w_g", :name => "google-site-verification"}/
     = yield(:refresh_meta) if content_for?(:refresh_meta)
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png', :title => "آژانس هواپیمایی رادان سیر"
