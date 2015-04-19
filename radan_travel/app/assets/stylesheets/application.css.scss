@@ -102,18 +102,21 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   }
 
 .logo .title-site, .logo .contact-top-site span{color:#000000}
-.title-site.fa { font-family: 'khodkar'; font-size:22px}
+.title-site.fa { font-family: 'khodkar'; font-size:1.1em}
 .title-site.ar { font-family:arabswell; font-size:19px}
-.title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:32px}
+.title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:1.5em}
 
 .logo-image {margin-top:-15px;}
 .menu_bar  {position:relative; height:80px;}
 ul#main-menu {list-style:none;position: relative;
 height:100%;
-width: 100%; padding-top:4%}
+width: 100%; padding-top:4%;
+padding-right:0;
+}
 
-ul#main-menu li.item-menu{color:#5F0000; padding:3%; font-size:1.5em;display:inline; position:relative }
-ul#main-menu.en li.item-menu{ font-size:1.3em;}
+ul#main-menu li.item-menu{color:#5F0000; padding:3%;
+ font-size:1.2em;display:inline; position:relative; font-weight:bold; }
+ul#main-menu.en li.item-menu{ font-size:.8em;}
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
 ul#main-menu.en li.item-menu {font-family: Arial; }
@@ -131,7 +134,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .contact-top-site.en {}
 .contact-top-site.fa span, .contact-top-site.ar span{font-size: 13px;}
 .contact-top-site.fa span.phone {font-size: 22px;}
-.contact-top-site.en span{font-size: 14px;}
+.contact-top-site.en span{font-size: .9em;}
 .flag_bar {width:100px; position:absolute; top:100px; left:4%;}
 
 
@@ -186,7 +189,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   
   top:390px;
   left: 0;
-  width:20%;
+  width:25%;
   overflow:hidden;
   padding-left: 0;
   padding-right: 0;
@@ -206,7 +209,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .main-icon .icon-box a:hover {color:#FFA500;}
 .main-icon .icon-box:hover{background:#A93030; cursor:pointer}
 .main-icon .icon-box:hover a{color:#fff}
-.main-icon .icon-box p {font-size:20px;margin-top:10%;}
+.main-icon .icon-box p {font-size:1em;margin-top:10%;}
 .main-icon .icon-box p:hover{color:#FFA500;}
 .main-icon .icon-box p.icon-des {font-size:13px;margin-top:10%;position:absolute; bottom:5%}
 
@@ -442,7 +445,7 @@ ul.sub-menu.hotel li.foreign-hotels .details_menu li:hover .cities-hotels{displa
 ul.sub-menu li{width:100%; margin:0; color:#fff; position:relative; min-height:50px}
 ul.sub-menu li:hover{background:#A52A2A;}
 ul.sub-menu li a{width:100%; margin:0;  color:#fff; font-size:1em; position:absolute; height:100%; text-align:center}
-ul.sub-menu li.en a {font-size:14px}
+ul.sub-menu li.en a {font-size:1em}
 ul.sub-menu li.fa a{}
 .sub-menu.tour {width:190%;}
 .sub-menu.hotel {width:120%;}

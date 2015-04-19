@@ -28,15 +28,15 @@
     
     
     .col-xs-12{:style => "padding:0"} 
-      .col-xs-6.pull-right{:style => "padding:0"} 
-        = f.simple_captcha :label => t('captcha')
-      .col-xs-6.pull-right{:style => "padding:0"}   
-        .form-group{:class => I18n.locale, :style => "text-align:left"}
-          = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit", :class => "btn btn-danger  I18n.locale"
-        
-        .form-group{:class => I18n.locale, :style => "text-align:left"}
-          = button_tag t('msg.contact-reset'), :type => 'reset', :title => "آژانس هواپیمایی رادان سیر", :id => "contact-reset"  , :class => "btn btn-danger  I18n.locale"
-        
+      
+      = f.simple_captcha :label => t('captcha')
+    .col-xs-12.pull-right{:style => "padding:0"}   
+      .col-xs-6.form-group{:class => I18n.locale, :style => "text-align:left"}
+        = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit", :class => "btn btn-danger  I18n.locale"
+      
+      .col-xs-6.form-group{:class => I18n.locale, :style => "text-align:left"}
+        = button_tag t('msg.contact-reset'), :type => 'reset', :title => "آژانس هواپیمایی رادان سیر", :id => "contact-reset"  , :class => "btn btn-danger  I18n.locale"
+      
         
 
 
