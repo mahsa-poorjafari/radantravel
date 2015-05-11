@@ -102,6 +102,14 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   }
 
 .logo .title-site, .logo .contact-top-site span{color:#000000}
+.contact-top-site-responsive {display:none; background-image: url(image-path('main-menu.png'));
+  position: absolute;
+  top: -21px;
+  width: 391px;  
+  right: -95px;
+  color:#000; font-size:1em;
+  }
+.contact-top-site-responsive  .phone {font-size:1em; font-family: 'open_sansregular';}
 .title-site.fa { font-family: 'khodkar'; font-size:1.1em}
 .title-site.ar { font-family:arabswell; font-size:19px}
 .title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:1.5em}
@@ -198,7 +206,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .show-reservation-box{width:60%;}
 
 
-.main-icon {height:350px; padding:3%; position:relative}
+.main-icon {height:270px; padding:3%; position:relative}
 .main-icon .icon-box
   {height:100%; padding:1%; position:relative;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
@@ -515,8 +523,8 @@ span.location {
   -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
   transition: all .5s;
   }
-.fa span.location {left:0}  
-.en span.location {right:0}  
+.fa span.location, .ar span.location {right:0}  
+.en span.location {left:0}  
 span.location.world {background-image: url(image-path('location.png')); background-position: 0 -40px;}
 span.location.iran {background-image: url(image-path('iranlocation.png')); background-position: 0 -28px;}
 .fa span.location,.ar span.location {}

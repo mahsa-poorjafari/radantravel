@@ -11,11 +11,11 @@
     .alert.alert-danger= flash[:errormsg]
       
   .col-xs-12
-    .form-group.col-xs-6.pull-right
+    .form-group.col-xs-6.pull-right#user_name
       
       = f.text_field :user_name, :placeholder => t('msg.contact-name') , :id => "contact-name", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر"   , :class => "form-msg form-control"
     
-    .form-group.col-xs-6.pull-right  
+    .form-group.col-xs-6.pull-right#user_phone
       
       = f.text_field :phone, :placeholder => t('msg.contact-phone'), :id => "contact-phone", :style => "width:100%", :title => "آژانس هواپیمایی رادان سیر", :class => "form-msg form-control"
     .form-group.clear-float
