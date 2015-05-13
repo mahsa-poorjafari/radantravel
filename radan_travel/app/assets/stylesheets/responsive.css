@@ -1,6 +1,7 @@
 /* Large desktop */
 @media (min-width: 1200px) { 
-  
+  .logo title-site.fa{font-size: 1.5em !important;}
+  .logo title-site.en {font-size: 2.5em !important;}
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -22,14 +23,106 @@
   .show-social.fa a span {font-size:17px !important ; }
   .link-reservation {width:27% !important ; }
   
+  
+  
  }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-  
+  .main-icon {height:200px !important ;}
+  .main-icon .icon-box a img{height:70px}
+  .contact-top-site-responsive {display:block !important ; left:45px !important ; right:0; top:50px !important ;  }
+  .logo .contact-top-site {display:none !important ;  }
+  .logo .title-site {font-size:1.7em !important ; }
+  .logo .top_site {width:85% !important ; }
+  .show-social, .menu_bar {display:none}
+  .nav_bar_responsive:hover #main-menu {display:block !important ; }
+  #package-tour1 .item  {padding-right:40px; padding-left:40px}
+  #package-tour1 .item .tour-item {width:98% !important ;}
+  p.title-tour {font-size:25px !important ;}
+  .tours-index {width:30% !important ;}
+  .continent.fa, .continent.ar, .fa .continent, .ar .continent {font-size:1em !important ;}
+  .contact-form #user_name, .contact-form #user_phone{clear:both; width:100%}
+  #contact-infomation {padding-right:4%}
+  #footer_menu, .visit-statistics {padding:0; width:100% !important ;}
+  .search-tour {right:-50% }
+  .search-tour .tour-search-box {width:25% !important ; text-align:left; padding:0}
+  .link-reservation {width:32% !important;}
+  .tour-hover p{font-size:1em  !important ;}
+  p.title{font-size:1.5em  !important ;}
   }
 /* Landscape phones and down */
 @media (max-width: 480px) {
+  #wrapper {display:none}
+  #radan-logo {width:100% !important ;}
+  .logo .top_site {width:100% !important ;}
+  #radan-logo .logo-image{text-align:center !important ; margin-top:0;}
+  #radan-logo .logo-image img{width:50% !important ;}
+  .contact-top-site-responsive {top:-18px !important ;}
+  .nav_bar_responsive {top: -165px !important; right: -75%;}
+  .logo .title-site {font-size: 1.5em !important;}
+  #radan-title {width:100% !important; padding:0 !important;}
+  .flag_bar {top: 25px !important;}
+  .search-tour {width:48% !important; top:250px !important; right:0 !important; height:220px  !important;}
+  .search-tour .tour-search-box.col-xs-2 {width:100% !important; text-align:center; clear:both; margin-bottom:5px}
+  .search-tour .col-xs-2 {width:100% !important; clear:both;}
+  .link-reservation {width:48% !important; height: 220px !important;
+    top: 250px !important;}
+  #reserv-link {width: 100% !important;}
+  .link-reservation  #plus-icon {width: 100% !important;text-align: center;}
+  .link-reservation .reserv-box {width:100% !important; height:auto !important; left:0; text-align:center}
+  .tour-search-box span.fa, .reserv-box span.fa {font-size: 2em !important; border-bottom: 2px #fff solid;}
+  .main-icon {width: 100% !important;}
+  .contact-box {width: 100% !important; clear:both; border-bottom: 3px #ccc solid;}
+  #contact-infomation, #footer-link {width: 50% !important; position: relative !important; left: 0 !important;
+    right: 0 !important;}
+  #extra-form {width: 100% !important; clear:both; border-top: 3px #ccc solid;}
+  #extra-form .extra-form-title{text-align:center !important;}
+  .nav_bar_responsive #main-menu li.item-menu {background:#4a4a4a !important;; z-index:200}
+  .nav_bar_responsive #main-menu {top:35px !important;}
+  p.title-tour, p.title {width: 50%; font-size:1.5em !important; margin-right: 25% !important;
+  margin-left: 25% !important;
+  top: -10px !important;}
+  .main-icon .icon-box {width: 20% !important; }
+  .main-icon#five-icon {margin-left: 0 !important;margin-right: 0 !important; height:185px !important;}
+  .main-icon#five-icon .icon-box a img {height:55px !important;}
+  .tours-index {width: 45% !important;}
+  #iran-city-tour {width: 100% !important;}
+  ul.tour-groups {clear: both !important; width: 100% !important;}
+  ul.tour-groups li {clear: initial !important; width: 30%; float: right;}
+  .iran-tours-boxes#Container {width: 100% !important;}
+  .menu-of-tours-group, .show-tours, .comment-box , #sliderFrame #slider{width: 100% !important;}
+   #sliderFrame, #cities-sights, #sight-text, #city-sights-slider, #visa-lists, .visa-text  {width: 100% !important; padding:0}
+  #slider img, #slider > b, #slider a > b{width: 100% !important;}
+  .location#title-icon img{ top: 0;
+    position: absolute;
+    height: 109%;}
+  .show-tours, #show-city-places {margin-top:20px}
+  .continent .country-title-tab, .ar .continent .country-title-tab {font-size: 2em;
+    text-align: center;
+    width: 100%;}
+  .tour-groups .continent.tour-group h4 {font-size:1.5em !important;}
+  .tour-groups-sub-menu {display:none !important;}
+  .tour-slider-images {margin-top:50px !important;}
+  #tour-plane-company img {width:100px}
+  .hotels-table .firts-row {margin-top:16px; padding:0}
+  .hotels-table .firts-row.fa .th {font-size:1em !important;}
+  .hotels-table .other-rows.fa .td, .hotels-table .other-rows {padding:0;font-size:1em !important;}
+  .hotels-table .tour-description .tr .th {font-size:1.3em !important;}
+  .hotels-table .other-rows .locat-des {padding:0}
+  #cities-list {min-height: 100px !important;}
+  .country-cities-list {padding-top:15px}
+  .country-cities-list ul li {width: 45% !important;}
+  #cities-sights .sights-info {width: 100% !important; padding:0; margin-top:20px}
+  #sight-text {text-align:justify}
+  #visa-group-item {width:45%; float:right; text-align:center; }
+  #visa-group-item h4{font-size:1.5em}
+  .visas-index {width: 45% !important; }
+  .visas-index h5, .title-visa{font-size:1em !important;}
+  .visa-text.fa p, .visa-text.fa span, .visa-text.fa p span, .fa.visa-title {height:auto !important;}
+  
+  
+ 
   
 }
 /*

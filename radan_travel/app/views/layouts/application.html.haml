@@ -33,10 +33,11 @@
       - else
         = render "slides/slider", :slides => Slide.all      
       .logo.col-xs-12
-        .col-xs-5
+        .col-xs-5.top_site
           = render 'shared/top_site_en'
-        .col-xs-7{:style => "padding:0"}
+        .col-xs-7.nav-bar{:style => "padding:0"}
           = render 'shared/menu_bar'
+        
       .flag_bar
         = link_to (image_tag 'flag/en_sm.png'), root_path(locale: :en), :title => "Travel Agency Radan Travel"
         = link_to (image_tag 'flag/ir_sm.png'), root_path(locale: :fa), :title => "آژانس_هواپیمایی_رادان_سیر"
@@ -96,7 +97,7 @@
         .contact-box.col-xs-3.pull-right       
           .contact-form.pull-right{:class => I18n.locale}
             = render 'shared/msg_form' 
-        .col-xs-3.pull-right
+        .col-xs-3.pull-right#contact-infomation
           %h4.contact{:class => I18n.locale}= t('contact-info')          
           .contact-info
             - if @contact.present?
@@ -104,7 +105,7 @@
                 =raw @contact.text
           .clear-float
           %h4.contact{:class => I18n.locale, :style => "margin-top:50px;"}= t('sitevisit.statistics')          
-          .col-xs-11{:style => "margin-left:2%; margin-top:5%"}  
+          .col-xs-11.visit-statistics{:style => "margin-left:2%; margin-top:5%"}  
             %p{:class => I18n.locale}
               %b= t('sitevisit.total-views')
               =  Visit.all.count
@@ -115,24 +116,24 @@
               %b= t('sitevisit.online-number')
               = @online_now    
         -#
-          .col-xs-3.set-center{:style => "left:10%; right:10%; position: absolute;"}
+          .col-xs-3.set-center#footer-link
             = render 'shared/footer_menu'
           .col-xs-3
             %h4{:class => I18n.locale}=  t('request-tour.request-tour-form')
             - if flash[:SendCustomTour].present?
               .alert.alert-success{:style => "position: absolute;z-index: 10;width: 90%;"}= flash[:SendCustomTour]
             = render 'custom_tours/form'
-        .col-xs-3.pull-right
+        .col-xs-3.pull-right#footer-link
           %h4.contact{:class => I18n.locale}= t('links')          
-          .col-xs-12
+          .col-xs-12#footer_menu
             = render 'shared/footer_menu'
           
-        .col-xs-3.pull-left
+        .col-xs-3.pull-left#extra-form
           .col-xs-12 
-            %h4.clear-float{:class => I18n.locale}= t('subscribe_to_newsletter')
+            %h4.clear-float.extra-form-title{:class => I18n.locale}= t('subscribe_to_newsletter')
             = render 'shared/newsletter_subscribe'
           .col-xs-12{:style => "margin-top:10%;"} 
-            %h4.clear-float{:class => I18n.locale}= t('customer_clube')
+            %h4.clear-float.extra-form-title{:class => I18n.locale}= t('customer_clube')
             = render 'shared/customer_clube'
         
         -#  

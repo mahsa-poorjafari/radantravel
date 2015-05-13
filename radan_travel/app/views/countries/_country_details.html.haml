@@ -19,7 +19,7 @@
             
         .margin-bottom5{:class => I18n.locale}
           = raw country.text  
-      .col-xs-12.margin-bottom5
+      .col-xs-12.margin-bottom5#cities-list
         .title-line.col-xs-10
         %p.col-xs-2.set-center.title{:class => I18n.locale}= t('city')      
         .country-cities-list.margin-bottom5          
@@ -30,7 +30,7 @@
               - else
                 %li.col-xs-2.pull-right{:class => I18n.locale}= link_to  city.title, city, :title => "آژانس_هواپیمایی_رادان_سیر"+ "_" + city.title_fa, :id => "city-"+city.id.to_s, :class => I18n.locale
     
-      .col-xs-12.margin-bottom5
+      .col-xs-12.margin-bottom5#cities-sights
         .title-line.col-xs-10
         %p.col-xs-2.set-center.title{:class => I18n.locale}= t('sights')            
         .col-xs-12.margin-bottom5  
@@ -44,8 +44,8 @@
                       = link_to 'حذف ', sight, :method => :delete, :data => { :confirm => 'آیا می خواهید این تور را حذف کنید؟' }, :class => "btn btn-danger", :title => "آژانس_هواپیمایی_رادان_سیر"
                     .col-xs-7.sights-info
                       %h2{:class => I18n.locale}= sight.title
-                      .col-xs-12.margin-top5= raw sight.text
-                    .col-xs-5{:style => "min-height:300px; position:relative"}
+                      .col-xs-12.margin-top5#sight-text= raw sight.text
+                    .col-xs-5#city-sights-slider
                       - if sight.photos.present? 
                         - if sight.photos.count <= 1
                           = image_tag sight.photos.first.image(:medium)

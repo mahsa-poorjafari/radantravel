@@ -106,13 +106,29 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   position: absolute;
   top: -21px;
   width: 391px;  
-  right: -95px;
+  left: 45px;
   color:#000; font-size:1em;
   }
+.nav_bar_responsive {position: absolute;
+top: -50px; height:200px;
+width: 50px;
+right: -65%;}
+.nav_bar_responsive:hover {cursor:pointer}
+.nav_bar_responsive .navicon { background-image: url(image-path('nav-icon.png'));
+  background-repeat:no-repeat;
+  position:absolute; 
+top:0; width:100%; height:50px}
+.nav_bar_responsive #main-menu {position:absolute; display:none; top:60px; width:100px; height:185px; 
+  border-bottom-right-radius:3px;
+  border-bottom-left-radius:3px;
+  background-image: url(image-path('main-menu.png'));}
+.nav_bar_responsive #main-menu li.item-menu {width:100%; display: inline-block; text-align:center;
+  position:relative}
+
 .contact-top-site-responsive  .phone {font-size:1em; font-family: 'open_sansregular';}
-.title-site.fa { font-family: 'khodkar'; font-size:1.1em}
+.title-site.fa { font-family: 'khodkar'; font-size:1.5em}
 .title-site.ar { font-family:arabswell; font-size:19px}
-.title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:1.5em}
+.title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:2.5em}
 
 .logo-image {margin-top:-15px;}
 .menu_bar  {position:relative; height:80px;}
@@ -145,7 +161,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .contact-top-site.en span{font-size: .9em;}
 .flag_bar {width:100px; position:absolute; top:100px; left:4%;}
 
-
+#radan-title {padding:2%}
 .search-tour {  
   border-top-left-radius:5px;
   border-bottom-left-radius:5px;
@@ -160,6 +176,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
   }
+  
 .admin-menu {position:absolute; top:180px;height: 37px;
   overflow: hidden;
   left:0; width:220px;
@@ -186,7 +203,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .link-reservation.en .reserv-en-link .reserv-box{position:relative; text-align:left}
 .link-reservation.en .reserv-en-link .reserv-box span{position:absolute; }
 .search-tour:hover, .link-reservation:hover {cursor:pointer}
-.show-tour-search-box{right:0;}
+.show-tour-search-box{right:0 !important ;}
 
 .link-reservation {
   border-top-right-radius:5px;
@@ -197,7 +214,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   
   top:390px;
   left: 0;
-  width:25%;
+  width:20%;
   overflow:hidden;
   padding-left: 0;
   padding-right: 0;
@@ -206,7 +223,9 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .show-reservation-box{width:60%;}
 
 
-.main-icon {height:270px; padding:3%; position:relative}
+.main-icon {height:270px; padding:3%; position:relative; margin-left: 10%;
+margin-right: 10%;}
+#five-icon.main-icon {margin-left: 10%;margin-right: 10%;}
 .main-icon .icon-box
   {height:100%; padding:1%; position:relative;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
@@ -794,3 +813,7 @@ h1.title-tourse {text-align:center}
 
 table.category_country tr th{font-size:2em}
 table.category_country tr td{font-size:2em}
+#footer-link {left:10%; right:10%; position: absolute;}
+#iran-city-tour {text-align:center; margin-bottom:4%; margin-right:0;}
+#city-sights-slider {min-height:300px; position:relative}
+#visa-lists {text-align:center; margin-bottom:4%}

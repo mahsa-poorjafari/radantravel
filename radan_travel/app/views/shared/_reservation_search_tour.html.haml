@@ -13,6 +13,7 @@
       = text_field_tag :price, params[:price],:placeholder => t('tour-price'), :class => "form-control", :id => "tour-price"                  
     .col-xs-2.pull-right      
       = text_field_tag :country, params[:country],:placeholder => t('tour-country'), :class => "form-control", :id => "tour-country"  
+  
 -#
   #reserv.col-xs-8.pull-left.link-reservation
     .reserv-box.pull-right{:class => I18n.locale}    
@@ -40,8 +41,8 @@
           %span{:class => I18n.locale}= t('plane-reserv')
     .col-xs-1{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
   - else
-    .col-xs-1.pull-right{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
-    .col-xs-9.pull-right
+    .col-xs-1.pull-right#plus-icon{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
+    .col-xs-9.pull-right#reserv-link
       = link_to url_with_protocol('www.radanhotel.com'), :target => "_blank" do
         .reserv-box{:class => I18n.locale}
           %span{:class => I18n.locale}= t('hotel-reserv')
@@ -50,6 +51,7 @@
         .reserv-box{:class => I18n.locale}            
           %span{:class => I18n.locale}= t('plane-reserv')
     
+
 :javascript      
   $('#tour-exp').datepicker();
   $('#tour-start').datepicker();

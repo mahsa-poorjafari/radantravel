@@ -2,7 +2,7 @@
   .col-xs-2.pull-left.menu-of-tours-group{:style => " margin-left:0", :class => I18n.locale}     
     = link_to Tour do
       .continent{:class => ('active' if current_page?(Tour))}
-        %span.location{:style => "right:0"}= image_tag 'w.png'
+        %span.location#title-icon{:style => "right:0"}= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     %ul.tour-groups
       - ContinentCategory.offset(5).order("set_order asc").each do |continent| 
@@ -18,7 +18,7 @@
   .col-xs-2.pull-right.menu-of-tours-group{:style => " margin-left:0", :class => I18n.locale}     
     = link_to Tour do
       .continent{:class => ('active' if current_page?(Tour))}
-        %span.location{:style => "right:0"}= image_tag 'w.png'
+        %span.location#title-icon{:style => "right:0"}= image_tag 'w.png'
         %span.country-title-tab= t('show-all-tours')
     %ul.tour-groups
       - ContinentCategory.offset(5).order("set_order asc").each do |continent| 

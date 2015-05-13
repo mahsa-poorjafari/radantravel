@@ -24,14 +24,14 @@
     = link_to '', '#', :name => "tour-to-iran", :id => "IranTourAnchor", :title => "آژانس هواپیمایی رادان سیر"
     .title-tour-line.col-xs-10
     %p.col-xs-3.set-center.title-tour{:class => I18n.locale}= t('iran-tours')
-  .col-xs-2.pull-left{:style => "text-align:center; margin-bottom:4%; margin-right:0;", :class => I18n.locale}     
+  .col-xs-2.pull-left#iran-city-tour{:class => I18n.locale}     
     %ul.tour-groups
       - @iran.cities.each do |iran_city|
         - if iran_city.tours.present?
           %li.tour-group-item.iran-city.filter{ "data-filter" => '.iran-city-'+iran_city.id.to_s}      
             .continent.tour-group
               %h4.en.country-title-tab{:class => I18n.locale}= iran_city.title_en
-  .col-xs-10#Container
+  .col-xs-10#Container.iran-tours-boxes
     - if @iran.tours.present?
       - @iran.tours.each do |tour|
         .tours-index.mix{:style => "width:23%", "data-my-order" => tour.city_id , :class =>  ("iran-city-" + tour.city_id.to_s if tour.city_id.present?)}

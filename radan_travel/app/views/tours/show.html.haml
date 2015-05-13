@@ -56,7 +56,7 @@
                 %i= t('package-code')
                 %b=  @tour.package_code              
                 
-            .col-xs-6{:style => "text-align:right"}
+            .col-xs-6#tour-plane-company{:style => "text-align:right"}
               - if @tour.plane.present?
                 = image_tag @tour.plane.logo(:small), :alt => 'شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر'
           
@@ -67,7 +67,7 @@
             - else
               = render 'tours/tour_info_table_fa', :tour => @tour
     
-    .col-xs-12     
+    .col-xs-12.tour-slider-images
       = render 'shared/items_images_sliders', :model => @tour      
     .col-xs-12.margin-bottom5
       .col-xs-5.comment-box.pull-right

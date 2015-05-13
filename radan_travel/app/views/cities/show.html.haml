@@ -44,7 +44,7 @@
     .col-xs-12.margin-bottom5
       .title-line.col-xs-10
       %p.col-xs-2.set-center.title{:class => I18n.locale}= t('places')
-    .col-xs-12
+    .col-xs-12#show-city-places
       - @city.sights.each do |sight|        
         .tours-index
           = link_to sight, :class => "tour-box", :title => "آژانس_هواپیمایی_رادان_سیر" do
