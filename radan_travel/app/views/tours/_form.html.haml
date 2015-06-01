@@ -50,6 +50,8 @@
        
         .form-group
           = f.label 'فایل ضمیمه برای دانلود', :class => "control-label"  
+          - if @tour.info.present?
+            = @tour.info_file_name
           = f.file_field :info, :class => "form-control"
         .form-group
           = f.label 'بزودی', :class => "control-label"
