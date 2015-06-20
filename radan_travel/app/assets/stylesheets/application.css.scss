@@ -536,7 +536,7 @@ span.location {
   position:absolute;
   width: 35px;
   padding-top:5%;
-  height: 45px;
+  height: 30px;
   z-index: 20;  
   top:0;
   -webkit-transition: all .5s; /* For Safari 3.1 to 6.0 */
@@ -550,7 +550,7 @@ span.location.iran {background-image: url(image-path('iranlocation.png')); backg
 .en span.location {}
 
 .fa  span.country-title-tab, .ar  span.country-title-tab {right:50px;position: absolute;  top: 10%; }
-.ar  span.country-title-tab {font-size:22px;}
+.ar  span.country-title-tab {font-size:18px;}
 .en  span.country-title-tab {position: absolute;  top: 10%; left:27% }
 .nav-tabs > li:hover span.location, .country-tabs .nav-tabs > li.active span.location, .city-title-filter.fa .city-cat:hover span.location,
  .city-title-filter.fa .city-cat.active span.location {background-position: 0 0;}
