@@ -44,12 +44,12 @@ body {padding:0; margin:0;  height:100%; width:100%}
   font-family: 'open_sansregular';
   color:#fff;
 }
-.fa {direction:rtl; font-family:khodkar;}
+.fa {direction:rtl; font-family:'open_sansregular';}
 .fa input, .fa select, .fa textarea, .fa label, .admin-menu ul.fa  {direction:rtl; font-family: 'open_sansregular';}
 .ar, p.ar {direction:rtl; font-family:arabswell; }
 .en, p.en, span.en, h1.en, h2.en, h3.en, h4.en {direction:ltr; font-family:Arial}
-h2.fa, h3.fa, h4.fa, h4.fa span, h2.fa span, p.title.fa{direction:rtl; font-family:khodkar; }
-.country-title.fa span.fa{direction:rtl; font-family:khodkar; }
+h2.fa, h3.fa, h4.fa, h4.fa span, h2.fa span, p.title.fa{direction:rtl; font-family:'open_sansregular'; }
+.country-title.fa span.fa{direction:rtl; font-family:'open_sansregular'; }
 h2.ar, h3.ar, h4.ar {direction:rtl; font-family:arabswell; }
 .fa p{direction:rtl; font-family: 'open_sansregular';}
 
@@ -81,7 +81,7 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
 .show-social:hover{right:0; cursor:pointer}
 .show-social a {color:#fff; font-size:15px;}
 .show-social a span{ font-size:13px;}
-.show-social.fa a span{ font-size:20px;}
+.show-social.fa a span{ font-size:15px;}
 .show-social a:hover {color:#521010}
 .show-social .social-icon img{
   -webkit-transition: -webkit-transform 1s;
@@ -126,7 +126,7 @@ top:0; width:100%; height:50px}
   position:relative}
 
 .contact-top-site-responsive  .phone {font-size:1em; font-family: 'open_sansregular';}
-.title-site.fa { font-family: 'khodkar'; font-size:1.5em}
+.title-site.fa { font-family: 'open_sansregular'; font-size:1.2em}
 .title-site.ar { font-family:arabswell; font-size:19px}
 .title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:2.5em}
 
@@ -141,7 +141,7 @@ padding-right:0;
 ul#main-menu li.item-menu{color:#5F0000; padding:3%;
  font-size:1.2em;display:inline; position:relative; font-weight:bold; }
 ul#main-menu.en li.item-menu{ font-size:.8em;}
-ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'khodkar';}
+ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'open_sansregular';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
 ul#main-menu.en li.item-menu {font-family: Arial; }
  p.title-tour.en {font-family: Arial; font-size:25px; }
@@ -157,7 +157,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .contact-top-site.fa, .contact-top-site.ar {padding:2%}
 .contact-top-site.en {}
 .contact-top-site.fa span, .contact-top-site.ar span{font-size: 13px;}
-.contact-top-site.fa span.phone {font-size: 22px;}
+.contact-top-site.fa span.phone {font-size: 1.2em;}
 .contact-top-site.en span{font-size: .9em;}
 .flag_bar {width:100px; position:absolute; top:100px; left:4%;}
 
@@ -194,7 +194,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
   }
 .yield {position:relative;}
 .link-reservation .reserv-box {width:250px; height:33px; padding-top:5%}
-.tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:20px;}
+.tour-search-box span.fa, .reserv-box span.fa{color:#fff; font-size:15px;}
 .tour-search-box span.en, .reserv-box span.en{color:#fff; font-size:13px; }
 .tour-search-box span.ar, .reserv-box span.ar{color:#fff; font-size:16px}
 .tour-search-box:hover span, .reserv-box:hover span{color:#FFA500}
@@ -324,20 +324,20 @@ p.title-tour a:hover, p.title-tour a:visited{color:#fff}
 #package-tour {height:100%}
 .carousel slide {height:100%;}
 .tour-hover span {color:#fff}
-.more-info {position:absolute; top:165px; 
+.more-info {position:absolute; bottom:0; 
   min-height:15px;
   background:#1A1A1A; 
   opacity:.8;
   width:100%; padding:1%;
   color: #fff;
 text-align: left;
-font-size: 1.5em;}
+font-size: 1em;}
 .more-info a {color:#fff}
 .more-info:hover a {color:#C01E1E}
 .more-info:hover {cursor:pointer; color:#C01E1E;}
 .footer  { background:#2B2B2B; margin-top:5%; position:relative; padding:2%;}
 .footer a{color:#CE5252;}
-.footer .fa input[type="reset"], .footer .fa input[type="submit"] {font-family:khodkar;}
+.footer .fa input[type="reset"], .footer .fa input[type="submit"] {font-family:'open_sansregular';}
 .footer .fa input[type="reset"]:hover, .footer .fa input[type="submit"]:hover {background:#BF3838;}
 .footer .en input {font-family:Arial;}
 .footer .ar input {font-family:arabswell;}
@@ -448,9 +448,9 @@ margin-left:2%;
 .hotels-table .tour-description {width:100%}
 .hotels-table .tour-description .title_row {background:#A52A2A; text-align:center; color:#fff}
 .hotels-table .tour-description .tr {position:relative; height:30px}
-.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:18px; min-height:50px;}
+.hotels-table .tour-description .tr .td{border-bottom:1px solid #BFBFBF; font-size:13px; min-height:50px;}
 .hotels-table .tour-description .tr .th{
-  background:#BFBFBF; padding:1%; height:50px; border-bottom:1px solid #E5E5E5;font-size:25px;
+  background:#BFBFBF; padding:1%; height:50px; border-bottom:1px solid #E5E5E5;font-size:15px;
   }
 
 ul.sub-menu {width:100%; margin:0; padding:0; 

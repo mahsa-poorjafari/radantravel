@@ -164,7 +164,7 @@
             .col-xs-4{:style => "padding:0"}= image_tag 'f.png', :title => "آژانس_هواپیمایی_رادان_سیر", :alt=> "آژانس_هواپیمایی_رادان_سیر"
             %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('facebook')
         .social-icon.clear-float
-          = link_to '#', :target => "_blank" do
+          = link_to url_with_protocol_https('ir.linkedin.com/pub/radanseir-agency/b8/46b/918'), :target => "_blank" do
             .col-xs-4{:style => "padding:0"}= image_tag 'l.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
             %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('linkedin')
           
@@ -175,9 +175,9 @@
             %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('googleplus')         
           
         .social-icon.clear-float
-          = link_to '#', :target => "_blank" do
+          = link_to url_with_protocol('www.instagram.com/radantravel'), :target => "_blank" do
             .col-xs-4{:style => "padding:0"}= image_tag 't.png', :title => "آژانس هواپیمایی رادان سیر", :alt => "آژانس هواپیمایی رادان سیر"
-            %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('twitter')
+            %span.col-xs-7{:class => I18n.locale, :style => "padding:0; text-align:left"}= t('instageram')
 
            
   - if is_admin?

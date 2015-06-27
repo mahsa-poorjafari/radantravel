@@ -5,6 +5,9 @@ module ApplicationHelper
   def url_with_protocol(url)
     /^http/.match(url) ? url : "http://#{url}"
   end
+  def url_with_protocol_https(url)
+    /^https/.match(url) ? url : "https://#{url}"
+  end
   def Persian_to_english_date(str)
     str = str.to_english          
     if(/^\d\d\d\d.(\d\d|\d).(\d\d|\d)$/.match str)
