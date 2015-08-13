@@ -750,7 +750,8 @@ ul.tour-groups-sub-menu .continent-group {position:relative; width:100%;
   -webkit-transition: all 1s; /* For Safari 3.1 to 6.0 */
   transition: all 1s;
  height:100%; margin:2%;}
-.continent-group.tour-group .country-title-tab a {font-size:23px}
+.continent-group.tour-group .country-title-tab a {font-size:20px}
+.continent-group.tour-group .country-title-tab {font-size:15px}
 ul.tour-groups-sub-menu.fa .continent-group, ul.tour-groups-sub-menu.ar .continent-group { border-right:4px solid #6D1212;}
 ul.tour-groups-sub-menu.en .continent-group { border-left:4px solid #6D1212;}
 ul.tour-groups-sub-menu .continent-group.tour-group:hover, .tour-groups-sub-menu li .active.continent-group.tour-group {background:#6D1212; }
