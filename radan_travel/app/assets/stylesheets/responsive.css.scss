@@ -19,9 +19,10 @@
   .search-tour .tour-search-box{width:25%; text-align:left}
   .contact-top-site-responsive {display:block !important ;  }
   .logo .contact-top-site {display:none !important ;  }
-  .logo .title-site {font-size:1.7em !important ; }
-  .show-social.fa a span {font-size:17px !important ; }
+  .logo .title-site {font-size:1.3em !important ; }
+  .show-social.fa a span {font-size:10px !important ; }
   .link-reservation {width:27% !important ; }
+  ul#main-menu li.item-menu a {font-size:.8em}
   
   
   
@@ -33,7 +34,7 @@
   .main-icon .icon-box a img{height:70px}
   .contact-top-site-responsive {display:block !important ; left:45px !important ; right:0; top:50px !important ;  }
   .logo .contact-top-site {display:none !important ;  }
-  .logo .title-site {font-size:1.7em !important ; }
+  .logo .title-site {font-size:1.3em !important ; }
   .logo .top_site {width:85% !important ; }
   .show-social, .menu_bar {display:none}
   .nav_bar_responsive:hover #main-menu {display:block !important ; }
@@ -50,6 +51,7 @@
   .link-reservation {width:32% !important;}
   .tour-hover p{font-size:1em  !important ;}
   p.title{font-size:1.5em  !important ;}
+  
   }
 /* Landscape phones and down */
 @media (max-width: 480px) {
@@ -60,7 +62,8 @@
   #radan-logo .logo-image img{width:50% !important ;}
   .contact-top-site-responsive {top:-18px !important ;}
   .nav_bar_responsive {top: -165px !important; right: -75%;}
-  .logo .title-site {font-size: 1.5em !important;}
+  .logo .title-site {font-size: 1.3em !important;}
+  .logo  {height:240px !important;}
   #radan-title {width:100% !important; padding:0 !important;}
   .flag_bar {top: 25px !important;}
   .search-tour {width:48% !important; top:250px !important; right:0 !important; height:220px  !important;}
@@ -71,7 +74,7 @@
   #reserv-link {width: 100% !important;}
   .link-reservation  #plus-icon {width: 100% !important;text-align: center;}
   .link-reservation .reserv-box {width:100% !important; height:auto !important; left:0; text-align:center}
-  .tour-search-box span.fa, .reserv-box span.fa {font-size: 2em !important; border-bottom: 2px #fff solid;}
+  .tour-search-box span.fa, .reserv-box span.fa {font-size: 1.5em !important; border-bottom: 2px #fff solid;}
   .main-icon {width: 100% !important;}
   .contact-box {width: 100% !important; clear:both; border-bottom: 3px #ccc solid;}
   #contact-infomation, #footer-link {width: 50% !important; position: relative !important; left: 0 !important;

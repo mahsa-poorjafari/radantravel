@@ -61,12 +61,18 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   overflow-x:hidden;
   width:100%;
   }
+  /*
 #slider1_container {position:relative; left: 0px; width: 100%; height: 500px;
   z-index:0;
   }
+  */
+  #slider1_container {position:relative; left: 0px; width: 100%; height: 500px; top:78px;
+  z-index:0;
+  }
 #wrapper img {width:100%; height:100%; position:absolute}
-.logo {position:absolute; top:20px; height:80px;
-  background-image: url(image-path('main-menu.png'));}
+/* .logo {position:absolute; top:20px; height:80px; */
+.logo {position:absolute; top:0px; height:80px;
+  background: #2B2B2B;}
 .show-social {position: absolute;
   background:#fff;
   opacity:.8;
@@ -101,13 +107,13 @@ html, body{position:relative;margin:0; padding:0; overflow-x:hidden;width:100%}
   cursor:pointer;
   }
 
-.logo .title-site, .logo .contact-top-site span{color:#000000}
-.contact-top-site-responsive {display:none; background-image: url(image-path('main-menu.png'));
+.logo .title-site, .logo .contact-top-site span{color:#fff}
+.contact-top-site-responsive {display:none; 
   position: absolute;
   top: -21px;
   width: 391px;  
   left: 45px;
-  color:#000; font-size:1em;
+  color:#fff; font-size:1em;
   }
 .nav-tabs>li>a {font-size:15px}
 .nav_bar_responsive {position: absolute;
@@ -122,7 +128,7 @@ top:0; width:100%; height:50px}
 .nav_bar_responsive #main-menu {position:absolute; display:none; top:60px; width:100px; height:185px; 
   border-bottom-right-radius:3px;
   border-bottom-left-radius:3px;
-  background-image: url(image-path('main-menu.png'));}
+  background: #2B2B2B; opacity:.8}
 .nav_bar_responsive #main-menu li.item-menu {width:100%; display: inline-block; text-align:center;
   position:relative}
 
@@ -131,7 +137,7 @@ top:0; width:100%; height:50px}
 .title-site.ar { font-family:arabswell; font-size:19px}
 .title-site.en { font-family: 'leaguegothic-condensed-regular-webfont'; font-size:2.5em}
 
-.logo-image {margin-top:-15px;}
+.logo-image {margin-top:-1px;}
 .menu_bar  {position:relative; height:80px;}
 ul#main-menu {list-style:none;position: relative;
 height:100%;
@@ -139,8 +145,9 @@ width: 100%; padding-top:4%;
 padding-right:0;
 }
 
-ul#main-menu li.item-menu{color:#5F0000; padding:3%;
+ul#main-menu li.item-menu{color:#fff; padding:3%;
  font-size:1em;display:inline; position:relative; font-weight:bold; }
+ul#main-menu li.item-menu a {color:#fff}
 ul#main-menu.en li.item-menu{ font-size:.8em;}
 ul#main-menu.fa li.item-menu, p.title-tour.fa {font-family: 'open_sansregular';}
 ul#main-menu.ar li.item-menu, p.title-tour.ar {font-family:arabswell;}
@@ -224,7 +231,7 @@ ul#main-menu li.item-menu.active a, ul#main-menu li.item-menu:hover a {color:#ff
 .show-reservation-box{width:60%;}
 
 
-.main-icon {height:270px; padding:3%; position:relative; margin-left: 10%;
+.main-icon {height:270px; padding:3%; position:relative; margin-left: 10%; display:none;
 margin-right: 10%;}
 #five-icon.main-icon {margin-left: 10%;margin-right: 10%;}
 .main-icon .icon-box
@@ -296,7 +303,7 @@ p.title-tour a:hover, p.title-tour a:visited{color:#fff}
   margin-right:8%;
   margin-left:8%;
   margin-top:5%;
-  margin-bottom:5%;
+  
   }
 .carousel-control img{
   position: absolute;
@@ -821,3 +828,4 @@ table.category_country tr td{font-size:2em}
 #iran-city-tour {text-align:center; margin-bottom:4%; margin-right:0;}
 #city-sights-slider {min-height:300px; position:relative}
 #visa-lists {text-align:center; margin-bottom:4%}
+div.navBulletsWrapper {top:13%}
