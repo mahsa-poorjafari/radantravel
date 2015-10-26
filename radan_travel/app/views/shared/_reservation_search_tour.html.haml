@@ -1,18 +1,19 @@
-.search-tour.col-xs-8.pull-right#search-tour
-  = form_tag search_tours_path, :method => "post", id: "search-tour" do 
-    .col-xs-2.pull-left.tour-search-box
-      %span{:class => I18n.locale}= t('search-tour')
-      %span= image_tag 'search-icon.png'
-    .col-xs-2.pull-left
-      = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"    
-    .col-xs-2.pull-right      
-      = text_field_tag :start_date, params[:start_date], :placeholder => t('tour-from'),:class => "fa_date form-control", :id => "tour-exp"
-    .col-xs-2.pull-right      
-      = text_field_tag :exp_date, params[:exp_date],:placeholder => t('tour-until'), :class => "fa_date form-control", :id => "tour-start"    
-    .col-xs-2.pull-right      
-      = text_field_tag :price, params[:price],:placeholder => t('tour-price'), :class => "form-control", :id => "tour-price"                  
-    .col-xs-2.pull-right      
-      = text_field_tag :country, params[:country],:placeholder => t('tour-country'), :class => "form-control", :id => "tour-country"  
+-#
+  .search-tour.col-xs-8.pull-right#search-tour1
+    = form_tag search_tours_path, :method => "post", id: "search-tour1" do 
+      .col-xs-2.pull-left.tour-search-box
+        %span{:class => I18n.locale}= t('search-tour')
+        %span= image_tag 'search-icon.png'
+      .col-xs-2.pull-left
+        = submit_tag t('tour-search'), :name => "tour_submit", :id => "tour-submit" , :class => "btn"    
+      .col-xs-2.pull-right      
+        = text_field_tag :start_date, params[:start_date], :placeholder => t('tour-from'),:class => "fa_date form-control", :id => "tour-exp"
+      .col-xs-2.pull-right      
+        = text_field_tag :exp_date, params[:exp_date],:placeholder => t('tour-until'), :class => "fa_date form-control", :id => "tour-start"    
+      .col-xs-2.pull-right      
+        = text_field_tag :price, params[:price],:placeholder => t('tour-price'), :class => "form-control", :id => "tour-price"                  
+      .col-xs-2.pull-right      
+        = text_field_tag :country, params[:country],:placeholder => t('tour-country'), :class => "form-control", :id => "tour-country"  
   
 -#
   #reserv.col-xs-8.pull-left.link-reservation

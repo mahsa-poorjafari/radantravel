@@ -1,6 +1,8 @@
+
 .col-xs-12{:style => "margin-top:100px"}
-  .title-tour-line.col-xs-10
-  %p.title-tour.col-xs-3.set-center{:class => I18n.locale}= t('tour.tours')
+  -#
+    .title-tour-line.col-xs-10
+    %p.title-tour.col-xs-3.set-center{:class => I18n.locale}= t('tour.tours')
 - @half_count = (tours.count) / 2
 
 .multi-slider-package.col-xs-10  
