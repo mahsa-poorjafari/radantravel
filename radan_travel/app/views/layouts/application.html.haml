@@ -12,19 +12,21 @@
     %meta{:name => "msnbot", :content => "Index,follow"}
     %meta{:name => "teoma", :content => "Index,follow"}
     %meta{:content => "8ana4hAqdsH47iRKOF8mRJ50NCHxxcp9G58sWpS4w_g", :name => "google-site-verification"}    
-    %meta{:name => "description", :content => "Radan Travel Agency, آژانس هواپیمایی رادان سیر, خاطره انگیزترین سفرهایتان رابا رادان سیرتجربه کنید شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر با حدود 10 سال سابقه در صنعت گردشگری و به کار گیری کادر اجرایی کارآزموده، متخصص و با تجربه، به یکی از شرکت های برتر در زمینه برنامه ریزی، سازماندهی و اجرای تورهای داخلی، تورهای خارجی و تورهای ورودی در بازار گردشگری ایران تبدیل شده است."}    
+    %meta{:name => "description", :content => "آژانس هواپیمایی در زمینه فروش بلیت هواپیما ،اخذویزا ،رزو هتل،بر گزاری تورهای داخلی و خارج از کشور،خدمات ویزا به کشور های کانادا ،آمریکا و انگلیس"}
     %meta{:name => "keywords", :content =>  "آژانس هواپیمایی رادان سیر آژانس هواپیمایی ویزا صدور ویزا بازدید از ایران  آژانس تورهای لحظه ای تورهای لحظه آخر سفر مسافرت شرکت خدمات مسافرت هوایی و جهانگردی رادان سیر"}
     %meta{:content => "گروه مهندسین راش", :name => "author"}/
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "true", :name => "HandheldFriendly"}/
     %meta{:content => "width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no", :name => "viewport"}/
+    = canonical_tag
     
-    
+    = metamagic rel: {      author: "http://plus.google.com/+Raushraushcompany",           publisher: "http://plus.google.com/113197786205638086178"    }
     = stylesheet_link_tag    'application', media: 'all' 
     = javascript_include_tag 'application'     
     = favicon_link_tag 'favicon.png', rel:'shortcut icon', type: 'image/png', :title => "آژانس هواپیمایی رادان سیر"
     
   %body
+    
     .main{:class => I18n.locale}
       - if @page_slides.present?
         = render "slides/slider", :slides => @page_slides
