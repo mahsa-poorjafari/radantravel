@@ -55,5 +55,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'simple_captcha2', '~> 0.3.4'
-gem 'canonical-rails', github: 'jumph4x/canonical-rails'
+gem 'canonical-rails'
 gem 'metamagic'
