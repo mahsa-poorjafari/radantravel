@@ -21,7 +21,7 @@
       %span= image_tag 'reserv-plane.png'
       %span{:class => I18n.locale, :style => "margin-bottom:12%"}= t('plane-reserv') 
     .col-xs-8
-      = form_tag 'http://sepehr.radantravel.com/Systems/Login.aspx', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
+      = form_tag 'http://www.radan724.ir/gohar/', :method => "get", id: "frmLogin", :onsubmit => "return(hash('frmLogin'))", :defaultbutton => "btnLogin", :target => "_blank" do 
 
         = submit_tag t('reserv-login'), :name => nil, :id => "reserv-submit" , :class => "btn"
         = label_tag t('reserv-type')
@@ -37,7 +37,7 @@
         .reserv-box{:class => I18n.locale}
           %span{:class => I18n.locale}= t('hotel-reserv')
       
-      = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
+      = link_to url_with_protocol('http://www.radan724.ir/gohar/'), :target => "_blank" do
         .reserv-box{:class => I18n.locale}            
           %span{:class => I18n.locale}= t('plane-reserv')
     .col-xs-1{:style => "padding-top: 6%;"}= image_tag 'pluse.png'
@@ -48,7 +48,7 @@
         .reserv-box{:class => I18n.locale}
           %span{:class => I18n.locale}= t('hotel-reserv')
       
-      = link_to url_with_protocol('http://sepehr.radantravel.com/Systems/Login.aspx'), :target => "_blank" do
+      = link_to url_with_protocol('http://www.radan724.ir/gohar/'), :target => "_blank" do
         .reserv-box{:class => I18n.locale}            
           %span{:class => I18n.locale}= t('plane-reserv')
     
