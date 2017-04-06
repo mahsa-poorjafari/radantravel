@@ -29,7 +29,8 @@
     
     .col-xs-12{:style => "padding:0"} 
       
-      = f.simple_captcha :label => t('captcha')
+      =# f.simple_captcha :label => t('captcha')
+      .g-recaptcha{"data-sitekey" => "6LdI3RsUAAAAABQ18dSCdh-pyBB_fXMbIZn0Yi_y"}
     .col-xs-12.pull-right{:style => "padding:0"}   
       .col-xs-6.form-group{:class => I18n.locale, :style => "text-align:left"}
         = f.submit t('msg.contact-btn'), :title => "آژانس هواپیمایی رادان سیر", :id => "contact-submit", :class => "btn btn-danger  I18n.locale"
